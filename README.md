@@ -7,11 +7,11 @@
 ![Languages][github-languages-svg]
 
 
-**ITP-Projekt**<br>
+**Swift-Projekt**<br>
 **Klasse:** 4BHITM<br>
 **Jahr:** 2020/21<br>
 **Projektleiter:** Riener Matthias (matti.riener@gmail.com)<br>
-**Team:** Friesenecker Lukas, Hauser David, Himmetsberger Jonas<br>
+**Team:** Jan Donnerbauer, Lukas Friesenecker, Simon Koll<br>
 
 <img src="https://cdn.discordapp.com/attachments/523180602388774988/811910672932798464/InkedDownload_LI.jpg" width="100%">
 
@@ -20,31 +20,16 @@
   <ol>
     <li><a href="#Beschreibung">Beschreibung</a></li>
     <li><a href="#Technologien">Technologien</a></li>
-    <li><a href="#Bilder">Bilder</a></li>
   </ol>
 </details>
 
 ### Beschreibung
-Mit Slidea kann ein Benutzer kostenfrei moderne **Präsentationen** erstellen. Diese können dann durch
-einen Einladungslink mit anderen Benutzern geteilt, und **in Echtzeit bearbeitet** werden. Des weiteren
-wird durch einen **Sprach- und Videochat** für die Kommunikation während der Präsentationserstellung
-gesorgt.
+Mit ClownRoyale können Benutzer in einem **Witzeduell** gegeneinander antreten. Das Ziel ist es die meisten Punkte zu erhalten und den **Victory Royale** einzusacken. Durch ein Rangsystem mit Belohnungen entsteht ein **Wettkamopf** zwischen den Spielern.
 
 ### Technologien
-* HTML
-* CSS
-* JS
-  * JQuery
-  * FabricJS
-* Python
-  * Flask
-
-
-### Bilder
-<img src="documentation/readme_src/img_time_management.png">
-<img src="documentation/readme_src/img_webview_editor.png">
-<img src="documentation/readme_src/img_incoming_call.png">
-
+* Swift
+* NodeJS
+* MongoDB
 
 [github-issues-svg]: https://img.shields.io/github/issues/matthiasriener/clownroyale?color=blueviolet&style=for-the-badge
 [issues-url]: https://github.com/MatthiasRiener/ClownRoyale/issues
