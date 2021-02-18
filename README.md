@@ -10,8 +10,7 @@
 **Swift-Projekt**<br>
 **Klasse:** 4BHITM<br>
 **Jahr:** 2020/21<br>
-**Projektleiter:** Riener Matthias (matti.riener@gmail.com)<br>
-**Team:** Jan Donnerbauer, Lukas Friesenecker, Simon Koll<br>
+**Team:** Jan Donnerbauer, Lukas Friesenecker, Simon Koll, Matthias Riener<br>
 
 <img src="https://cdn.discordapp.com/attachments/523180602388774988/811910672932798464/InkedDownload_LI.jpg" width="100%">
 
