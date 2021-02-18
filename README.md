@@ -31,13 +31,13 @@ Mit ClownRoyale können Benutzer in einem **Witzeduell** gegeneinander antreten.
 * NodeJS
 * MongoDB
 
-[github-issues-svg]: https://img.shields.io/github/issues/matthiasriener/clownroyale?color=blueviolet&style=for-the-badge
+[github-issues-svg]: https://img.shields.io/github/issues/matthiasriener/clownroyale?color=red&style=for-the-badge
 [issues-url]: https://github.com/MatthiasRiener/ClownRoyale/issues
-[github-contributors-svg]: https://img.shields.io/github/contributors/matthiasriener/clownroyale?color=blueviolet&style=for-the-badge
+[github-contributors-svg]: https://img.shields.io/github/contributors/matthiasriener/clownroyale?color=red&style=for-the-badge
 [contributors-url]: https://github.com/MatthiasRiener/ClownRoyale/graphs/contributors
-[github-license-svg]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?color=blueviolet&style=for-the-badge
+[github-license-svg]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?color=red&style=for-the-badge
 [license-url]: https://github.com/MatthiasRiener/ClownRoyale/blob/main/LICENSE
-[github-last-commit-svg]: https://img.shields.io/github/last-commit/matthiasriener/ClownRoyale?color=blueviolet&style=for-the-badge
+[github-last-commit-svg]: https://img.shields.io/github/last-commit/matthiasriener/ClownRoyale?color=red&style=for-the-badge
 [last-commit-url]: https://github.com/MatthiasRiener/ClownRoyale/graphs/commit-activity
-[github-languages-svg]: https://img.shields.io/github/languages/count/matthiasriener/clownroyale?color=blueviolet&style=for-the-badge
+[github-languages-svg]: https://img.shields.io/github/languages/count/matthiasriener/clownroyale?color=red&style=for-the-badge
 
