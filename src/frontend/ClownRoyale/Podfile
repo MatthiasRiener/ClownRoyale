@@ -1,0 +1,8 @@
+source 'https://github.com/CocoaPods/Specs'
+
+platform :ios, '14.0'
+
+target 'ClownRoyale' do
+  pod 'TwilioVideo', '~> 4.3'
+end
+
