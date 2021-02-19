@@ -16,6 +16,10 @@
 		3004199B25E0172500F352A8 /* LaughmeterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004199A25E0172500F352A8 /* LaughmeterTests.swift */; };
 		300419A625E0172500F352A8 /* LaughmeterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300419A525E0172500F352A8 /* LaughmeterUITests.swift */; };
 		300419B725E0175E00F352A8 /* AudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300419B625E0175E00F352A8 /* AudioRecorder.swift */; };
+		300419BC25E01A4A00F352A8 /* RecordingsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300419BB25E01A4A00F352A8 /* RecordingsList.swift */; };
+		300419CF25E01F2A00F352A8 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300419CE25E01F2A00F352A8 /* Extensions.swift */; };
+		300419D425E021F100F352A8 /* RecordingsDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300419D325E021F100F352A8 /* RecordingsDataModel.swift */; };
+		300419D925E0240500F352A8 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300419D825E0240500F352A8 /* Helper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +55,10 @@
 		300419A525E0172500F352A8 /* LaughmeterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaughmeterUITests.swift; sourceTree = "<group>"; };
 		300419A725E0172500F352A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		300419B625E0175E00F352A8 /* AudioRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorder.swift; sourceTree = "<group>"; };
+		300419BB25E01A4A00F352A8 /* RecordingsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingsList.swift; sourceTree = "<group>"; };
+		300419CE25E01F2A00F352A8 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		300419D325E021F100F352A8 /* RecordingsDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingsDataModel.swift; sourceTree = "<group>"; };
+		300419D825E0240500F352A8 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,11 +112,15 @@
 				3004198325E0172200F352A8 /* AppDelegate.swift */,
 				3004198525E0172200F352A8 /* SceneDelegate.swift */,
 				3004198725E0172200F352A8 /* ContentView.swift */,
+				300419BB25E01A4A00F352A8 /* RecordingsList.swift */,
 				300419B625E0175E00F352A8 /* AudioRecorder.swift */,
+				300419D825E0240500F352A8 /* Helper.swift */,
+				300419CE25E01F2A00F352A8 /* Extensions.swift */,
 				3004198925E0172500F352A8 /* Assets.xcassets */,
 				3004198E25E0172500F352A8 /* LaunchScreen.storyboard */,
 				3004199125E0172500F352A8 /* Info.plist */,
 				3004198B25E0172500F352A8 /* Preview Content */,
+				300419D325E021F100F352A8 /* RecordingsDataModel.swift */,
 			);
 			path = Laughmeter;
 			sourceTree = "<group>";
@@ -270,9 +282,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				3004198425E0172200F352A8 /* AppDelegate.swift in Sources */,
+				300419CF25E01F2A00F352A8 /* Extensions.swift in Sources */,
 				3004198625E0172200F352A8 /* SceneDelegate.swift in Sources */,
+				300419BC25E01A4A00F352A8 /* RecordingsList.swift in Sources */,
+				300419D425E021F100F352A8 /* RecordingsDataModel.swift in Sources */,
 				300419B725E0175E00F352A8 /* AudioRecorder.swift in Sources */,
 				3004198825E0172200F352A8 /* ContentView.swift in Sources */,
+				300419D925E0240500F352A8 /* Helper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
