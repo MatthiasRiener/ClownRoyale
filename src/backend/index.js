@@ -7,8 +7,8 @@ const port = 3000
 
 // Substitute your Twilio AccountSid and ApiKey details
 var ACCOUNT_SID = 'AC82a2dbe6da739d70e5df7575ac24f350';
-var API_KEY_SID = 'SKdde7cd7e6c4e001d6d9db3276d62a32a';
-var API_KEY_SECRET = 'ifc4Pj0nPFwEg15Cbx68TQoN6WiZMnLk';
+var API_KEY_SID = 'SK1045bfc2c9010d560f842a07c0febbc8';
+var API_KEY_SECRET = '7vShsWQlueuuhU0wzZSAcVCkOfjaQ3Gh';
 
 // Create an Access Token
 
@@ -20,7 +20,7 @@ app.get('/accessToken', (req, res) => {
         API_KEY_SECRET
     );
 
-    accessToken.identity = "gregory mc jackson"
+    accessToken.identity = "user"
 
     var grant = new VideoGrant();
     grant.room = 'greg';
