@@ -14,27 +14,30 @@ var API_KEY_SECRET = '7vShsWQlueuuhU0wzZSAcVCkOfjaQ3Gh';
 
 
 app.get('/accessToken', (req, res) => {
+    // Create an Access Token
     var accessToken = new AccessToken(
         ACCOUNT_SID,
         API_KEY_SID,
         API_KEY_SECRET
     );
 
-    accessToken.identity = "user"
+    // Set the Identity of this token
+    accessToken.identity = Math.random().toString(36).substring(7).toString();
 
+    // Grant access to Video
     var grant = new VideoGrant();
-    grant.room = 'greg';
+    grant.room = 'cool room';
     accessToken.addGrant(grant);
-    // Serialize the token as a JWT
-    console.log(accessToken)
 
+    // Serialize the token as a JWT
     var jwt = accessToken.toJwt();
 
-    console.log("generating access token...", jwt)
-
-    res.json(jwt)
+    res.send(jwt)
 })
 
 app.listen(port, () => {
     console.log(`Listening on ${port}`)
 })
+
+
+
