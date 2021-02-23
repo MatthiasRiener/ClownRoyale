@@ -1,13 +1,13 @@
 //
-//  LaughmeterUITests.swift
-//  LaughmeterUITests
+//  LoudnessdetectionUITests.swift
+//  LoudnessdetectionUITests
 //
-//  Created by Simon Koll on 19.02.21.
+//  Created by Simon Koll on 20.02.21.
 //
 
 import XCTest
 
-class LaughmeterUITests: XCTestCase {
+class LoudnessdetectionUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

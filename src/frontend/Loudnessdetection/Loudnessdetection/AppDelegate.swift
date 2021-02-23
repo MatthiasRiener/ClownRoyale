@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  Laughmeter
+//  Loudnessdetection
 //
-//  Created by Simon Koll on 19.02.21.
+//  Created by Simon Koll on 20.02.21.
 //
 
 import UIKit
