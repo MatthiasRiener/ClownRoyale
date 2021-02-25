@@ -1,0 +1,600 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		30F2866125E145780096D957 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F2866025E145780096D957 /* AppDelegate.swift */; };
+		30F2866325E145780096D957 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F2866225E145780096D957 /* SceneDelegate.swift */; };
+		30F2866525E145780096D957 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F2866425E145780096D957 /* ContentView.swift */; };
+		30F2866725E1458B0096D957 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30F2866625E1458B0096D957 /* Assets.xcassets */; };
+		30F2866A25E1458B0096D957 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30F2866925E1458B0096D957 /* Preview Assets.xcassets */; };
+		30F2866D25E1458B0096D957 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30F2866B25E1458B0096D957 /* LaunchScreen.storyboard */; };
+		30F2867825E1458C0096D957 /* LoudnessdetectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F2867725E1458C0096D957 /* LoudnessdetectionTests.swift */; };
+		30F2868325E1458C0096D957 /* LoudnessdetectionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F2868225E1458C0096D957 /* LoudnessdetectionUITests.swift */; };
+		30F2869425E148E60096D957 /* MicrophoneMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F2869325E148E60096D957 /* MicrophoneMonitor.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		30F2867425E1458C0096D957 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 30F2865525E145780096D957 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 30F2865C25E145780096D957;
+			remoteInfo = Loudnessdetection;
+		};
+		30F2867F25E1458C0096D957 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 30F2865525E145780096D957 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 30F2865C25E145780096D957;
+			remoteInfo = Loudnessdetection;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		30F2865D25E145780096D957 /* Loudnessdetection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Loudnessdetection.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		30F2866025E145780096D957 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		30F2866225E145780096D957 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		30F2866425E145780096D957 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		30F2866625E1458B0096D957 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		30F2866925E1458B0096D957 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		30F2866C25E1458B0096D957 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		30F2866E25E1458C0096D957 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		30F2867325E1458C0096D957 /* LoudnessdetectionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoudnessdetectionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		30F2867725E1458C0096D957 /* LoudnessdetectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoudnessdetectionTests.swift; sourceTree = "<group>"; };
+		30F2867925E1458C0096D957 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		30F2867E25E1458C0096D957 /* LoudnessdetectionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoudnessdetectionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		30F2868225E1458C0096D957 /* LoudnessdetectionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoudnessdetectionUITests.swift; sourceTree = "<group>"; };
+		30F2868425E1458C0096D957 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		30F2869325E148E60096D957 /* MicrophoneMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicrophoneMonitor.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		30F2865A25E145780096D957 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		30F2867025E1458C0096D957 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		30F2867B25E1458C0096D957 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		30F2865425E145780096D957 = {
+			isa = PBXGroup;
+			children = (
+				30F2865F25E145780096D957 /* Loudnessdetection */,
+				30F2867625E1458C0096D957 /* LoudnessdetectionTests */,
+				30F2868125E1458C0096D957 /* LoudnessdetectionUITests */,
+				30F2865E25E145780096D957 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		30F2865E25E145780096D957 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				30F2865D25E145780096D957 /* Loudnessdetection.app */,
+				30F2867325E1458C0096D957 /* LoudnessdetectionTests.xctest */,
+				30F2867E25E1458C0096D957 /* LoudnessdetectionUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		30F2865F25E145780096D957 /* Loudnessdetection */ = {
+			isa = PBXGroup;
+			children = (
+				30F2866025E145780096D957 /* AppDelegate.swift */,
+				30F2866225E145780096D957 /* SceneDelegate.swift */,
+				30F2866425E145780096D957 /* ContentView.swift */,
+				30F2869325E148E60096D957 /* MicrophoneMonitor.swift */,
+				30F2866625E1458B0096D957 /* Assets.xcassets */,
+				30F2866B25E1458B0096D957 /* LaunchScreen.storyboard */,
+				30F2866E25E1458C0096D957 /* Info.plist */,
+				30F2866825E1458B0096D957 /* Preview Content */,
+			);
+			path = Loudnessdetection;
+			sourceTree = "<group>";
+		};
+		30F2866825E1458B0096D957 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				30F2866925E1458B0096D957 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		30F2867625E1458C0096D957 /* LoudnessdetectionTests */ = {
+			isa = PBXGroup;
+			children = (
+				30F2867725E1458C0096D957 /* LoudnessdetectionTests.swift */,
+				30F2867925E1458C0096D957 /* Info.plist */,
+			);
+			path = LoudnessdetectionTests;
+			sourceTree = "<group>";
+		};
+		30F2868125E1458C0096D957 /* LoudnessdetectionUITests */ = {
+			isa = PBXGroup;
+			children = (
+				30F2868225E1458C0096D957 /* LoudnessdetectionUITests.swift */,
+				30F2868425E1458C0096D957 /* Info.plist */,
+			);
+			path = LoudnessdetectionUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		30F2865C25E145780096D957 /* Loudnessdetection */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 30F2868725E1458C0096D957 /* Build configuration list for PBXNativeTarget "Loudnessdetection" */;
+			buildPhases = (
+				30F2865925E145780096D957 /* Sources */,
+				30F2865A25E145780096D957 /* Frameworks */,
+				30F2865B25E145780096D957 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Loudnessdetection;
+			productName = Loudnessdetection;
+			productReference = 30F2865D25E145780096D957 /* Loudnessdetection.app */;
+			productType = "com.apple.product-type.application";
+		};
+		30F2867225E1458C0096D957 /* LoudnessdetectionTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 30F2868A25E1458C0096D957 /* Build configuration list for PBXNativeTarget "LoudnessdetectionTests" */;
+			buildPhases = (
+				30F2866F25E1458C0096D957 /* Sources */,
+				30F2867025E1458C0096D957 /* Frameworks */,
+				30F2867125E1458C0096D957 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				30F2867525E1458C0096D957 /* PBXTargetDependency */,
+			);
+			name = LoudnessdetectionTests;
+			productName = LoudnessdetectionTests;
+			productReference = 30F2867325E1458C0096D957 /* LoudnessdetectionTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		30F2867D25E1458C0096D957 /* LoudnessdetectionUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 30F2868D25E1458C0096D957 /* Build configuration list for PBXNativeTarget "LoudnessdetectionUITests" */;
+			buildPhases = (
+				30F2867A25E1458C0096D957 /* Sources */,
+				30F2867B25E1458C0096D957 /* Frameworks */,
+				30F2867C25E1458C0096D957 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				30F2868025E1458C0096D957 /* PBXTargetDependency */,
+			);
+			name = LoudnessdetectionUITests;
+			productName = LoudnessdetectionUITests;
+			productReference = 30F2867E25E1458C0096D957 /* LoudnessdetectionUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		30F2865525E145780096D957 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1230;
+				LastUpgradeCheck = 1230;
+				TargetAttributes = {
+					30F2865C25E145780096D957 = {
+						CreatedOnToolsVersion = 12.3;
+					};
+					30F2867225E1458C0096D957 = {
+						CreatedOnToolsVersion = 12.3;
+						TestTargetID = 30F2865C25E145780096D957;
+					};
+					30F2867D25E1458C0096D957 = {
+						CreatedOnToolsVersion = 12.3;
+						TestTargetID = 30F2865C25E145780096D957;
+					};
+				};
+			};
+			buildConfigurationList = 30F2865825E145780096D957 /* Build configuration list for PBXProject "Loudnessdetection" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 30F2865425E145780096D957;
+			productRefGroup = 30F2865E25E145780096D957 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				30F2865C25E145780096D957 /* Loudnessdetection */,
+				30F2867225E1458C0096D957 /* LoudnessdetectionTests */,
+				30F2867D25E1458C0096D957 /* LoudnessdetectionUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		30F2865B25E145780096D957 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30F2866D25E1458B0096D957 /* LaunchScreen.storyboard in Resources */,
+				30F2866A25E1458B0096D957 /* Preview Assets.xcassets in Resources */,
+				30F2866725E1458B0096D957 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		30F2867125E1458C0096D957 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		30F2867C25E1458C0096D957 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		30F2865925E145780096D957 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30F2866125E145780096D957 /* AppDelegate.swift in Sources */,
+				30F2866325E145780096D957 /* SceneDelegate.swift in Sources */,
+				30F2869425E148E60096D957 /* MicrophoneMonitor.swift in Sources */,
+				30F2866525E145780096D957 /* ContentView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		30F2866F25E1458C0096D957 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30F2867825E1458C0096D957 /* LoudnessdetectionTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		30F2867A25E1458C0096D957 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30F2868325E1458C0096D957 /* LoudnessdetectionUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		30F2867525E1458C0096D957 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 30F2865C25E145780096D957 /* Loudnessdetection */;
+			targetProxy = 30F2867425E1458C0096D957 /* PBXContainerItemProxy */;
+		};
+		30F2868025E1458C0096D957 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 30F2865C25E145780096D957 /* Loudnessdetection */;
+			targetProxy = 30F2867F25E1458C0096D957 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		30F2866B25E1458B0096D957 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				30F2866C25E1458B0096D957 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		30F2868525E1458C0096D957 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		30F2868625E1458C0096D957 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		30F2868825E1458C0096D957 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Loudnessdetection/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Loudnessdetection/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "at.ac.htl-leonding.4bhitm.Loudnessdetection";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		30F2868925E1458C0096D957 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Loudnessdetection/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Loudnessdetection/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "at.ac.htl-leonding.4bhitm.Loudnessdetection";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		30F2868B25E1458C0096D957 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = LoudnessdetectionTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "at.ac.htl-leonding.4bhitm.LoudnessdetectionTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Loudnessdetection.app/Loudnessdetection";
+			};
+			name = Debug;
+		};
+		30F2868C25E1458C0096D957 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = LoudnessdetectionTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "at.ac.htl-leonding.4bhitm.LoudnessdetectionTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Loudnessdetection.app/Loudnessdetection";
+			};
+			name = Release;
+		};
+		30F2868E25E1458C0096D957 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = LoudnessdetectionUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "at.ac.htl-leonding.4bhitm.LoudnessdetectionUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Loudnessdetection;
+			};
+			name = Debug;
+		};
+		30F2868F25E1458C0096D957 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = LoudnessdetectionUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "at.ac.htl-leonding.4bhitm.LoudnessdetectionUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Loudnessdetection;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		30F2865825E145780096D957 /* Build configuration list for PBXProject "Loudnessdetection" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				30F2868525E1458C0096D957 /* Debug */,
+				30F2868625E1458C0096D957 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		30F2868725E1458C0096D957 /* Build configuration list for PBXNativeTarget "Loudnessdetection" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				30F2868825E1458C0096D957 /* Debug */,
+				30F2868925E1458C0096D957 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		30F2868A25E1458C0096D957 /* Build configuration list for PBXNativeTarget "LoudnessdetectionTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				30F2868B25E1458C0096D957 /* Debug */,
+				30F2868C25E1458C0096D957 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		30F2868D25E1458C0096D957 /* Build configuration list for PBXNativeTarget "LoudnessdetectionUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				30F2868E25E1458C0096D957 /* Debug */,
+				30F2868F25E1458C0096D957 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 30F2865525E145780096D957 /* Project object */;
+}
