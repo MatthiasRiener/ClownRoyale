@@ -12,16 +12,16 @@ class MicrophoneMonitor: ObservableObject {
     private var audioRecorder: AVAudioRecorder
     private var timer: Timer?
     
-    private var currentSample: Int
-    private let numberOfSamples: Int
+    //private var currentSample: Int
+    //private let numberOfSamples: Int
     
     // 2
-    @Published public var soundSamples: [Float]
+    @Published public var soundSamples: Float
     
-    init(numberOfSamples: Int) {
-        self.numberOfSamples = numberOfSamples // In production check this is > 0.
-        self.soundSamples = [Float](repeating: .zero, count: numberOfSamples)
-        self.currentSample = 0
+    init(/*numberOfSamples: Int*/) {
+        //self.numberOfSamples = numberOfSamples // In production check this is > 0.
+        self.soundSamples = Float(0.0)
+        //self.currentSample = 0
         
         // 3
         let audioSession = AVAudioSession.sharedInstance()
@@ -60,8 +60,8 @@ class MicrophoneMonitor: ObservableObject {
         timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true, block: { (timer) in
             // 7
             self.audioRecorder.updateMeters()
-            self.soundSamples[self.currentSample] = self.audioRecorder.averagePower(forChannel: 0)
-            self.currentSample = (self.currentSample + 1) % self.numberOfSamples
+            self.soundSamples = self.audioRecorder.averagePower(forChannel: 0)
+            //self.currentSample = (self.currentSample + 1) % self.numberOfSamples
         })
     }
     
