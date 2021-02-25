@@ -38,13 +38,18 @@ class MicrophoneMonitor: ObservableObject {
         }
     }
     
-    private func startMonitoring() {
+    public func startMonitoring() {
         audioRecorder.isMeteringEnabled = true
         audioRecorder.record()
         timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true, block: { (timer) in
             self.audioRecorder.updateMeters()
             self.soundSamples = self.audioRecorder.averagePower(forChannel: 0)
         })
+    }
+    
+    public func stopMonitoring() {
+        audioRecorder.stop()
+        timer?.invalidate()
     }
     
     deinit {

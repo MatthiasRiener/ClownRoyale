@@ -1,7 +1,7 @@
 import Foundation
 import SwiftUI
 
-var gesamt: Float = 0.0
+var total: Float = 0.0
 
 struct ProgressBar: View {
     var value: Float
@@ -9,12 +9,12 @@ struct ProgressBar: View {
     var body: some View {
         GeometryReader { geometry in
             ZStack (alignment: .leading){
-                Rectangle().frame(width: geometry.size.width , height: geometry.size.height)
+                Rectangle().frame(width: geometry.size.width, height: geometry.size.height)
                     .opacity(0.3)
                     .foregroundColor(Color(UIColor.systemTeal))
                 
                 Rectangle().frame(width: min(CGFloat(self.value) * geometry.size.width, geometry.size.width), height: geometry.size.height)
-                        .foregroundColor(Color(UIColor.systemBlue))
+                    .foregroundColor(Color(UIColor.systemBlue))
             }.cornerRadius(45.0)
         }
     }
@@ -25,12 +25,16 @@ struct ContentView: View {
     
     private func normalizeSoundLevel(level: Float) -> Float {
         let level = max(0.2, level + 50) / 2
+                
+        if total < 10000 {
+            total = total + level
+            print("Total: \(total)")
+        } else {
+            print("Congrats")
+            mic.stopMonitoring()
+        }
         
-        print("Value: \(level)")
-        
-        gesamt = gesamt + level
-        
-        return gesamt / 10000
+        return total / 10000
     }
         
     var body: some View {
