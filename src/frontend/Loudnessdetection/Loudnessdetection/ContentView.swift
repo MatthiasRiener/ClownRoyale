@@ -2,6 +2,7 @@ import Foundation
 import SwiftUI
 
 var total: Float = 0.0
+var color: String = ""
 
 extension Color {
     init(hex: String) {
@@ -32,6 +33,7 @@ extension Color {
 
 struct ProgressBar: View {
     var value: Float
+    var color: String
 
     var body: some View {
         GeometryReader { geometry in
@@ -41,7 +43,7 @@ struct ProgressBar: View {
                     .foregroundColor(Color(hex:"#ffB199"))
                 
                 Rectangle().frame(width: min(CGFloat(self.value) * geometry.size.width, geometry.size.width), height: geometry.size.height)
-                    .foregroundColor(Color(hex: "#FFB400"))
+                    .foregroundColor(Color(hex: self.color))
             }.cornerRadius(45.0)
         }
     }
@@ -53,20 +55,22 @@ struct ContentView: View {
     private func normalizeSoundLevel(level: Float) -> Float {
         let level = max(0.2, level + 50) / 2
                 
-        if total < 10000 {
+        if total < 15000 {
             total = total + level
             print("Total: \(total)")
+            color = "#ffb400"
         } else {
             print("Congrats")
             mic.stopMonitoring()
+            color = "#008b45"
         }
         
-        return total / 10000
+        return total / 15000
     }
         
     var body: some View {
         VStack {
-            ProgressBar(value: self.normalizeSoundLevel(level: mic.soundSamples)).frame(height: 20)
+            ProgressBar(value: self.normalizeSoundLevel(level: mic.soundSamples), color: color).frame(height: 20)
             Spacer()
         }.padding()
     }
