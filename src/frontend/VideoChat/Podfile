@@ -2,7 +2,7 @@ source 'https://github.com/CocoaPods/Specs'
 
 platform :ios, '14.0'
 
-target 'ClownRoyale' do
+target 'VideoChat' do
   pod 'TwilioVideo', '~> 4.3'
 end
 

@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  ClownRoyale
 //
-//  Created by Jan Donnerbauer on 09.03.21.
+//  Created by Matthias Riener on 19.02.21.
 //
 
 import UIKit
