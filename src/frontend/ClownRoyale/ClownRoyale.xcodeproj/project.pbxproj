@@ -7,66 +7,62 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7C68248525F7A18A0072C4E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C68248425F7A18A0072C4E5 /* AppDelegate.swift */; };
-		7C68248725F7A18A0072C4E5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C68248625F7A18A0072C4E5 /* SceneDelegate.swift */; };
-		7C68248925F7A18A0072C4E5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C68248825F7A18A0072C4E5 /* ContentView.swift */; };
-		7C68248B25F7A18C0072C4E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C68248A25F7A18C0072C4E5 /* Assets.xcassets */; };
-		7C68248E25F7A18C0072C4E5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C68248D25F7A18C0072C4E5 /* Preview Assets.xcassets */; };
-		7C68249125F7A18C0072C4E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C68248F25F7A18C0072C4E5 /* LaunchScreen.storyboard */; };
-		7C68249C25F7A18D0072C4E5 /* ClownRoyaleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C68249B25F7A18D0072C4E5 /* ClownRoyaleTests.swift */; };
-		7C6824A725F7A18D0072C4E5 /* ClownRoyaleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6824A625F7A18D0072C4E5 /* ClownRoyaleUITests.swift */; };
+		7CC6CD7025F91A8C009C4C02 /* ClownRoyaleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC6CD6F25F91A8C009C4C02 /* ClownRoyaleApp.swift */; };
+		7CC6CD7225F91A8C009C4C02 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC6CD7125F91A8C009C4C02 /* ContentView.swift */; };
+		7CC6CD7425F91A8E009C4C02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CC6CD7325F91A8E009C4C02 /* Assets.xcassets */; };
+		7CC6CD7725F91A8E009C4C02 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CC6CD7625F91A8E009C4C02 /* Preview Assets.xcassets */; };
+		7CC6CD8225F91A8E009C4C02 /* ClownRoyaleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC6CD8125F91A8E009C4C02 /* ClownRoyaleTests.swift */; };
+		7CC6CD8D25F91A8E009C4C02 /* ClownRoyaleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC6CD8C25F91A8E009C4C02 /* ClownRoyaleUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		7C68249825F7A18D0072C4E5 /* PBXContainerItemProxy */ = {
+		7CC6CD7E25F91A8E009C4C02 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 7C68247925F7A18A0072C4E5 /* Project object */;
+			containerPortal = 7CC6CD6425F91A8C009C4C02 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 7C68248025F7A18A0072C4E5;
+			remoteGlobalIDString = 7CC6CD6B25F91A8C009C4C02;
 			remoteInfo = ClownRoyale;
 		};
-		7C6824A325F7A18D0072C4E5 /* PBXContainerItemProxy */ = {
+		7CC6CD8925F91A8E009C4C02 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 7C68247925F7A18A0072C4E5 /* Project object */;
+			containerPortal = 7CC6CD6425F91A8C009C4C02 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 7C68248025F7A18A0072C4E5;
+			remoteGlobalIDString = 7CC6CD6B25F91A8C009C4C02;
 			remoteInfo = ClownRoyale;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		7C68248125F7A18A0072C4E5 /* ClownRoyale.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClownRoyale.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		7C68248425F7A18A0072C4E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7C68248625F7A18A0072C4E5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		7C68248825F7A18A0072C4E5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		7C68248A25F7A18C0072C4E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		7C68248D25F7A18C0072C4E5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		7C68249025F7A18C0072C4E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		7C68249225F7A18C0072C4E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7C68249725F7A18D0072C4E5 /* ClownRoyaleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClownRoyaleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7C68249B25F7A18D0072C4E5 /* ClownRoyaleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClownRoyaleTests.swift; sourceTree = "<group>"; };
-		7C68249D25F7A18D0072C4E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7C6824A225F7A18D0072C4E5 /* ClownRoyaleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClownRoyaleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7C6824A625F7A18D0072C4E5 /* ClownRoyaleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClownRoyaleUITests.swift; sourceTree = "<group>"; };
-		7C6824A825F7A18D0072C4E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7CC6CD6C25F91A8C009C4C02 /* ClownRoyale.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClownRoyale.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7CC6CD6F25F91A8C009C4C02 /* ClownRoyaleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClownRoyaleApp.swift; sourceTree = "<group>"; };
+		7CC6CD7125F91A8C009C4C02 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		7CC6CD7325F91A8E009C4C02 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7CC6CD7625F91A8E009C4C02 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		7CC6CD7825F91A8E009C4C02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7CC6CD7D25F91A8E009C4C02 /* ClownRoyaleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClownRoyaleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7CC6CD8125F91A8E009C4C02 /* ClownRoyaleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClownRoyaleTests.swift; sourceTree = "<group>"; };
+		7CC6CD8325F91A8E009C4C02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7CC6CD8825F91A8E009C4C02 /* ClownRoyaleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClownRoyaleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7CC6CD8C25F91A8E009C4C02 /* ClownRoyaleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClownRoyaleUITests.swift; sourceTree = "<group>"; };
+		7CC6CD8E25F91A8E009C4C02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		7C68247E25F7A18A0072C4E5 /* Frameworks */ = {
+		7CC6CD6925F91A8C009C4C02 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7C68249425F7A18D0072C4E5 /* Frameworks */ = {
+		7CC6CD7A25F91A8E009C4C02 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7C68249F25F7A18D0072C4E5 /* Frameworks */ = {
+		7CC6CD8525F91A8E009C4C02 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -76,62 +72,60 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7C68247825F7A18A0072C4E5 = {
+		7CC6CD6325F91A8C009C4C02 = {
 			isa = PBXGroup;
 			children = (
-				7C68248325F7A18A0072C4E5 /* ClownRoyale */,
-				7C68249A25F7A18D0072C4E5 /* ClownRoyaleTests */,
-				7C6824A525F7A18D0072C4E5 /* ClownRoyaleUITests */,
-				7C68248225F7A18A0072C4E5 /* Products */,
+				7CC6CD6E25F91A8C009C4C02 /* ClownRoyale */,
+				7CC6CD8025F91A8E009C4C02 /* ClownRoyaleTests */,
+				7CC6CD8B25F91A8E009C4C02 /* ClownRoyaleUITests */,
+				7CC6CD6D25F91A8C009C4C02 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		7C68248225F7A18A0072C4E5 /* Products */ = {
+		7CC6CD6D25F91A8C009C4C02 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7C68248125F7A18A0072C4E5 /* ClownRoyale.app */,
-				7C68249725F7A18D0072C4E5 /* ClownRoyaleTests.xctest */,
-				7C6824A225F7A18D0072C4E5 /* ClownRoyaleUITests.xctest */,
+				7CC6CD6C25F91A8C009C4C02 /* ClownRoyale.app */,
+				7CC6CD7D25F91A8E009C4C02 /* ClownRoyaleTests.xctest */,
+				7CC6CD8825F91A8E009C4C02 /* ClownRoyaleUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		7C68248325F7A18A0072C4E5 /* ClownRoyale */ = {
+		7CC6CD6E25F91A8C009C4C02 /* ClownRoyale */ = {
 			isa = PBXGroup;
 			children = (
-				7C68248425F7A18A0072C4E5 /* AppDelegate.swift */,
-				7C68248625F7A18A0072C4E5 /* SceneDelegate.swift */,
-				7C68248825F7A18A0072C4E5 /* ContentView.swift */,
-				7C68248A25F7A18C0072C4E5 /* Assets.xcassets */,
-				7C68248F25F7A18C0072C4E5 /* LaunchScreen.storyboard */,
-				7C68249225F7A18C0072C4E5 /* Info.plist */,
-				7C68248C25F7A18C0072C4E5 /* Preview Content */,
+				7CC6CD6F25F91A8C009C4C02 /* ClownRoyaleApp.swift */,
+				7CC6CD7125F91A8C009C4C02 /* ContentView.swift */,
+				7CC6CD7325F91A8E009C4C02 /* Assets.xcassets */,
+				7CC6CD7825F91A8E009C4C02 /* Info.plist */,
+				7CC6CD7525F91A8E009C4C02 /* Preview Content */,
 			);
 			path = ClownRoyale;
 			sourceTree = "<group>";
 		};
-		7C68248C25F7A18C0072C4E5 /* Preview Content */ = {
+		7CC6CD7525F91A8E009C4C02 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				7C68248D25F7A18C0072C4E5 /* Preview Assets.xcassets */,
+				7CC6CD7625F91A8E009C4C02 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		7C68249A25F7A18D0072C4E5 /* ClownRoyaleTests */ = {
+		7CC6CD8025F91A8E009C4C02 /* ClownRoyaleTests */ = {
 			isa = PBXGroup;
 			children = (
-				7C68249B25F7A18D0072C4E5 /* ClownRoyaleTests.swift */,
-				7C68249D25F7A18D0072C4E5 /* Info.plist */,
+				7CC6CD8125F91A8E009C4C02 /* ClownRoyaleTests.swift */,
+				7CC6CD8325F91A8E009C4C02 /* Info.plist */,
 			);
 			path = ClownRoyaleTests;
 			sourceTree = "<group>";
 		};
-		7C6824A525F7A18D0072C4E5 /* ClownRoyaleUITests */ = {
+		7CC6CD8B25F91A8E009C4C02 /* ClownRoyaleUITests */ = {
 			isa = PBXGroup;
 			children = (
-				7C6824A625F7A18D0072C4E5 /* ClownRoyaleUITests.swift */,
-				7C6824A825F7A18D0072C4E5 /* Info.plist */,
+				7CC6CD8C25F91A8E009C4C02 /* ClownRoyaleUITests.swift */,
+				7CC6CD8E25F91A8E009C4C02 /* Info.plist */,
 			);
 			path = ClownRoyaleUITests;
 			sourceTree = "<group>";
@@ -139,13 +133,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		7C68248025F7A18A0072C4E5 /* ClownRoyale */ = {
+		7CC6CD6B25F91A8C009C4C02 /* ClownRoyale */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7C6824AB25F7A18D0072C4E5 /* Build configuration list for PBXNativeTarget "ClownRoyale" */;
+			buildConfigurationList = 7CC6CD9125F91A8E009C4C02 /* Build configuration list for PBXNativeTarget "ClownRoyale" */;
 			buildPhases = (
-				7C68247D25F7A18A0072C4E5 /* Sources */,
-				7C68247E25F7A18A0072C4E5 /* Frameworks */,
-				7C68247F25F7A18A0072C4E5 /* Resources */,
+				7CC6CD6825F91A8C009C4C02 /* Sources */,
+				7CC6CD6925F91A8C009C4C02 /* Frameworks */,
+				7CC6CD6A25F91A8C009C4C02 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -153,68 +147,68 @@
 			);
 			name = ClownRoyale;
 			productName = ClownRoyale;
-			productReference = 7C68248125F7A18A0072C4E5 /* ClownRoyale.app */;
+			productReference = 7CC6CD6C25F91A8C009C4C02 /* ClownRoyale.app */;
 			productType = "com.apple.product-type.application";
 		};
-		7C68249625F7A18D0072C4E5 /* ClownRoyaleTests */ = {
+		7CC6CD7C25F91A8E009C4C02 /* ClownRoyaleTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7C6824AE25F7A18D0072C4E5 /* Build configuration list for PBXNativeTarget "ClownRoyaleTests" */;
+			buildConfigurationList = 7CC6CD9425F91A8E009C4C02 /* Build configuration list for PBXNativeTarget "ClownRoyaleTests" */;
 			buildPhases = (
-				7C68249325F7A18D0072C4E5 /* Sources */,
-				7C68249425F7A18D0072C4E5 /* Frameworks */,
-				7C68249525F7A18D0072C4E5 /* Resources */,
+				7CC6CD7925F91A8E009C4C02 /* Sources */,
+				7CC6CD7A25F91A8E009C4C02 /* Frameworks */,
+				7CC6CD7B25F91A8E009C4C02 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				7C68249925F7A18D0072C4E5 /* PBXTargetDependency */,
+				7CC6CD7F25F91A8E009C4C02 /* PBXTargetDependency */,
 			);
 			name = ClownRoyaleTests;
 			productName = ClownRoyaleTests;
-			productReference = 7C68249725F7A18D0072C4E5 /* ClownRoyaleTests.xctest */;
+			productReference = 7CC6CD7D25F91A8E009C4C02 /* ClownRoyaleTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		7C6824A125F7A18D0072C4E5 /* ClownRoyaleUITests */ = {
+		7CC6CD8725F91A8E009C4C02 /* ClownRoyaleUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7C6824B125F7A18D0072C4E5 /* Build configuration list for PBXNativeTarget "ClownRoyaleUITests" */;
+			buildConfigurationList = 7CC6CD9725F91A8E009C4C02 /* Build configuration list for PBXNativeTarget "ClownRoyaleUITests" */;
 			buildPhases = (
-				7C68249E25F7A18D0072C4E5 /* Sources */,
-				7C68249F25F7A18D0072C4E5 /* Frameworks */,
-				7C6824A025F7A18D0072C4E5 /* Resources */,
+				7CC6CD8425F91A8E009C4C02 /* Sources */,
+				7CC6CD8525F91A8E009C4C02 /* Frameworks */,
+				7CC6CD8625F91A8E009C4C02 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				7C6824A425F7A18D0072C4E5 /* PBXTargetDependency */,
+				7CC6CD8A25F91A8E009C4C02 /* PBXTargetDependency */,
 			);
 			name = ClownRoyaleUITests;
 			productName = ClownRoyaleUITests;
-			productReference = 7C6824A225F7A18D0072C4E5 /* ClownRoyaleUITests.xctest */;
+			productReference = 7CC6CD8825F91A8E009C4C02 /* ClownRoyaleUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		7C68247925F7A18A0072C4E5 /* Project object */ = {
+		7CC6CD6425F91A8C009C4C02 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 1240;
 				TargetAttributes = {
-					7C68248025F7A18A0072C4E5 = {
+					7CC6CD6B25F91A8C009C4C02 = {
 						CreatedOnToolsVersion = 12.4;
 					};
-					7C68249625F7A18D0072C4E5 = {
+					7CC6CD7C25F91A8E009C4C02 = {
 						CreatedOnToolsVersion = 12.4;
-						TestTargetID = 7C68248025F7A18A0072C4E5;
+						TestTargetID = 7CC6CD6B25F91A8C009C4C02;
 					};
-					7C6824A125F7A18D0072C4E5 = {
+					7CC6CD8725F91A8E009C4C02 = {
 						CreatedOnToolsVersion = 12.4;
-						TestTargetID = 7C68248025F7A18A0072C4E5;
+						TestTargetID = 7CC6CD6B25F91A8C009C4C02;
 					};
 				};
 			};
-			buildConfigurationList = 7C68247C25F7A18A0072C4E5 /* Build configuration list for PBXProject "ClownRoyale" */;
+			buildConfigurationList = 7CC6CD6725F91A8C009C4C02 /* Build configuration list for PBXProject "ClownRoyale" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -222,37 +216,36 @@
 				en,
 				Base,
 			);
-			mainGroup = 7C68247825F7A18A0072C4E5;
-			productRefGroup = 7C68248225F7A18A0072C4E5 /* Products */;
+			mainGroup = 7CC6CD6325F91A8C009C4C02;
+			productRefGroup = 7CC6CD6D25F91A8C009C4C02 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				7C68248025F7A18A0072C4E5 /* ClownRoyale */,
-				7C68249625F7A18D0072C4E5 /* ClownRoyaleTests */,
-				7C6824A125F7A18D0072C4E5 /* ClownRoyaleUITests */,
+				7CC6CD6B25F91A8C009C4C02 /* ClownRoyale */,
+				7CC6CD7C25F91A8E009C4C02 /* ClownRoyaleTests */,
+				7CC6CD8725F91A8E009C4C02 /* ClownRoyaleUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		7C68247F25F7A18A0072C4E5 /* Resources */ = {
+		7CC6CD6A25F91A8C009C4C02 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7C68249125F7A18C0072C4E5 /* LaunchScreen.storyboard in Resources */,
-				7C68248E25F7A18C0072C4E5 /* Preview Assets.xcassets in Resources */,
-				7C68248B25F7A18C0072C4E5 /* Assets.xcassets in Resources */,
+				7CC6CD7725F91A8E009C4C02 /* Preview Assets.xcassets in Resources */,
+				7CC6CD7425F91A8E009C4C02 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7C68249525F7A18D0072C4E5 /* Resources */ = {
+		7CC6CD7B25F91A8E009C4C02 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7C6824A025F7A18D0072C4E5 /* Resources */ = {
+		7CC6CD8625F91A8E009C4C02 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -262,60 +255,48 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		7C68247D25F7A18A0072C4E5 /* Sources */ = {
+		7CC6CD6825F91A8C009C4C02 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7C68248525F7A18A0072C4E5 /* AppDelegate.swift in Sources */,
-				7C68248725F7A18A0072C4E5 /* SceneDelegate.swift in Sources */,
-				7C68248925F7A18A0072C4E5 /* ContentView.swift in Sources */,
+				7CC6CD7225F91A8C009C4C02 /* ContentView.swift in Sources */,
+				7CC6CD7025F91A8C009C4C02 /* ClownRoyaleApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7C68249325F7A18D0072C4E5 /* Sources */ = {
+		7CC6CD7925F91A8E009C4C02 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7C68249C25F7A18D0072C4E5 /* ClownRoyaleTests.swift in Sources */,
+				7CC6CD8225F91A8E009C4C02 /* ClownRoyaleTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7C68249E25F7A18D0072C4E5 /* Sources */ = {
+		7CC6CD8425F91A8E009C4C02 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7C6824A725F7A18D0072C4E5 /* ClownRoyaleUITests.swift in Sources */,
+				7CC6CD8D25F91A8E009C4C02 /* ClownRoyaleUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		7C68249925F7A18D0072C4E5 /* PBXTargetDependency */ = {
+		7CC6CD7F25F91A8E009C4C02 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 7C68248025F7A18A0072C4E5 /* ClownRoyale */;
-			targetProxy = 7C68249825F7A18D0072C4E5 /* PBXContainerItemProxy */;
+			target = 7CC6CD6B25F91A8C009C4C02 /* ClownRoyale */;
+			targetProxy = 7CC6CD7E25F91A8E009C4C02 /* PBXContainerItemProxy */;
 		};
-		7C6824A425F7A18D0072C4E5 /* PBXTargetDependency */ = {
+		7CC6CD8A25F91A8E009C4C02 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 7C68248025F7A18A0072C4E5 /* ClownRoyale */;
-			targetProxy = 7C6824A325F7A18D0072C4E5 /* PBXContainerItemProxy */;
+			target = 7CC6CD6B25F91A8C009C4C02 /* ClownRoyale */;
+			targetProxy = 7CC6CD8925F91A8E009C4C02 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
-/* Begin PBXVariantGroup section */
-		7C68248F25F7A18C0072C4E5 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7C68249025F7A18C0072C4E5 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
-		7C6824A925F7A18D0072C4E5 /* Debug */ = {
+		7CC6CD8F25F91A8E009C4C02 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -376,7 +357,7 @@
 			};
 			name = Debug;
 		};
-		7C6824AA25F7A18D0072C4E5 /* Release */ = {
+		7CC6CD9025F91A8E009C4C02 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -431,7 +412,7 @@
 			};
 			name = Release;
 		};
-		7C6824AC25F7A18D0072C4E5 /* Debug */ = {
+		7CC6CD9225F91A8E009C4C02 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -441,6 +422,7 @@
 				DEVELOPMENT_TEAM = 8Y34VBAGJR;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = ClownRoyale/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -452,7 +434,7 @@
 			};
 			name = Debug;
 		};
-		7C6824AD25F7A18D0072C4E5 /* Release */ = {
+		7CC6CD9325F91A8E009C4C02 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -462,6 +444,7 @@
 				DEVELOPMENT_TEAM = 8Y34VBAGJR;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = ClownRoyale/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -473,7 +456,7 @@
 			};
 			name = Release;
 		};
-		7C6824AF25F7A18D0072C4E5 /* Debug */ = {
+		7CC6CD9525F91A8E009C4C02 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -481,7 +464,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8Y34VBAGJR;
 				INFOPLIST_FILE = ClownRoyaleTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -495,7 +478,7 @@
 			};
 			name = Debug;
 		};
-		7C6824B025F7A18D0072C4E5 /* Release */ = {
+		7CC6CD9625F91A8E009C4C02 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -503,7 +486,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8Y34VBAGJR;
 				INFOPLIST_FILE = ClownRoyaleTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -517,7 +500,7 @@
 			};
 			name = Release;
 		};
-		7C6824B225F7A18D0072C4E5 /* Debug */ = {
+		7CC6CD9825F91A8E009C4C02 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -537,7 +520,7 @@
 			};
 			name = Debug;
 		};
-		7C6824B325F7A18D0072C4E5 /* Release */ = {
+		7CC6CD9925F91A8E009C4C02 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -560,43 +543,43 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		7C68247C25F7A18A0072C4E5 /* Build configuration list for PBXProject "ClownRoyale" */ = {
+		7CC6CD6725F91A8C009C4C02 /* Build configuration list for PBXProject "ClownRoyale" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7C6824A925F7A18D0072C4E5 /* Debug */,
-				7C6824AA25F7A18D0072C4E5 /* Release */,
+				7CC6CD8F25F91A8E009C4C02 /* Debug */,
+				7CC6CD9025F91A8E009C4C02 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7C6824AB25F7A18D0072C4E5 /* Build configuration list for PBXNativeTarget "ClownRoyale" */ = {
+		7CC6CD9125F91A8E009C4C02 /* Build configuration list for PBXNativeTarget "ClownRoyale" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7C6824AC25F7A18D0072C4E5 /* Debug */,
-				7C6824AD25F7A18D0072C4E5 /* Release */,
+				7CC6CD9225F91A8E009C4C02 /* Debug */,
+				7CC6CD9325F91A8E009C4C02 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7C6824AE25F7A18D0072C4E5 /* Build configuration list for PBXNativeTarget "ClownRoyaleTests" */ = {
+		7CC6CD9425F91A8E009C4C02 /* Build configuration list for PBXNativeTarget "ClownRoyaleTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7C6824AF25F7A18D0072C4E5 /* Debug */,
-				7C6824B025F7A18D0072C4E5 /* Release */,
+				7CC6CD9525F91A8E009C4C02 /* Debug */,
+				7CC6CD9625F91A8E009C4C02 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7C6824B125F7A18D0072C4E5 /* Build configuration list for PBXNativeTarget "ClownRoyaleUITests" */ = {
+		7CC6CD9725F91A8E009C4C02 /* Build configuration list for PBXNativeTarget "ClownRoyaleUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7C6824B225F7A18D0072C4E5 /* Debug */,
-				7C6824B325F7A18D0072C4E5 /* Release */,
+				7CC6CD9825F91A8E009C4C02 /* Debug */,
+				7CC6CD9925F91A8E009C4C02 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 7C68247925F7A18A0072C4E5 /* Project object */;
+	rootObject = 7CC6CD6425F91A8C009C4C02 /* Project object */;
 }

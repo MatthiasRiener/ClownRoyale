@@ -2,7 +2,7 @@
 //  ClownRoyaleUITests.swift
 //  ClownRoyaleUITests
 //
-//  Created by Jan Donnerbauer on 09.03.21.
+//  Created by Jan Donnerbauer on 10.03.21.
 //
 
 import XCTest
