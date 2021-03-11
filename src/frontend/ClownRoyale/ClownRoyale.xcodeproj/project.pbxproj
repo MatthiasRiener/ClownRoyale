@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3084564725FA6A1E00555B80 /* AppLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084564625FA6A1E00555B80 /* AppLoadingView.swift */; };
 		7C9BB1AC25FA4DA600EB3574 /* LobbyUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9BB1AB25FA4DA600EB3574 /* LobbyUIView.swift */; };
 		7C9BB1B125FA591D00EB3574 /* ProfilePicUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9BB1B025FA591D00EB3574 /* ProfilePicUIView.swift */; };
 		7CC6CD7025F91A8C009C4C02 /* ClownRoyaleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC6CD6F25F91A8C009C4C02 /* ClownRoyaleApp.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3084564625FA6A1E00555B80 /* AppLoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppLoadingView.swift; sourceTree = "<group>"; };
 		7C9BB1AB25FA4DA600EB3574 /* LobbyUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LobbyUIView.swift; sourceTree = "<group>"; };
 		7C9BB1B025FA591D00EB3574 /* ProfilePicUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePicUIView.swift; sourceTree = "<group>"; };
 		7CC6CD6C25F91A8C009C4C02 /* ClownRoyale.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClownRoyale.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,6 +105,7 @@
 			children = (
 				7CC6CD6F25F91A8C009C4C02 /* ClownRoyaleApp.swift */,
 				7CC6CD7125F91A8C009C4C02 /* ContentView.swift */,
+				3084564625FA6A1E00555B80 /* AppLoadingView.swift */,
 				7CC6CDE925F92327009C4C02 /* LoadingUIView.swift */,
 				7C9BB1AB25FA4DA600EB3574 /* LobbyUIView.swift */,
 				7CC6CD7325F91A8E009C4C02 /* Assets.xcassets */,
@@ -269,6 +272,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7CC6CD7225F91A8C009C4C02 /* ContentView.swift in Sources */,
+				3084564725FA6A1E00555B80 /* AppLoadingView.swift in Sources */,
 				7C9BB1AC25FA4DA600EB3574 /* LobbyUIView.swift in Sources */,
 				7CC6CDEA25F92327009C4C02 /* LoadingUIView.swift in Sources */,
 				7CC6CD7025F91A8C009C4C02 /* ClownRoyaleApp.swift in Sources */,
