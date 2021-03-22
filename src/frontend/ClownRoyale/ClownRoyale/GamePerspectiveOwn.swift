@@ -22,8 +22,28 @@ struct GamePerspectiveOwn: View {
 struct GamePerspectiveTop: View {
     var body: some View {
         HStack() {
-            Text("Was geht ab!")
-        }.frame(width: .infinity, height: 100, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+            
+            
+            
+            Text("Franzi68")
+                .font(.title)
+                .fontWeight(.bold)
+                .multilineTextAlignment(.center)
+                .foregroundColor(.white)
+                .padding()
+            .frame(
+                maxWidth: .infinity
+            )
+            
+        }.frame(width: .infinity, height: 100, alignment: .bottom).background(
+            LinearGradient(
+                gradient: Gradient(
+                    colors: [Color("ClownYellowHell"),
+                             Color("ClownYellow")]),
+                startPoint: .leading,
+                endPoint: .trailing
+            )
+        .edgesIgnoringSafeArea(.top))
     }
 }
 
