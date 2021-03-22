@@ -13,6 +13,7 @@ struct GamePerspectiveOwn: View {
         ) {
             GamePerspectiveTop()
             GamePerspectiveContentMain()
+            GamePerspectiveBottom()
         }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
         .background(Color("ClownYellowBackground")).ignoresSafeArea()
         
@@ -59,9 +60,64 @@ struct GamePerspectiveContentMain: View {
                     ).padding(.top, -35)
             }.padding(.top, 59)
            
+            
+            VStack() {
+                HStack() {
+                    RatingButton(bg: Color.green, rating: 10)
+                    RatingButton(bg: Color.yellow, rating: 5)
+                }
+                HStack() {
+                    RatingButton(bg: Color.orange, rating: 0)
+                    RatingButton(bg: Color.red, rating: -10)
+                }
+            }
         }
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0).padding(.top, 20)
         
+    }
+}
+
+struct RatingButton: View {
+    
+    var bg: Color
+    var rating: Int
+    
+    var body: some View {
+        
+        RoundedRectangle(cornerRadius: 15)
+            .fill(bg)
+            .frame(width: UIScreen.screenWidth / 10 * 4, height: 90, alignment: .center)
+            .overlay(
+                Text("\(rating)")
+                    .font(.system(size: 21))
+                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                    .padding()
+                    .foregroundColor(.white)
+            )
+    }
+}
+
+struct GamePerspectiveBottom: View {
+    var body: some View {
+        Text("ClownRoyale")
+            .font(.title)
+            .fontWeight(.bold)
+            .multilineTextAlignment(.center)
+            .foregroundColor(.white)
+            .padding()
+        .frame(
+            maxWidth: .infinity,
+            maxHeight: 110
+        )
+        .background(
+            LinearGradient(
+                gradient: Gradient(
+                    colors: [Color("ClownYellow"),
+                             Color("ClownYellowHell")]),
+                startPoint: .leading,
+                endPoint: .trailing
+            )
+        .edgesIgnoringSafeArea(.bottom))
     }
 }
 
@@ -71,7 +127,7 @@ struct GamePerspectiveTop: View {
             // width 25%
             VStack() {
                 RoundedRectangle(cornerRadius: 35)
-                    .fill(Color.red)
+                    .fill(Color.blue)
                     .frame(width: 60, height: 60, alignment: .center)
                     .overlay(
                         Text("38")
