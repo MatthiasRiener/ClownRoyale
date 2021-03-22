@@ -19,128 +19,11 @@ struct AppLoadingView: View {
         ZStack(){
         VStack(alignment: .center, spacing: 0) {
             Group{
-            Rectangle()
-                .fill(LinearGradient(gradient: Gradient(colors: self.gradient), startPoint: self.startPoint, endPoint: self.endPoint))
-                .position(x: 1000, y: -250)
-                .frame(width: 300, height: 50)
-                .rotationEffect(Angle(degrees: 315))
-                .onTapGesture {
-                    withAnimation (.easeInOut(duration: 3)){
-                        self.startPoint = UnitPoint(x: 1, y: -1)
-                        self.endPoint = UnitPoint(x: 0, y: 1)
-                    }
-            }
-            Rectangle()
-                .fill(LinearGradient(gradient: Gradient(colors: self.gradient), startPoint: self.startPoint, endPoint: self.endPoint))
-                .position(x: 1000, y: -200)
-                .frame(width: 2000, height: 50)
-                .rotationEffect(Angle(degrees: 315))
-                .onAppear() {
-                    withAnimation (.easeInOut(duration: 3)){
-                        self.startPoint = UnitPoint(x: 1, y: -1)
-                        self.endPoint = UnitPoint(x: 0, y: 1)
-                    }
-            }
-            Rectangle()
-                .fill(LinearGradient(gradient: Gradient(colors: self.gradient), startPoint: self.startPoint, endPoint: self.endPoint))
-                .position(x: 1000, y: -150)
-                .frame(width: 2000, height: 50)
-                .rotationEffect(Angle(degrees: 315))
-                .onAppear() {
-                    withAnimation (.easeInOut(duration: 3)){
-                        self.startPoint = UnitPoint(x: 1, y: -1)
-                        self.endPoint = UnitPoint(x: 0, y: 1)
-                    }
-            }
-            Rectangle()
-                .fill(LinearGradient(gradient: Gradient(colors: self.gradient), startPoint: self.startPoint, endPoint: self.endPoint))
-                .position(x: 1000, y: -100)
-                .frame(width: 2000, height: 50)
-                .rotationEffect(Angle(degrees: 315))
-                .onAppear() {
-                    withAnimation (.easeInOut(duration: 3)){
-                        self.startPoint = UnitPoint(x: 1, y: -1)
-                        self.endPoint = UnitPoint(x: 0, y: 1)
-                    }
-            }
-            Rectangle()
-                .fill(LinearGradient(gradient: Gradient(colors: self.gradient), startPoint: self.startPoint, endPoint: self.endPoint))
-                .position(x: 1000, y: -50)
-                .frame(width: 2000, height: 50)
-                .rotationEffect(Angle(degrees: 315))
-                .onAppear() {
-                    withAnimation (.easeInOut(duration: 3)){
-                        self.startPoint = UnitPoint(x: 1, y: -1)
-                        self.endPoint = UnitPoint(x: 0, y: 1)
-                    }
-            }
-            Rectangle()
-                .fill(LinearGradient(gradient: Gradient(colors: self.gradient), startPoint: self.startPoint, endPoint: self.endPoint))
-                .position(x: 1000, y: 0)
-                .frame(width: 2000, height: 50)
-                .rotationEffect(Angle(degrees: 315))
-                .onAppear() {
-                    withAnimation (.easeInOut(duration: 3)){
-                        self.startPoint = UnitPoint(x: 1, y: -1)
-                        self.endPoint = UnitPoint(x: 0, y: 1)
-                    }
-            }
-            Rectangle()
-                .fill(LinearGradient(gradient: Gradient(colors: self.gradient), startPoint: self.startPoint, endPoint: self.endPoint))
-                .position(x: 1000, y: 50)
-                .frame(width: 2000, height: 50)
-                .rotationEffect(Angle(degrees: 315))
-                .onAppear() {
-                    withAnimation (.easeInOut(duration: 3)){
-                        self.startPoint = UnitPoint(x: 1, y: -1)
-                        self.endPoint = UnitPoint(x: 0, y: 1)
-                    }
-            }
-            Rectangle()
-                .fill(LinearGradient(gradient: Gradient(colors: self.gradient), startPoint: self.startPoint, endPoint: self.endPoint))
-                .position(x: 1000, y: 100)
-                .frame(width: 2000, height: 50)
-                .rotationEffect(Angle(degrees: 315))
-                .onAppear() {
-                    withAnimation (.easeInOut(duration: 3)){
-                        self.startPoint = UnitPoint(x: 1, y: -1)
-                        self.endPoint = UnitPoint(x: 0, y: 1)
-                    }
-            }
-            Rectangle()
-                .fill(LinearGradient(gradient: Gradient(colors: self.gradient), startPoint: self.startPoint, endPoint: self.endPoint))
-                .position(x: 1000, y: 150)
-                .frame(width: 2000, height: 50)
-                .rotationEffect(Angle(degrees: 315))
-                .onAppear() {
-                    withAnimation (.easeInOut(duration: 3)){
-                        self.startPoint = UnitPoint(x: 1, y: -1)
-                        self.endPoint = UnitPoint(x: 0, y: 1)
-                    }
-            }
-                Rectangle()
-                    .fill(LinearGradient(gradient: Gradient(colors: self.gradient), startPoint: self.startPoint, endPoint: self.endPoint))
-                    .position(x: 1000, y: 200)
-                    .frame(width: 2000, height: 50)
-                    .rotationEffect(Angle(degrees: 315))
-                    .onAppear() {
-                        withAnimation (.easeInOut(duration: 3)){
-                            self.startPoint = UnitPoint(x: 1, y: -1)
-                            self.endPoint = UnitPoint(x: 0, y: 1)
-                        }
+                ForEach((-6...6), id: \.self) {
+                    LoadingBar(positionY: $0)
                 }
             }
-            Rectangle()
-                .fill(LinearGradient(gradient: Gradient(colors: self.gradient), startPoint: self.startPoint, endPoint: self.endPoint))
-                .position(x: 1000, y: 250)
-                .frame(width: 2000, height: 50)
-                .rotationEffect(Angle(degrees: 315))
-                .onAppear() {
-                    withAnimation (.easeInOut(duration: 3)){
-                        self.startPoint = UnitPoint(x: 1, y: -1)
-                        self.endPoint = UnitPoint(x: 0, y: 1)
-                    }
-            }
+            
         }
             Rectangle()
                 .fill(Color.red)
@@ -151,6 +34,29 @@ struct AppLoadingView: View {
     }
 }
     
+}
+
+
+struct LoadingBar: View {
+    @State var gradient = [Color.red, Color.white, Color.red, Color.white, Color.red]
+    @State var startPoint = UnitPoint(x: 0, y: 0)
+    @State var endPoint = UnitPoint(x: 0, y: 2)
+    
+    var positionY: Int
+    
+    var body: some View {
+        Rectangle()
+            .fill(LinearGradient(gradient: Gradient(colors: self.gradient), startPoint: self.startPoint, endPoint: self.endPoint))
+            .position(x: 1000, y: CGFloat(self.positionY * 50))
+            .frame(width: 2000, height: 50)
+            .rotationEffect(Angle(degrees: 315))
+            .onAppear() {
+                withAnimation (.easeInOut(duration: 3)){
+                    self.startPoint = UnitPoint(x: 1, y: -1)
+                    self.endPoint = UnitPoint(x: 0, y: 1)
+                }
+        }
+    }
 }
 
 struct AppLoadingViewPreviews: PreviewProvider {
