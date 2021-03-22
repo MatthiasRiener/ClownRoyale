@@ -22,10 +22,45 @@ struct GamePerspectiveOwn: View {
 
 struct GamePerspectiveContentMain: View {
     var body: some View {
-        HStack() {
-            Text("Moin!")
+        VStack() {
+            ZStack(alignment: .top) {
+               
+                
+                
+                RoundedRectangle(cornerRadius: 30)
+                    .fill(Color.white)
+                    .frame(width: UIScreen.screenWidth / 10 * 8.5, height: UIScreen.screenWidth / 10 * 8.5, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .overlay(
+                        Image("jan")
+                            .resizable()
+                            .cornerRadius(35)
+                            .ignoresSafeArea()
+                            .frame(width: UIScreen.screenWidth / 10 * 8.5 - 10, height: UIScreen.screenWidth / 10 * 8.5 - 10, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    )
+                
+                
+                RoundedRectangle(cornerRadius: 15)
+                    .fill(Color("ClownYellow"))
+                    .frame(width: UIScreen.screenWidth / 3 * 2, height: 70, alignment: .center)
+                    .overlay(
+                        HStack() {
+                            Text("Category:")
+                                .font(.system(size: 18))
+                                .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                                .padding()
+                                .foregroundColor(.white)
+                            Text("Random")
+                                .font(.system(size: 25))
+                                .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                                .padding()
+                                .foregroundColor(.white)
+                        }
+                       
+                    ).padding(.top, -35)
+            }.padding(.top, 59)
+           
         }
-        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0)
+        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0).padding(.top, 20)
         
     }
 }
