@@ -9,7 +9,21 @@ import SwiftUI
 
 struct GamePerspectiveOwn: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(
+        ) {
+            GamePerspectiveTop()
+        }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
+        .background(Color("ClownYellowBackground")).ignoresSafeArea()
+        
+   
+    }
+}
+
+struct GamePerspectiveTop: View {
+    var body: some View {
+        HStack() {
+            Text("Was geht ab!")
+        }.frame(width: .infinity, height: 100, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
     }
 }
 
