@@ -64,6 +64,20 @@ struct GamePerspectiveMainContainer: View {
             
             ZStack() {
                 PlayerRoom()
+                
+                RoundedRectangle(cornerRadius: 30)
+                    .fill(Color("ClownYellowBackground"))
+                    .frame(width: UIScreen.screenWidth / 10 * 4.5, height: UIScreen.screenWidth / 10 * 6, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .overlay(
+                        Image("jan")
+                            .resizable()
+                            .cornerRadius(35)
+                            .ignoresSafeArea()
+                            .frame(width: UIScreen.screenWidth / 10 * 4.5 - 20, height: UIScreen.screenWidth / 10 * 6 - 20, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    )
+                    .padding(.trailing, -UIScreen.screenWidth / 10 * 6.5)
+                    .padding(.bottom, -UIScreen.screenHeight)
+                
             }
             .frame(width: UIScreen.screenWidth / 10 * 9, height: .infinity, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
             
