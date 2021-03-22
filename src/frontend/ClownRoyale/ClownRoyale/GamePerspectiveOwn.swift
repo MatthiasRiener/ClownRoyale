@@ -12,10 +12,21 @@ struct GamePerspectiveOwn: View {
         VStack(
         ) {
             GamePerspectiveTop()
+            GamePerspectiveContentMain()
         }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
         .background(Color("ClownYellowBackground")).ignoresSafeArea()
         
    
+    }
+}
+
+struct GamePerspectiveContentMain: View {
+    var body: some View {
+        HStack() {
+            Text("Moin!")
+        }
+        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0)
+        
     }
 }
 
