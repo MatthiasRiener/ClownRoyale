@@ -99,25 +99,28 @@ struct RatingButton: View {
 
 struct GamePerspectiveBottom: View {
     var body: some View {
-        Text("ClownRoyale")
-            .font(.title)
-            .fontWeight(.bold)
-            .multilineTextAlignment(.center)
-            .foregroundColor(.white)
-            .padding()
-        .frame(
-            maxWidth: .infinity,
-            maxHeight: 110
-        )
-        .background(
-            LinearGradient(
-                gradient: Gradient(
-                    colors: [Color("ClownYellow"),
-                             Color("ClownYellowHell")]),
-                startPoint: .leading,
-                endPoint: .trailing
+        VStack() {
+            Text("ClownRoyale")
+                .font(.title)
+                .fontWeight(.bold)
+                .multilineTextAlignment(.center)
+                .foregroundColor(.white)
+                .padding()
+            .frame(
+                maxWidth: .infinity,
+                maxHeight: 90
             )
-        .edgesIgnoringSafeArea(.bottom))
+            .background(
+                LinearGradient(
+                    gradient: Gradient(
+                        colors: [Color("ClownYellow"),
+                                 Color("ClownYellowHell")]),
+                    startPoint: .leading,
+                    endPoint: .trailing
+                )
+            .edgesIgnoringSafeArea(.bottom))
+        }.frame(width: .infinity, height: 120, alignment: .bottom)
+        
     }
 }
 
