@@ -26,7 +26,7 @@ struct GamePerspectiveTop: View {
             VStack() {
                 RoundedRectangle(cornerRadius: 35)
                     .fill(Color.red)
-                    .frame(width: 70, height: 70, alignment: .center)
+                    .frame(width: 60, height: 60, alignment: .center)
                     .overlay(
                         Text("38")
                             .font(.system(size: 21))
@@ -45,8 +45,8 @@ struct GamePerspectiveTop: View {
             
             // width 50%
             VStack() {
-                Text("Franzi68")
-                    .font(.title)
+                Text("6/8")
+                    .font(.system(size: 21))
                     .fontWeight(.bold)
                     .multilineTextAlignment(.center)
                     .foregroundColor(.white)
@@ -61,13 +61,24 @@ struct GamePerspectiveTop: View {
             
             // width 25%
             VStack() {
-                Text("Franzi68")
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .multilineTextAlignment(.center)
-                    .foregroundColor(.white)
+                RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
+                    .fill(Color.white)
+                    .frame(width: 8, height: 8, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .padding(.trailing, 15)
+                RoundedRectangle(cornerRadius: 25.0)
+                    .fill(Color.white)
+                    .frame(width: 8, height: 8, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .padding(.trailing, 15)
+                
+                RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
+                    .fill(Color.white)
+                    .frame(width: 8, height: 8, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .padding(.trailing, 15)
+                
+                
           }.frame(
-                width: UIScreen.screenWidth / 10 * 2.5
+                width: UIScreen.screenWidth / 10 * 2.5 - 15,
+            alignment: .trailing
             )
             
             
