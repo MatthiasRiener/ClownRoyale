@@ -11,7 +11,7 @@ import SwiftUI
 import UIKit
 
 struct AppLoadingView: View {
-    @State var gradient = [Color.red, Color.white, Color.red, Color.white, Color.red]
+  
     @State var startPoint = UnitPoint(x: 0, y: 0)
     @State var endPoint = UnitPoint(x: 0, y: 2)
     var body: some View {
@@ -38,9 +38,12 @@ struct AppLoadingView: View {
 
 
 struct LoadingBar: View {
-    @State var gradient = [Color.red, Color.white, Color.red, Color.white, Color.red]
+    @State var gradient = [Color.red, Color.red, Color.white, Color.red, Color.white, Color.red, Color.red]
     @State var startPoint = UnitPoint(x: 0, y: 0)
     @State var endPoint = UnitPoint(x: 0, y: 2)
+    
+    private let animation = Animation.easeInOut(duration: 3).repeatForever(autoreverses: false)
+    
     
     var positionY: Int
     
@@ -51,9 +54,9 @@ struct LoadingBar: View {
             .frame(width: 2000, height: 50)
             .rotationEffect(Angle(degrees: 315))
             .onAppear() {
-                withAnimation (.easeInOut(duration: 3)){
-                    self.startPoint = UnitPoint(x: 1, y: -1)
-                    self.endPoint = UnitPoint(x: 0, y: 1)
+                withAnimation (self.animation){
+                    self.startPoint = UnitPoint(x: 1, y: -2)
+                    self.endPoint = UnitPoint(x: 0, y: 2)
                 }
         }
     }
