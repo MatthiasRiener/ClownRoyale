@@ -19,6 +19,7 @@
 		7CC6CD8D25F91A8E009C4C02 /* ClownRoyaleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC6CD8C25F91A8E009C4C02 /* ClownRoyaleUITests.swift */; };
 		7CC6CDEA25F92327009C4C02 /* LoadingUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC6CDE925F92327009C4C02 /* LoadingUIView.swift */; };
 		A914D5CB2607719100626375 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A914D5CA2607719100626375 /* ProfileView.swift */; };
+		DDED29C626088DEE00793477 /* GamePerspectiveOwn.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDED29C526088DEE00793477 /* GamePerspectiveOwn.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		7CC6CD8E25F91A8E009C4C02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7CC6CDE925F92327009C4C02 /* LoadingUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingUIView.swift; sourceTree = "<group>"; };
 		A914D5CA2607719100626375 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		DDED29C526088DEE00793477 /* GamePerspectiveOwn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePerspectiveOwn.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				7CC6CDE925F92327009C4C02 /* LoadingUIView.swift */,
 				3084564B25FA6B0100555B80 /* AppLoadingView.swift */,
 				7C9BB1AB25FA4DA600EB3574 /* LobbyUIView.swift */,
+				DDED29C526088DEE00793477 /* GamePerspectiveOwn.swift */,
 				7C739D0626039146009F5626 /* RankingUIView.swift */,
 				7CC6CD7325F91A8E009C4C02 /* Assets.xcassets */,
 				7CC6CD7825F91A8E009C4C02 /* Info.plist */,
@@ -277,6 +280,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDED29C626088DEE00793477 /* GamePerspectiveOwn.swift in Sources */,
 				A914D5CB2607719100626375 /* ProfileView.swift in Sources */,
 				7CC6CD7225F91A8C009C4C02 /* ContentView.swift in Sources */,
 				3084564C25FA6B0100555B80 /* AppLoadingView.swift in Sources */,
