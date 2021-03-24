@@ -38,9 +38,9 @@ struct AppLoadingView: View {
 
 
 struct LoadingBar: View {
-    @State var gradient = [Color.red, Color.red, Color.white, Color.red, Color.white, Color.red, Color.red]
+    @State var gradient = [Color.red, Color.white, Color.red, Color.red, Color.red, Color.red, Color.red]
     @State var startPoint = UnitPoint(x: 0, y: 0)
-    @State var endPoint = UnitPoint(x: 0, y: 2)
+    @State var endPoint = UnitPoint(x: 0, y: 0)
     
     private let animation = Animation.easeInOut(duration: 3).repeatForever(autoreverses: false)
     
