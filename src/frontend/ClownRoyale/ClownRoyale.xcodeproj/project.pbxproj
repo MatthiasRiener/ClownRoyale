@@ -19,7 +19,8 @@
 		7CC6CD8225F91A8E009C4C02 /* ClownRoyaleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC6CD8125F91A8E009C4C02 /* ClownRoyaleTests.swift */; };
 		7CC6CD8D25F91A8E009C4C02 /* ClownRoyaleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC6CD8C25F91A8E009C4C02 /* ClownRoyaleUITests.swift */; };
 		7CC6CDEA25F92327009C4C02 /* LoadingUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC6CDE925F92327009C4C02 /* LoadingUIView.swift */; };
-		A914D5CB2607719100626375 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A914D5CA2607719100626375 /* ProfileView.swift */; };
+		A9B28469260B800C006FFB54 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B28468260B800C006FFB54 /* ProfileView.swift */; };
+		A9B2846E260BA092006FFB54 /* BoutiqueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B2846D260BA092006FFB54 /* BoutiqueView.swift */; };
 		DD8BED922608E8C700B417EE /* GamePerspectiveOwnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8BED912608E8C700B417EE /* GamePerspectiveOwnView.swift */; };
 		DDED29C626088DEE00793477 /* GamePerspectiveOwn.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDED29C526088DEE00793477 /* GamePerspectiveOwn.swift */; };
 /* End PBXBuildFile section */
@@ -60,7 +61,8 @@
 		7CC6CD8C25F91A8E009C4C02 /* ClownRoyaleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClownRoyaleUITests.swift; sourceTree = "<group>"; };
 		7CC6CD8E25F91A8E009C4C02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7CC6CDE925F92327009C4C02 /* LoadingUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingUIView.swift; sourceTree = "<group>"; };
-		A914D5CA2607719100626375 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		A9B28468260B800C006FFB54 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		A9B2846D260BA092006FFB54 /* BoutiqueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoutiqueView.swift; sourceTree = "<group>"; };
 		DD8BED912608E8C700B417EE /* GamePerspectiveOwnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePerspectiveOwnView.swift; sourceTree = "<group>"; };
 		DDED29C526088DEE00793477 /* GamePerspectiveOwn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePerspectiveOwn.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -126,7 +128,8 @@
 				7CC6CD7825F91A8E009C4C02 /* Info.plist */,
 				7CC6CD7525F91A8E009C4C02 /* Preview Content */,
 				7C9BB1B025FA591D00EB3574 /* ProfilePicUIView.swift */,
-				A914D5CA2607719100626375 /* ProfileView.swift */,
+				A9B28468260B800C006FFB54 /* ProfileView.swift */,
+				A9B2846D260BA092006FFB54 /* BoutiqueView.swift */,
 			);
 			path = ClownRoyale;
 			sourceTree = "<group>";
@@ -287,12 +290,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDED29C626088DEE00793477 /* GamePerspectiveOwn.swift in Sources */,
-				A914D5CB2607719100626375 /* ProfileView.swift in Sources */,
 				7CC6CD7225F91A8C009C4C02 /* ContentView.swift in Sources */,
 				3084564C25FA6B0100555B80 /* AppLoadingView.swift in Sources */,
 				DD8BED922608E8C700B417EE /* GamePerspectiveOwnView.swift in Sources */,
 				7C9BB1AC25FA4DA600EB3574 /* LobbyUIView.swift in Sources */,
 				7CC6CDEA25F92327009C4C02 /* LoadingUIView.swift in Sources */,
+				A9B28469260B800C006FFB54 /* ProfileView.swift in Sources */,
+				A9B2846E260BA092006FFB54 /* BoutiqueView.swift in Sources */,
 				7CC6CD7025F91A8C009C4C02 /* ClownRoyaleApp.swift in Sources */,
 				302A40A3260B62510073069B /* CategorySelectionView.swift in Sources */,
 				7C9BB1B125FA591D00EB3574 /* ProfilePicUIView.swift in Sources */,

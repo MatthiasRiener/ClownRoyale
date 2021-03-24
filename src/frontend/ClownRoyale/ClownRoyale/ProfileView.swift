@@ -1,113 +1,152 @@
+//
+//  Profil.swift
+//  ClownRoyale
+//
+//  Created by Lukas Friesenecker on 24.03.21.
+//
+
 import SwiftUI
 
-struct ProfileView: View {
+struct ProfileTop: View {
     var body: some View {
-        GeometryReader { geometry in
-            ZStack {
-                VStack {
-                    HStack {
-                        Text("Profile")
-                            .foregroundColor(.white)
-                            .font(.system(size: 25))
-                            .bold()
-                    }
-                    .frame(width: geometry.size.width, height: geometry.size.height * 0.1, alignment: .center)
-                    .background(
-                        LinearGradient(gradient: Gradient(colors: [Color("ClownYellow"), Color("ClownYellow")]), startPoint: .zero, endPoint: .trailing)
-                    )
-                    
-                    ZStack {
-                        VStack {
-                            VStack {
-                                VStack {
-                                    
-                                }
-                                .frame(width: geometry.size.height * 0.2, height: geometry.size.height * 0.2, alignment: .center)
-                                .background(Color.black)
-                                .cornerRadius(1000)
-                            }
-                            .frame(width: geometry.size.height * 0.25, height: geometry.size.height * 0.25, alignment: .center)
-                            .background(Color.green)
-                            .cornerRadius(1000)
-                        }
-                        .frame(width: geometry.size.height * 0.3, height: geometry.size.height * 0.3, alignment: .center)
-                        .background(Color.red)
-                        .cornerRadius(1000)
-                        VStack {
-                            VStack {
-                                Text("Gregory")
-                                    .foregroundColor(Color.white)
-                                    .font(.system(size: 25))
-                                    .bold()
-                            }
-                            .frame(width: geometry.size.width * 0.4, height: geometry.size.height * 0.08, alignment: .center)
-                            .background(Color.red)
-                            .cornerRadius(50)
-                            Spacer()
-                            VStack {
-                                Text("18420")
-                                    .foregroundColor(Color.white)
-                                    .font(.system(size: 15))
-                            }
-                            .frame(width: geometry.size.width * 0.2, height: geometry.size.height * 0.04, alignment: .center)
-                            .background(Color.red)
-                            .cornerRadius(50)
-                        }
-                        .frame(width: geometry.size.width * 0.5, height: geometry.size.height * 0.13, alignment: .top)
-                        .background(Color.blue)
-                    }
-                    .frame(width: geometry.size.width, height: geometry.size.height * 0.35, alignment: .center)
-                    .background(Color.blue)
+        VStack {
+            VStack {
+                HStack {
+                    VStack {
+                        
+                    }.frame(width: UIScreen.screenWidth * 0.25, height: UIScreen.screenHeight * 0.1, alignment: .center)
                     
                     VStack {
-                        ZStack {
-                            VStack {
-                                HStack {
-                                    
-                                }
-                                .frame(width: geometry.size.width, height: geometry.size.height * 0.05)
-                                .background(Color.blue)
-                                HStack {
-                                    
-                                }
-                                .frame(width: geometry.size.width, height: geometry.size.height * 0.55)
-                                .background(Color.white)
-                            }
-                            .frame(width: geometry.size.width, height: geometry.size.height * 0.55)
-                            .background(Color.green)
-                            VStack {
-                                VStack {
-                                    Text("Test1")
-                                }
-                                .frame(width: geometry.size.width * 0.85, height: geometry.size.height * 0.26)
-                                .background(Color.white)
-                                .cornerRadius(20)
-                                .shadow(color: .gray, radius: 5, x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/)
-                                
-                                Spacer()
-                                
-                                VStack {
-                                    Text("Test")
-                                }
-                                .frame(width: geometry.size.width * 0.85, height: geometry.size.height * 0.26)
-                                .background(Color.white)
-                                .cornerRadius(20)
-                                .shadow(color: .gray, radius: 5, x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/)
-                            }
-                            .frame(width: geometry.size.width * 0.9, height: geometry.size.height * 0.55)
-
-                        }
-                        .frame(width: geometry.size.width, height: geometry.size.height * 0.55, alignment: .top)
+                        Text("Profile")
+                            .foregroundColor(Color.white)
+                            .font(.system(size: 30))
+                            .bold()
                     }
-                    .frame(width: geometry.size.width, height: geometry.size.height * 0.55)
+                    .frame(width: UIScreen.screenWidth * 0.5, height: UIScreen.screenHeight * 0.1, alignment: .center)
+                    
+                    VStack {
+                        
+                    }
+                    .frame(width: UIScreen.screenWidth * 0.25, height: UIScreen.screenHeight * 0.1, alignment: .center)
                 }
+                .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight * 0.1, alignment: .center)
             }
+            .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight * 0.14, alignment: .bottom)
+            .background(
+                LinearGradient(gradient: Gradient(colors: [Color("ClownBlue"), Color("ClownLightBlue")]), startPoint: .zero, endPoint: .trailing)
+            )
+            .shadow(color: Color.black.opacity(0.8), radius: 5, x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: 1.0)
         }
+        .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight * 0.15, alignment: .top)
+        .background(Color("ClownBlue"))
+    }
+}
+
+struct ProfileMiddle: View {
+    var body: some View {
+        ZStack {
+            VStack {
+                VStack {
+                    VStack {
+                        
+                    }
+                    .frame(width: UIScreen.screenHeight * 0.2, height: UIScreen.screenHeight * 0.2, alignment: .center)
+                    .background(Color.blue)
+                    .cornerRadius(1000)
+                    .overlay(
+                        Image("jan")
+                            .resizable()
+                            .cornerRadius(1000)
+                            .ignoresSafeArea()
+                            .frame(width: UIScreen.screenHeight * 0.2, height: UIScreen.screenHeight * 0.2, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    )
+                }
+                .frame(width: UIScreen.screenHeight * 0.26, height: UIScreen.screenHeight * 0.26, alignment: .center)
+                .background(Color("ClownSecondRing").opacity(0.23))
+                .cornerRadius(1000)
+            }
+            .frame(width: UIScreen.screenHeight * 0.32, height: UIScreen.screenHeight * 0.32, alignment: .center)
+            .background(Color("ClownFirstRing").opacity(0.15))
+            .cornerRadius(1000)
+        }
+        .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight * 0.35, alignment: .center)
+        .background(Color("ClownBlue"))
+    }
+}
+
+struct ProfileBottom: View {
+    var body: some View {
+        ZStack {
+            VStack {
+                VStack {
+                    
+                }
+                .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight * 0.05, alignment: .center)
+                .background(Color("ClownBlue"))
+                
+                VStack {
+                    
+                }
+                .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight * 0.45, alignment: .center)
+                .background(Color.white)
+            }
+            
+            VStack {
+                VStack {
+                    VStack {
+                        Text("Achievements")
+                            .foregroundColor(Color("ClownGray"))
+                            .font(.system(size: 20))
+                            .bold()
+                            .padding()
+                    }
+                    .frame(width: UIScreen.screenWidth * 0.85, height: UIScreen.screenHeight * 0.07, alignment: .leading)
+                    
+                    VStack {
+                        
+                    }
+                    .frame(width: UIScreen.screenWidth * 0.85, height: UIScreen.screenHeight * 0.15, alignment: .center)
+                }
+                .frame(width: UIScreen.screenWidth * 0.85, height: UIScreen.screenHeight * 0.22, alignment: .center)
+                .background(Color.white)
+                .cornerRadius(10.0)
+                .shadow(color: .gray, radius: 5, x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/)
+                    
+                Spacer()
+            
+                VStack {
+                    VStack {
+                        Text("Statistics")
+                            .foregroundColor(Color("ClownGray"))
+                            .font(.system(size: 20))
+                            .bold()
+                            .padding()
+                    }
+                    .frame(width: UIScreen.screenWidth * 0.85, height: UIScreen.screenHeight * 0.07, alignment: .leading)
+                    
+                    VStack {
+                        
+                    }
+                    .frame(width: UIScreen.screenWidth * 0.85, height: UIScreen.screenHeight * 0.15, alignment: .center)
+                }
+                .frame(width: UIScreen.screenWidth * 0.85, height: UIScreen.screenHeight * 0.22, alignment: .center)
+                .background(Color.white)
+                .cornerRadius(10.0)
+                .shadow(color: .gray, radius: 5, x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/)
+            }
+            .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight * 0.46)
+        }
+        .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight * 0.5, alignment: .top)
     }
 }
 
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileView()
+        VStack {
+            ProfileTop()
+            ProfileMiddle()
+            ProfileBottom()
+        }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
+        .background(Color("ClownYellowBackground")).ignoresSafeArea()
     }
 }
