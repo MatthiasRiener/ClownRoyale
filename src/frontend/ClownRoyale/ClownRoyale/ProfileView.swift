@@ -179,6 +179,23 @@ struct ProfileBottom: View {
     }
 }
 
+struct ProfileView: View {
+    var body: some View {
+        NavigationView {
+            VStack {
+                ProfileTop()
+                ProfileMiddle()
+                ProfileBottom()
+            }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
+            .background(Color("ClownYellowBackground")).ignoresSafeArea()
+        }.navigationBarTitle("")
+        .navigationBarHidden(true)
+            
+       
+        
+    }
+}
+
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
