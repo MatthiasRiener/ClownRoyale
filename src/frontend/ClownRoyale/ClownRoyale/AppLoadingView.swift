@@ -14,6 +14,10 @@ struct AppLoadingView: View {
   
     @State var startPoint = UnitPoint(x: 0, y: 0)
     @State var endPoint = UnitPoint(x: 0, y: 2)
+    
+    @State var selection: Int? = nil
+
+    
     var body: some View {
       
         ZStack(){
@@ -25,10 +29,16 @@ struct AppLoadingView: View {
             }
             
         }
-            Rectangle()
-                .fill(Color.red)
-                .frame(width: 300, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-            Text("ClownRoyale").foregroundColor(Color.white)
+                
+                ZStack() {
+                    Rectangle()
+                        .fill(Color.red)
+                        .frame(width: 300, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    Text("ClownRoyale").foregroundColor(Color.white)
+                }
+            
+            
+            
                 
         
     }

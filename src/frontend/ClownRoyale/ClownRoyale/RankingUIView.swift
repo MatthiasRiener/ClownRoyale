@@ -37,40 +37,50 @@ struct TopRankingPlayer: View {
 
 struct RankingPlayer: View {
     var position: Int
-    var body: some View {
-        
-        HStack(){
-            
-            Text("\(position)")
-            .fontWeight(.black)
-            //Profilbild
-            ProfilePicUIView()
-                .frame(height: 60)
+    @State var selection: Int? = 0
 
-            //Username
-            Text("Hans_Peter")
-                .font(.title2)
-                .fontWeight(.medium)
-                .foregroundColor(.secondary)
-                .lineLimit(1)
+
+    var body: some View {
+        NavigationLink(destination: Text("Test"), tag: 1, selection: $selection) {
+
+            HStack(){
+                
+                Text("\(position)")
+                .fontWeight(.black)
+                //Profilbild
+                ProfilePicUIView()
+                    .frame(height: 60)
+
+                //Username
+                Text("Hans_Peter")
+                    .font(.title2)
+                    .fontWeight(.medium)
+                    .foregroundColor(.secondary)
+                    .lineLimit(1)
+                
+                Spacer()
+                
+                //Status
+                Text("4269")
+                    .fontWeight(.bold)
+                    .padding(.horizontal, 15.0)
+                    .padding(.vertical, 10)
+                    .font(/*@START_MENU_TOKEN@*/.subheadline/*@END_MENU_TOKEN@*/)
+            }
             
-            Spacer()
-            
-            //Status
-            Text("4269")
-                .fontWeight(.bold)
-                .padding(.horizontal, 15.0)
-                .padding(.vertical, 10)
-                .font(/*@START_MENU_TOKEN@*/.subheadline/*@END_MENU_TOKEN@*/)
-        }
-        .padding(.vertical, 20)
-        .background(Color.white)
+            .padding(.vertical, 20)
+            .background(Color.white)
         
+        }.onTapGesture {
+            print("hallo!")
+        }
         Divider()
     }
 }
 
 struct RankingPlayerGroup: View {
+    @State private var willMoveToNextScreen = false
+
     var body: some View {
         
         ScrollView(.vertical, showsIndicators: true) {
@@ -89,6 +99,7 @@ struct RankingPlayerGroup: View {
                 .padding()
                 ForEach((4...10), id: \.self) {
                     RankingPlayer(position: $0)
+
                 }
             }
             .padding(.all, 15.0)
@@ -103,8 +114,10 @@ struct RankingPlayerGroup: View {
 
 struct RankingUIView: View {
     @State private var showingSheet = false
-    
+
     var body: some View {
+       
+            
         
         ZStack {
             LinearGradient(
@@ -160,8 +173,8 @@ struct RankingUIView: View {
         }
 
         
-    }
     
+    }
 }
 
 struct RankingPoints : View {
