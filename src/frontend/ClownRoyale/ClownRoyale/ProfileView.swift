@@ -16,7 +16,7 @@ struct ProfileTop: View {
                         
                     }.frame(width: UIScreen.screenWidth * 0.25, height: UIScreen.screenHeight * 0.1, alignment: .center)
                     
-                    VStack {
+                    HStack {
                         Text("Profile")
                             .foregroundColor(Color.white)
                             .font(.system(size: 30))
@@ -25,7 +25,19 @@ struct ProfileTop: View {
                     .frame(width: UIScreen.screenWidth * 0.5, height: UIScreen.screenHeight * 0.1, alignment: .center)
                     
                     VStack {
+                        RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
+                            .fill(Color.white)
+                            .frame(width: 6, height: 6, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                            .padding(.leading, 15)
+                        RoundedRectangle(cornerRadius: 25.0)
+                            .fill(Color.white)
+                            .frame(width: 6, height: 6, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                            .padding(.leading, 15)
                         
+                        RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
+                            .fill(Color.white)
+                            .frame(width: 6, height: 6, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                            .padding(.leading, 15)
                     }
                     .frame(width: UIScreen.screenWidth * 0.25, height: UIScreen.screenHeight * 0.1, alignment: .center)
                 }
@@ -35,7 +47,7 @@ struct ProfileTop: View {
             .background(
                 LinearGradient(gradient: Gradient(colors: [Color("ClownBlue"), Color("ClownLightBlue")]), startPoint: .zero, endPoint: .trailing)
             )
-            .shadow(color: Color.black.opacity(0.8), radius: 5, x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: 1.0)
+            .shadow(color: Color.black.opacity(0.8), radius: 4, x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: 1.0)
         }
         .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight * 0.15, alignment: .top)
         .background(Color("ClownBlue"))
@@ -65,10 +77,35 @@ struct ProfileMiddle: View {
                 .background(Color("ClownSecondRing").opacity(0.23))
                 .cornerRadius(1000)
             }
+            .padding()
             .frame(width: UIScreen.screenHeight * 0.32, height: UIScreen.screenHeight * 0.32, alignment: .center)
             .background(Color("ClownFirstRing").opacity(0.15))
             .cornerRadius(1000)
+            
+            VStack {
+                RoundedRectangle(cornerRadius: 1000)
+                    .fill(Color("ClownProfileGreen"))
+                    .frame(width: UIScreen.screenWidth * 0.4, height: UIScreen.screenHeight * 0.06, alignment: .center)
+                    .overlay(
+                        Text("Gregory")
+                            .font(.system(size: 22))
+                            .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                            .foregroundColor(.white)
+                    )
+                
+                RoundedRectangle(cornerRadius: 1000)
+                    .fill(Color("ClownYellow"))
+                    .frame(width: UIScreen.screenWidth * 0.2, height: UIScreen.screenHeight * 0.04, alignment: .center)
+                    .overlay(
+                        Text("18420")
+                            .font(.system(size: 14))
+                            .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                            .foregroundColor(.white)
+                    )
+            }
+            .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight * 0.32, alignment: .bottom)
         }
+        .padding(.top)
         .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight * 0.35, alignment: .center)
         .background(Color("ClownBlue"))
     }
@@ -136,6 +173,7 @@ struct ProfileBottom: View {
             }
             .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight * 0.46)
         }
+        .padding(.top, -10)
         .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight * 0.5, alignment: .top)
     }
 }

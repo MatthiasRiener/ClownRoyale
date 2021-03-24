@@ -10,7 +10,7 @@ import SwiftUI
 struct BoutiqueTop: View {
     var body: some View {
         VStack {
-            VStack {
+            HStack {
                 HStack {
                     VStack {
                         
@@ -36,10 +36,10 @@ struct BoutiqueTop: View {
             }
             .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight * 0.14, alignment: .bottom)
             .background(Color.white)
+            .shadow(color: Color.black.opacity(0.8), radius: 4, x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: 1.0)
         }
         .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight * 0.15, alignment: .top)
         .background(Color.white)
-        .shadow(color: Color.black.opacity(0.8), radius: 5, x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: 1.0)
     }
 }
 
