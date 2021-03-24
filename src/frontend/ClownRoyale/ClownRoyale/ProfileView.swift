@@ -47,7 +47,8 @@ struct ProfileTop: View {
             .background(
                 LinearGradient(gradient: Gradient(colors: [Color("ClownBlue"), Color("ClownLightBlue")]), startPoint: .zero, endPoint: .trailing)
             )
-            .shadow(color: Color.black.opacity(0.8), radius: 4, x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: 1.0)
+            .clipped()
+            .shadow(color: Color.black.opacity(0.8), radius: 5, x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: 0.0)
         }
         .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight * 0.15, alignment: .top)
         .background(Color("ClownBlue"))
