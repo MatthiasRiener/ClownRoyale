@@ -37,11 +37,12 @@ struct TopRankingPlayer: View {
 
 struct RankingPlayer: View {
     var position: Int
-    @State var selection: Int? = 0
 
+    @State private var goToNewView: Bool = false
 
+    
     var body: some View {
-        NavigationLink(destination: Text("Test"), tag: 1, selection: $selection) {
+        
 
             HStack(){
                 
@@ -67,14 +68,18 @@ struct RankingPlayer: View {
                     .padding(.vertical, 10)
                     .font(/*@START_MENU_TOKEN@*/.subheadline/*@END_MENU_TOKEN@*/)
             }
-            
+            .onTapGesture {
+                self.goToNewView.toggle()
+            }
             .padding(.vertical, 20)
             .background(Color.white)
         
-        }.onTapGesture {
-            print("hallo!")
-        }
+        
+    
         Divider()
+        
+        NavigationLink(destination: ProfileView(), isActive: self.$goToNewView) { EmptyView() }
+
     }
 }
 
@@ -117,7 +122,7 @@ struct RankingUIView: View {
 
     var body: some View {
        
-            
+        NavigationView {
         
         ZStack {
             LinearGradient(
@@ -172,8 +177,8 @@ struct RankingUIView: View {
             }
         }
 
-        
-    
+        }.navigationBarTitle("")
+        .navigationBarHidden(true)
     }
 }
 

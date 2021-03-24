@@ -13,13 +13,16 @@ import UIKit
 struct AppLoadingView: View {
   
     @State var startPoint = UnitPoint(x: 0, y: 0)
-    @State var endPoint = UnitPoint(x: 0, y: 2)
+    @State var endPoint = UnitPoint(x: 0, y: 0)
     
     @State var selection: Int? = nil
 
-    
+    @State private var goToNewView: Bool = false
+
     var body: some View {
-      
+        
+       
+        NavigationView {
         ZStack(){
         VStack(alignment: .center, spacing: 0) {
             Group{
@@ -29,19 +32,25 @@ struct AppLoadingView: View {
             }
             
         }
-                
+            
                 ZStack() {
                     Rectangle()
                         .fill(Color.red)
                         .frame(width: 300, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     Text("ClownRoyale").foregroundColor(Color.white)
+                }.onTapGesture {
+                    self.goToNewView.toggle()
                 }
             
+            }
+                
             
             
                 
+          
+        }.navigationBarHidden(true)
         
-    }
+        NavigationLink(destination: ProfileView(), isActive: self.$goToNewView) { EmptyView() }
 }
     
 }
