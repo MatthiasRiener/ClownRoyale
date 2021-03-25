@@ -44,7 +44,7 @@ struct ProfileStart: View {
                 .ignoresSafeArea()
                 .frame(width: UIScreen.screenHeight * 0.2, height: UIScreen.screenHeight * 0.2, alignment: .center)
         
-            NavigationLink(destination: NavigationView(){BoutiqueView()}.hiddenNavigationBarStyle()) {
+            NavigationLink(destination: NavigationView(){ProfileView()}.hiddenNavigationBarStyle()) {
                 
                 RoundedRectangle(cornerRadius: 1000)
                     .fill(Color("ClownProfileGreen"))
