@@ -247,12 +247,15 @@ struct BoutiqueBottom: View {
 
 struct BoutiqueView: View {
     var body: some View {
-        VStack {
-            BoutiqueTop()
-            BoutiqueMiddle()
-            BoutiqueBottom()
-        }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
-        .background(Color("ClownYellowBackground")).ignoresSafeArea()
+        NavigationView {
+            VStack {
+                BoutiqueTop()
+                BoutiqueMiddle()
+                BoutiqueBottom()
+            }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
+            .background(Color("ClownYellowBackground")).ignoresSafeArea()
+        }.hiddenNavigationBarStyle()
+        
     }
 }
 

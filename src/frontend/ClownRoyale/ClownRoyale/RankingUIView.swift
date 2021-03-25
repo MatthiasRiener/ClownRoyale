@@ -177,8 +177,7 @@ struct RankingUIView: View {
             }
         }
 
-        }.navigationBarTitle("")
-        .navigationBarHidden(true)
+        }
     }
 }
 

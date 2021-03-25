@@ -49,10 +49,13 @@ struct ProfileStart: View {
                     .fill(Color("ClownProfileGreen"))
                     .frame(width: UIScreen.screenWidth * 0.4, height: UIScreen.screenHeight * 0.06, alignment: .center)
                     .overlay(
-                        Text("Gregory")
-                            .font(.system(size: 22))
-                            .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                            .foregroundColor(.white)
+                        NavigationLink(destination: ProfileView()) {
+                            Text("Gregory")
+                                .font(.system(size: 22))
+                                .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                                .foregroundColor(.white)
+                        }
+                        
                     )
         }
     }
@@ -61,8 +64,11 @@ struct ProfileStart: View {
 
 struct MenuSwiftUIView: View {
     
-    
+    @State private var goToShop: Bool = false
+
     var body: some View {
+        NavigationView {
+             
         ZStack {
             Color("ClownYellowBackground")
                 .ignoresSafeArea()
@@ -107,7 +113,10 @@ struct MenuSwiftUIView: View {
                 VStack(alignment: .center, spacing: 20){
                     ProfileStart()
                     HStack() {
-                        PlayButton(bg: Color("ClownRed"), text: "PLAY")
+                        NavigationLink(destination: LobbyUIView()) {
+                            PlayButton(bg: Color("ClownRed"), text: "PLAY")
+                        }
+                        
                         PlayButton(bg: Color("ClownRed"), text: "CUSTOM GAME")
                             .opacity(0.5)
                     }
@@ -118,22 +127,33 @@ struct MenuSwiftUIView: View {
                 Spacer()
 
                     VStack(alignment: .center, spacing: 0){
-                        
-                        Text("SHOP")
-                            .fontWeight(.bold)
-                            .padding()
-                            .background(
-                                RoundedRectangle(
-                                    cornerRadius: 25)
-                                    .fill(Color("ClownYellow"))
-                            )
-                            .foregroundColor(.white)
-                            .font(/*@START_MENU_TOKEN@*/.subheadline/*@END_MENU_TOKEN@*/)
+                        NavigationLink(destination: BoutiqueView()) {
+                            Text("SHOP")
+                                .fontWeight(.bold)
+                                .padding()
+                                .background(
+                                    RoundedRectangle(
+                                        cornerRadius: 25)
+                                        .fill(Color("ClownYellow"))
+                                )
+                                .foregroundColor(.white)
+                                .font(/*@START_MENU_TOKEN@*/.subheadline/*@END_MENU_TOKEN@*/)
+                            
+                        }
                         Spacer()
+                        
                     }
                     .offset(x: UIScreen.screenWidth * -0.185, y: 0)
+                    
             }
-         }
+        }.hiddenNavigationBarStyle()
+        
+
+        }
+       
+        
+
+        
     }
 }
 

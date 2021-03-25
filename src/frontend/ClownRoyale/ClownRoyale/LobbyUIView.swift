@@ -67,6 +67,7 @@ struct PlayerRoom: View {
 //Gesamte Lobby View
 struct LobbyUIView: View {
     var body: some View {
+        NavigationView {
         ZStack {
             Color("ClownYellowBackground")
                 .ignoresSafeArea()
@@ -100,7 +101,9 @@ struct LobbyUIView: View {
                     .edgesIgnoringSafeArea(.all))
             }
             .background(Color("ClownYellowBackground"))
-         }
+        }.hiddenNavigationBarStyle()
+            
+        }
         
     }
 }
