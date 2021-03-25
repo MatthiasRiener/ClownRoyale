@@ -13,7 +13,16 @@ struct BoutiqueTop: View {
             HStack {
                 HStack {
                     VStack {
-                        
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(Color("ClownYellow"))
+                            .frame(width: UIScreen.screenWidth * 0.2, height: UIScreen.screenHeight * 0.06, alignment: .center)
+                            .overlay(
+                                Text("HOME")
+                                    .font(.headline)
+                                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                                    .foregroundColor(.white)
+                            )
+                            .padding()
                     }.frame(width: UIScreen.screenWidth * 0.25, height: UIScreen.screenHeight * 0.1, alignment: .center)
                     
                     VStack {

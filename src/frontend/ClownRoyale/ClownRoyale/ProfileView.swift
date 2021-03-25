@@ -13,7 +13,16 @@ struct ProfileTop: View {
             VStack {
                 HStack {
                     VStack {
-                        
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(Color("ClownYellow"))
+                            .frame(width: UIScreen.screenWidth * 0.2, height: UIScreen.screenHeight * 0.06, alignment: .center)
+                            .overlay(
+                                Text("HOME")
+                                    .font(.headline)
+                                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                                    .foregroundColor(.white)
+                            )
+                            .padding()
                     }.frame(width: UIScreen.screenWidth * 0.25, height: UIScreen.screenHeight * 0.1, alignment: .center)
                     
                     HStack {
@@ -187,7 +196,7 @@ struct ProfileView: View {
                 ProfileMiddle()
                 ProfileBottom()
             }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
-            .background(Color("ClownYellowBackground")).ignoresSafeArea()
+            .background(Color("ClownBlue")).ignoresSafeArea()
         }.navigationBarTitle("")
         .navigationBarHidden(true)
             
@@ -203,6 +212,6 @@ struct ProfileView_Previews: PreviewProvider {
             ProfileMiddle()
             ProfileBottom()
         }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
-        .background(Color("ClownYellowBackground")).ignoresSafeArea()
+        .background(Color("ClownBlue")).ignoresSafeArea()
     }
 }

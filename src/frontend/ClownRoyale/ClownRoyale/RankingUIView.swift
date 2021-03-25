@@ -167,6 +167,11 @@ struct RankingUIView: View {
         ))
         .navigationBarTitle(Text("Clown Ranking"), displayMode: .inline)
         .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                NavigationLink(destination : MenuSwiftUIView()) {
+                    Text("HOME")
+                }
+            }
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button("i") {
                             showingSheet.toggle()
