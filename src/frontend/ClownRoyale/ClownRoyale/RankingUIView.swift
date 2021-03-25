@@ -175,9 +175,9 @@ struct RankingUIView: View {
                             RankingPoints()
                         }
             }
-        }
+        } 
 
-        }
+        }.hiddenNavigationBarStyle()
     }
 }
 

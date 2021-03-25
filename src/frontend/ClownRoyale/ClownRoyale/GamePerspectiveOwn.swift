@@ -9,13 +9,16 @@ import SwiftUI
 
 struct GamePerspectiveOwn: View {
     var body: some View {
-        VStack(
-        ) {
-            GamePerspectiveTop()
-            GamePerspectiveContentMain()
-            GamePerspectiveBottom()
-        }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
-        .background(Color("ClownYellowBackground")).ignoresSafeArea()
+        NavigationView {
+            VStack(
+            ) {
+                GamePerspectiveTop()
+                GamePerspectiveContentMain()
+                GamePerspectiveBottom()
+            }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
+            .background(Color("ClownYellowBackground")).ignoresSafeArea()
+        }.hiddenNavigationBarStyle()
+        
         
    
     }
@@ -83,17 +86,19 @@ struct RatingButton: View {
     var rating: Int
     
     var body: some View {
+        NavigationLink(destination: CategorySelectionView()) {
+            RoundedRectangle(cornerRadius: 15)
+                .fill(bg)
+                .frame(width: UIScreen.screenWidth / 10 * 4, height: 90, alignment: .center)
+                .overlay(
+                    Text("\(rating)")
+                        .font(.system(size: 21))
+                        .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                        .padding()
+                        .foregroundColor(.white)
+                )
+        }
         
-        RoundedRectangle(cornerRadius: 15)
-            .fill(bg)
-            .frame(width: UIScreen.screenWidth / 10 * 4, height: 90, alignment: .center)
-            .overlay(
-                Text("\(rating)")
-                    .font(.system(size: 21))
-                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                    .padding()
-                    .foregroundColor(.white)
-            )
     }
 }
 

@@ -149,7 +149,7 @@ struct MenuSwiftUIView: View {
         }.hiddenNavigationBarStyle()
         
 
-        }
+        }.hiddenNavigationBarStyle()
        
         
 

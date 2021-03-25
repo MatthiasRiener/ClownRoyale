@@ -9,15 +9,18 @@ import SwiftUI
 
 struct GamePerspectiveOwnView: View {
     var body: some View {
-        VStack(
-        ) {
-            GamePerspectiveTopContainer()
-            GamePerspectiveMainContainer()
-            GamePerspectiveBottomContainer()
+        NavigationView {
+            VStack(
+            ) {
+                GamePerspectiveTopContainer()
+                GamePerspectiveMainContainer()
+                GamePerspectiveBottomContainer()
 
-    
-        }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
-        .background(Color("ClownYellowBackground")).ignoresSafeArea()
+        
+            }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
+            .background(Color("ClownYellowBackground")).ignoresSafeArea().hiddenNavigationBarStyle()
+        }.hiddenNavigationBarStyle()
+        
         
    
     }
@@ -92,25 +95,28 @@ struct GamePerspectiveMainContainer: View {
 struct GamePerspectiveBottomContainer: View {
     var body: some View {
         VStack() {
-            Text("Finished")
-                .font(.title)
-                .fontWeight(.bold)
-                .multilineTextAlignment(.center)
-                .foregroundColor(.white)
-                .padding()
-            .frame(
-                maxWidth: .infinity,
-                maxHeight: 90
-            )
-            .background(
-                LinearGradient(
-                    gradient: Gradient(
-                        colors: [Color("ClownYellow"),
-                                 Color("ClownYellowHell")]),
-                    startPoint: .leading,
-                    endPoint: .trailing
+            NavigationLink(destination: RankingUIView()) {
+                Text("Finished")
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .multilineTextAlignment(.center)
+                    .foregroundColor(.white)
+                    .padding()
+                .frame(
+                    maxWidth: .infinity,
+                    maxHeight: 90
                 )
-            .edgesIgnoringSafeArea(.bottom))
+                .background(
+                    LinearGradient(
+                        gradient: Gradient(
+                            colors: [Color("ClownYellow"),
+                                     Color("ClownYellowHell")]),
+                        startPoint: .leading,
+                        endPoint: .trailing
+                    )
+                .edgesIgnoringSafeArea(.bottom))
+            }
+            
         }.frame(width: .infinity, height: 120, alignment: .bottom)
         
     }

@@ -66,6 +66,7 @@ struct CategoryBox: View {
 
 struct CategorySelectionView: View {
     var body: some View {
+        NavigationView {
         ZStack {
             Color("ClownYellowBackground")
                 .ignoresSafeArea()
@@ -84,28 +85,30 @@ struct CategorySelectionView: View {
 
                 CategoryBox()
                     .padding(.horizontal, 15)
+                NavigationLink(destination: GamePerspectiveOwnView()) {
+                    Text("NEXT")
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .foregroundColor(.white)
+                        .padding()
+                        .frame(
+                        maxWidth: .infinity
+                        )
+                        .background(
+                            LinearGradient(
+                                gradient: Gradient(
+                                    colors: [Color("ClownYellow"),
+                                             Color("ClownYellowHell")]),
+                                startPoint: .leading,
+                                endPoint: .trailing
+                        )
+                            .edgesIgnoringSafeArea(.all)).background(Color("ClownYellowBackground"))
+                }
+                }
                 
-                Text("NEXT")
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .foregroundColor(.white)
-                    .padding()
-                    .frame(
-                    maxWidth: .infinity
-                    )
-                    .background(
-                        LinearGradient(
-                            gradient: Gradient(
-                                colors: [Color("ClownYellow"),
-                                         Color("ClownYellowHell")]),
-                            startPoint: .leading,
-                            endPoint: .trailing
-                    )
-                    .edgesIgnoringSafeArea(.all))
-            }
-            .background(Color("ClownYellowBackground"))
-         }
-        
+                
+        }.hiddenNavigationBarStyle()
+        }.hiddenNavigationBarStyle()
     }
 }
 struct CategorySelectionView_Previews: PreviewProvider {

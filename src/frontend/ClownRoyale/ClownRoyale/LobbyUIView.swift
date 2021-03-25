@@ -81,29 +81,31 @@ struct LobbyUIView: View {
                 
                 PlayerRoom()
                     .padding(.horizontal, 15)
+                NavigationLink(destination: GamePerspectiveOwn()) {
+                    Text("READY UP")
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .foregroundColor(.white)
+                        .padding()
+                        .frame(
+                        maxWidth: .infinity
+                        )
+                        .background(
+                            LinearGradient(
+                                gradient: Gradient(
+                                    colors: [Color("ClownYellow"),
+                                             Color("ClownYellowHell")]),
+                                startPoint: .leading,
+                                endPoint: .trailing
+                        )
+                        .edgesIgnoringSafeArea(.all))
+                }
+                .background(Color("ClownYellowBackground"))
+                }
                 
-                Text("READY UP")
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .foregroundColor(.white)
-                    .padding()
-                    .frame(
-                    maxWidth: .infinity
-                    )
-                    .background(
-                        LinearGradient(
-                            gradient: Gradient(
-                                colors: [Color("ClownYellow"),
-                                         Color("ClownYellowHell")]),
-                            startPoint: .leading,
-                            endPoint: .trailing
-                    )
-                    .edgesIgnoringSafeArea(.all))
-            }
-            .background(Color("ClownYellowBackground"))
         }.hiddenNavigationBarStyle()
             
-        }
+        }.hiddenNavigationBarStyle()
         
     }
 }
