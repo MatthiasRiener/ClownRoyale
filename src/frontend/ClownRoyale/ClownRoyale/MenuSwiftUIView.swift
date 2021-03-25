@@ -44,19 +44,19 @@ struct ProfileStart: View {
                 .ignoresSafeArea()
                 .frame(width: UIScreen.screenHeight * 0.2, height: UIScreen.screenHeight * 0.2, alignment: .center)
         
-            
+            NavigationLink(destination: NavigationView(){BoutiqueView()}.hiddenNavigationBarStyle()) {
+                
                 RoundedRectangle(cornerRadius: 1000)
                     .fill(Color("ClownProfileGreen"))
                     .frame(width: UIScreen.screenWidth * 0.4, height: UIScreen.screenHeight * 0.06, alignment: .center)
                     .overlay(
-                        NavigationLink(destination: ProfileView()) {
                             Text("Gregory")
                                 .font(.system(size: 22))
                                 .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                                 .foregroundColor(.white)
-                        }
                         
                     )
+        }
         }
     }
 }
@@ -130,7 +130,7 @@ struct MenuSwiftUIView: View {
                 Spacer()
 
                     VStack(alignment: .center, spacing: 0){
-                        NavigationLink(destination: BoutiqueView()) {
+                        NavigationLink(destination: NavigationView(){BoutiqueView()}.hiddenNavigationBarStyle()) {
                             Text("SHOP")
                                 .fontWeight(.bold)
                                 .padding()

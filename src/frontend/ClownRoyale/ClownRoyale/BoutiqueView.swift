@@ -7,23 +7,45 @@
 
 import SwiftUI
 
-struct BoutiqueTop: View {
+struct HomeButton: View {
     var body: some View {
+        
+            
+                RoundedRectangle(cornerRadius: 10)
+                    .fill(Color("ClownYellow"))
+                    .frame(width: UIScreen.screenWidth * 0.2, height: UIScreen.screenHeight * 0.06, alignment: .center)
+                    .overlay(
+                        
+                            Text("HOME")
+                                .font(.headline)
+                                .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                                .foregroundColor(.white)
+                        
+                        
+                    )
+                    .padding()
+           
+            
+       
+    }
+}
+
+
+struct BoutiqueTop: View {
+  
+    
+    var body: some View {
+       
         VStack {
             HStack {
                 HStack {
                     VStack {
-                        RoundedRectangle(cornerRadius: 10)
-                            .fill(Color("ClownYellow"))
-                            .frame(width: UIScreen.screenWidth * 0.2, height: UIScreen.screenHeight * 0.06, alignment: .center)
-                            .overlay(
-                                Text("HOME")
-                                    .font(.headline)
-                                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                                    .foregroundColor(.white)
-                            )
-                            .padding()
-                    }.frame(width: UIScreen.screenWidth * 0.25, height: UIScreen.screenHeight * 0.1, alignment: .center)
+                        
+                            NavigationLink(destination: MenuSwiftUIView()) {
+                        HomeButton()
+                        }.hiddenNavigationBarStyle()
+                            
+                    }.frame(width: UIScreen.screenWidth * 0.25, height:     UIScreen.screenHeight * 0.1, alignment: .center)
                     
                     VStack {
                         Text("Clown Boutique")
@@ -50,6 +72,7 @@ struct BoutiqueTop: View {
         }
         .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight * 0.15, alignment: .top)
         .background(Color.white)
+    
     }
 }
 
@@ -63,11 +86,13 @@ struct BoutiqueMiddle: View {
             .background(Color.white)
             
             HStack {
-                Text("TODAY")
-                    .foregroundColor(Color("ClownGray"))
-                    .font(.system(size: 26))
-                    .bold()
-                    .padding()
+                    Text("TODAY")
+                        .foregroundColor(Color("ClownGray"))
+                        .font(.system(size: 26))
+                        .bold()
+                        .padding()
+                
+                
                 Spacer()
                 Text("8h 49min")
                     .foregroundColor(Color("ClownGray"))
