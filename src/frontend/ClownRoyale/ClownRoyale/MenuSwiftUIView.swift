@@ -117,8 +117,11 @@ struct MenuSwiftUIView: View {
                             PlayButton(bg: Color("ClownRed"), text: "PLAY")
                         }
                         
-                        PlayButton(bg: Color("ClownRed"), text: "CUSTOM GAME")
-                            .opacity(0.5)
+                        NavigationLink(destination: LoadingUIView()) {
+                            
+                            PlayButton(bg: Color("ClownRed"), text: "CUSTOM GAME")
+                                .opacity(0.5)
+                        }
                     }
                 }
             }
