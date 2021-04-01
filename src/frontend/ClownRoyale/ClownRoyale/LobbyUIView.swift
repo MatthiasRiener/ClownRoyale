@@ -102,6 +102,7 @@ struct LobbyUIView: View {
                 }
                 .background(Color("ClownYellowBackground"))
                 }
+
                 
         }.hiddenNavigationBarStyle()
             

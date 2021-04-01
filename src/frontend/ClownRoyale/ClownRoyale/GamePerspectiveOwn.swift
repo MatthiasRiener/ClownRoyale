@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct GamePerspectiveOwn: View {
+    
+     var videoChat = VideoChatController()
+    
     var body: some View {
         NavigationView {
             VStack(
@@ -18,6 +21,10 @@ struct GamePerspectiveOwn: View {
             }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
             .background(Color("ClownYellowBackground")).ignoresSafeArea()
         }.hiddenNavigationBarStyle()
+        .onAppear(perform: {
+            print("servus")
+            videoChat.hello()
+        })
         
         
    
@@ -41,6 +48,7 @@ struct GamePerspectiveContentMain: View {
                             .ignoresSafeArea()
                             .frame(width: UIScreen.screenWidth / 10 * 8.5 - 10, height: UIScreen.screenWidth / 10 * 8.5 - 10, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     )
+
                 
                 
                 RoundedRectangle(cornerRadius: 15)

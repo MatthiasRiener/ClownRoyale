@@ -23,6 +23,7 @@ struct PlayButton: View {
         RoundedRectangle(cornerRadius: 15)
             .fill(bg)
             .frame(width: UIScreen.screenWidth / 10 * 4, height: 90, alignment: .center)
+            .shadow(color: Color("ClownRed"), radius: 5, x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/)
             .overlay(
                 Text("\(text)")
                     .font(.system(size: 21))
@@ -138,9 +139,10 @@ struct MenuSwiftUIView: View {
                                     RoundedRectangle(
                                         cornerRadius: 25)
                                         .fill(Color("ClownYellow"))
+                                        
                                 )
                                 .foregroundColor(.white)
-                                .font(/*@START_MENU_TOKEN@*/.subheadline/*@END_MENU_TOKEN@*/)
+                                .font(.subheadline)
                             
                         }
                         Spacer()
@@ -149,14 +151,11 @@ struct MenuSwiftUIView: View {
                     .offset(x: UIScreen.screenWidth * -0.185, y: 0)
                     
             }
-        }.hiddenNavigationBarStyle()
+        }
+        .hiddenNavigationBarStyle()
         
 
         }.hiddenNavigationBarStyle()
-       
-        
-
-        
     }
 }
 
