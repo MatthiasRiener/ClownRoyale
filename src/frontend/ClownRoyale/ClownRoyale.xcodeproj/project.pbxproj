@@ -10,9 +10,6 @@
 		302A40A3260B62510073069B /* CategorySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302A40A2260B62510073069B /* CategorySelectionView.swift */; };
 		3084564C25FA6B0100555B80 /* AppLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084564B25FA6B0100555B80 /* AppLoadingView.swift */; };
 		7C34F0AB260BCBCB00278C84 /* MenuSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C34F0AA260BCBCB00278C84 /* MenuSwiftUIView.swift */; };
-		7C4588352615B9BB0091F33A /* VideoChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4588342615B9BB0091F33A /* VideoChat.swift */; };
-		7C45883A2615C3D00091F33A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4588392615C3D00091F33A /* Utils.swift */; };
-		7C45883F2615C4CB0091F33A /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C45883E2615C4CB0091F33A /* Settings.swift */; };
 		7C739D0726039147009F5626 /* RankingUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C739D0626039146009F5626 /* RankingUIView.swift */; };
 		7C9BB1AC25FA4DA600EB3574 /* LobbyUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9BB1AB25FA4DA600EB3574 /* LobbyUIView.swift */; };
 		7C9BB1B125FA591D00EB3574 /* ProfilePicUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9BB1B025FA591D00EB3574 /* ProfilePicUIView.swift */; };
@@ -58,9 +55,6 @@
 		6A031E8648C764ED67F8FEA1 /* Pods-ClownRoyaleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClownRoyaleTests.release.xcconfig"; path = "Target Support Files/Pods-ClownRoyaleTests/Pods-ClownRoyaleTests.release.xcconfig"; sourceTree = "<group>"; };
 		74B11B0037AF0B7B8FE3937F /* Pods_ClownRoyale_ClownRoyaleUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClownRoyale_ClownRoyaleUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C34F0AA260BCBCB00278C84 /* MenuSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSwiftUIView.swift; sourceTree = "<group>"; };
-		7C4588342615B9BB0091F33A /* VideoChat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoChat.swift; sourceTree = SOURCE_ROOT; };
-		7C4588392615C3D00091F33A /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
-		7C45883E2615C4CB0091F33A /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		7C739D0626039146009F5626 /* RankingUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingUIView.swift; sourceTree = "<group>"; };
 		7C9BB1AB25FA4DA600EB3574 /* LobbyUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LobbyUIView.swift; sourceTree = "<group>"; };
 		7C9BB1B025FA591D00EB3574 /* ProfilePicUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePicUIView.swift; sourceTree = "<group>"; };
@@ -155,9 +149,6 @@
 		7CC6CD6E25F91A8C009C4C02 /* ClownRoyale */ = {
 			isa = PBXGroup;
 			children = (
-				7C4588342615B9BB0091F33A /* VideoChat.swift */,
-				7C45883E2615C4CB0091F33A /* Settings.swift */,
-				7C4588392615C3D00091F33A /* Utils.swift */,
 				7CC6CD6F25F91A8C009C4C02 /* ClownRoyaleApp.swift */,
 				7CC6CD7125F91A8C009C4C02 /* ContentView.swift */,
 				7CC6CDE925F92327009C4C02 /* LoadingUIView.swift */,
@@ -227,6 +218,7 @@
 				7CC6CD6925F91A8C009C4C02 /* Frameworks */,
 				7CC6CD6A25F91A8C009C4C02 /* Resources */,
 				3C3091A44551D84CA1FD6AEF /* [CP] Embed Pods Frameworks */,
+				EAE9E83C45B37E64938D318D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -265,6 +257,7 @@
 				7CC6CD8525F91A8E009C4C02 /* Frameworks */,
 				7CC6CD8625F91A8E009C4C02 /* Resources */,
 				CFB98BC2FFBFB920BA4661AC /* [CP] Embed Pods Frameworks */,
+				B47D1BA51FB3469A7373AD91 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -384,6 +377,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ClownRoyale/Pods-ClownRoyale-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		B47D1BA51FB3469A7373AD91 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ClownRoyale-ClownRoyaleUITests/Pods-ClownRoyale-ClownRoyaleUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ClownRoyale-ClownRoyaleUITests/Pods-ClownRoyale-ClownRoyaleUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ClownRoyale-ClownRoyaleUITests/Pods-ClownRoyale-ClownRoyaleUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		CFB98BC2FFBFB920BA4661AC /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -423,6 +433,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		EAE9E83C45B37E64938D318D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ClownRoyale/Pods-ClownRoyale-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ClownRoyale/Pods-ClownRoyale-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ClownRoyale/Pods-ClownRoyale-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		FAF8EA9F3AE621BE174028B9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -454,13 +481,10 @@
 			files = (
 				DDED29C626088DEE00793477 /* GamePerspectiveOwn.swift in Sources */,
 				DD786158260C788E00E28875 /* ViewModifiers.swift in Sources */,
-				7C4588352615B9BB0091F33A /* VideoChat.swift in Sources */,
-				7C45883F2615C4CB0091F33A /* Settings.swift in Sources */,
 				7CC6CD7225F91A8C009C4C02 /* ContentView.swift in Sources */,
 				3084564C25FA6B0100555B80 /* AppLoadingView.swift in Sources */,
 				7C34F0AB260BCBCB00278C84 /* MenuSwiftUIView.swift in Sources */,
 				DD8BED922608E8C700B417EE /* GamePerspectiveOwnView.swift in Sources */,
-				7C45883A2615C3D00091F33A /* Utils.swift in Sources */,
 				7C9BB1AC25FA4DA600EB3574 /* LobbyUIView.swift in Sources */,
 				7CC6CDEA25F92327009C4C02 /* LoadingUIView.swift in Sources */,
 				A9B28469260B800C006FFB54 /* ProfileView.swift in Sources */,
