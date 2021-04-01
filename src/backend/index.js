@@ -26,7 +26,7 @@ app.get('/accessToken', (req, res) => {
 
     // Grant access to Video
     var grant = new VideoGrant();
-    grant.room = 'cool room';
+    grant.room = 'ClownLobby';
     accessToken.addGrant(grant);
 
     // Serialize the token as a JWT

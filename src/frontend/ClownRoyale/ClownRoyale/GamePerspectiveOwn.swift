@@ -9,12 +9,14 @@ import SwiftUI
 
 struct GamePerspectiveOwn: View {
     
-     var videoChat = VideoChatController()
+    var videoChat = VideoChatController()
+    @State private var videoStream = VideoView()
     
     var body: some View {
         NavigationView {
             VStack(
             ) {
+                videoStream
                 GamePerspectiveTop()
                 GamePerspectiveContentMain()
                 GamePerspectiveBottom()
@@ -23,11 +25,17 @@ struct GamePerspectiveOwn: View {
         }.hiddenNavigationBarStyle()
         .onAppear(perform: {
             print("servus")
-            videoChat.hello()
+            videoChat.connect(view: videoStream)
         })
         
         
    
+    }
+}
+
+struct VideoView : View {
+    var body : some View {
+        Text("jfal")
     }
 }
 
