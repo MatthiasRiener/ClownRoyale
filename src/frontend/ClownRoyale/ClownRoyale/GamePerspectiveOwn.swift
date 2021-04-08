@@ -6,19 +6,8 @@
 //
 
 import SwiftUI
-import AgoraUIKit
 
-struct AgoraVideo : UIViewControllerRepresentable {
-    typealias UIViewControllerType = AgoraVideoViewController
 
-    func makeUIViewController(context: Context) -> AgoraVideoViewController {
-        AgoraVideoViewController(appID: "3bf64b431a4f4229b98b3e70082a0c17", channel: "ClownLobby")
-    }
-
-    func updateUIViewController(_ uiViewController: AgoraVideoViewController, context: Context) {
-
-    }
-}
 
 struct GamePerspectiveOwn: View {
     
@@ -27,9 +16,9 @@ struct GamePerspectiveOwn: View {
             VStack(
             ) {
                 AgoraVideo()
-                GamePerspectiveTop()
-                GamePerspectiveContentMain()
-                GamePerspectiveBottom()
+                //GamePerspectiveTop()
+                //GamePerspectiveContentMain()
+                //GamePerspectiveBottom()
             }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
             .background(Color("ClownYellowBackground")).ignoresSafeArea()
         }.hiddenNavigationBarStyle()

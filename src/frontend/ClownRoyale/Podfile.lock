@@ -1,0 +1,20 @@
+PODS:
+  - AgoraRtcEngine_iOS (3.3.0)
+  - AgoraUIKit (0.0.5):
+    - AgoraRtcEngine_iOS (~> 3.0)
+
+DEPENDENCIES:
+  - AgoraUIKit
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - AgoraRtcEngine_iOS
+    - AgoraUIKit
+
+SPEC CHECKSUMS:
+  AgoraRtcEngine_iOS: 1a0adbf959ab5175b700c8bab30b1346fc27ef1a
+  AgoraUIKit: 970b3c98a43ad6e46b1bb6eca7f05ed8b3b964e0
+
+PODFILE CHECKSUM: 96f520cde502d0fc2cd129de513e375f5167e77e
+
+COCOAPODS: 1.9.3
