@@ -1,24 +1,133 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4cc-Ba-gQD">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ClownRoyale" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="20" y="94"/>
+        </scene>
+        <!--Main View Controller-->
+        <scene sceneID="2AY-X8-m1e">
+            <objects>
+                <viewController id="4cc-Ba-gQD" customClass="MainViewController" customModule="VideoChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tHI-YQ-v6U"/>
+                        <viewControllerLayoutGuide type="bottom" id="p2C-yn-bKl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7yE-e8-IMT">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zelt" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XQs-YN-reA">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5HN-K0-qLe">
+                                <rect key="frame" x="31" y="179" width="352" height="538"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="2ZK-ap-Yt6">
+                                        <rect key="frame" x="183.5" y="443" width="158.5" height="75"/>
+                                        <color key="backgroundColor" name="ClownRedHell"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="75" id="w9K-iG-fpf"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="CUSTOM GAME"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="KB6-gZ-iOD">
+                                        <rect key="frame" x="10" y="443" width="158.5" height="75"/>
+                                        <color key="backgroundColor" name="ClownRedHell"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="75" id="TEf-nR-TTF"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="PLAY"/>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="KB6-gZ-iOD" firstAttribute="width" secondItem="5HN-K0-qLe" secondAttribute="width" multiplier="0.45" id="3CJ-Xd-g4R"/>
+                                    <constraint firstAttribute="bottom" secondItem="KB6-gZ-iOD" secondAttribute="bottom" constant="20" id="59l-Nr-of6"/>
+                                    <constraint firstItem="2ZK-ap-Yt6" firstAttribute="width" secondItem="5HN-K0-qLe" secondAttribute="width" multiplier="0.45" id="9f1-vb-fUh"/>
+                                    <constraint firstAttribute="bottom" secondItem="2ZK-ap-Yt6" secondAttribute="bottom" constant="20" id="PCI-QY-5Tb"/>
+                                    <constraint firstAttribute="trailing" secondItem="2ZK-ap-Yt6" secondAttribute="trailing" constant="10" id="R53-aI-MHE"/>
+                                    <constraint firstItem="KB6-gZ-iOD" firstAttribute="leading" secondItem="5HN-K0-qLe" secondAttribute="leading" constant="10" id="gFk-MA-TCB"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DlK-7B-zvl">
+                                <rect key="frame" x="0.0" y="787" width="414" height="75"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CLOWNROYALE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lBU-SY-R4w">
+                                        <rect key="frame" x="94.5" y="19.5" width="225.5" height="36"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="ClownYellow"/>
+                                <constraints>
+                                    <constraint firstItem="lBU-SY-R4w" firstAttribute="centerX" secondItem="DlK-7B-zvl" secondAttribute="centerX" id="OUx-IJ-m6O"/>
+                                    <constraint firstAttribute="height" constant="75" id="Tkh-i5-Tdf"/>
+                                    <constraint firstItem="lBU-SY-R4w" firstAttribute="centerY" secondItem="DlK-7B-zvl" secondAttribute="centerY" id="lXb-uz-UTm"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" name="ClownYellow"/>
+                        <constraints>
+                            <constraint firstItem="5HN-K0-qLe" firstAttribute="height" secondItem="7yE-e8-IMT" secondAttribute="height" multiplier="0.6" id="2wh-cH-Lop"/>
+                            <constraint firstItem="p2C-yn-bKl" firstAttribute="top" secondItem="XQs-YN-reA" secondAttribute="bottom" id="61F-1Y-lLC"/>
+                            <constraint firstAttribute="trailing" secondItem="XQs-YN-reA" secondAttribute="trailing" id="7z7-Ad-FZT"/>
+                            <constraint firstItem="p2C-yn-bKl" firstAttribute="top" secondItem="DlK-7B-zvl" secondAttribute="bottom" id="8UP-Uu-9WF"/>
+                            <constraint firstItem="XQs-YN-reA" firstAttribute="leading" secondItem="7yE-e8-IMT" secondAttribute="leading" id="YwD-WL-biv"/>
+                            <constraint firstItem="5HN-K0-qLe" firstAttribute="centerX" secondItem="7yE-e8-IMT" secondAttribute="centerX" id="f4t-bd-GIO"/>
+                            <constraint firstItem="XQs-YN-reA" firstAttribute="top" secondItem="7yE-e8-IMT" secondAttribute="top" id="fck-M7-0so"/>
+                            <constraint firstItem="5HN-K0-qLe" firstAttribute="centerY" secondItem="7yE-e8-IMT" secondAttribute="centerY" id="hm4-z5-KK0"/>
+                            <constraint firstItem="5HN-K0-qLe" firstAttribute="width" secondItem="7yE-e8-IMT" secondAttribute="width" multiplier="0.85" id="nMl-WS-gGx"/>
+                            <constraint firstItem="DlK-7B-zvl" firstAttribute="leading" secondItem="7yE-e8-IMT" secondAttribute="leading" id="nWY-2O-qvV"/>
+                            <constraint firstAttribute="trailing" secondItem="DlK-7B-zvl" secondAttribute="trailing" id="uHi-9Q-EBj"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="UKC-ub-avg"/>
+                    <connections>
+                        <outlet property="busImage" destination="XQs-YN-reA" id="85u-ij-abK"/>
+                        <outlet property="createButton" destination="2ZK-ap-Yt6" id="s3N-3f-wdq"/>
+                        <outlet property="menuView" destination="5HN-K0-qLe" id="w1P-ta-dqr"/>
+                        <outlet property="playButton" destination="KB6-gZ-iOD" id="K17-DH-8bk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="agb-fL-VK6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="899" y="94"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="zelt" width="2382" height="3368"/>
+        <namedColor name="ClownRedHell">
+            <color red="0.96470588235294119" green="0.27843137254901962" blue="0.27843137254901962" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="ClownYellow">
+            <color red="1" green="0.70588235294117652" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
