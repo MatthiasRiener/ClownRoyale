@@ -13,6 +13,8 @@ class MainViewController: UIViewController {
     @IBOutlet weak var createButton: UIButton!
     @IBOutlet weak var busImage: UIImageView!
     @IBOutlet weak var menuView: UIView!
+    @IBOutlet weak var bottomText: UIView!
+    @IBOutlet var pageView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,25 +39,30 @@ class MainViewController: UIViewController {
         
         //Profile-Background
         let profileBackground = ProfileMainView()
-        profileBackground.frame = CGRect(x: 0, y: 0, width: menuView.bounds.width - 20, height: menuView.bounds.height * 0.5)
-        //myView.backgroundColor = .blue
+        print(menuView.bounds.origin.x)
+        print(menuView.bounds.width)
+        profileBackground.frame = CGRect(x: 0, y: 0, width: menuView.bounds.width, height: menuView.bounds.height * 0.5)
+        
+        //important!!!! subview wird automatisch an parent angepasst, wenn autolayout engine fertig ist
+        profileBackground.autoresizingMask = [.flexibleWidth]
+        //profileBackground.backgroundColor = .blue
         
         
         //ClownImage
         let profileImage = UIImage(named: "clown")
         let profileImageView = UIImageView(frame:
                                         CGRect(
-                                            x: profileBackground.bounds.width/2 - (profileBackground.frame.height*0.8)/2,
-                                            y: profileBackground.bounds.height/2 - (profileBackground.frame.height*0.8)/2,
+                                            x: profileBackground.frame.width/2 - (profileBackground.frame.height*0.8)/2,
+                                            y: profileBackground.frame.height/2 - (profileBackground.frame.height*0.8)/2,
                                             width: profileBackground.frame.height * 0.8,
                                             height: profileBackground.frame.height * 0.8
                                         ))
-        
         profileImageView.image = profileImage
         profileImageView.layer.masksToBounds = false
         profileImageView.layer.cornerRadius = profileImageView.frame.height/2
         profileImageView.clipsToBounds = true
-        
+        profileImageView.autoresizingMask = [.flexibleLeftMargin, .flexibleRightMargin]
+        //profileImageView.backgroundColor = .red
         
         //Profilename
         let profileNameButton = UIButton(frame: CGRect(x: (menuView.bounds.width - 20)/2 - (menuView.bounds.width / 4), y: profileBackground.bounds.height - 25, width: menuView.bounds.width / 2, height: 50))
@@ -72,6 +79,28 @@ class MainViewController: UIViewController {
         menuView.addSubview(profileImageView)
         menuView.addSubview(profileNameButton)
         //menuView.backgroundColor = .yellow
+        
+        
+        let gradient = CAGradientLayer()
+
+        gradient.frame = bottomText.bounds
+        gradient.colors = [UIColor(named: "ClownYellowHell")?.cgColor as Any, UIColor(named: "ClownYellow")?.cgColor as Any]
+        gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
+        gradient.endPoint = CGPoint(x: 1.0, y: 0.5)
+        
+        bottomText.layer.insertSublayer(gradient, at: 0)
+        
+        
+        let gradient2 = CAGradientLayer()
+
+        gradient2.frame = pageView.bounds
+        gradient2.colors = [UIColor(named: "ClownYellowHell")?.cgColor as Any, UIColor(named: "ClownYellow")?.cgColor as Any]
+        gradient2.startPoint = CGPoint(x: 0.0, y: 0.5)
+        gradient2.endPoint = CGPoint(x: 1.0, y: 0.5)
+        
+        //gradient.frame = pageView.bounds
+
+        pageView.layer.insertSublayer(gradient2, at: 0)
         
     }
     

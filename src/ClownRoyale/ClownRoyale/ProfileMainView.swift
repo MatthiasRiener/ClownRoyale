@@ -9,12 +9,14 @@ class ProfileMainView: UIView {
     
     internal func drawProfile() -> () {
         
+        print(bounds.size.width)
         let halfSize:CGFloat = min( bounds.size.width/2, bounds.size.height/2)
+        print(halfSize)
         let desiredLineWidth:CGFloat = 10
             
         //Background Circle
         let circlePath = UIBezierPath(
-                arcCenter: CGPoint(x:halfSize + halfSize/4,y:halfSize),
+                arcCenter: CGPoint(x:bounds.size.width/2,y:halfSize),
                 radius: CGFloat( halfSize - (desiredLineWidth/2) ),
                 startAngle: CGFloat(0),
             endAngle:CGFloat(Double.pi * 2),
