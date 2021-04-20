@@ -24,6 +24,21 @@
             </objects>
             <point key="canvasLocation" x="20" y="94"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="on3-0F-p5m">
+            <objects>
+                <viewController id="gKT-Nx-Nhx" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Nlq-6a-YON">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="wpS-6w-BW3"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xyw-kz-qFz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="36" y="737"/>
+        </scene>
         <!--Main View Controller-->
         <scene sceneID="2AY-X8-m1e">
             <objects>
@@ -207,6 +222,7 @@
                                 </constraints>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="dx1-Gn-KHe"/>
                         <color key="backgroundColor" name="ClownYellowBackground"/>
                         <constraints>
                             <constraint firstItem="gPR-Kk-891" firstAttribute="leading" secondItem="Jj1-fA-7Rt" secondAttribute="leading" constant="20" id="9iL-a7-RY2"/>
