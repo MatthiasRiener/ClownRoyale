@@ -13,6 +13,7 @@
 		7C57EF75262B1C4B00926FC4 /* LobbyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C57EF74262B1C4B00926FC4 /* LobbyTableViewCell.swift */; };
 		DD74E8B2262F1823008725FB /* WatcherPerspectiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD74E8B1262F1823008725FB /* WatcherPerspectiveViewController.swift */; };
 		DD74E8B5262F21C2008725FB /* OwnPerspectiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD74E8B4262F21C2008725FB /* OwnPerspectiveViewController.swift */; };
+		DD74E8B8262F2C8D008725FB /* VotingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD74E8B7262F2C8D008725FB /* VotingTableViewCell.swift */; };
 		DDB4D022261F361300D496C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB4D021261F361300D496C5 /* AppDelegate.swift */; };
 		DDB4D024261F361300D496C5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB4D023261F361300D496C5 /* SceneDelegate.swift */; };
 		DDB4D026261F361300D496C5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB4D025261F361300D496C5 /* ViewController.swift */; };
@@ -28,6 +29,7 @@
 		7C57EF74262B1C4B00926FC4 /* LobbyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LobbyTableViewCell.swift; sourceTree = "<group>"; };
 		DD74E8B1262F1823008725FB /* WatcherPerspectiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatcherPerspectiveViewController.swift; sourceTree = "<group>"; };
 		DD74E8B4262F21C2008725FB /* OwnPerspectiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnPerspectiveViewController.swift; sourceTree = "<group>"; };
+		DD74E8B7262F2C8D008725FB /* VotingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VotingTableViewCell.swift; sourceTree = "<group>"; };
 		DDB4D01E261F361300D496C5 /* ClownRoyale.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClownRoyale.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDB4D021261F361300D496C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDB4D023261F361300D496C5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				DDB4D023261F361300D496C5 /* SceneDelegate.swift */,
 				DDB4D025261F361300D496C5 /* ViewController.swift */,
 				DDB4D027261F361300D496C5 /* Main.storyboard */,
+				DD74E8B7262F2C8D008725FB /* VotingTableViewCell.swift */,
 				DD74E8B4262F21C2008725FB /* OwnPerspectiveViewController.swift */,
 				DD74E8B1262F1823008725FB /* WatcherPerspectiveViewController.swift */,
 				7C57EF74262B1C4B00926FC4 /* LobbyTableViewCell.swift */,
@@ -157,6 +160,7 @@
 			files = (
 				DD74E8B2262F1823008725FB /* WatcherPerspectiveViewController.swift in Sources */,
 				DDB4D026261F361300D496C5 /* ViewController.swift in Sources */,
+				DD74E8B8262F2C8D008725FB /* VotingTableViewCell.swift in Sources */,
 				DDB4D022261F361300D496C5 /* AppDelegate.swift in Sources */,
 				DDB4D024261F361300D496C5 /* SceneDelegate.swift in Sources */,
 				7C57EF6F262B131000926FC4 /* LobbyViewController.swift in Sources */,

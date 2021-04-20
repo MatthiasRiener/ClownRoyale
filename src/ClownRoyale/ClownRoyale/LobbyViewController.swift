@@ -50,7 +50,7 @@ extension LobbyViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "user", for: indexPath) as! LobbyTableViewCell
         
-        cell.username.text = "Hans_Peter"
+        cell.username.text = "Henrike Gustavson"
 
         return cell
     }
