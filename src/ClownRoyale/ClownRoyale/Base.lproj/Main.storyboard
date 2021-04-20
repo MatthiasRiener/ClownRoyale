@@ -276,7 +276,7 @@
                                                     <color key="textColor" name="ClownGray"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ready" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ajI-I4-eGR">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WAIT..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ajI-I4-eGR">
                                                     <rect key="frame" x="294" y="20.5" width="60" height="30"/>
                                                     <color key="backgroundColor" red="1" green="0.70588235290000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
@@ -313,6 +313,13 @@
                                 <color key="textColor" name="ClownYellow"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7rr-Fq-pM4">
+                                <rect key="frame" x="203" y="537" width="200" height="262"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="262" id="Q8R-XB-v2m"/>
+                                    <constraint firstAttribute="width" constant="200" id="lfT-GI-3rJ"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="KA5-ND-UBQ"/>
                         <color key="backgroundColor" name="ClownYellowBackground"/>
@@ -321,6 +328,7 @@
                             <constraint firstAttribute="trailing" secondItem="aej-ap-D7H" secondAttribute="trailing" id="3Q4-RW-Dpx"/>
                             <constraint firstItem="kBn-0o-Bn2" firstAttribute="leading" secondItem="KA5-ND-UBQ" secondAttribute="leading" id="5M5-va-IMR"/>
                             <constraint firstItem="kBn-0o-Bn2" firstAttribute="top" secondItem="moL-5Z-z0i" secondAttribute="top" id="5V9-TG-j5I"/>
+                            <constraint firstItem="LjR-Wo-bbd" firstAttribute="top" secondItem="7rr-Fq-pM4" secondAttribute="bottom" constant="8" symbolic="YES" id="5mQ-pv-POi"/>
                             <constraint firstItem="KA5-ND-UBQ" firstAttribute="trailing" secondItem="obr-jE-8ur" secondAttribute="trailing" constant="30" id="5xE-H9-RA9"/>
                             <constraint firstItem="KA5-ND-UBQ" firstAttribute="trailing" secondItem="XYP-H4-MqO" secondAttribute="trailing" constant="20" id="7Xg-jv-9bo"/>
                             <constraint firstItem="LjR-Wo-bbd" firstAttribute="trailing" secondItem="KA5-ND-UBQ" secondAttribute="trailing" id="9Vb-Dw-U4h"/>
@@ -341,6 +349,7 @@
                             <constraint firstItem="obr-jE-8ur" firstAttribute="leading" secondItem="KA5-ND-UBQ" secondAttribute="leading" constant="30" id="mK9-Lc-t5W"/>
                             <constraint firstItem="aej-ap-D7H" firstAttribute="leading" secondItem="moL-5Z-z0i" secondAttribute="leading" id="n6d-ap-Y3S"/>
                             <constraint firstItem="kBn-0o-Bn2" firstAttribute="leading" secondItem="KA5-ND-UBQ" secondAttribute="leading" id="oEC-HI-blc"/>
+                            <constraint firstItem="KA5-ND-UBQ" firstAttribute="trailing" secondItem="7rr-Fq-pM4" secondAttribute="trailing" constant="11" id="rkh-Cs-JSI"/>
                             <constraint firstItem="LjR-Wo-bbd" firstAttribute="top" secondItem="XYP-H4-MqO" secondAttribute="bottom" constant="25" id="rou-8W-Kko"/>
                             <constraint firstItem="LjR-Wo-bbd" firstAttribute="top" secondItem="XYP-H4-MqO" secondAttribute="bottom" constant="25" id="trE-ud-LTc"/>
                             <constraint firstItem="kBn-0o-Bn2" firstAttribute="top" secondItem="moL-5Z-z0i" secondAttribute="top" id="uaS-9l-Lb1"/>
@@ -350,6 +359,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="imgOwnView" destination="7rr-Fq-pM4" id="msf-Sg-gph"/>
                         <outlet property="stackCategory" destination="KJw-ld-a1e" id="md5-Vm-tuV"/>
                         <outlet property="viewersTableView" destination="XYP-H4-MqO" id="iAl-ad-Mxk"/>
                     </connections>

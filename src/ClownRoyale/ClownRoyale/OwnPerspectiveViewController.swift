@@ -9,6 +9,8 @@ import UIKit
 
 class OwnPerspectiveViewController: ViewController {
     
+    @IBOutlet weak var imgOwnView: UIImageView!
+    
     @IBOutlet weak var stackCategory: UIStackView!
     
     
@@ -21,6 +23,10 @@ class OwnPerspectiveViewController: ViewController {
         self.viewersTableView.separatorColor = .lightGray
         self.viewersTableView.separatorInset = .zero
         self.stackCategory.layer.cornerRadius = 15
+        
+        self.imgOwnView.image = UIImage(named: "VideoChat")
+        
+        self.imgOwnView.layer.cornerRadius = 15
     }
 }
 
