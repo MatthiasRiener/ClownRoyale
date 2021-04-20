@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1ZQ-Sb-YtN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gKT-Nx-Nhx">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -24,20 +24,157 @@
             </objects>
             <point key="canvasLocation" x="20" y="94"/>
         </scene>
-        <!--View Controller-->
+        <!--Watcher Perspective View Controller-->
         <scene sceneID="on3-0F-p5m">
             <objects>
-                <viewController id="gKT-Nx-Nhx" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Nlq-6a-YON">
+                <viewController id="gKT-Nx-Nhx" customClass="WatcherPerspectiveViewController" customModule="ClownRoyale" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Nlq-6a-YON" customClass="Wat">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RSL-VB-ICZ">
+                                <rect key="frame" x="0.0" y="807" width="414" height="55"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VOTE!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pH4-68-2EA">
+                                        <rect key="frame" x="170.5" y="12.5" width="73.5" height="30"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="ClownYellow"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="qNh-cJ-Lf2"/>
+                                    <constraint firstItem="pH4-68-2EA" firstAttribute="centerY" secondItem="RSL-VB-ICZ" secondAttribute="centerY" id="qpI-Z1-7Pa"/>
+                                    <constraint firstItem="pH4-68-2EA" firstAttribute="centerX" secondItem="RSL-VB-ICZ" secondAttribute="centerX" id="r4y-Cl-bEi"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RzF-bY-wwp">
+                                <rect key="frame" x="0.0" y="858" width="414" height="55"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DLw-mf-yn7">
+                                        <rect key="frame" x="207" y="27.5" width="0.0" height="0.0"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="ClownYellow"/>
+                                <constraints>
+                                    <constraint firstItem="DLw-mf-yn7" firstAttribute="centerX" secondItem="RzF-bY-wwp" secondAttribute="centerX" id="H1s-sF-lk8"/>
+                                    <constraint firstItem="DLw-mf-yn7" firstAttribute="centerY" secondItem="RzF-bY-wwp" secondAttribute="centerY" id="jt2-IY-ze2"/>
+                                    <constraint firstAttribute="height" constant="55" id="khM-jr-Jsz"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="OKJ-Fh-Kgb">
+                                <rect key="frame" x="0.0" y="44" width="414" height="70"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="38" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iBX-Je-yNH">
+                                        <rect key="frame" x="0.0" y="0.0" width="21" height="70"/>
+                                        <color key="backgroundColor" name="ClownLightBlue"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" ambiguous="YES" axis="vertical" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="IFh-07-qlg">
+                                        <rect key="frame" x="31" y="0.0" width="383" height="70"/>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" name="ClownYellowHell"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="mpm-P9-DvW"/>
+                                </constraints>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HK9-Gw-Rr1">
+                                <rect key="frame" x="30" y="184" width="354" height="300"/>
+                                <color key="backgroundColor" name="ClownYellow"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="eST-iW-Ep9"/>
+                                    <constraint firstAttribute="width" constant="354" id="wWd-uG-E5z"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C6u-hN-7pt">
+                                <rect key="frame" x="30" y="519" width="160" height="70"/>
+                                <color key="backgroundColor" name="ClownGreen"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="160" id="Psc-0x-KoU"/>
+                                    <constraint firstAttribute="height" constant="70" id="mpO-7y-J2u"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="+10"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1hl-t4-Wqf">
+                                <rect key="frame" x="224" y="519" width="160" height="70"/>
+                                <color key="backgroundColor" name="ClownYellowHell"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="160" id="b30-ED-ERB"/>
+                                    <constraint firstAttribute="height" constant="70" id="w1o-Vs-5Aw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="+5"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u6E-1n-ftp">
+                                <rect key="frame" x="30" y="623" width="160" height="70"/>
+                                <color key="backgroundColor" name="ClownYellow"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="160" id="2eo-PD-3b5"/>
+                                    <constraint firstAttribute="height" constant="70" id="tkl-wP-ohF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="0"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FdA-EI-hAa">
+                                <rect key="frame" x="224" y="623" width="160" height="70"/>
+                                <color key="backgroundColor" name="ClownYellow"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="0"/>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="wpS-6w-BW3"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="RzF-bY-wwp" firstAttribute="leading" secondItem="wpS-6w-BW3" secondAttribute="leading" id="1hw-8s-Pej"/>
+                            <constraint firstItem="wpS-6w-BW3" firstAttribute="trailing" secondItem="FdA-EI-hAa" secondAttribute="trailing" constant="30" id="1u9-ym-CMe"/>
+                            <constraint firstItem="RzF-bY-wwp" firstAttribute="trailing" secondItem="wpS-6w-BW3" secondAttribute="trailing" id="7xs-nK-3a6"/>
+                            <constraint firstItem="u6E-1n-ftp" firstAttribute="top" secondItem="C6u-hN-7pt" secondAttribute="bottom" constant="18" id="8fh-wx-7AS"/>
+                            <constraint firstItem="u6E-1n-ftp" firstAttribute="height" secondItem="FdA-EI-hAa" secondAttribute="height" id="9wu-EF-fmz"/>
+                            <constraint firstItem="wpS-6w-BW3" firstAttribute="trailing" secondItem="HK9-Gw-Rr1" secondAttribute="trailing" constant="30" id="Am4-xC-wur"/>
+                            <constraint firstItem="RSL-VB-ICZ" firstAttribute="trailing" secondItem="wpS-6w-BW3" secondAttribute="trailing" id="CBL-Rn-U4S"/>
+                            <constraint firstItem="1hl-t4-Wqf" firstAttribute="width" secondItem="FdA-EI-hAa" secondAttribute="width" id="IBN-ah-Oi0"/>
+                            <constraint firstAttribute="bottom" secondItem="RzF-bY-wwp" secondAttribute="bottom" constant="-17" id="IIJ-L6-EXb"/>
+                            <constraint firstItem="1hl-t4-Wqf" firstAttribute="top" secondItem="HK9-Gw-Rr1" secondAttribute="bottom" constant="51" id="KCy-FF-p5t"/>
+                            <constraint firstItem="RSL-VB-ICZ" firstAttribute="bottom" secondItem="wpS-6w-BW3" secondAttribute="bottom" id="Mi4-Q9-QI4"/>
+                            <constraint firstItem="C6u-hN-7pt" firstAttribute="top" secondItem="HK9-Gw-Rr1" secondAttribute="bottom" constant="51" id="Mru-K8-pLN"/>
+                            <constraint firstItem="u6E-1n-ftp" firstAttribute="width" secondItem="FdA-EI-hAa" secondAttribute="width" id="NLK-A1-3gd"/>
+                            <constraint firstItem="HK9-Gw-Rr1" firstAttribute="top" secondItem="OKJ-Fh-Kgb" secondAttribute="bottom" constant="70" id="QRM-92-Sek"/>
+                            <constraint firstItem="RSL-VB-ICZ" firstAttribute="leading" secondItem="wpS-6w-BW3" secondAttribute="leading" id="RhH-oY-egK"/>
+                            <constraint firstItem="u6E-1n-ftp" firstAttribute="leading" secondItem="wpS-6w-BW3" secondAttribute="leading" constant="30" id="TbI-gF-eyy"/>
+                            <constraint firstItem="C6u-hN-7pt" firstAttribute="height" secondItem="u6E-1n-ftp" secondAttribute="height" id="Tjr-fr-AN6"/>
+                            <constraint firstItem="OKJ-Fh-Kgb" firstAttribute="top" secondItem="wpS-6w-BW3" secondAttribute="top" id="aZG-sV-JS7"/>
+                            <constraint firstItem="C6u-hN-7pt" firstAttribute="width" secondItem="u6E-1n-ftp" secondAttribute="width" id="b3j-y3-PqQ"/>
+                            <constraint firstItem="HK9-Gw-Rr1" firstAttribute="leading" secondItem="wpS-6w-BW3" secondAttribute="leading" constant="30" id="d3w-L9-w4S"/>
+                            <constraint firstItem="wpS-6w-BW3" firstAttribute="trailing" secondItem="OKJ-Fh-Kgb" secondAttribute="trailing" id="d4a-FH-a7Q"/>
+                            <constraint firstItem="OKJ-Fh-Kgb" firstAttribute="leading" secondItem="wpS-6w-BW3" secondAttribute="leading" id="h2Y-x5-RXN"/>
+                            <constraint firstItem="C6u-hN-7pt" firstAttribute="height" secondItem="1hl-t4-Wqf" secondAttribute="height" id="j8h-GQ-6hD"/>
+                            <constraint firstItem="FdA-EI-hAa" firstAttribute="top" secondItem="C6u-hN-7pt" secondAttribute="bottom" constant="34" id="ky9-Tb-PFn"/>
+                            <constraint firstItem="C6u-hN-7pt" firstAttribute="width" secondItem="1hl-t4-Wqf" secondAttribute="width" id="ooE-xf-qMc"/>
+                            <constraint firstItem="wpS-6w-BW3" firstAttribute="trailing" secondItem="1hl-t4-Wqf" secondAttribute="trailing" constant="30" id="r9Q-fu-mBS"/>
+                            <constraint firstItem="C6u-hN-7pt" firstAttribute="leading" secondItem="wpS-6w-BW3" secondAttribute="leading" constant="30" id="v5t-1G-oX1"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="btnJokeLessLiked" destination="1hl-t4-Wqf" id="hF4-8N-rx2"/>
+                        <outlet property="btnJokeLiked" destination="C6u-hN-7pt" id="ZCv-3E-ZKP"/>
+                        <outlet property="jokeTellerView" destination="HK9-Gw-Rr1" id="AqF-vg-4Ot"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xyw-kz-qFz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="36" y="737"/>
+            <point key="canvasLocation" x="34.782608695652179" y="736.60714285714278"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="2AY-X8-m1e">
@@ -250,6 +387,12 @@
         <namedColor name="ClownGray">
             <color red="0.36899998784065247" green="0.36899998784065247" blue="0.36899998784065247" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="ClownGreen">
+            <color red="0.54500001668930054" green="0.69800001382827759" blue="0.32199999690055847" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="ClownLightBlue">
+            <color red="0.4309999942779541" green="0.81599998474121094" blue="0.98799997568130493" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="ClownRedHell">
             <color red="0.96470588235294119" green="0.27843137254901962" blue="0.27843137254901962" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -258,6 +401,9 @@
         </namedColor>
         <namedColor name="ClownYellowBackground">
             <color red="1" green="0.97600001096725464" blue="0.92199999094009399" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="ClownYellowHell">
+            <color red="1" green="0.88599997758865356" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
