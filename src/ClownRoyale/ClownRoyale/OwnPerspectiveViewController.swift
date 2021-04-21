@@ -16,6 +16,14 @@ class OwnPerspectiveViewController: ViewController {
     
     @IBOutlet weak var viewersTableView: UITableView!
     
+    
+    
+    @IBOutlet weak var btn_one_burger: UIButton!
+    @IBOutlet weak var btn_two_burger: UIButton!
+    @IBOutlet weak var btn_three_burger: UIButton!
+    
+    @IBOutlet weak var btnTimer: UILabel!
+    
     override func viewDidLoad() {
         print("VIREW dIeD Load")
         self.viewersTableView.dataSource = self
@@ -27,6 +35,15 @@ class OwnPerspectiveViewController: ViewController {
         self.imgOwnView.image = UIImage(named: "VideoChat")
         
         self.imgOwnView.layer.cornerRadius = 15
+        
+        self.btnTimer.layer.cornerRadius = 15
+        
+        self.btnTimer.layer.masksToBounds = true
+        
+        self.btn_one_burger.layer.cornerRadius = 5
+        self.btn_two_burger.layer.cornerRadius = 5
+        self.btn_three_burger.layer.cornerRadius = 5
+
     }
 }
 
