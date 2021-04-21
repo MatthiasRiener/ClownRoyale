@@ -11,6 +11,9 @@
 		7C57EF65261F4BED00926FC4 /* ProfileMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C57EF64261F4BED00926FC4 /* ProfileMainView.swift */; };
 		7C57EF6F262B131000926FC4 /* LobbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C57EF6E262B131000926FC4 /* LobbyViewController.swift */; };
 		7C57EF75262B1C4B00926FC4 /* LobbyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C57EF74262B1C4B00926FC4 /* LobbyTableViewCell.swift */; };
+		7C57EF832630215D00926FC4 /* RankingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C57EF822630215D00926FC4 /* RankingViewController.swift */; };
+		7C57EF862630230800926FC4 /* RankingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C57EF852630230800926FC4 /* RankingTableViewCell.swift */; };
+		7C57EF8D263030D700926FC4 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C57EF8C263030D700926FC4 /* TabBarViewController.swift */; };
 		DD74E8B2262F1823008725FB /* WatcherPerspectiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD74E8B1262F1823008725FB /* WatcherPerspectiveViewController.swift */; };
 		DD74E8B5262F21C2008725FB /* OwnPerspectiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD74E8B4262F21C2008725FB /* OwnPerspectiveViewController.swift */; };
 		DD74E8B8262F2C8D008725FB /* VotingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD74E8B7262F2C8D008725FB /* VotingTableViewCell.swift */; };
@@ -27,6 +30,9 @@
 		7C57EF64261F4BED00926FC4 /* ProfileMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMainView.swift; sourceTree = "<group>"; };
 		7C57EF6E262B131000926FC4 /* LobbyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LobbyViewController.swift; sourceTree = "<group>"; };
 		7C57EF74262B1C4B00926FC4 /* LobbyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LobbyTableViewCell.swift; sourceTree = "<group>"; };
+		7C57EF822630215D00926FC4 /* RankingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingViewController.swift; sourceTree = "<group>"; };
+		7C57EF852630230800926FC4 /* RankingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingTableViewCell.swift; sourceTree = "<group>"; };
+		7C57EF8C263030D700926FC4 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		DD74E8B1262F1823008725FB /* WatcherPerspectiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatcherPerspectiveViewController.swift; sourceTree = "<group>"; };
 		DD74E8B4262F21C2008725FB /* OwnPerspectiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnPerspectiveViewController.swift; sourceTree = "<group>"; };
 		DD74E8B7262F2C8D008725FB /* VotingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VotingTableViewCell.swift; sourceTree = "<group>"; };
@@ -74,6 +80,9 @@
 				DDB4D023261F361300D496C5 /* SceneDelegate.swift */,
 				DDB4D025261F361300D496C5 /* ViewController.swift */,
 				DDB4D027261F361300D496C5 /* Main.storyboard */,
+				7C57EF8C263030D700926FC4 /* TabBarViewController.swift */,
+				7C57EF822630215D00926FC4 /* RankingViewController.swift */,
+				7C57EF852630230800926FC4 /* RankingTableViewCell.swift */,
 				DD74E8B7262F2C8D008725FB /* VotingTableViewCell.swift */,
 				DD74E8B4262F21C2008725FB /* OwnPerspectiveViewController.swift */,
 				DD74E8B1262F1823008725FB /* WatcherPerspectiveViewController.swift */,
@@ -160,6 +169,7 @@
 			files = (
 				DD74E8B2262F1823008725FB /* WatcherPerspectiveViewController.swift in Sources */,
 				DDB4D026261F361300D496C5 /* ViewController.swift in Sources */,
+				7C57EF862630230800926FC4 /* RankingTableViewCell.swift in Sources */,
 				DD74E8B8262F2C8D008725FB /* VotingTableViewCell.swift in Sources */,
 				DDB4D022261F361300D496C5 /* AppDelegate.swift in Sources */,
 				DDB4D024261F361300D496C5 /* SceneDelegate.swift in Sources */,
@@ -167,7 +177,9 @@
 				7C57EF62261F3C4B00926FC4 /* MainViewController.swift in Sources */,
 				7C57EF75262B1C4B00926FC4 /* LobbyTableViewCell.swift in Sources */,
 				7C57EF65261F4BED00926FC4 /* ProfileMainView.swift in Sources */,
+				7C57EF8D263030D700926FC4 /* TabBarViewController.swift in Sources */,
 				DD74E8B5262F21C2008725FB /* OwnPerspectiveViewController.swift in Sources */,
+				7C57EF832630215D00926FC4 /* RankingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
