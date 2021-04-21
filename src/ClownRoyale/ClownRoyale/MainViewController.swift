@@ -13,7 +13,6 @@ class MainViewController: UIViewController {
     @IBOutlet weak var createButton: UIButton!
     @IBOutlet weak var busImage: UIImageView!
     @IBOutlet weak var menuView: UIView!
-    @IBOutlet weak var bottomText: UIView!
     @IBOutlet var pageView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,7 +79,7 @@ class MainViewController: UIViewController {
         menuView.addSubview(profileNameButton)
         //menuView.backgroundColor = .yellow
         
-        
+        /*
         let gradient = CAGradientLayer()
 
         gradient.frame = bottomText.bounds
@@ -89,8 +88,8 @@ class MainViewController: UIViewController {
         gradient.endPoint = CGPoint(x: 1.0, y: 0.5)
         
         bottomText.layer.insertSublayer(gradient, at: 0)
-        
-        
+        */
+        /*
         let gradient2 = CAGradientLayer()
 
         gradient2.frame = pageView.bounds
@@ -101,7 +100,7 @@ class MainViewController: UIViewController {
         //gradient.frame = pageView.bounds
 
         pageView.layer.insertSublayer(gradient2, at: 0)
-        
+        */
     }
     
 
