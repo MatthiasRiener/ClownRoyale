@@ -64,8 +64,9 @@ class MainViewController: UIViewController {
         //profileImageView.backgroundColor = .red
         
         //Profilename
-        let profileNameButton = UIButton(frame: CGRect(x: (menuView.bounds.width - 20)/2 - (menuView.bounds.width / 4), y: profileBackground.bounds.height - 25, width: menuView.bounds.width / 2, height: 50))
+        let profileNameButton = UIButton(frame: CGRect(x: (menuView.bounds.width)/2 - (menuView.bounds.width / 4), y: profileBackground.bounds.height - 25, width: menuView.bounds.width / 2, height: 50))
         profileNameButton.backgroundColor = UIColor(named: "ClownLightBlue")
+        profileNameButton.autoresizingMask = [.flexibleLeftMargin, .flexibleRightMargin]
         profileNameButton.setTitle("Gregory", for: .normal)
         profileNameButton.layer.cornerRadius = 20
         profileNameButton.clipsToBounds = true

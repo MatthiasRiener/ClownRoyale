@@ -48,10 +48,10 @@ class ProfileViewController: ViewController {
         box.layer.zPosition = 1.0
         
         firstRing.layer.opacity = 0.15
-        firstRing.layer.cornerRadius = 150.0
+        firstRing.layer.cornerRadius = firstRing.layer.bounds.height / 2
         secondRing.layer.opacity = 0.23
-        //secondRing.layer.cornerRadius = 150.0
-        //imageView.layer.cornerRadius = 150.0
+        secondRing.layer.cornerRadius = secondRing.layer.bounds.height / 2
+        imageView.layer.cornerRadius = imageView.layer.bounds.height / 2
         imageView.layer.zPosition = 1.0
     }
 }
