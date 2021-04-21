@@ -8,6 +8,10 @@ class ProfileViewController: ViewController {
     @IBOutlet weak var burger2: UIButton!
     @IBOutlet weak var burger3: UIButton!
     @IBOutlet weak var stack: UIStackView!
+    @IBOutlet weak var box: UIView!
+    @IBOutlet weak var firstRing: UIView!
+    @IBOutlet weak var secondRing: UIView!
+    @IBOutlet weak var imageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,5 +40,18 @@ class ProfileViewController: ViewController {
         burger1.layer.cornerRadius = 5.0
         burger2.layer.cornerRadius = 5.0
         burger3.layer.cornerRadius = 5.0
+        
+        box.layer.shadowOpacity = 0.3
+        box.layer.shadowOffset = CGSize(width: 0, height: 7)
+        box.layer.shadowRadius = 5.0
+        box.layer.shadowColor = UIColor.black.cgColor
+        box.layer.zPosition = 1.0
+        
+        firstRing.layer.opacity = 0.15
+        firstRing.layer.cornerRadius = 150.0
+        secondRing.layer.opacity = 0.23
+        //secondRing.layer.cornerRadius = 150.0
+        //imageView.layer.cornerRadius = 150.0
+        imageView.layer.zPosition = 1.0
     }
 }

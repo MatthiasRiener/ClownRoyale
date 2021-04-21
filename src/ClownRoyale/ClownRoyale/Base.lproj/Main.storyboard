@@ -236,10 +236,9 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oz6-vY-ojA">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="36"/>
-                                <color key="backgroundColor" systemColor="systemBlueColor"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="40" id="BBl-wz-0E7"/>
                                     <constraint firstAttribute="width" constant="414" id="mQA-a7-OlA"/>
-                                    <constraint firstAttribute="height" constant="36" id="qrS-TR-lo7"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Awm-bE-INk">
@@ -309,7 +308,6 @@
                                         </constraints>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="0eW-52-aJV" secondAttribute="bottom" constant="17" id="3ZO-VB-vut"/>
                                     <constraint firstItem="tqW-uj-co9" firstAttribute="leading" secondItem="0eW-52-aJV" secondAttribute="trailing" constant="108" id="AWK-9E-u2B"/>
@@ -323,10 +321,51 @@
                                     <constraint firstAttribute="bottom" secondItem="tqW-uj-co9" secondAttribute="bottom" constant="12" id="lpK-S8-gL4"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qf6-G7-j0l">
+                                <rect key="frame" x="0.0" y="92" width="414" height="358"/>
+                                <subviews>
+                                    <view alpha="0.94999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f7n-cz-k4A">
+                                        <rect key="frame" x="60" y="32" width="295" height="295"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u8d-OO-2gf">
+                                                <rect key="frame" x="27" y="27" width="240" height="240"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B2R-cr-bof">
+                                                        <rect key="frame" x="28" y="28" width="185" height="185"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    </imageView>
+                                                </subviews>
+                                                <color key="backgroundColor" name="ClownFirstRing"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="240" id="9nI-Am-AoS"/>
+                                                    <constraint firstAttribute="height" constant="240" id="NJR-lw-YDl"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" name="ClownSecondRing"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="u8d-OO-2gf" secondAttribute="bottom" constant="28" id="26a-Mb-3Yh"/>
+                                            <constraint firstAttribute="trailing" secondItem="u8d-OO-2gf" secondAttribute="trailing" constant="28" id="2vI-3s-Ubx"/>
+                                            <constraint firstItem="u8d-OO-2gf" firstAttribute="top" secondItem="f7n-cz-k4A" secondAttribute="top" constant="27" id="4jM-Un-3NK"/>
+                                            <constraint firstAttribute="width" constant="295" id="DjJ-je-OuJ"/>
+                                            <constraint firstItem="u8d-OO-2gf" firstAttribute="leading" secondItem="f7n-cz-k4A" secondAttribute="leading" constant="27" id="UHC-m1-PJh"/>
+                                            <constraint firstAttribute="height" constant="295" id="rzF-DN-gc8"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" name="ClownBlue"/>
+                                <constraints>
+                                    <constraint firstItem="f7n-cz-k4A" firstAttribute="leading" secondItem="qf6-G7-j0l" secondAttribute="leading" constant="60" id="B9e-Kn-Jh8"/>
+                                    <constraint firstAttribute="trailing" secondItem="f7n-cz-k4A" secondAttribute="trailing" constant="59" id="Qoj-Oi-MII"/>
+                                    <constraint firstAttribute="bottom" secondItem="f7n-cz-k4A" secondAttribute="bottom" constant="31" id="R3Y-fg-F5O"/>
+                                    <constraint firstItem="f7n-cz-k4A" firstAttribute="top" secondItem="qf6-G7-j0l" secondAttribute="top" constant="32" id="blg-4G-FS2"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="8if-ZY-F8x"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Awm-bE-INk" firstAttribute="top" secondItem="SxW-xz-oTF" secondAttribute="top" constant="36" id="2ay-WU-PGw"/>
                             <constraint firstItem="Awm-bE-INk" firstAttribute="trailing" secondItem="8if-ZY-F8x" secondAttribute="trailing" id="AYv-mD-VoO"/>
                             <constraint firstItem="Awm-bE-INk" firstAttribute="top" secondItem="SxW-xz-oTF" secondAttribute="top" constant="36" id="KYE-aS-VWQ"/>
                             <constraint firstAttribute="trailing" secondItem="oz6-vY-ojA" secondAttribute="trailing" id="Mff-9i-1CA"/>
@@ -338,10 +377,14 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="box" destination="Awm-bE-INk" id="Jmt-mo-cRy"/>
                         <outlet property="burger1" destination="DQY-bn-hU2" id="MeM-4F-Eug"/>
                         <outlet property="burger2" destination="VKH-Tf-fNF" id="hxI-PB-A71"/>
                         <outlet property="burger3" destination="rvM-Tw-O8t" id="zJn-40-z6t"/>
+                        <outlet property="firstRing" destination="f7n-cz-k4A" id="kFc-ZK-B83"/>
+                        <outlet property="imageView" destination="B2R-cr-bof" id="YLh-9O-Yia"/>
                         <outlet property="label" destination="0eW-52-aJV" id="gSP-u5-5Tv"/>
+                        <outlet property="secondRing" destination="u8d-OO-2gf" id="lnE-bz-H1V"/>
                         <outlet property="stack" destination="tqW-uj-co9" id="HbK-Em-B7e"/>
                         <outlet property="topBarView" destination="Awm-bE-INk" id="VRR-hB-8SU"/>
                         <outlet property="topView" destination="oz6-vY-ojA" id="uDx-AQ-Oea"/>
@@ -1310,6 +1353,12 @@
     <resources>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="zelt" width="2382" height="3368"/>
+        <namedColor name="ClownBlue">
+            <color red="0.29411764705882354" green="0.69411764705882351" blue="0.87450980392156863" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="ClownFirstRing">
+            <color red="0.69411764705882351" green="0.90588235294117647" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="ClownGray">
             <color red="0.36899998784065247" green="0.36899998784065247" blue="0.36899998784065247" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -1325,6 +1374,9 @@
         <namedColor name="ClownRedHell">
             <color red="0.96470588235294119" green="0.27843137254901962" blue="0.27843137254901962" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="ClownSecondRing">
+            <color red="0.60399997234344482" green="0.875" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="ClownYellow">
             <color red="1" green="0.70599997043609619" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -1336,12 +1388,6 @@
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemIndigoColor">
-            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
