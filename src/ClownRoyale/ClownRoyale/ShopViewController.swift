@@ -33,6 +33,8 @@ class ShopViewController: ViewController {
         imageViewBackground.layer.shadowColor = UIColor.darkGray.cgColor
         
         iconButton.layer.cornerRadius = 5.0
+        //iconButton.setBackgroundImage(UIImage(named: "Smiley"), for: .normal)
+
         moneyButton.layer.cornerRadius = 5.0
         
         firstShopItem.layer.cornerRadius = 10.0

@@ -18,6 +18,7 @@
 		7C57EF8D263030D700926FC4 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C57EF8C263030D700926FC4 /* TabBarViewController.swift */; };
 		A9A08B4726305BB0001E3EA7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A08B4626305BB0001E3EA7 /* ProfileViewController.swift */; };
 		A9A08B4E26305C1F001E3EA7 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A08B4D26305C1F001E3EA7 /* ShopViewController.swift */; };
+		A9E813CB2630AF9800A728A5 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E813CA2630AF9800A728A5 /* ProfileView.swift */; };
 		DD74E8B2262F1823008725FB /* WatcherPerspectiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD74E8B1262F1823008725FB /* WatcherPerspectiveViewController.swift */; };
 		DD74E8B5262F21C2008725FB /* OwnPerspectiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD74E8B4262F21C2008725FB /* OwnPerspectiveViewController.swift */; };
 		DD74E8B8262F2C8D008725FB /* VotingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD74E8B7262F2C8D008725FB /* VotingTableViewCell.swift */; };
@@ -41,6 +42,7 @@
 		7C57EF8C263030D700926FC4 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		A9A08B4626305BB0001E3EA7 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		A9A08B4D26305C1F001E3EA7 /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
+		A9E813CA2630AF9800A728A5 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		DD74E8B1262F1823008725FB /* WatcherPerspectiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatcherPerspectiveViewController.swift; sourceTree = "<group>"; };
 		DD74E8B4262F21C2008725FB /* OwnPerspectiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnPerspectiveViewController.swift; sourceTree = "<group>"; };
 		DD74E8B7262F2C8D008725FB /* VotingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VotingTableViewCell.swift; sourceTree = "<group>"; };
@@ -88,8 +90,12 @@
 				DDB4D023261F361300D496C5 /* SceneDelegate.swift */,
 				DDB4D025261F361300D496C5 /* ViewController.swift */,
 				DDB4D027261F361300D496C5 /* Main.storyboard */,
+<<<<<<< Updated upstream
 				3022BBC826309B4A001BCE43 /* CategoryViewController.swift */,
 				3022BBCB26309B5D001BCE43 /* CategoryTableViewCell.swift */,
+=======
+				A9E813CA2630AF9800A728A5 /* ProfileView.swift */,
+>>>>>>> Stashed changes
 				A9A08B4D26305C1F001E3EA7 /* ShopViewController.swift */,
 				A9A08B4626305BB0001E3EA7 /* ProfileViewController.swift */,
 				7C57EF8C263030D700926FC4 /* TabBarViewController.swift */,
@@ -188,6 +194,7 @@
 				A9A08B4726305BB0001E3EA7 /* ProfileViewController.swift in Sources */,
 				DDB4D022261F361300D496C5 /* AppDelegate.swift in Sources */,
 				DDB4D024261F361300D496C5 /* SceneDelegate.swift in Sources */,
+				A9E813CB2630AF9800A728A5 /* ProfileView.swift in Sources */,
 				7C57EF6F262B131000926FC4 /* LobbyViewController.swift in Sources */,
 				7C57EF62261F3C4B00926FC4 /* MainViewController.swift in Sources */,
 				7C57EF75262B1C4B00926FC4 /* LobbyTableViewCell.swift in Sources */,
