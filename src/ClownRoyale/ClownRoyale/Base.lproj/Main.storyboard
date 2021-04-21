@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sbo-rw-Ea6">
-=======
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Egr-Xv-LVw">
->>>>>>> main
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -651,7 +647,6 @@
         <!--Ranking View Controller-->
         <scene sceneID="XFB-jP-bfc">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yPz-cH-chf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="Egr-Xv-LVw" customClass="RankingViewController" customModule="ClownRoyale" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Y3h-c3-L2F">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -777,6 +772,7 @@
                         <segue destination="fFZ-Ob-W0y" kind="showDetail" identifier="leave" id="m5P-u9-iGd"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yPz-cH-chf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2788" y="737"/>
         </scene>
