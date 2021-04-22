@@ -14,6 +14,8 @@ class CategoryViewController: UIViewController {
     
     @IBOutlet weak var CategoryTable: UITableView!
     
+    @IBOutlet weak var chooseCategory: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,18 +25,32 @@ class CategoryViewController: UIViewController {
         CategoryTable.separatorStyle = .singleLine
         CategoryTable.separatorColor = .lightGray
         CategoryTable.separatorInset = .zero
+        
+        let gradient = CAGradientLayer()
+
+        gradient.frame = chooseCategory.bounds
+        gradient.colors = [UIColor(named: "ClownYellowHell")?.cgColor as Any, UIColor(named: "ClownYellow")?.cgColor as Any]
+        gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
+        gradient.endPoint = CGPoint(x: 1.0, y: 0.5)
+        
+        chooseCategory.layer.insertSublayer(gradient, at: 0)
+        
+        let gesture = UITapGestureRecognizer(target: self, action:  #selector(self.clickAction(sender:)))
+        
+        self.chooseCategory.addGestureRecognizer(gesture)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc func clickAction(sender : UITapGestureRecognizer) {
+        print("category selected")
+        performSegue(withIdentifier: "category_selected", sender: self)
     }
-    */
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let ownPerpektiveView = segue.destination as! OwnPerspectiveViewController
+        //Damit User nicht mehr zurückkommt
+        ownPerpektiveView.modalPresentationStyle = .fullScreen
+        
+    }
 
 }
 

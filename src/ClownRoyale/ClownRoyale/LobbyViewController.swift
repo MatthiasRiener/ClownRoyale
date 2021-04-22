@@ -5,6 +5,7 @@ class LobbyViewController: UIViewController {
 
     //UITableView mit Lobbyteilnehmer
     @IBOutlet weak var lobbyTable: UITableView!
+    @IBOutlet weak var readyUp: UIView!
     
     //Möglichkeit height neu auszurechnen, scrollen geht dann nicht mehr
     override func viewWillLayoutSubviews() {
@@ -21,18 +22,33 @@ class LobbyViewController: UIViewController {
         lobbyTable.separatorStyle = .singleLine
         lobbyTable.separatorColor = .lightGray
         lobbyTable.separatorInset = .zero
+        
+        let gradient = CAGradientLayer()
+
+        gradient.frame = readyUp.bounds
+        gradient.colors = [UIColor(named: "ClownYellowHell")?.cgColor as Any, UIColor(named: "ClownYellow")?.cgColor as Any]
+        gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
+        gradient.endPoint = CGPoint(x: 1.0, y: 0.5)
+        
+        readyUp.layer.insertSublayer(gradient, at: 0)
+        
+        
+        let gesture = UITapGestureRecognizer(target: self, action:  #selector(self.clickAction(sender:)))
+        
+        self.readyUp.addGestureRecognizer(gesture)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc func clickAction(sender : UITapGestureRecognizer) {
+        print("join game")
+        performSegue(withIdentifier: "join", sender: self)
     }
-    */
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let watcherPerspektiveView = segue.destination as! WatcherPerspectiveViewController
+        //Damit User nicht mehr zurückkommt
+        watcherPerspektiveView.modalPresentationStyle = .fullScreen
+        
+    }
 
 }
 

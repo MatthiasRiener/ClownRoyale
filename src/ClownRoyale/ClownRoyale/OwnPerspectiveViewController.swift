@@ -24,6 +24,8 @@ class OwnPerspectiveViewController: ViewController {
     
     @IBOutlet weak var btnTimer: UILabel!
     
+    @IBOutlet weak var finishedButton: UIView!
+    
     override func viewDidLoad() {
         print("VIREW dIeD Load")
         self.viewersTableView.dataSource = self
@@ -43,7 +45,31 @@ class OwnPerspectiveViewController: ViewController {
         self.btn_one_burger.layer.cornerRadius = 5
         self.btn_two_burger.layer.cornerRadius = 5
         self.btn_three_burger.layer.cornerRadius = 5
+        
+        let gradient = CAGradientLayer()
 
+        gradient.frame = finishedButton.bounds
+        gradient.colors = [UIColor(named: "ClownYellowHell")?.cgColor as Any, UIColor(named: "ClownYellow")?.cgColor as Any]
+        gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
+        gradient.endPoint = CGPoint(x: 1.0, y: 0.5)
+        
+        finishedButton.layer.insertSublayer(gradient, at: 0)
+        
+        let gesture = UITapGestureRecognizer(target: self, action:  #selector(self.clickAction(sender:)))
+        
+        self.finishedButton.addGestureRecognizer(gesture)
+    }
+    
+    @objc func clickAction(sender : UITapGestureRecognizer) {
+        print("joke finished")
+        performSegue(withIdentifier: "joke_finished", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let rankingView = segue.destination as! RankingViewController
+        //Damit User nicht mehr zurückkommt
+        rankingView.modalPresentationStyle = .fullScreen
+        
     }
 }
 

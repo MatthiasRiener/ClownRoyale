@@ -33,6 +33,8 @@ class WatcherPerspectiveViewController: ViewController {
     
     @IBOutlet weak var btn_hated: UIButton!
     
+    @IBOutlet weak var voteButton: UIView!
+    
     
     override func viewDidLoad() {
         print("View wurde geladen...")
@@ -88,6 +90,31 @@ class WatcherPerspectiveViewController: ViewController {
         btn_hated.layer.shadowOffset = CGSize(width: 0.0, height: 7.0)
         btn_hated.layer.shadowOpacity = 1.0
         btn_hated.layer.shadowRadius = 0.0
+        
+        let gradient = CAGradientLayer()
+
+        gradient.frame = voteButton.bounds
+        gradient.colors = [UIColor(named: "ClownYellowHell")?.cgColor as Any, UIColor(named: "ClownYellow")?.cgColor as Any]
+        gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
+        gradient.endPoint = CGPoint(x: 1.0, y: 0.5)
+        
+        voteButton.layer.insertSublayer(gradient, at: 0)
+        
+        let gesture = UITapGestureRecognizer(target: self, action:  #selector(self.clickAction(sender:)))
+        
+        self.voteButton.addGestureRecognizer(gesture)
+    }
+    
+    @objc func clickAction(sender : UITapGestureRecognizer) {
+        print("voted")
+        performSegue(withIdentifier: "voted", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let categoryView = segue.destination as! CategoryViewController
+        //Damit User nicht mehr zurückkommt
+        categoryView.modalPresentationStyle = .fullScreen
+        
     }
     
 }

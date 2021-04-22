@@ -46,8 +46,6 @@ class RankingViewController: UIViewController {
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
-        
         let mainViewController = segue.destination as! TabBarViewController
         //Damit User nicht mehr zurückkommt
         mainViewController.modalPresentationStyle = .fullScreen

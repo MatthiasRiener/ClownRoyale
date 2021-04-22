@@ -79,40 +79,17 @@ class MainViewController: UIViewController {
         menuView.addSubview(profileImageView)
         menuView.addSubview(profileNameButton)
         //menuView.backgroundColor = .yellow
-        
-        /*
-        let gradient = CAGradientLayer()
-
-        gradient.frame = bottomText.bounds
-        gradient.colors = [UIColor(named: "ClownYellowHell")?.cgColor as Any, UIColor(named: "ClownYellow")?.cgColor as Any]
-        gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
-        gradient.endPoint = CGPoint(x: 1.0, y: 0.5)
-        
-        bottomText.layer.insertSublayer(gradient, at: 0)
-        */
-        /*
-        let gradient2 = CAGradientLayer()
-
-        gradient2.frame = pageView.bounds
-        gradient2.colors = [UIColor(named: "ClownYellowHell")?.cgColor as Any, UIColor(named: "ClownYellow")?.cgColor as Any]
-        gradient2.startPoint = CGPoint(x: 0.0, y: 0.5)
-        gradient2.endPoint = CGPoint(x: 1.0, y: 0.5)
-        
-        //gradient.frame = pageView.bounds
-
-        pageView.layer.insertSublayer(gradient2, at: 0)
-        */
+    }
+    
+    @IBAction func onPlay(_ sender: Any) {
+        //seque in storyboard
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        let lobbyViewController = segue.destination as! LobbyViewController
+        //Damit User nicht mehr zurückkommt
+        lobbyViewController.modalPresentationStyle = .fullScreen
     }
-    */
 
 }
