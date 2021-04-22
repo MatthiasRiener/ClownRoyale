@@ -174,11 +174,10 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5je-eA-fH7">
                                 <rect key="frame" x="28" y="319" width="358" height="172"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Achievments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pKp-Aj-wmL">
-                                        <rect key="frame" x="18" y="15" width="290" height="24"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Achievements" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pKp-Aj-wmL">
+                                        <rect key="frame" x="18" y="15" width="200" height="24"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="298" id="8xg-Rh-aqK"/>
-                                            <constraint firstAttribute="height" constant="24" id="thG-me-eCt"/>
+                                            <constraint firstAttribute="width" constant="200" id="oky-6v-cCd"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <color key="textColor" name="ClownGray"/>
@@ -188,7 +187,6 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="pKp-Aj-wmL" firstAttribute="leading" secondItem="5je-eA-fH7" secondAttribute="leading" constant="18" id="1R5-cZ-27k"/>
-                                    <constraint firstAttribute="trailing" secondItem="pKp-Aj-wmL" secondAttribute="trailing" constant="217" id="22C-8k-KgA"/>
                                     <constraint firstAttribute="bottom" secondItem="pKp-Aj-wmL" secondAttribute="bottom" constant="133" id="LMd-5C-P70"/>
                                     <constraint firstAttribute="width" constant="358" id="MjH-IR-JFm"/>
                                     <constraint firstAttribute="height" constant="172" id="RWc-nY-cf4"/>
@@ -259,7 +257,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UwK-fa-tE0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="657" y="75"/>
+            <point key="canvasLocation" x="656.52173913043487" y="75"/>
         </scene>
         <!--Shop-->
         <scene sceneID="8MR-37-sud">
@@ -653,6 +651,7 @@
                                 </state>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="4RL-wV-nxX"/>
                         <color key="backgroundColor" name="ClownYellowBackground"/>
                         <constraints>
                             <constraint firstItem="e8l-zv-Auo" firstAttribute="leading" secondItem="Nlq-6a-YON" secondAttribute="leading" id="5KC-zi-3tI"/>
@@ -904,6 +903,7 @@
                                 </constraints>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="QVH-7N-HTe"/>
                         <color key="backgroundColor" name="ClownYellowBackground"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="KJw-ld-a1e" secondAttribute="trailing" constant="75" id="2rW-6z-bDb"/>
