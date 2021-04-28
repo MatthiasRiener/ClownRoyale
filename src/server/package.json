@@ -1,0 +1,17 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "server for clownroyale",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "clown",
+    "funny",
+    "lmao",
+    "jokster"
+  ],
+  "author": "Matthias Riener & Lukas Friesenecker",
+  "license": "ISC"
+}
