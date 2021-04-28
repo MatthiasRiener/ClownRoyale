@@ -7,5 +7,5 @@ app.get('/', (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log("Das Herzstück des Projektes wurde soeben gestartet.");
+    console.log(`Das Herzstück des Projektes wurde soeben auf Port ${port} gestartet. `);
 })

@@ -4,7 +4,8 @@
   "description": "server for clownroyale",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "keywords": [
     "clown",
@@ -12,6 +13,9 @@
     "lmao",
     "jokster"
   ],
+  "dependencies": {
+    "express": "^4.17.1"
+  },
   "author": "Matthias Riener & Lukas Friesenecker",
   "license": "ISC"
 }
