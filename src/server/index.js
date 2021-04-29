@@ -37,6 +37,15 @@ app.get('/accessToken', (req, res) => {
     res.send(jwt)
 })
 
+
+const users = ["Jan", "Lukas", "Simon", "Matthias"];
+var requestCounter = 0;
+app.get('/fakeLogin', (req, res) => {
+    res.send({"username": users[requestCounter]})
+
+    requestCounter == users.length - 1 ? requestCounter = 0 : requestCounter++;
+})
+
 app.listen(port, () => {
     console.log(`Das Herzstück des Projektes wurde soeben auf Port ${port} gestartet. `);
 })

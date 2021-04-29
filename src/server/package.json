@@ -14,7 +14,8 @@
     "jokster"
   ],
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "twilio": "^3.61.0"
   },
   "author": "Matthias Riener & Lukas Friesenecker",
   "license": "ISC"
