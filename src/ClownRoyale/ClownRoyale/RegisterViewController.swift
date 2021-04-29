@@ -10,6 +10,7 @@ class RegisterController: ViewController {
         super.viewDidLoad()
     }
     @IBAction func onRegister(_ sender: Any) {
+        sendRequestToServer()
         print("\(self.username.text!) - \(self.email.text!) - \(self.password.text!)")
     }
     
