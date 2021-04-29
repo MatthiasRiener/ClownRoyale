@@ -20,6 +20,7 @@
 		A9635E8F26396237006147A9 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9635E8E26396237006147A9 /* RegisterViewController.swift */; };
 		A9A08B4E26305C1F001E3EA7 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A08B4D26305C1F001E3EA7 /* ShopViewController.swift */; };
 		A9E813CB2630AF9800A728A5 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E813CA2630AF9800A728A5 /* ProfileView.swift */; };
+		C455F015268D80169CAF7892 /* libPods-ClownRoyale.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 32A4C0D1B763A09BCBF70923 /* libPods-ClownRoyale.a */; };
 		DD74E8B2262F1823008725FB /* WatcherPerspectiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD74E8B1262F1823008725FB /* WatcherPerspectiveViewController.swift */; };
 		DD74E8B5262F21C2008725FB /* OwnPerspectiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD74E8B4262F21C2008725FB /* OwnPerspectiveViewController.swift */; };
 		DD74E8B8262F2C8D008725FB /* VotingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD74E8B7262F2C8D008725FB /* VotingTableViewCell.swift */; };
@@ -32,8 +33,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		18293397651E93F08A954C70 /* Pods-ClownRoyale.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClownRoyale.debug.xcconfig"; path = "Target Support Files/Pods-ClownRoyale/Pods-ClownRoyale.debug.xcconfig"; sourceTree = "<group>"; };
 		3022BBC826309B4A001BCE43 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		3022BBCB26309B5D001BCE43 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
+		32A4C0D1B763A09BCBF70923 /* libPods-ClownRoyale.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ClownRoyale.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7BB3D14585B6068C0A1DB1B8 /* Pods-ClownRoyale.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClownRoyale.release.xcconfig"; path = "Target Support Files/Pods-ClownRoyale/Pods-ClownRoyale.release.xcconfig"; sourceTree = "<group>"; };
 		7C57EF61261F3C4B00926FC4 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		7C57EF64261F4BED00926FC4 /* ProfileMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMainView.swift; sourceTree = "<group>"; };
 		7C57EF6E262B131000926FC4 /* LobbyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LobbyViewController.swift; sourceTree = "<group>"; };
@@ -63,17 +67,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C455F015268D80169CAF7892 /* libPods-ClownRoyale.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		792BACE107285C64DD0501C2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				18293397651E93F08A954C70 /* Pods-ClownRoyale.debug.xcconfig */,
+				7BB3D14585B6068C0A1DB1B8 /* Pods-ClownRoyale.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		DDB4D015261F361300D496C5 = {
 			isa = PBXGroup;
 			children = (
 				DDB4D020261F361300D496C5 /* ClownRoyale */,
 				DDB4D01F261F361300D496C5 /* Products */,
+				792BACE107285C64DD0501C2 /* Pods */,
+				F0A36A05905BC8BAAB8893E6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -115,6 +132,14 @@
 			path = ClownRoyale;
 			sourceTree = "<group>";
 		};
+		F0A36A05905BC8BAAB8893E6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				32A4C0D1B763A09BCBF70923 /* libPods-ClownRoyale.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -122,9 +147,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DDB4D032261F361400D496C5 /* Build configuration list for PBXNativeTarget "ClownRoyale" */;
 			buildPhases = (
+				04DBF97E8D34D9A6F8BB6CF4 /* [CP] Check Pods Manifest.lock */,
 				DDB4D01A261F361300D496C5 /* Sources */,
 				DDB4D01B261F361300D496C5 /* Frameworks */,
 				DDB4D01C261F361300D496C5 /* Resources */,
+				8F078405B16D47AE28F93D49 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -179,6 +206,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		04DBF97E8D34D9A6F8BB6CF4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ClownRoyale-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8F078405B16D47AE28F93D49 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ClownRoyale/Pods-ClownRoyale-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ClownRoyale/Pods-ClownRoyale-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ClownRoyale/Pods-ClownRoyale-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DDB4D01A261F361300D496C5 /* Sources */ = {
@@ -347,6 +416,7 @@
 		};
 		DDB4D033261F361400D496C5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 18293397651E93F08A954C70 /* Pods-ClownRoyale.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -366,6 +436,7 @@
 		};
 		DDB4D034261F361400D496C5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7BB3D14585B6068C0A1DB1B8 /* Pods-ClownRoyale.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

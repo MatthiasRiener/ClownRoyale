@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Lz0-mh-wpC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Lz0-mh-wpC">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -766,7 +766,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="viewer" id="zlQ-Yx-8Pr" customClass="VotingTableViewCell" customModule="ClownRoyale" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="374" height="90.5"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="374" height="90.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zlQ-Yx-8Pr" id="9SS-cl-NGO">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="90.5"/>
@@ -967,7 +967,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="choosableCategory" id="kuQ-fI-DfH" customClass="CategoryTableViewCell" customModule="ClownRoyale" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="374" height="90.5"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="374" height="90.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kuQ-fI-DfH" id="G6z-5t-7Jj">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="90.5"/>
@@ -1179,7 +1179,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="user" id="bEw-MX-LwG" customClass="LobbyTableViewCell" customModule="ClownRoyale" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="374" height="90.5"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="374" height="90.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bEw-MX-LwG" id="rgH-6W-qOm">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="90.5"/>
@@ -1291,7 +1291,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="user_ranking" id="jPA-AV-Pww" customClass="RankingTableViewCell" customModule="ClownRoyale" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="374" height="90.5"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="374" height="90.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jPA-AV-Pww" id="QyA-cD-zt9">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="90.5"/>
