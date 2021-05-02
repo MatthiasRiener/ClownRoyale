@@ -1,6 +1,7 @@
 import UIKit
 
 class LoginController: ViewController {
+    let defaults = UserDefaults.standard
     
     @IBAction func username(_ sender: Any) {
     }
@@ -12,6 +13,10 @@ class LoginController: ViewController {
     }
     
     @IBAction func onLogin(_ sender: Any) {
+        defaults.removeObject(forKey: "a_token")
+
+        sendRequestToServer(url: "/auth/login", method: "POST", data: ["username": self.username.text!, "password": self.password.text!])
+        //sendRequestToServer(url: "/shop/todaysItem", method: "GET")
         print("\(self.username.text!) - \(self.password.text!)")
     }
     
