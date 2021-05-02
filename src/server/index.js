@@ -1,5 +1,11 @@
 const express = require('express');
+const bodyParser = require('body-parser');
+
 const app = express();
+
+app.use(express.json())
+app.use(express.urlencoded({extended: true}))
+
 const port = 5000;
 
 var AccessToken = require('twilio').jwt.AccessToken;
