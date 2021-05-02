@@ -31,7 +31,7 @@ router.post('/login', (req, res) => {
     axios.post(baseURL + realmName + subURL, qs.stringify(data) , request_options)
     .then((response) => {
         console.log(response);
-        res.send({"access": response.data.access_token, "refresh": response.data.refresh_token})
+        res.send({"isLogin": true, "access": response.data.access_token, "refresh": response.data.refresh_token})
     })
     .catch((error) => {
         res.send({"error": "Es gab einen Fehler!"})
