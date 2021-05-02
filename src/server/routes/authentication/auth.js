@@ -1,5 +1,6 @@
 var router = require('express').Router();
 const axios = require('axios');
+const qs = require('qs');
 
 router.post('/login', (req, res) => {
 
@@ -8,18 +9,26 @@ router.post('/login', (req, res) => {
     const subURL = "/protocol/openid-connect/token";
 
     const username = req.body.username;
-    const password = req.body.username;
+    const password = req.body.password;
 
     console.log(username, password);
 
-    const options = {
+    const request_options =  {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        }
+      }
+
+    const data = {
         "client_id": "node-client",
+        "scope": "openid",
+        "client_secret": "6a29eee4-de06-4492-84b7-3618a57111e8",
         "username": req.body.username,
         "password": req.body.password,
         "grant_type": "password"
     }
     
-    axios.post(baseURL + realmName + subURL, options)
+    axios.post(baseURL + realmName + subURL, qs.stringify(data) , request_options)
     .then((res) => {
         console.log(res);
     })
