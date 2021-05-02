@@ -7,6 +7,11 @@ router.post('/login', (req, res) => {
     const realmName = "clown";
     const subURL = "/protocol/openid-connect/token";
 
+    const username = req.body.username;
+    const password = req.body.username;
+
+    console.log(username, password);
+
     const options = {
         "client_id": "node-client",
         "username": req.body.username,
