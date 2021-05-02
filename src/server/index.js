@@ -18,6 +18,7 @@ app.get('/', (req, res) => {
 
 app.use('/auth', require('./routes/authentication/auth'));
 app.use('/video', require('./routes/videochat/videochat'));
+app.use('/shop', require('./routes/shop/shop'));
 
 
 
