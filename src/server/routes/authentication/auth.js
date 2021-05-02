@@ -8,7 +8,7 @@ router.post('/login', (req, res) => {
     const subURL = "/protocol/openid-connect/token";
 
     const options = {
-        "client_id": "clownroyale",
+        "client_id": "node-client",
         "username": req.body.username,
         "password": req.body.password,
         "grant_type": "password"
