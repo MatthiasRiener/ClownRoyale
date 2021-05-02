@@ -1,6 +1,7 @@
 var router = require('express').Router();
 const axios = require('axios');
 const qs = require('qs');
+const { route } = require('../videochat/videochat');
 
 router.post('/login', (req, res) => {
 
@@ -30,14 +31,27 @@ router.post('/login', (req, res) => {
     
     axios.post(baseURL + realmName + subURL, qs.stringify(data) , request_options)
     .then((response) => {
-        console.log(res);
-        res.send({"access": res.data.access_token, "refresh": res.data.refresh_token})
+        console.log(response);
+        res.send({"access": response.data.access_token, "refresh": response.data.refresh_token})
     })
     .catch((error) => {
+        res.send({"error": "Es gab einen Fehler!"})
         console.error(error);
     })
-    res.send({"res": 1})
 });
+
+router.post('/refreshToken', (req, res) => {
+    /*
+        Method: POST
+        URL: https://keycloak.example.com/auth/realms/myrealm/protocol/openid-connect/token
+        Body type: x-www-form-urlencoded
+        Form fields:    
+        client_id : <my-client-name>
+        grant_type : refresh_token
+        refresh_token: <my-refresh-token>
+        client_secret
+    */
+})
 
 
 router.post('/register', (req, res) => {
