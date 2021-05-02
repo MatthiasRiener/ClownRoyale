@@ -46,6 +46,13 @@ app.get('/fakeLogin', (req, res) => {
     requestCounter == users.length - 1 ? requestCounter = 0 : requestCounter++;
 })
 
+
+app.post('/loginRoute', (req, res) => {
+    console.log(req.body);
+
+    res.send({"res": "Hallo alter Knabe!"})
+})
+
 app.listen(port, () => {
     console.log(`Das Herzstück des Projektes wurde soeben auf Port ${port} gestartet. `);
 })
