@@ -13,6 +13,15 @@ router.post('/login', (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
 
+
+    if (username == undefined || username.length == 0) {
+        return res.send({"status": "Username ist ungültig."})
+    }
+
+    if (password == undefined || password.length == 0) {
+        return res.send({"status": "Passwort ist ungültig."})
+    }
+
     console.log(username, password);
 
     const request_options = {
