@@ -2,13 +2,16 @@ import Foundation
 
 let defaults = UserDefaults.standard
 
-func sendRequestToServer(url: String, method: String, data: [String: Any]? = nil) {
+func sendRequestToServer(url: String, method: String, data: [String: Any]? = nil, login: Bool? = nil) {
     print("Sending Request!")
     
     let baseURL = "http://localhost:5000"
     var request = URLRequest(url: URL(string: baseURL + url)!)
     request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
-    //request.setValue( "Bearer \(getAToken())", forHTTPHeaderField: "Authorization")
+    print("LOGIN: \(login)")
+    if login == nil {
+        request.setValue( "Bearer \(getAToken())", forHTTPHeaderField: "Authorization")
+    }
     request.httpMethod = method
     if data != nil {
         request.httpBody = data!.percentEncoded()
@@ -25,6 +28,11 @@ func sendRequestToServer(url: String, method: String, data: [String: Any]? = nil
         guard (200 ... 299) ~= response.statusCode else {                    // check for http errors
             print("statusCode should be 2xx, but is \(response.statusCode)")
             print("response = \(response)")
+            
+            if response.statusCode == 401 {
+                silentLogin(r_token: getRToken())
+            }
+            
             return
         }
 
@@ -34,6 +42,10 @@ func sendRequestToServer(url: String, method: String, data: [String: Any]? = nil
     }
 
     task.resume()
+}
+
+func silentLogin(r_token: String) {
+    print("SILENT LOGIN: \(r_token)")
 }
 
 func parseJSON(jsonString: String) {
