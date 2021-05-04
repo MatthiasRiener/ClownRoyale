@@ -123,7 +123,7 @@ router.post('/register', (req, res) => {
         "enabled": true,
     }
 
-    axios.post(baseURL + realmName + "/users", data, request_options)
+    axios.post("http://localhost:8080/auth/admin/realms/" + realmName + "/users", data, request_options)
         .then((response) => {
             console.log(response);
             res.send({ "isLogin": true, "access": response.data.access_token, "refresh": response.data.refresh_token })
