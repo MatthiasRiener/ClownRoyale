@@ -137,8 +137,8 @@ router.post('/register', (req, res) => {
 
     const data = {
         "client_id": "admin-cli",
-        "username": "funnyclowndog",
-        "password": "test",
+        "username": "clownadmin",
+        "password": "afrocircus",
         "grant_type": "password"
     }
 
