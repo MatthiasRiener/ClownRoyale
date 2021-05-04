@@ -9,23 +9,22 @@ func sendRequestToServer(url: String, method: String, body: [String: Any]? = nil
     
     if isCallBack != nil {
         ajaxRequest(fullfill: isCallBack!["fullfill"] as! ([String : Any]) -> Void, reject: isCallBack!["reject"] as! (Error) -> Void, url: url, method: method, body: body, login: login)
+        return nil;
 
     } else {
         
+        let res = Promise<[String: Any]>(on: .global(qos: .background)) {(fullfill, reject) in
+            print("hallo")
+            
+            ajaxRequest(fullfill: fullfill , reject: reject , url: url, method: method, body: body, login: login)
+            //ajaxRequest(fullfill: ff, reject: rj, url: url, method: method, body: body, login: login)
+
+        }
         
-        print("NO CalLBACK!")
-        return nil
-    }
-    
-    let res = Promise<[String: Any]>(on: .global(qos: .background)) {(fullfill, reject) in
-        print("hallo")
-        
-        ajaxRequest(fullfill: fullfill , reject: reject , url: url, method: method, body: body, login: login)
-        //ajaxRequest(fullfill: ff, reject: rj, url: url, method: method, body: body, login: login)
+        return res
 
     }
     
-    return res
 
  
 }
