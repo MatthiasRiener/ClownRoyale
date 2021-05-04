@@ -91,7 +91,17 @@ router.post('/refreshToken', (req, res) => {
 })
 
 
+router.get('/test', (req, res) => {
+    getAdminToken();
+    res.send("na..")
+})
 
+function getAdminToken() {
+
+
+
+
+}
 
 router.post('/register', (req, res) => {
 
@@ -116,24 +126,30 @@ router.post('/register', (req, res) => {
 
 
 
+
+
+    
     const request_options = {
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
         }
     }
 
-
     const data = {
         "client_id": "admin-cli",
-        "client_secret": "3ed82e49-a847-44c9-83aa-c451334302a1",
-        "grant_type": "client_credentials"
+        "username": "clownadmin",
+        "password": "test",
+        "grant_type": "password"
     }
 
     axios.post(baseURL + "master" + subURL, qs.stringify(data), request_options)
         .then((response) => {
-            console.log(response.data.access_token);
+            console.log(response);
             console.log("===============")
-            console.log("TRYINING TO CREATE")
+
+      
+      
+
 
             const request_options = {
                 headers: {
