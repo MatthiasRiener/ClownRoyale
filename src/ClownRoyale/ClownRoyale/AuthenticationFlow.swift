@@ -4,20 +4,24 @@ import Promises
 let defaults = UserDefaults.standard
 let baseURL = "http://localhost:5000"
 
-func sendRequestToServer(url: String, method: String, body: [String: Any]? = nil, login: Bool? = nil, isCallBack: [String: Any]? = nil) -> Promise<[String: Any]> {
+func sendRequestToServer(url: String, method: String, body: [String: Any]? = nil, login: Bool? = nil, isCallBack: [String: Any]? = nil) -> Any {
     
     
     if isCallBack != nil {
-        ajaxRequest(isCallBack["fullfill"], isCallBack["reject"], url, method, body, login)
+        ajaxRequest(fullfill: isCallBack!["fullfill"] as! ([String : Any]) -> Void, reject: isCallBack!["reject"] as! ([String : Any]) -> Void, url: url, method: method, body: body, login: login)
+        return "soos";
+    } else {
+        let res = Promise<[String: Any]>(on: .global(qos: .background)) { (fullfill, reject) in
+            ajaxRequest(fullfill: fullfill, reject: reject, url: url, method: method, body: body, login: login)
+        }
+        
+        return res;
     }
-    
-    return Promise<[String: Any]>(on: .global(qos: .background)) { (fullfill, reject) in
-        ajaxRequest(fullfill, reject, url, method, body, login)
-    }
+ 
 }
 
 
-func ajaxRequest(_: fullfill, _: reject, url: String, method: String, body: [String: Any]? = nil, login: Bool? = nil) {
+func ajaxRequest(fullfill: ([String: Any]) -> Void, reject: ([String: Any]) -> Void, url: String, method: String, body: [String: Any]? = nil, login: Bool? = nil) {
     
     var request = URLRequest(url: URL(string: baseURL + url)!)
     
@@ -59,8 +63,8 @@ func ajaxRequest(_: fullfill, _: reject, url: String, method: String, body: [Str
     task.resume()
 }
 
-func silentLogin(r_token: String, url: String, method: String, data: [String: Any]? = nil, login: Bool? = nil, _: fullfill, _: reject) {
-    sendRequestToServer(url: "/auth/refreshToken", method: "POST", body: ["refresh_token": getRToken()], isCallBack: ["fullfill" : fullfill, "reject": reject]?).then {token in
+func silentLogin(r_token: String, url: String, method: String, data: [String: Any]? = nil, login: Bool? = nil, fullfill: ([String: Any]) -> Void, reject: ([String: Any]) -> Void) {
+    sendRequestToServer(url: "/auth/refreshToken", method: "POST", body: ["refresh_token": getRToken()], isCallBack: ["fullfill": fullfill as! ([String: Any]) -> Void, "reject": reject as! ([String: Any]) -> Void]).then {token in
         setAToken(token: "\(token["access"]!)")
 
         sendRequestToServer(url: url, method: method, body: data, login: login).then {answer in
