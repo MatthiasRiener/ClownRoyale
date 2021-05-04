@@ -91,45 +91,11 @@ router.post('/refreshToken', (req, res) => {
 })
 
 
-router.get('/test', (req, res) => {
-    getAdminToken();
-    res.send("na..")
-})
 
-function getAdminToken() {
-
-
-
-
-    const request_options = {
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-        }
-    }
-
-    const data = {
-        "client_id": "admin-cli",
-        "scope": "openid",
-        "username": "clownadmin",
-        "password": "afrocircus",
-        "grant_type": "password"
-    }
-
-    axios.post(baseURL + "master" + subURL, qs.stringify(data), request_options)
-        .then((response) => {
-            console.log(response);
-            console.log("===============")
-
-        })
-        .catch((error) => {
-            console.error(error);
-        })
-}
 
 router.post('/register', (req, res) => {
 
 
-    getAdminToken();
 
     const username = req.body.username;
     const password = req.body.password;
