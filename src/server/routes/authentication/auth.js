@@ -94,6 +94,7 @@ router.post('/refreshToken', (req, res) => {
 router.post('/register', (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
+    const email = req.body.email;
 
 
     if (username == undefined || username.length == 0) {
@@ -113,16 +114,16 @@ router.post('/register', (req, res) => {
     }
 
     const data = {
-        "username": req.body.username,
-        "password": req.body.password,
-        "email": req.body.email,
+        "username": username,
+        "password": password,
+        "email": email,
         "emailVerfied": true,
         "firstName": "Max",
         "lastName": "Mustermann",
         "enabled": true,
     }
 
-    axios.post(baseURL + realmName + "/users", qs.stringify(data), request_options)
+    axios.post(baseURL + realmName + "/users", data, request_options)
         .then((response) => {
             console.log(response);
             res.send({ "isLogin": true, "access": response.data.access_token, "refresh": response.data.refresh_token })
