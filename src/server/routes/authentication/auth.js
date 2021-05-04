@@ -93,7 +93,7 @@ router.post('/refreshToken', (req, res) => {
 
 router.get('/test', (req, res) => {
     getAdminToken();
-    res.send("na...")
+    res.send("na..")
 })
 
 function getAdminToken() {
@@ -114,7 +114,7 @@ function getAdminToken() {
         "password": "password",
     }
 
-    axios.post(baseURL + "master" + subURL, data, request_options)
+    axios.post(baseURL + "master" + subURL, qs.stringify(data), request_options)
         .then((response) => {
             console.log(response);
             console.log("===============")
