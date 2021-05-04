@@ -128,7 +128,7 @@ router.post('/register', (req, res) => {
 
 
 
-    
+
     const request_options = {
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
@@ -137,7 +137,7 @@ router.post('/register', (req, res) => {
 
     const data = {
         "client_id": "admin-cli",
-        "username": "clownadmin",
+        "username": "funnyclowndog",
         "password": "test",
         "grant_type": "password"
     }
@@ -147,8 +147,8 @@ router.post('/register', (req, res) => {
             console.log(response);
             console.log("===============")
 
-      
-      
+
+
 
 
             const request_options = {
