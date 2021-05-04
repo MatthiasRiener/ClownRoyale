@@ -112,6 +112,7 @@ function getAdminToken() {
         "scope": "openid",
         "username": "admin",
         "password": "password",
+        "grant_type": "password"
     }
 
     axios.post(baseURL + "master" + subURL, qs.stringify(data), request_options)
