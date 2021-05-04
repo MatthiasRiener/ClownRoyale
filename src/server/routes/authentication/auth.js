@@ -98,12 +98,13 @@ function getAdminToken() {
 
     const request_options = {
         headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
+            'Content-Type': 'application/json'
         }
     }
 
     const data = {
         "client_id": "admin-cli",
+        "scope": "openid",
         "username": "admin",
         "password": "password",
         "grant_type": "password"
