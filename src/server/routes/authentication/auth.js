@@ -98,7 +98,7 @@ function getAdminToken() {
 
     const request_options = {
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/x-www-form-urlencoded'
         }
     }
 
