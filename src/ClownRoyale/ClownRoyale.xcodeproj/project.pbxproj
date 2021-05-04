@@ -20,6 +20,7 @@
 		7C7A6DBC263ADE120072186B /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7A6DBA263ADE120072186B /* SettingsTableViewController.swift */; };
 		7C7A6DBD263ADE120072186B /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7A6DBB263ADE120072186B /* Utils.swift */; };
 		7C7A6DBF263ADE650072186B /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7A6DBE263ADE650072186B /* Settings.swift */; };
+		A92A8C4D263B039300756893 /* AuthenticationFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92A8C4C263B039300756893 /* AuthenticationFlow.swift */; };
 		A9635E8C26395F51006147A9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9635E8B26395F51006147A9 /* LoginViewController.swift */; };
 		A9635E8F26396237006147A9 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9635E8E26396237006147A9 /* RegisterViewController.swift */; };
 		A9A08B4E26305C1F001E3EA7 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A08B4D26305C1F001E3EA7 /* ShopViewController.swift */; };
@@ -53,6 +54,7 @@
 		7C7A6DBA263ADE120072186B /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		7C7A6DBB263ADE120072186B /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		7C7A6DBE263ADE650072186B /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		A92A8C4C263B039300756893 /* AuthenticationFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationFlow.swift; sourceTree = "<group>"; };
 		A9635E8B26395F51006147A9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A9635E8E26396237006147A9 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		A9A08B4D26305C1F001E3EA7 /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				DDB4D025261F361300D496C5 /* ViewController.swift */,
 				DDB4D027261F361300D496C5 /* Main.storyboard */,
 				A9635E8E26396237006147A9 /* RegisterViewController.swift */,
+				A92A8C4C263B039300756893 /* AuthenticationFlow.swift */,
 				A9635E8B26395F51006147A9 /* LoginViewController.swift */,
 				3022BBC826309B4A001BCE43 /* CategoryViewController.swift */,
 				3022BBCB26309B5D001BCE43 /* CategoryTableViewCell.swift */,
@@ -288,6 +291,7 @@
 				7C57EF832630215D00926FC4 /* RankingViewController.swift in Sources */,
 				3022BBCC26309B5D001BCE43 /* CategoryTableViewCell.swift in Sources */,
 				7C7A6DBC263ADE120072186B /* SettingsTableViewController.swift in Sources */,
+				A92A8C4D263B039300756893 /* AuthenticationFlow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
