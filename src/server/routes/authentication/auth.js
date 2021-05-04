@@ -91,7 +91,40 @@ router.post('/refreshToken', (req, res) => {
 })
 
 
+function getAdminToken() {
+
+
+
+
+    const request_options = {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }
+
+    const data = {
+        "client_id": "admin-cli",
+        "username": "clownadmin",
+        "password": "afrocircus",
+        "grant_type": "password"
+    }
+
+    axios.post(baseURL + realmName + subURL, data, request_options)
+        .then((response) => {
+            console.log(response);
+            console.log("===============")
+        })
+        .catch((error) => {
+            res.send({ "error": "Es gab einen Fehler!" })
+            console.error(error);
+        })
+}
+
 router.post('/register', (req, res) => {
+
+
+    getAdminToken();
+
     const username = req.body.username;
     const password = req.body.password;
     const email = req.body.email;
