@@ -187,7 +187,7 @@ router.post('/register', (req, res) => {
                 "firstName": "Max",
                 "lastName": "Mustermann",
                 "enabled": true,
-                "Authorization": "Bearer " + response.access_token
+                "Authorization": "Bearer " + response.data.access_token
             }
 
             axios.post("http://localhost:8080/auth/admin/realms/" + realmName + "/users", data, request_options)
