@@ -109,7 +109,7 @@ function getAdminToken() {
         "grant_type": "password"
     }
 
-    axios.post(baseURL + realmName + subURL, data, request_options)
+    axios.post(baseURL + "master" + subURL, data, request_options)
         .then((response) => {
             console.log(response);
             console.log("===============")
@@ -165,7 +165,7 @@ router.post('/register', (req, res) => {
         })
         .catch((error) => {
             res.send({ "error": "Es gab einen Fehler!" })
-            console.error(error);
+            //console.error(error);
         })
 })
 
