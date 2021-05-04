@@ -30,7 +30,7 @@ func sendRequestToServer(url: String, method: String, body: [String: Any]? = nil
 }
 
 
-func ajaxRequest(fullfill: ([String: Any]) -> Void, reject: ([String: Any]) -> Void, url: String, method: String, body: [String: Any]? = nil, login: Bool? = nil) {
+func ajaxRequest(fullfill: @escaping ([String: Any]) -> Void, reject: @escaping ([String: Any]) -> Void, url: String, method: String, body: [String: Any]? = nil, login: Bool? = nil) {
     
     var request = URLRequest(url: URL(string: baseURL + url)!)
     
