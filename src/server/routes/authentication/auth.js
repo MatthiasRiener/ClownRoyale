@@ -110,8 +110,8 @@ function getAdminToken() {
     const data = {
         "client_id": "admin-cli",
         "scope": "openid",
-        "username": "admin",
-        "password": "password",
+        "username": "clownadmin",
+        "password": "afrocircus",
         "grant_type": "password"
     }
 
