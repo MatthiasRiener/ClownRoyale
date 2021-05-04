@@ -113,9 +113,9 @@ function getAdminToken() {
         .then((response) => {
             console.log(response);
             console.log("===============")
+            
         })
         .catch((error) => {
-            res.send({ "error": "Es gab einen Fehler!" })
             console.error(error);
         })
 }
