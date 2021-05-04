@@ -2,7 +2,10 @@ source 'https://github.com/CocoaPods/Specs'
 
 platform :ios, '14.0'
 
+use_frameworks!
+
 target 'ClownRoyale' do
   pod 'TwilioVideo', '~> 4.3'
+  pod 'PromisesSwift'
 end
 
