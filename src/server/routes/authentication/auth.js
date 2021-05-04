@@ -91,45 +91,11 @@ router.post('/refreshToken', (req, res) => {
 })
 
 
-router.get('/test', (req, res) => {
-    getAdminToken();
-    res.send("na..")
-})
-
-function getAdminToken() {
 
 
-
-
-    const request_options = {
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-        }
-    }
-
-    const data = {
-        "client_id": "admin-cli",
-        "scope": "openid",
-        "username": "clownadmin",
-        "password": "afrocircus",
-        "grant_type": "password"
-    }
-
-    axios.post(baseURL + "master" + subURL, qs.stringify(data), request_options)
-        .then((response) => {
-            console.log(response);
-            console.log("===============")
-
-        })
-        .catch((error) => {
-            console.error(error);
-        })
-}
 
 router.post('/register', (req, res) => {
 
-
-    getAdminToken();
 
     const username = req.body.username;
     const password = req.body.password;
@@ -143,8 +109,6 @@ router.post('/register', (req, res) => {
     if (password == undefined || password.length == 0) {
         return res.send({ "status": "Passwort ist ungültig." })
     }
-
-    console.log(username, password);
 
 
 
@@ -167,7 +131,7 @@ router.post('/register', (req, res) => {
         .then((response) => {
             console.log(response.data.access_token);
             console.log("===============")
-
+            console.log("TRYINING TO CREATE USER")
 
             const request_options = {
                 headers: {
@@ -187,9 +151,9 @@ router.post('/register', (req, res) => {
             }
 
             axios.post("http://localhost:8080/auth/admin/realms/" + realmName + "/users", data, request_options)
-                .then((response) => {
-                    console.log(response);
-                    res.send({ "isLogin": true, "access": response.data.access_token, "refresh": response.data.refresh_token })
+                .then((r) => {
+                    console.log(r);
+                    res.send({ "isLogin": true, "access": r.data.access_token, "refresh": r.data.refresh_token })
                 })
                 .catch((error) => {
                     res.send({ "error": "Es gab einen Fehler!" })
