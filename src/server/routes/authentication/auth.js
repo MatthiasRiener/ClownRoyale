@@ -120,12 +120,14 @@ router.post('/register', (req, res) => {
         }
     }
 
-
     const data = {
         "client_id": "admin-cli",
-        "client_secret": "3ed82e49-a847-44c9-83aa-c451334302a1",
-        "grant_type": "client_credentials"
+        "scope": "openid",
+        "username": "clownadmin",
+        "password": "afrocircus",
+        "grant_type": "password"
     }
+
 
     axios.post(baseURL + "master" + subURL, qs.stringify(data), request_options)
         .then((response) => {
