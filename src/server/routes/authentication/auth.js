@@ -92,8 +92,45 @@ router.post('/refreshToken', (req, res) => {
 
 
 router.post('/register', (req, res) => {
-    console.log("Register...");
-    res.send({ "res": 1 });
+    const username = req.body.username;
+    const password = req.body.password;
+
+
+    if (username == undefined || username.length == 0) {
+        return res.send({"status": "Username ist ungültig."})
+    }
+
+    if (password == undefined || password.length == 0) {
+        return res.send({"status": "Passwort ist ungültig."})
+    }
+
+    console.log(username, password);
+
+    const request_options = {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }
+
+    const data = {
+        "username": req.body.username,
+        "password": req.body.password,
+        "email": req.body.email,
+        "emailVerfied": true,
+        "firstName": "Max",
+        "lastName": "Mustermann",
+        "enabled": true,
+    }
+
+    axios.post(baseURL + realmName + "/users", qs.stringify(data), request_options)
+        .then((response) => {
+            console.log(response);
+            res.send({ "isLogin": true, "access": response.data.access_token, "refresh": response.data.refresh_token })
+        })
+        .catch((error) => {
+            res.send({ "error": "Es gab einen Fehler!" })
+            console.error(error);
+        })
 })
 
 
