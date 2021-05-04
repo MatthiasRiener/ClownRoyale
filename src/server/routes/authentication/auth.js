@@ -91,6 +91,11 @@ router.post('/refreshToken', (req, res) => {
 })
 
 
+router.get('/test', (req, res) => {
+    getAdminToken();
+    res.send("na...")
+})
+
 function getAdminToken() {
 
 
@@ -107,7 +112,6 @@ function getAdminToken() {
         "scope": "openid",
         "username": "admin",
         "password": "password",
-        "grant_type": "password"
     }
 
     axios.post(baseURL + "master" + subURL, data, request_options)
