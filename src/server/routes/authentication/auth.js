@@ -103,7 +103,9 @@ function getAdminToken() {
     }
 
     const data = {
-        "client_id": "admin-cli",
+        "client_id": "node-client",
+        "scope": "openid",
+        "client_secret": "6a29eee4-de06-4492-84b7-3618a57111e8",
         "username": "clownadmin",
         "password": "afrocircus",
         "grant_type": "password"
