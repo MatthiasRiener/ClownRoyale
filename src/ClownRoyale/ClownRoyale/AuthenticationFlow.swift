@@ -6,29 +6,20 @@ let baseURL = "http://localhost:5000"
 
 func sendRequestToServer(url: String, method: String, body: [String: Any]? = nil, login: Bool? = nil, isCallBack: [String: Any]? = nil) -> Promise<[String: Any]>? {
     
-    
     if isCallBack != nil {
         ajaxRequest(fullfill: isCallBack!["fullfill"] as! ([String : Any]) -> Void, reject: isCallBack!["reject"] as! (Error) -> Void, url: url, method: method, body: body, login: login)
+        
         return nil;
-
     } else {
         
         let res = Promise<[String: Any]>(on: .global(qos: .background)) {(fullfill, reject) in
-            print("hallo")
-            
             ajaxRequest(fullfill: fullfill , reject: reject , url: url, method: method, body: body, login: login)
-            //ajaxRequest(fullfill: ff, reject: rj, url: url, method: method, body: body, login: login)
-
         }
         
         return res
 
     }
-    
-
- 
 }
-
 
 func ajaxRequest(fullfill: @escaping ([String: Any]) -> Void, reject: @escaping (Error) -> Void, url: String, method: String, body: [String: Any]? = nil, login: Bool? = nil) {
     

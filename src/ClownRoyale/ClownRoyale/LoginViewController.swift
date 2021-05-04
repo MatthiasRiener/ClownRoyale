@@ -25,7 +25,7 @@ class LoginController: ViewController {
     @IBAction func onSendRequest(_ sender: Any) {
         sendRequestToServer(url: "/shop/todaysItem", method: "GET")?
         .then { data in
-            print("SHOP: \(data["shop"])")
+            print("SHOP: \(data)")
         }
     }
 }
