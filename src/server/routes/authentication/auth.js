@@ -114,6 +114,8 @@ router.post('/register', (req, res) => {
     }
 
     const data = {
+        "client_id": "node-client",
+        "client_secret": "6a29eee4-de06-4492-84b7-3618a57111e8",
         "username": username,
         "password": password,
         "email": email,
