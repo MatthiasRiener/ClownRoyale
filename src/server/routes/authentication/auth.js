@@ -197,7 +197,7 @@ router.post('/register', (req, res) => {
                 })
                 .catch((error) => {
                     res.send({ "error": "Es gab einen Fehler!" })
-                    //console.error(error);
+                    console.error(error);
                 })
 
         })
