@@ -91,25 +91,12 @@ router.post('/refreshToken', (req, res) => {
 })
 
 
+router.get('/test', (req, res) => {
+    getAdminToken();
+    res.send("na..")
+})
 
-
-
-router.post('/register', (req, res) => {
-
-
-    const username = req.body.username;
-    const password = req.body.password;
-    const email = req.body.email;
-
-
-    if (username == undefined || username.length == 0) {
-        return res.send({ "status": "Username ist ungültig." })
-    }
-
-    if (password == undefined || password.length == 0) {
-        return res.send({ "status": "Passwort ist ungültig." })
-    }
-
+function getAdminToken() {
 
 
 
@@ -128,12 +115,59 @@ router.post('/register', (req, res) => {
         "grant_type": "password"
     }
 
+    axios.post(baseURL + "master" + subURL, qs.stringify(data), request_options)
+        .then((response) => {
+            console.log(response);
+            console.log("===============")
+
+        })
+        .catch((error) => {
+            console.error(error);
+        })
+}
+
+router.post('/register', (req, res) => {
+
+
+    getAdminToken();
+
+    const username = req.body.username;
+    const password = req.body.password;
+    const email = req.body.email;
+
+
+    if (username == undefined || username.length == 0) {
+        return res.send({ "status": "Username ist ungültig." })
+    }
+
+    if (password == undefined || password.length == 0) {
+        return res.send({ "status": "Passwort ist ungültig." })
+    }
+
+    console.log(username, password);
+
+
+
+
+
+    const request_options = {
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        }
+    }
+
+
+    const data = {
+        "client_id": "admin-cli",
+        "client_secret": "3ed82e49-a847-44c9-83aa-c451334302a1",
+        "grant_type": "client_credentials"
+    }
 
     axios.post(baseURL + "master" + subURL, qs.stringify(data), request_options)
         .then((response) => {
             console.log(response.data.access_token);
             console.log("===============")
-            console.log("TRYINING TO CREATE USER")
+            console.log("TRYINING TO CREATE")
 
             const request_options = {
                 headers: {
