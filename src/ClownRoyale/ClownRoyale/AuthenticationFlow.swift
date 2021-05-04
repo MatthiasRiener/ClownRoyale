@@ -4,7 +4,7 @@ import Promises
 let defaults = UserDefaults.standard
 let baseURL = "http://localhost:5000"
 
-func sendRequestToServer(url: String, method: String, body: [String: Any]? = nil, login: Bool? = nil, isCallBack: [String: Any]? = nil) -> Promise<[String: Any]> {
+func sendRequestToServer(url: String, method: String, body: [String: Any]? = nil, login: Bool? = nil, isCallBack: [String: Any]? = nil) -> Promise<[String: Any]>? {
     
     
     if isCallBack != nil {
@@ -14,6 +14,7 @@ func sendRequestToServer(url: String, method: String, body: [String: Any]? = nil
         
         
         print("NO CalLBACK!")
+        return nil
     }
     
     let res = Promise<[String: Any]>(on: .global(qos: .background)) {(fullfill, reject) in
@@ -75,10 +76,10 @@ func ajaxRequest(fullfill: @escaping ([String: Any]) -> Void, reject: @escaping 
 func silentLogin(r_token: String, url: String, method: String, data: [String: Any]? = nil, login: Bool? = nil, fullfill: @escaping ([String: Any]) -> Void, reject: @escaping (Error) -> Void) {
     
     
-    sendRequestToServer(url: "/auth/refreshToken", method: "POST", body: ["refresh_token": getRToken()], isCallBack: ["fullfill": fullfill , "reject": reject]).then {token in
+    sendRequestToServer(url: "/auth/refreshToken", method: "POST", body: ["refresh_token": getRToken()], isCallBack: ["fullfill": fullfill , "reject": reject])!.then {token in
         setAToken(token: "\(token["access"]!)")
 
-        sendRequestToServer(url: url, method: method, body: data, login: login).then {answer in
+        sendRequestToServer(url: url, method: method, body: data, login: login)!.then {answer in
             print("ANSWER AFTER REFRESH: \(answer)")
         }
     }

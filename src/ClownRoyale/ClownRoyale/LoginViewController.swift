@@ -15,7 +15,7 @@ class LoginController: ViewController {
     @IBAction func onLogin(_ sender: Any) {
         defaults.removeObject(forKey: "a_token")
 
-        sendRequestToServer(url: "/auth/login", method: "POST", body: ["username": self.username.text!, "password": self.password.text!], login: true)
+        sendRequestToServer(url: "/auth/login", method: "POST", body: ["username": self.username.text!, "password": self.password.text!], login: true)!
         .then {data in
             setAToken(token: "\(data["access"]!)")
             setRToken(token: "\(data["refresh"]!)")
@@ -23,7 +23,7 @@ class LoginController: ViewController {
     }
     
     @IBAction func onSendRequest(_ sender: Any) {
-        sendRequestToServer(url: "/shop/todaysItem", method: "GET")
+        sendRequestToServer(url: "/shop/todaysItem", method: "GET")!
         .then { data in
             print("SHOP: \(data["shop"])")
         }
