@@ -4,12 +4,12 @@ import Promises
 let defaults = UserDefaults.standard
 let baseURL = "http://localhost:5000"
 
-func sendRequestToServer(url: String, method: String, body: [String: Any]? = nil, login: Bool? = nil, isCallBack: [String: Any]? = nil) -> Any {
+func sendRequestToServer(url: String, method: String, body: [String: Any]? = nil, login: Bool? = nil, isCallBack: [String: Any]? = nil) -> Promise<[String: Any]> {
     
     
     if isCallBack != nil {
         ajaxRequest(fullfill: isCallBack!["fullfill"] as! ([String : Any]) -> Void, reject: isCallBack!["reject"] as! ([String : Any]) -> Void, url: url, method: method, body: body, login: login)
-        return "soos";
+
     } else {
         let res = Promise<[String: Any]>(on: .global(qos: .background)) { (fullfill, reject) in
             ajaxRequest(fullfill: fullfill, reject: reject, url: url, method: method, body: body, login: login)
