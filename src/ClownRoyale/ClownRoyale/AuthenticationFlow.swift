@@ -8,7 +8,7 @@ func sendRequestToServer(url: String, method: String, body: [String: Any]? = nil
     
     
     if isCallBack != nil {
-        ajaxRequest(fullfill: isCallBack!["fullfill"] as! ([String : Any]) -> Void, reject: isCallBack!["reject"] as! ([String : Any]) -> Void, url: url, method: method, body: body, login: login)
+        ajaxRequest(fullfill: isCallBack!["fullfill"] as! ([String : Any]) -> Void, reject: isCallBack!["reject"] as! (Error) -> Void, url: url, method: method, body: body, login: login)
 
     } else {
         
@@ -16,10 +16,10 @@ func sendRequestToServer(url: String, method: String, body: [String: Any]? = nil
         print("NO CalLBACK!")
     }
     
-    let res = Promise<[String: Any]>(on: .global(qos: .background)) {(ff, rj) in
+    let res = Promise<[String: Any]>(on: .global(qos: .background)) {(fullfill, reject) in
         print("hallo")
         
-        ajaxRequest(fullfill: ff as! ([String : Any]) -> Void, reject: rj as! ([String : Any]) -> Void, url: url, method: method, body: body, login: login)
+        ajaxRequest(fullfill: fullfill , reject: reject , url: url, method: method, body: body, login: login)
         //ajaxRequest(fullfill: ff, reject: rj, url: url, method: method, body: body, login: login)
 
     }
@@ -30,7 +30,7 @@ func sendRequestToServer(url: String, method: String, body: [String: Any]? = nil
 }
 
 
-func ajaxRequest(fullfill: @escaping ([String: Any]) -> Void, reject: @escaping ([String: Any]) -> Void, url: String, method: String, body: [String: Any]? = nil, login: Bool? = nil) {
+func ajaxRequest(fullfill: @escaping ([String: Any]) -> Void, reject: @escaping (Error) -> Void, url: String, method: String, body: [String: Any]? = nil, login: Bool? = nil) {
     
     var request = URLRequest(url: URL(string: baseURL + url)!)
     
@@ -72,8 +72,8 @@ func ajaxRequest(fullfill: @escaping ([String: Any]) -> Void, reject: @escaping 
     task.resume()
 }
 
-func silentLogin(r_token: String, url: String, method: String, data: [String: Any]? = nil, login: Bool? = nil, fullfill: ([String: Any]) -> Void, reject: ([String: Any]) -> Void) {
-    sendRequestToServer(url: "/auth/refreshToken", method: "POST", body: ["refresh_token": getRToken()], isCallBack: ["fullfill": fullfill as! ([String: Any]) -> Void, "reject": reject as! ([String: Any]) -> Void]).then {token in
+func silentLogin(r_token: String, url: String, method: String, data: [String: Any]? = nil, login: Bool? = nil, fullfill: ([String: Any]) -> Void, reject: (Error) -> Void) {
+    sendRequestToServer(url: "/auth/refreshToken", method: "POST", body: ["refresh_token": getRToken()], isCallBack: ["fullfill": fullfill as! ([String: Any]) -> Void, "reject": reject as! (Error) -> Void]).then {token in
         setAToken(token: "\(token["access"]!)")
 
         sendRequestToServer(url: url, method: method, body: data, login: login).then {answer in
