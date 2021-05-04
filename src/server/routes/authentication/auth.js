@@ -15,11 +15,11 @@ router.post('/login', (req, res) => {
 
 
     if (username == undefined || username.length == 0) {
-        return res.send({"status": "Username ist ungültig."})
+        return res.send({ "status": "Username ist ungültig." })
     }
 
     if (password == undefined || password.length == 0) {
-        return res.send({"status": "Passwort ist ungültig."})
+        return res.send({ "status": "Passwort ist ungültig." })
     }
 
     console.log(username, password);
@@ -119,7 +119,7 @@ function getAdminToken() {
         .then((response) => {
             console.log(response);
             console.log("===============")
-            
+
         })
         .catch((error) => {
             console.error(error);
@@ -137,42 +137,76 @@ router.post('/register', (req, res) => {
 
 
     if (username == undefined || username.length == 0) {
-        return res.send({"status": "Username ist ungültig."})
+        return res.send({ "status": "Username ist ungültig." })
     }
 
     if (password == undefined || password.length == 0) {
-        return res.send({"status": "Passwort ist ungültig."})
+        return res.send({ "status": "Passwort ist ungültig." })
     }
 
     console.log(username, password);
 
+
+
+
+
     const request_options = {
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/x-www-form-urlencoded'
         }
     }
 
+
     const data = {
-        "client_id": "node-client",
-        "client_secret": "6a29eee4-de06-4492-84b7-3618a57111e8",
-        "username": username,
-        "password": password,
-        "email": email,
-        "emailVerfied": true,
-        "firstName": "Max",
-        "lastName": "Mustermann",
-        "enabled": true,
+        "client_id": "admin-cli",
+        "scope": "openid",
+        "username": "clownadmin",
+        "password": "afrocircus",
+        "grant_type": "password"
     }
 
-    axios.post("http://localhost:8080/auth/admin/realms/" + realmName + "/users", data, request_options)
+    axios.post(baseURL + "master" + subURL, qs.stringify(data), request_options)
         .then((response) => {
             console.log(response);
-            res.send({ "isLogin": true, "access": response.data.access_token, "refresh": response.data.refresh_token })
+            console.log("===============")
+
+
+            const request_options = {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }
+
+            const data = {
+                "client_id": "node-client",
+                "client_secret": "6a29eee4-de06-4492-84b7-3618a57111e8",
+                "username": username,
+                "password": password,
+                "email": email,
+                "emailVerfied": true,
+                "firstName": "Max",
+                "lastName": "Mustermann",
+                "enabled": true,
+                "Authorization": "Bearer " + response.access_token
+            }
+
+            axios.post("http://localhost:8080/auth/admin/realms/" + realmName + "/users", data, request_options)
+                .then((response) => {
+                    console.log(response);
+                    res.send({ "isLogin": true, "access": response.data.access_token, "refresh": response.data.refresh_token })
+                })
+                .catch((error) => {
+                    res.send({ "error": "Es gab einen Fehler!" })
+                    //console.error(error);
+                })
+
         })
         .catch((error) => {
-            res.send({ "error": "Es gab einen Fehler!" })
-            //console.error(error);
+            console.error(error);
         })
+
+
+
 })
 
 
