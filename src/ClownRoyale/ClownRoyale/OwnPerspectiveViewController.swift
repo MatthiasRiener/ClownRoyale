@@ -7,9 +7,12 @@
 
 import UIKit
 
+import TwilioVideo
+
 class OwnPerspectiveViewController: ViewController {
     
-    @IBOutlet weak var imgOwnView: UIImageView!
+    
+    @IBOutlet weak var imgOwnView: VideoView!
     
     @IBOutlet weak var stackCategory: UIStackView!
     
@@ -26,6 +29,8 @@ class OwnPerspectiveViewController: ViewController {
     
     @IBOutlet weak var finishedButton: UIView!
     
+    var videoChat : VideoChat!
+    
     override func viewDidLoad() {
         print("VIREW dIeD Load")
         self.viewersTableView.dataSource = self
@@ -34,7 +39,7 @@ class OwnPerspectiveViewController: ViewController {
         self.viewersTableView.separatorInset = .zero
         self.stackCategory.layer.cornerRadius = 15
         
-        self.imgOwnView.image = UIImage(named: "VideoChat")
+        //self.imgOwnView.image = UIImage(named: "VideoChat")
         
         self.imgOwnView.layer.cornerRadius = 15
         
@@ -58,11 +63,23 @@ class OwnPerspectiveViewController: ViewController {
         let gesture = UITapGestureRecognizer(target: self, action:  #selector(self.clickAction(sender:)))
         
         self.finishedButton.addGestureRecognizer(gesture)
+        
+        setupLocalView()
+    }
+    
+    func setupLocalView(){
+        
+        if((videoChat.localVideoTrack) != nil){
+            videoChat.localVideoTrack!.addRenderer(self.imgOwnView)
+            videoChat.logMessage(messageText: "Video track created")
+        }
+
     }
     
     @objc func clickAction(sender : UITapGestureRecognizer) {
         print("joke finished")
         performSegue(withIdentifier: "joke_finished", sender: self)
+        videoChat.disconnect()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

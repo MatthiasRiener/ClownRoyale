@@ -7,12 +7,13 @@
 
 import UIKit
 
+import TwilioVideo
+
 class WatcherPerspectiveViewController: ViewController {
     
     @IBOutlet weak var categoryStack: UIStackView!
-    
-    @IBOutlet weak var jokeTellerView: UIImageView!
-    
+        
+    @IBOutlet weak var jokeTellerView: VideoView!
     
     @IBOutlet weak var btnTimer: UILabel!
     
@@ -35,11 +36,25 @@ class WatcherPerspectiveViewController: ViewController {
     
     @IBOutlet weak var voteButton: UIView!
     
+    var videoChat : VideoChat?
+    var counter = 0
     
     override func viewDidLoad() {
+        
+        
+        if(videoChat == nil){
+            videoChat = VideoChat()
+        }
+        setupCurrentClown()
+        videoChat?.connect()
+
+        
+        
         print("View wurde geladen...")
-        self.jokeTellerView.image = UIImage(named: "VideoChat")
+        //self.jokeTellerView.image = UIImage(named: "VideoChat")
         self.jokeTellerView.layer.cornerRadius = 15
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.changeClown(sender:)))
+        self.jokeTellerView.addGestureRecognizer(tap)
         
         
         self.btnTimer.layer.masksToBounds = true
@@ -103,11 +118,42 @@ class WatcherPerspectiveViewController: ViewController {
         let gesture = UITapGestureRecognizer(target: self, action:  #selector(self.clickAction(sender:)))
         
         self.voteButton.addGestureRecognizer(gesture)
+        
+    }
+    
+    func setupCurrentClown(){
+        videoChat?.remoteView = jokeTellerView
+        videoChat?.remoteView?.reloadInputViews()
+        videoChat?.remoteView?.contentMode = .scaleAspectFit;
+    }
+    
+    @objc func changeClown(sender : UITapGestureRecognizer){
+        /*
+        if(counter >= (videoChat?.room?.remoteParticipants.count)! - 1){
+            counter = 0
+        }else {
+            counter = counter+1
+        }
+        //videoChat?.remoteParticipant = nil
+        videoChat?.remoteParticipant? = (videoChat?.room?.remoteParticipants[counter])!
+        
+       
+        
+        videoChat?.renderRemoteParticipant(participant: (videoChat?.remoteParticipant)!)
+        */
+        
+        print(videoChat?.remoteParticipant?.identity ?? "oje")
+        print(videoChat?.room?.remoteParticipants.count ?? 0)
+        print(counter)
+        
+        
+
     }
     
     @objc func clickAction(sender : UITapGestureRecognizer) {
         print("voted")
         performSegue(withIdentifier: "voted", sender: self)
+        //videoChat.disconnect()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -115,6 +161,7 @@ class WatcherPerspectiveViewController: ViewController {
         //Damit User nicht mehr zurückkommt
         categoryView.modalPresentationStyle = .fullScreen
         
+        categoryView.videoChat = videoChat
     }
     
 }

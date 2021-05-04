@@ -1,6 +1,8 @@
 
 import UIKit
 
+import TwilioVideo
+
 class LobbyViewController: UIViewController {
 
     //UITableView mit Lobbyteilnehmer
@@ -36,10 +38,13 @@ class LobbyViewController: UIViewController {
         let gesture = UITapGestureRecognizer(target: self, action:  #selector(self.clickAction(sender:)))
         
         self.readyUp.addGestureRecognizer(gesture)
+        
+        
     }
     
     @objc func clickAction(sender : UITapGestureRecognizer) {
         print("join game")
+        
         performSegue(withIdentifier: "join", sender: self)
     }
     
@@ -47,7 +52,6 @@ class LobbyViewController: UIViewController {
         let watcherPerspektiveView = segue.destination as! WatcherPerspectiveViewController
         //Damit User nicht mehr zurückkommt
         watcherPerspektiveView.modalPresentationStyle = .fullScreen
-        
     }
 
 }

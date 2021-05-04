@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,10 @@
 		7C57EF832630215D00926FC4 /* RankingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C57EF822630215D00926FC4 /* RankingViewController.swift */; };
 		7C57EF862630230800926FC4 /* RankingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C57EF852630230800926FC4 /* RankingTableViewCell.swift */; };
 		7C57EF8D263030D700926FC4 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C57EF8C263030D700926FC4 /* TabBarViewController.swift */; };
+		7C7A6DB9263ADC3F0072186B /* VideoChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7A6DB8263ADC3F0072186B /* VideoChat.swift */; };
+		7C7A6DBC263ADE120072186B /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7A6DBA263ADE120072186B /* SettingsTableViewController.swift */; };
+		7C7A6DBD263ADE120072186B /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7A6DBB263ADE120072186B /* Utils.swift */; };
+		7C7A6DBF263ADE650072186B /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7A6DBE263ADE650072186B /* Settings.swift */; };
 		A9635E8C26395F51006147A9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9635E8B26395F51006147A9 /* LoginViewController.swift */; };
 		A9635E8F26396237006147A9 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9635E8E26396237006147A9 /* RegisterViewController.swift */; };
 		A9A08B4E26305C1F001E3EA7 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A08B4D26305C1F001E3EA7 /* ShopViewController.swift */; };
@@ -45,6 +49,10 @@
 		7C57EF822630215D00926FC4 /* RankingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingViewController.swift; sourceTree = "<group>"; };
 		7C57EF852630230800926FC4 /* RankingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingTableViewCell.swift; sourceTree = "<group>"; };
 		7C57EF8C263030D700926FC4 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		7C7A6DB8263ADC3F0072186B /* VideoChat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoChat.swift; sourceTree = "<group>"; };
+		7C7A6DBA263ADE120072186B /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		7C7A6DBB263ADE120072186B /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		7C7A6DBE263ADE650072186B /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		A9635E8B26395F51006147A9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A9635E8E26396237006147A9 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		A9A08B4D26305C1F001E3EA7 /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
@@ -80,7 +88,6 @@
 				18293397651E93F08A954C70 /* Pods-ClownRoyale.debug.xcconfig */,
 				7BB3D14585B6068C0A1DB1B8 /* Pods-ClownRoyale.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -118,11 +125,15 @@
 				7C57EF8C263030D700926FC4 /* TabBarViewController.swift */,
 				7C57EF822630215D00926FC4 /* RankingViewController.swift */,
 				7C57EF852630230800926FC4 /* RankingTableViewCell.swift */,
+				7C7A6DBA263ADE120072186B /* SettingsTableViewController.swift */,
+				7C7A6DBB263ADE120072186B /* Utils.swift */,
+				7C7A6DBE263ADE650072186B /* Settings.swift */,
 				DD74E8B7262F2C8D008725FB /* VotingTableViewCell.swift */,
 				DD74E8B4262F21C2008725FB /* OwnPerspectiveViewController.swift */,
 				DD74E8B1262F1823008725FB /* WatcherPerspectiveViewController.swift */,
 				7C57EF74262B1C4B00926FC4 /* LobbyTableViewCell.swift */,
 				7C57EF6E262B131000926FC4 /* LobbyViewController.swift */,
+				7C7A6DB8263ADC3F0072186B /* VideoChat.swift */,
 				DDB4D02A261F361400D496C5 /* Assets.xcassets */,
 				7C57EF61261F3C4B00926FC4 /* MainViewController.swift */,
 				7C57EF64261F4BED00926FC4 /* ProfileMainView.swift */,
@@ -261,6 +272,8 @@
 				A9635E8F26396237006147A9 /* RegisterViewController.swift in Sources */,
 				7C57EF862630230800926FC4 /* RankingTableViewCell.swift in Sources */,
 				3022BBC926309B4A001BCE43 /* CategoryViewController.swift in Sources */,
+				7C7A6DBD263ADE120072186B /* Utils.swift in Sources */,
+				7C7A6DBF263ADE650072186B /* Settings.swift in Sources */,
 				DD74E8B8262F2C8D008725FB /* VotingTableViewCell.swift in Sources */,
 				DDB4D022261F361300D496C5 /* AppDelegate.swift in Sources */,
 				DDB4D024261F361300D496C5 /* SceneDelegate.swift in Sources */,
@@ -271,8 +284,10 @@
 				7C57EF65261F4BED00926FC4 /* ProfileMainView.swift in Sources */,
 				7C57EF8D263030D700926FC4 /* TabBarViewController.swift in Sources */,
 				DD74E8B5262F21C2008725FB /* OwnPerspectiveViewController.swift in Sources */,
+				7C7A6DB9263ADC3F0072186B /* VideoChat.swift in Sources */,
 				7C57EF832630215D00926FC4 /* RankingViewController.swift in Sources */,
 				3022BBCC26309B5D001BCE43 /* CategoryTableViewCell.swift in Sources */,
+				7C7A6DBC263ADE120072186B /* SettingsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,13 +436,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = R2MS7GG386;
+				DEVELOPMENT_TEAM = 8Y34VBAGJR;
 				INFOPLIST_FILE = ClownRoyale/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = at.ac.htlleonding.clowns.ClownRoyale;
+				PRODUCT_BUNDLE_IDENTIFIER = at.ac.htlleonding.clowns.it170132.ClownRoyale;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -441,13 +456,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = R2MS7GG386;
+				DEVELOPMENT_TEAM = 8Y34VBAGJR;
 				INFOPLIST_FILE = ClownRoyale/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = at.ac.htlleonding.clowns.ClownRoyale;
+				PRODUCT_BUNDLE_IDENTIFIER = at.ac.htlleonding.clowns.it170132.ClownRoyale;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -16,6 +16,8 @@ class CategoryViewController: UIViewController {
     
     @IBOutlet weak var chooseCategory: UIView!
     
+    var videoChat : VideoChat!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -49,6 +51,8 @@ class CategoryViewController: UIViewController {
         let ownPerpektiveView = segue.destination as! OwnPerspectiveViewController
         //Damit User nicht mehr zurückkommt
         ownPerpektiveView.modalPresentationStyle = .fullScreen
+        
+        ownPerpektiveView.videoChat = videoChat
         
     }
 
