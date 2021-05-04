@@ -72,8 +72,10 @@ func ajaxRequest(fullfill: @escaping ([String: Any]) -> Void, reject: @escaping 
     task.resume()
 }
 
-func silentLogin(r_token: String, url: String, method: String, data: [String: Any]? = nil, login: Bool? = nil, fullfill: ([String: Any]) -> Void, reject: (Error) -> Void) {
-    sendRequestToServer(url: "/auth/refreshToken", method: "POST", body: ["refresh_token": getRToken()], isCallBack: ["fullfill": fullfill as! ([String: Any]) -> Void, "reject": reject as! (Error) -> Void]).then {token in
+func silentLogin(r_token: String, url: String, method: String, data: [String: Any]? = nil, login: Bool? = nil, fullfill: @escaping ([String: Any]) -> Void, reject: @escaping (Error) -> Void) {
+    
+    
+    sendRequestToServer(url: "/auth/refreshToken", method: "POST", body: ["refresh_token": getRToken()], isCallBack: ["fullfill": fullfill , "reject": reject]).then {token in
         setAToken(token: "\(token["access"]!)")
 
         sendRequestToServer(url: url, method: method, body: data, login: login).then {answer in
