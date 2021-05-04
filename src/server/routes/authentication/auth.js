@@ -159,15 +159,13 @@ router.post('/register', (req, res) => {
 
     const data = {
         "client_id": "admin-cli",
-        "scope": "openid",
-        "username": "clownadmin",
-        "password": "afrocircus",
-        "grant_type": "password"
+        "client_secret": "3ed82e49-a847-44c9-83aa-c451334302a1",
+        "grant_type": "client_credentials"
     }
 
     axios.post(baseURL + "master" + subURL, qs.stringify(data), request_options)
         .then((response) => {
-            console.log(response);
+            console.log(response.data.access_token);
             console.log("===============")
 
 
@@ -178,8 +176,6 @@ router.post('/register', (req, res) => {
             }
 
             const data = {
-                "client_id": "node-client",
-                "client_secret": "6a29eee4-de06-4492-84b7-3618a57111e8",
                 "username": username,
                 "password": password,
                 "email": email,
