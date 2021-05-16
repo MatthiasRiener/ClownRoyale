@@ -1,20 +1,40 @@
 import Foundation
+import Promises
 
 let defaults = UserDefaults.standard
+let baseURL = "http://localhost:5000"
 
-func sendRequestToServer(url: String, method: String, data: [String: Any]? = nil, login: Bool? = nil) {
-    print("Sending Request!")
+func sendRequestToServer(url: String, method: String, body: [String: Any]? = nil, login: Bool? = nil, isCallBack: [String: Any]? = nil) -> Promise<[String: Any]>? {
     
-    let baseURL = "http://localhost:5000"
+    if isCallBack != nil {
+        ajaxRequest(fullfill: isCallBack!["fullfill"] as! ([String : Any]) -> Void, reject: isCallBack!["reject"] as! (Error) -> Void, url: url, method: method, body: body, login: login)
+        
+        return nil;
+    } else {
+        
+        let res = Promise<[String: Any]>(on: .global(qos: .background)) {(fullfill, reject) in
+            ajaxRequest(fullfill: fullfill , reject: reject , url: url, method: method, body: body, login: login)
+        }
+        
+        return res
+
+    }
+}
+
+func ajaxRequest(fullfill: @escaping ([String: Any]) -> Void, reject: @escaping (Error) -> Void, url: String, method: String, body: [String: Any]? = nil, login: Bool? = nil) {
+    
     var request = URLRequest(url: URL(string: baseURL + url)!)
+    
     request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
-    print("LOGIN: \(login)")
+    
     if login == nil {
         request.setValue( "Bearer \(getAToken())", forHTTPHeaderField: "Authorization")
     }
+    
     request.httpMethod = method
-    if data != nil {
-        request.httpBody = data!.percentEncoded()
+    
+    if body != nil {
+        request.httpBody = body!.percentEncoded()
     }
     
     let task = URLSession.shared.dataTask(with: request) { data, response, error in
@@ -30,39 +50,44 @@ func sendRequestToServer(url: String, method: String, data: [String: Any]? = nil
             print("response = \(response)")
             
             if response.statusCode == 401 {
-                silentLogin(r_token: getRToken())
+                silentLogin(r_token: getRToken(), url: url, method: method, data: body, login: login, fullfill: fullfill, reject: reject)
             }
             
             return
         }
 
         let responseString = String(data: data, encoding: .utf8)
-        print("responseString = \(responseString!)")
-        parseJSON(jsonString: responseString!)
+        fullfill(parseJSON(jsonString: responseString!))
     }
 
     task.resume()
 }
 
-func silentLogin(r_token: String) {
-    print("SILENT LOGIN: \(r_token)")
+func silentLogin(r_token: String, url: String, method: String, data: [String: Any]? = nil, login: Bool? = nil, fullfill: @escaping ([String: Any]) -> Void, reject: @escaping (Error) -> Void) {
+    
+    
+    sendRequestToServer(url: "/auth/refreshToken", method: "POST", body: ["refresh_token": getRToken()])?.then {token in
+        setAToken(token: "\(token["access"]!)")
+
+        sendRequestToServer(url: url, method: method, body: data, isCallBack: ["fullfill": fullfill , "reject": reject])?.then {answer in
+            print("ANSWER AFTER REFRESH: \(answer)")
+        }
+    }
 }
 
-func parseJSON(jsonString: String) {
+func parseJSON(jsonString: String) -> [String: Any] {
     let data = Data(jsonString.utf8)
 
     do {
         if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-            if json["isLogin"] != nil {
-                setAToken(token: "\(json["access"]!)")
-                setRToken(token: "\(json["refresh"]!)")
-            } else {
-                print("JSON: \(json)")
-            }
+            
+            return json
         }
     } catch let error as NSError {
         print("Failed to load: \(error.localizedDescription)")
     }
+    
+    return ["nil": "nil"]
 }
 
 func setAToken(token: String) {

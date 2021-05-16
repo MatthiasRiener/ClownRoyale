@@ -15,11 +15,11 @@ router.post('/login', (req, res) => {
 
 
     if (username == undefined || username.length == 0) {
-        return res.send({"status": "Username ist ungültig."})
+        return res.send({ "status": "Username ist ungültig." })
     }
 
     if (password == undefined || password.length == 0) {
-        return res.send({"status": "Passwort ist ungültig."})
+        return res.send({ "status": "Passwort ist ungültig." })
     }
 
     console.log(username, password);
@@ -91,9 +91,100 @@ router.post('/refreshToken', (req, res) => {
 })
 
 
+router.get('/test', (req, res) => {
+    getAdminToken();
+    res.send("na..")
+})
+
+function getAdminToken() {
+
+
+
+
+}
+
 router.post('/register', (req, res) => {
-    console.log("Register...");
-    res.send({ "res": 1 });
+
+
+
+    const username = req.body.username;
+    const password = req.body.password;
+    const email = req.body.email;
+
+
+    if (username == undefined || username.length == 0) {
+        return res.send({ "status": "Username ist ungültig." })
+    }
+
+    if (password == undefined || password.length == 0) {
+        return res.send({ "status": "Passwort ist ungültig." })
+    }
+
+    console.log(username, password);
+
+
+
+
+
+
+
+
+    const request_options = {
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        }
+    }
+
+    const data = {
+        "client_id": "admin-cli",
+        "username": "clownadmin",
+        "password": "afrocircus",
+        "grant_type": "password"
+    }
+
+    axios.post(baseURL + "master" + subURL, qs.stringify(data), request_options)
+        .then((response) => {
+            console.log(response);
+            console.log("===============")
+
+
+
+
+
+            const request_options = {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }
+
+            const data = {
+                "username": username,
+                "password": password,
+                "email": email,
+                "emailVerfied": true,
+                "firstName": "Max",
+                "lastName": "Mustermann",
+                "enabled": true,
+                "Authorization": "Bearer " + response.data.access_token
+            }
+
+            axios.post("http://localhost:8080/auth/admin/realms/" + realmName + "/users", data, request_options)
+                .then((r) => {
+                    console.log(r);
+                    res.send({ "isLogin": true, "access": r.data.access_token, "refresh": r.data.refresh_token })
+                })
+                .catch((error) => {
+                    res.send({ "error": "Es gab einen Fehler!" })
+                    console.error(error);
+                })
+
+        })
+        .catch((error) => {
+            console.error(error);
+        })
+
+
+
 })
 
 
