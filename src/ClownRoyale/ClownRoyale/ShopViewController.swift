@@ -2,17 +2,25 @@ import UIKit
 
 class ShopViewController: ViewController {
     
-    @IBOutlet weak var topView: UIView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var imageViewBackground: UIView!
+    
+    @IBOutlet weak var shopCoins: UILabel!
+    @IBOutlet weak var topView: UIView!
+    
     @IBOutlet weak var iconButton: UIButton!
     @IBOutlet weak var moneyButton: UIButton!
     
-    @IBOutlet weak var firstShopItem: UIView!
     @IBOutlet weak var secondShopItem: UIView!
-    
+    @IBOutlet weak var firstShopItem: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        shopCoins.backgroundColor = UIColor(named: "ClownYellow")
+        shopCoins.layer.cornerRadius = shopCoins.layer.bounds.height / 2
+        shopCoins.clipsToBounds = true
+        shopCoins.layer.borderWidth = 5
+        shopCoins.layer.borderColor = UIColor.white.cgColor
         
         topView.layer.shadowOpacity = 0.3
         topView.layer.shadowOffset = CGSize(width: 0, height: 7)

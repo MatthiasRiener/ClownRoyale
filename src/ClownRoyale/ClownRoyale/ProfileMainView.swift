@@ -12,7 +12,7 @@ class ProfileMainView: UIView {
         print(bounds.size.width)
         let halfSize:CGFloat = min( bounds.size.width/2, bounds.size.height/2)
         print(halfSize)
-        let desiredLineWidth:CGFloat = 10
+        let desiredLineWidth:CGFloat = 15
             
         //Background Circle
         let circlePath = UIBezierPath(
