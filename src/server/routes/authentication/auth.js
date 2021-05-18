@@ -44,7 +44,7 @@ router.post('/login', (req, res) => {
 
     axios.post(baseURL + realmName + subURL, qs.stringify(data), request_options)
         .then((response) => {
-            aRepo.createUser();
+            aRepo.createUser(response.data.access_token);
             res.send({ "isLogin": true, "access": response.data.access_token, "refresh": response.data.refresh_token })
         })
         .catch((error) => {
@@ -176,7 +176,7 @@ router.post('/register', (req, res) => {
 
 })
 
-
+*/
 const users = ["Jan", "Lukas", "Simon", "Matthias"];
 var requestCounter = 0;
 router.get('/fakeLogin', (req, res) => {
@@ -185,6 +185,6 @@ router.get('/fakeLogin', (req, res) => {
     requestCounter == users.length - 1 ? requestCounter = 0 : requestCounter++;
 })
 
-*/
+
 
 module.exports = router;
