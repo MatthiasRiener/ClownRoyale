@@ -1,6 +1,6 @@
 var router = require('express').Router();
 
-import { createUser } from '../../repository/AuthenticationRepository';
+const aRepo = require('../../repository/AuthenticationRepository');
 
 const axios = require('axios');
 const qs = require('qs');
@@ -44,7 +44,7 @@ router.post('/login', (req, res) => {
 
     axios.post(baseURL + realmName + subURL, qs.stringify(data), request_options)
         .then((response) => {
-            createUser();
+            aRepo.createUser();
             res.send({ "isLogin": true, "access": response.data.access_token, "refresh": response.data.refresh_token })
         })
         .catch((error) => {
@@ -175,7 +175,7 @@ router.post('/register', (req, res) => {
 
 
 })
-*/
+
 
 const users = ["Jan", "Lukas", "Simon", "Matthias"];
 var requestCounter = 0;
@@ -184,5 +184,7 @@ router.get('/fakeLogin', (req, res) => {
 
     requestCounter == users.length - 1 ? requestCounter = 0 : requestCounter++;
 })
+
+*/
 
 module.exports = router;
