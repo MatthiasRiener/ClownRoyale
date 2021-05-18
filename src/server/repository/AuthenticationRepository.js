@@ -9,9 +9,16 @@ function createUser(access_token) {
 
 
     if (checkIfUserExists(data.sub)) {
-        console.log("Inserting user...")
+        console.log("user already exists! updating time")
+        Model.updateOne({_id: data.sub}, {$set: {last_login: new Date().getTime()}})
     } else {
-        console.log("user existiert bereits");
+        Model.create({
+            _id: data.sub,
+            name: data.preferred_username,
+            mail: data.email,
+            image: "https://www.einfachbacken.de/sites/einfachbacken.de/files/styles/full_width_tablet_4_3/public/2021-04/bananenbrot.jpg?h=7d326bee&itok=xchvD_0f",
+            last_login: new Date().getTime()
+        });
     }
 
 
