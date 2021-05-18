@@ -1,8 +1,8 @@
 var db = require('../db/dbConfig');
 var jwt = require('jsonwebtoken');
 
-const schema = new db.Schema({ _id: String });
-const Model = db.model('user', schema);
+
+const Model = db.db.model('user', require('../entitiy/User'));
 
 function createUser(access_token) {
     const data = getInfoFromToken(access_token);
