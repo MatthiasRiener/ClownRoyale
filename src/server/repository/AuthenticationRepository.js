@@ -9,12 +9,12 @@ function createUser(access_token) {
 
     if (checkIfUserExists(data.sub)) {
         console.log("user already exists! updating time")
-        Model.updateOne({ _id: data.sub }, { $set: { last_login: new Date().getTime() } }, function (err, res) {
+        Model.updateOne({ u_id: data.sub }, { $set: { last_login: new Date().getTime() } }, function (err, res) {
             if (err) console.log("Error while updating.....", err);
         });
     } else {
         Model.create({
-            _id: data.sub,
+            u_id: data.sub,
             name: data.preferred_username,
             mail: data.email,
             image: "https://www.einfachbacken.de/sites/einfachbacken.de/files/styles/full_width_tablet_4_3/public/2021-04/bananenbrot.jpg?h=7d326bee&itok=xchvD_0f",
@@ -29,7 +29,7 @@ function createUser(access_token) {
 }
 
 function checkIfUserExists(u_id) {
-    Model.exists({ name: u_id }, function (err, result) {
+    Model.exists({ u_id: u_id }, function (err, result) {
         if (err) {
             console.log("Error...");
             return false;
