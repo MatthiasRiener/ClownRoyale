@@ -41,13 +41,7 @@ function checkIfUserExists(u_id) {
 
 function getInfoFromToken(token) {
     var decoded = jwt.decode(token, { complete: true });
-    console.log(decoded);
-    console.log("=====")
-    console.log(decoded.header);
-    console.log("====")
-    console.log(decoded.payload)
-
-    return decoded;
+    return decoded.payload;
 }
 
 module.exports.createUser = createUser;
