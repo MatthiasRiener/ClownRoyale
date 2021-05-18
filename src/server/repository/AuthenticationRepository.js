@@ -29,12 +29,11 @@ function createUser(access_token) {
 }
 
 function checkIfUserExists(u_id) {
-    Model.exists({ u_id: u_id }, function (err, result) {
+    Model.count({ u_id: u_id }, function (err, count) {
         if (err) {
-            console.log("Error...");
-            return false;
+            return 0
         } else {
-            return result;
+            return count == 0 ? 0 : 1;
         }
     });
 }
