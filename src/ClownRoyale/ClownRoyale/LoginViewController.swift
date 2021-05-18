@@ -19,6 +19,7 @@ class LoginController: ViewController {
         .then {data in
             setAToken(token: "\(data["access"]!)")
             setRToken(token: "\(data["refresh"]!)")
+            self.performSegue(withIdentifier: "login", sender: nil)
         }
     }
     
@@ -27,5 +28,10 @@ class LoginController: ViewController {
         .then { data in
             print("SHOP: \(data)")
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let mainViewController = segue.destination as! MainViewController
+        mainViewController.modalPresentationStyle = .fullScreen
     }
 }

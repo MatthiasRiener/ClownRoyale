@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fFZ-Ob-W0y">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="c4e-3t-0qJ">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -296,6 +296,7 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="dNm-vp-SNv"/>
                             </scrollView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="VkG-UC-nDv"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="6vg-WE-uNh" secondAttribute="trailing" id="6R7-Xr-jGD"/>
@@ -628,7 +629,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="viewer" id="zlQ-Yx-8Pr" customClass="VotingTableViewCell" customModule="ClownRoyale" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.5" width="374" height="90.5"/>
+                                        <rect key="frame" x="0.0" y="28" width="374" height="90.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zlQ-Yx-8Pr" id="9SS-cl-NGO">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="90.5"/>
@@ -830,7 +831,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="choosableCategory" id="kuQ-fI-DfH" customClass="CategoryTableViewCell" customModule="ClownRoyale" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.5" width="374" height="90.5"/>
+                                        <rect key="frame" x="0.0" y="28" width="374" height="90.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kuQ-fI-DfH" id="G6z-5t-7Jj">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="90.5"/>
@@ -950,17 +951,17 @@
                         <viewControllerLayoutGuide type="bottom" id="p2C-yn-bKl"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7yE-e8-IMT" customClass="Lo">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zelt" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XQs-YN-reA">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5HN-K0-qLe">
-                                <rect key="frame" x="31" y="179" width="352" height="538"/>
+                                <rect key="frame" x="31" y="168.5" width="352" height="505"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="2ZK-ap-Yt6">
-                                        <rect key="frame" x="183.5" y="443" width="158.5" height="75"/>
+                                        <rect key="frame" x="183.5" y="410" width="158.5" height="75"/>
                                         <color key="backgroundColor" name="ClownRedHell"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="75" id="w9K-iG-fpf"/>
@@ -970,7 +971,7 @@
                                         <state key="normal" title="CUSTOM GAME"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="KB6-gZ-iOD">
-                                        <rect key="frame" x="10" y="443" width="158.5" height="75"/>
+                                        <rect key="frame" x="10" y="410" width="158.5" height="75"/>
                                         <color key="backgroundColor" name="ClownRedHell"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="75" id="TEf-nR-TTF"/>
@@ -1042,7 +1043,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="user" id="bEw-MX-LwG" customClass="LobbyTableViewCell" customModule="ClownRoyale" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.5" width="374" height="90.5"/>
+                                        <rect key="frame" x="0.0" y="28" width="374" height="90.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bEw-MX-LwG" id="rgH-6W-qOm">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="90.5"/>
@@ -1154,7 +1155,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="user_ranking" id="jPA-AV-Pww" customClass="RankingTableViewCell" customModule="ClownRoyale" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.5" width="374" height="90.5"/>
+                                        <rect key="frame" x="0.0" y="28" width="374" height="90.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jPA-AV-Pww" id="QyA-cD-zt9">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="90.5"/>
@@ -1318,6 +1319,11 @@
                                     <action selector="onSendRequest:" destination="c4e-3t-0qJ" eventType="touchUpInside" id="Zi5-g2-B8k"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2qx-Q1-SdN">
+                                <rect key="frame" x="179" y="687" width="57" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Register"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9Ol-JU-aRk"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1325,11 +1331,12 @@
                     <connections>
                         <outlet property="password" destination="V1V-eF-9V1" id="wFw-pL-McK"/>
                         <outlet property="username" destination="G1v-AT-SLD" id="SeM-eu-WZk"/>
+                        <segue destination="4cc-Ba-gQD" kind="show" identifier="login" id="kbE-7o-6i9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K7W-0E-bP0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3024.6376811594205" y="736.60714285714278"/>
+            <point key="canvasLocation" x="3054" y="737"/>
         </scene>
         <!--Register Controller-->
         <scene sceneID="HbJ-Rb-Vdd">
@@ -1390,6 +1397,7 @@
                         <viewLayoutGuide key="safeArea" id="cFx-Zp-g6m"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="BOx-ib-kse"/>
                     <connections>
                         <outlet property="email" destination="KPe-D9-Tnq" id="0sE-fo-2yZ"/>
                         <outlet property="password" destination="vsh-8n-esz" id="Dha-Ea-jk9"/>
@@ -1401,6 +1409,9 @@
             <point key="canvasLocation" x="3830" y="737"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="kbE-7o-6i9"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="cart.fill" catalog="system" width="128" height="102"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
