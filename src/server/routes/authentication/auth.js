@@ -1,4 +1,7 @@
 var router = require('express').Router();
+
+import { createUser } from '../../repository/AuthenticationRepository';
+
 const axios = require('axios');
 const qs = require('qs');
 
@@ -41,7 +44,7 @@ router.post('/login', (req, res) => {
 
     axios.post(baseURL + realmName + subURL, qs.stringify(data), request_options)
         .then((response) => {
-            console.log(response);
+            createUser();
             res.send({ "isLogin": true, "access": response.data.access_token, "refresh": response.data.refresh_token })
         })
         .catch((error) => {
@@ -91,25 +94,16 @@ router.post('/refreshToken', (req, res) => {
 })
 
 
-router.get('/test', (req, res) => {
-    getAdminToken();
-    res.send("na..")
-})
-
-function getAdminToken() {
 
 
-
-
-}
-
+/*
 router.post('/register', (req, res) => {
 
+    console.log(req.query)
 
-
-    const username = req.body.username;
-    const password = req.body.password;
-    const email = req.body.email;
+    const username = req.query.username;
+    const password = req.query.password;
+    const email = req.query.email;
 
 
     if (username == undefined || username.length == 0) {
@@ -120,7 +114,6 @@ router.post('/register', (req, res) => {
         return res.send({ "status": "Passwort ist ungültig." })
     }
 
-    console.log(username, password);
 
 
 
@@ -137,56 +130,52 @@ router.post('/register', (req, res) => {
 
     const data = {
         "client_id": "admin-cli",
-        "username": "clownadmin",
-        "password": "afrocircus",
-        "grant_type": "password"
+        "grant_type": "client_credentials",
+        "client_secret": "ab4e2273-680e-4d1f-bbc7-eb914769c40b"
     }
 
     axios.post(baseURL + "master" + subURL, qs.stringify(data), request_options)
         .then((response) => {
-            console.log(response);
             console.log("===============")
 
 
-
+            var access = response.data.access_token;
+            console.log(access)
 
 
             const request_options = {
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + access 
                 }
             }
 
             const data = {
-                "username": username,
-                "password": password,
-                "email": email,
-                "emailVerfied": true,
+                "username": "greg",
+                "email": "email",
                 "firstName": "Max",
                 "lastName": "Mustermann",
-                "enabled": true,
-                "Authorization": "Bearer " + response.data.access_token
+                "enabled": "true",
             }
 
-            axios.post("http://localhost:8080/auth/admin/realms/" + realmName + "/users", data, request_options)
+            axios.post("http://localhost:8080/auth/admin/realms/clown/users", data, request_options)
                 .then((r) => {
-                    console.log(r);
                     res.send({ "isLogin": true, "access": r.data.access_token, "refresh": r.data.refresh_token })
                 })
                 .catch((error) => {
                     res.send({ "error": "Es gab einen Fehler!" })
-                    console.error(error);
+                    console.log(error)
                 })
 
         })
         .catch((error) => {
-            console.error(error);
+            //console.error(error);
         })
 
 
 
 })
-
+*/
 
 const users = ["Jan", "Lukas", "Simon", "Matthias"];
 var requestCounter = 0;
