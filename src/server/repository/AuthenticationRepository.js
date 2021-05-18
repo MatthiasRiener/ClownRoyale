@@ -7,7 +7,7 @@ function createUser(access_token) {
     const data = getInfoFromToken(access_token);
 
 
-    if (await checkIfUserExists(data.sub)) {
+    if (checkIfUserExists(data.sub)) {
         console.log("user already exists! updating time")
         Model.updateOne({ _id: data.sub }, { $set: { last_login: new Date().getTime() } }, function (err, res) {
             if (err) console.log("Error while updating.....", err);
