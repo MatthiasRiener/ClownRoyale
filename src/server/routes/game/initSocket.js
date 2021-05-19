@@ -21,6 +21,11 @@ function initializeSocket(server) {
         socket = socket;
         intializeEvents(socket);
 
+        socket.on("disconnecting", (reason) => {
+            console.log("disconnect!!!");
+            console.log(reason);
+        });
+
     });
 }
 
