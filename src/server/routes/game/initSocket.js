@@ -1,13 +1,11 @@
 let io, connectedDevices = [], socket;
 
 function initializeSocket(server) {
-    console.log("iniitalizing socket...")
     io = require('socket.io')(server);
 
 
 
     io.on('connection', (socket) => {
-        console.log("a user connected...");
 
         var isConnected = false;
         connectedDevices.forEach((user) => {
@@ -34,12 +32,10 @@ function intializeEvents(socket) {
         connectedDevices.forEach((user) => {
             if (user.sid == socket.id) {
                 user.uid = u_id;
-                console.log("UPDATED USER ENTRY");
             }
         });
 
 
-        console.log("====")
 
         joinLobby(u_id, socket);
 
@@ -49,7 +45,6 @@ function intializeEvents(socket) {
     socket.on('userIsReady', (data) => {
         var u_id = data.userID;
         var roomID = data.roomID;
-        console.log("user is ready!!!!!", u_id, roomID);
         setUserToReady(roomID, u_id);
         // send to user_is ready response
     });
@@ -60,12 +55,10 @@ function setUserToReady(lobbdyID, u_id) {
         if (lobby.id == lobbdyID) {
             lobby.users.some((user) => {
                 if (user.u_id == u_id) {
-                    console.log("USER IS FRICKING READY XD")
                     user.ready = true;
 
                     checkIfEveroneIsReady(lobby);
 
-                    console.log(lobby)
                     getUsersFromArray(lobby.users).then((users) => {
                         emitToRoom("joinLobbyResponse", { "status": 1, "lobbyID": lobby.id , "type": "readyPressed", "users": users }, lobby.users);
     
@@ -81,12 +74,16 @@ function checkIfEveroneIsReady(lobby) {
     var lobbyReady = true;
 
     lobby.users.forEach((user) => {
-        if (!user.isReady) lobbyReady = false;
+        if (!user.isReady) {
+            lobbyReady = false;
+        } 
     });
 
 
     if (lobbyReady) {
+        lobby.status = 'READY';
         console.log("Lobby is ready to START LMAO!!!")
+        console.log(lobby);
     }
 }
 
@@ -121,7 +118,6 @@ function joinLobby(u_id, socket) {
         });
     } else {
         var newLobby = createNewLobby(u_id);
-        console.log(newLobby.users)
 
         getUsersFromArray(newLobby.users).then((users) => {
             emitToRoom("joinLobbyResponse", { "status": 1, "lobbyID": newLobby.id ,"type": "createdLobby", "users": users }, newLobby.users);
