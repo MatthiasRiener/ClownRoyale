@@ -62,6 +62,9 @@ function setUserToReady(lobbdyID, u_id) {
                 if (user.u_id == u_id) {
                     console.log("USER IS FRICKING READY XD")
                     user.ready = true;
+
+                    checkIfEveroneIsReady(lobby);
+
                     console.log(lobby)
                     getUsersFromArray(lobby.users).then((users) => {
                         emitToRoom("joinLobbyResponse", { "status": 1, "lobbyID": lobby.id , "type": "readyPressed", "users": users }, lobby.users);
@@ -74,6 +77,18 @@ function setUserToReady(lobbdyID, u_id) {
     });
 }
 
+function checkIfEveroneIsReady(lobby) {
+    var lobbyReady = true;
+
+    lobby.users.forEach((user) => {
+        if (!user.isReady) lobbyReady = false;
+    });
+
+
+    if (lobbyReady) {
+        console.log("Lobby is ready to START LMAO!!!")
+    }
+}
 
 const MAX_SIZE = 8;
 const ONGOING_LOBBIES = [];
