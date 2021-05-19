@@ -77,7 +77,7 @@ function checkIfEveroneIsReady(lobby) {
 
     lobby.users.forEach((user) => {
         console.log("checking user", user);
-        if (!user.isReady) {
+        if (!user.ready) {
             lobbyReady = false;
         } 
     });
