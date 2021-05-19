@@ -112,7 +112,7 @@ function emitToUser(event, uid, msg, socket) {
 
     connectedDevices.some((user) => {
         if (user.uid == uid) {
-            socket.broadcast.to(socketid).emit(event, msg);
+            socket.broadcast.to(user.sid).emit(event, msg);
         }
     });
 }
