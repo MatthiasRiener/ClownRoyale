@@ -35,7 +35,7 @@ function checkIfUserExists(u_id) {
 function getUsersFromArray(users) {
     var response = [];
     users.forEach((u) => {
-        response.push(UserModel.findOne({ u_id: u }));
+        response.push(UserModel.findOne({ u_id: u }).toObject());
     });
 
     return response;
