@@ -80,8 +80,8 @@ function createNewLobby(creator) {
     ONGOING_LOBBIES.push({
         id: uuidv4(),
         status: 'WAITING',
-        users: [u_id],
-        creator: u_id,
+        users: [creator],
+        creator: creator,
         created: new Date().getTime()
     });
 }
