@@ -73,7 +73,10 @@ function setUserToReady(lobbdyID, u_id) {
 function checkIfEveroneIsReady(lobby) {
     var lobbyReady = true;
 
+    console.log("checking for lobby....", lobby);
+
     lobby.users.forEach((user) => {
+        console.log("checking user", user);
         if (!user.isReady) {
             lobbyReady = false;
         } 
