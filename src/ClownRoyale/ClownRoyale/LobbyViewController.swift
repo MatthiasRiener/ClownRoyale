@@ -4,11 +4,9 @@ import UIKit
 import TwilioVideo
 
 class LobbyViewController: UIViewController {
-
     //UITableView mit Lobbyteilnehmer
     @IBOutlet weak var lobbyTable: UITableView!
     @IBOutlet weak var readyUp: UIView!
-    var users = [String]()
     
     //Möglichkeit height neu auszurechnen, scrollen geht dann nicht mehr
     override func viewWillLayoutSubviews() {
@@ -18,6 +16,8 @@ class LobbyViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.refresh), name: NSNotification.Name(rawValue: "newDataNotif"), object: nil)
 
         //TableView
         lobbyTable.dataSource = self
@@ -54,6 +54,10 @@ class LobbyViewController: UIViewController {
         //Damit User nicht mehr zurückkommt
         watcherPerspektiveView.modalPresentationStyle = .fullScreen
     }
+    
+    @objc func refresh() {
+        self.lobbyTable.reloadData()
+    }
 
 }
 
@@ -71,8 +75,19 @@ extension LobbyViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "user", for: indexPath) as! LobbyTableViewCell
         
-        cell.username.text = SocketIOManager.sharedInstance.users[indexPath.row]
-
+        cell.username.text = SocketIOManager.sharedInstance.users[indexPath.row].value(forKey: "name") as! String
+        
+        DispatchQueue.global().async { [weak self] in
+            if let data = try? Data(contentsOf: URL(string: SocketIOManager.sharedInstance.users[indexPath.row].value(forKey: "image") as! String)!) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        cell.profileImage.image = image
+                        cell.profileImage.contentMode = .scaleToFill
+                    }
+                }
+            }
+        }
+        
         return cell
     }
 
