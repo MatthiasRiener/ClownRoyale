@@ -6,6 +6,8 @@ class SocketIOManager: NSObject {
      var manager : SocketManager?
      var socket : SocketIOClient?
      var users = [NSDictionary]()
+     var roomID : String?
+     var userID: String?
 
      override init() {
          super.init()
@@ -48,6 +50,7 @@ class SocketIOManager: NSObject {
         sendRequestToServer(url: "/user/getUID", method: "GET")?
         .then { data in
             print("Id: \(data["u_id"]!)")
+            self.userID = "\(data["u_id"]!)"
             self.socket?.emit("joinLobbyRequest", ["u_id": "\(data["u_id"]!)"]) //adduser
         }
      }
@@ -60,6 +63,27 @@ class SocketIOManager: NSObject {
       */
     func joinLobbyResponse(completionHandler: @escaping (_ status: Int) -> Void) {
          socket?.on("joinLobbyResponse") { data,ack in //updateconnecteduser
+            print("JOINLOBBYRESPONSE")
+            //completionHandler("\(String(describing: snippet.value(forKey: "viewers")!))")
+            if let responseData = data[0] as? NSDictionary {
+                print("RESPONSE: ")
+                print(responseData)
+                let status = responseData.value(forKey: "status") as! Int
+                self.roomID = responseData.value(forKey: "lobbyID") as! String
+                self.users = responseData.value(forKey: "users") as! Array<NSDictionary>
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "newDataNotif"), object: nil)
+                print(self.users)
+                completionHandler(status)
+            }
+         }
+     }
+    
+    func userReady() {
+        self.socket?.emit("userIsReady", ["roomID": self.roomID, "userID": self.userID]) //adduser
+    }
+    
+    func userReadyResponse(completionHandler: @escaping (_ status: Int) -> Void) {
+         socket?.on("userIsReadyResponse") { data,ack in //updateconnecteduser
             print("JOINLOBBYRESPONSE")
             //completionHandler("\(String(describing: snippet.value(forKey: "viewers")!))")
             if let responseData = data[0] as? NSDictionary {

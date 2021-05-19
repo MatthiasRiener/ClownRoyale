@@ -46,7 +46,9 @@ class LobbyViewController: UIViewController {
     @objc func clickAction(sender : UITapGestureRecognizer) {
         print("join game")
         
-        performSegue(withIdentifier: "join", sender: self)
+        SocketIOManager.sharedInstance.userReady()
+        
+        //performSegue(withIdentifier: "join", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -58,7 +60,7 @@ class LobbyViewController: UIViewController {
     @objc func refresh() {
         self.lobbyTable.reloadData()
     }
-
+    
 }
 
 extension LobbyViewController: UITableViewDataSource {
@@ -86,6 +88,12 @@ extension LobbyViewController: UITableViewDataSource {
                     }
                 }
             }
+        }
+        
+        if SocketIOManager.sharedInstance.users[indexPath.row].value(forKey: "isReady") as! Bool {
+            cell.status.text = "Ready"
+        } else {
+            cell.status.text = "Pending"
         }
         
         return cell

@@ -1128,7 +1128,7 @@
                     <navigationItem key="navigationItem" id="ioy-8B-Zme"/>
                     <connections>
                         <outlet property="lobbyTable" destination="gPR-Kk-891" id="Rca-RX-cst"/>
-                        <outlet property="readyUp" destination="G4n-Cb-7fC" id="Q55-g2-Azz"/>
+                        <outlet property="readyUp" destination="G4n-Cb-7fC" id="mBo-Sn-3Xk"/>
                         <segue destination="gKT-Nx-Nhx" kind="show" identifier="join" id="cOs-mx-uFs"/>
                     </connections>
                 </viewController>
