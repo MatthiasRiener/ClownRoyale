@@ -29,10 +29,9 @@ async function getUsersFromArray(users) {
     var response = [];
 
     await asyncForEach(users, async (u) => {
-        getUser(u).then((res) => {
-            console.log("pushing ", res);
-            response.push(res);
-        });
+        var docu = await getUser(u);
+        console.log(docu);
+        response.push(docu);
     });
 
     console.log("RETURINING USERS")
@@ -47,7 +46,7 @@ async function asyncForEach(array, callback) {
 
 
 function getUser(u_id) {
-    return UserModel.findOne({ u_id: u_id }).exec();
+    return new Promise(r => UserModel.findOne({ u_id: u_id }).exec());
 }
 
 module.exports.createUser = createUser;
