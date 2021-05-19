@@ -39,7 +39,7 @@ function disconnectUserFromLobby(session) {
     var devicesCount = 0;
     connectedDevices.forEach((el) => {
         if (el.sid == session) {
-            u_idToRemove = el.u_id;
+            u_idToRemove = el.uid;
             connectedDevices.splice(devicesCount, 1);
         }
 
