@@ -44,6 +44,14 @@ function intializeEvents(socket) {
         joinLobby(u_id, socket);
 
     });
+
+
+    socket.on('userIsReady', (data) => {
+        var session = socket.sid;
+        var roomID = data.roomID;
+        console.log("user is ready!!!!!", session, roomID);
+        // send to user_is ready response
+    });
 }
 
 
@@ -67,7 +75,7 @@ function joinLobby(u_id, socket) {
                 }
 
                 getUsersFromArray(lobby.users).then((users) => {
-                    emitToRoom("joinLobbyResponse", { "status": 1, "type": "foundLobby", "users": users }, lobby.users);
+                    emitToRoom("joinLobbyResponse", { "status": 1, "lobbyID": lobby.id , "type": "foundLobby", "users": users }, lobby.users);
 
                     //emitToUser("joinLobbyResponse", u_id, { "status": 1, "type": "foundLobby", "users": users }, socket);
                 })
@@ -81,7 +89,7 @@ function joinLobby(u_id, socket) {
         console.log(newLobby.users)
 
         getUsersFromArray(newLobby.users).then((users) => {
-            emitToRoom("joinLobbyResponse", { "status": 1, "type": "createdLobby", "users": users }, newLobby.users);
+            emitToRoom("joinLobbyResponse", { "status": 1, "lobbyID": newLobby.id ,"type": "createdLobby", "users": users }, newLobby.users);
             //emitToUser("joinLobbyResponse", u_id, { "status": 1, "type": "createdLobby", "users": users }, socket);
         })
 
