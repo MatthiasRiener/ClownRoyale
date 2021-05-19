@@ -83,10 +83,17 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func onPlay(_ sender: Any) {
-        joinLobby()
-        if false {
-            performSegue(withIdentifier: "play", sender: self)
-        }
+        SocketIOManager.sharedInstance.createSocketConnection(completionHandler: {connected in
+            print("BLUB")
+            SocketIOManager.sharedInstance.joinLobby()
+            SocketIOManager.sharedInstance.joinLobbyResponse(completionHandler: {status in
+                print("STATUS: ")
+                print(status)
+                if status == 1 {
+                    self.performSegue(withIdentifier: "play", sender: self)
+                }
+            })
+        })
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
