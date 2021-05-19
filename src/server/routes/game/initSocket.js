@@ -73,7 +73,7 @@ function joinLobby(u_id, socket) {
         });
     } else {
         var newLobby = createNewLobby(u_id);
-        emitToUser("joinLobbyResponse", u_id, {"status": 1, "type": "createdLobby", "users": getUsersFromArray(lobby.users)}, socket);
+        emitToUser("joinLobbyResponse", u_id, {"status": 1, "type": "createdLobby", "users": getUsersFromArray(newLobby.users)}, socket);
 
     }
 }
