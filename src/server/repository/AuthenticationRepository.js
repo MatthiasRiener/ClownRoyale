@@ -26,17 +26,23 @@ function checkIfUserExists(u_id) {
 }
 
 async function getUsersFromArray(users) {
-     var response = [];
+    var response = [];
 
-     await users.forEach((u) => {
-         getUser(u).then((res) => {
-             console.log("pushing ", res);
+    await asyncForEach(users, async (u) => {
+        getUser(u).then((res) => {
+            console.log("pushing ", res);
             response.push(res);
-         });
-     });
+        });
+    });
 
-     console.log("RETURINING USERS")
+    console.log("RETURINING USERS")
     return response;
+}
+
+async function asyncForEach(array, callback) {
+    for (let index = 0; index < array.length; index++) {
+        await callback(array[index], index, array);
+    }
 }
 
 
