@@ -53,24 +53,27 @@ const ONGOING_LOBBIES = [];
 // LOBBY STATUS
 // WAITING => Waiting for Fillup
 // READY => Ready
+
+getUsersFromArray = require('../../repository/AuthenticationRepository').getUsersFromArray;
+
 function joinLobby(u_id, socket) {
     if (lobbyAvailable()) {
         ONGOING_LOBBIES.some((lobby) => {
-            if (lobby.status == 'WAITING') {
+            if (lobby.status == 'WAITING' && !lobby.users.includes(u_id)) {
                 lobby.users.push(u_id);
 
                 if (lobby.users.length == MAX_SIZE) {
                     lobby.status = 'READY';
                 }
 
-                emitToUser("joinLobbyResponse", u_id, {"status": 1, "type": "foundLobby", "users": lobby.users}, socket);
+                emitToUser("joinLobbyResponse", u_id, {"status": 1, "type": "foundLobby", "users": getUsersFromArray(lobby.users)}, socket);
 
                 return lobby;
             }
         });
     } else {
         var newLobby = createNewLobby(u_id);
-        emitToUser("joinLobbyResponse", u_id, {"status": 1, "type": "createdLobby", "users": newLobby.users}, socket);
+        emitToUser("joinLobbyResponse", u_id, {"status": 1, "type": "createdLobby", "users": getUsersFromArray(lobby.users)}, socket);
 
     }
 }

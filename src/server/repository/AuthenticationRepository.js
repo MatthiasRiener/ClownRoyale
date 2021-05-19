@@ -32,4 +32,14 @@ function checkIfUserExists(u_id) {
     return UserModel.count({ u_id: u_id });
 }
 
+function getUsersFromArray(users) {
+    var response = [];
+    users.forEach((u) => {
+        response.append(UserModel.findOne({ u_id: u }));
+    });
+
+    return response;
+}
+
 module.exports.createUser = createUser;
+module.exports.getUsersFromArray = getUsersFromArray;
