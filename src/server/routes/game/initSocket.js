@@ -46,11 +46,16 @@ function disconnectUserFromLobby(session) {
         devicesCount++;
     });
 
+    console.log(u_idToRemove);
+    console.log(connectedDevices);
+
     ONGOING_LOBBIES.some((lobby) => {
         var userIndex = 0;
         lobby.users.forEach((el) => {
 
             if (el.u_id == u_idToRemove) {
+                console.log("SOUTS")
+                console.log(lobby.id);
                 lobbyID = lobby.id;
                 lobby.users.splice(userIndex, 1);
             }
