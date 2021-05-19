@@ -4,25 +4,25 @@ function initializeSocket(server) {
     console.log("iniitalizing socket...")
     io = require('socket.io')(server);
 
-    
-    
+
+
     io.on('connection', (socket) => {
         console.log("a user connected...");
-    
+
         var isConnected = false;
         connectedDevices.forEach((user) => {
             if (user.sid == socket.id) {
                 isConnected = true;
             }
         });
-    
+
         if (!isConnected) {
-            connectedDevices.push({sid: socket.id, uid: undefined});
+            connectedDevices.push({ sid: socket.id, uid: undefined });
         }
-        
+
         socket = socket;
         intializeEvents(socket);
-        
+
     });
 }
 
@@ -66,14 +66,17 @@ function joinLobby(u_id, socket) {
                     lobby.status = 'READY';
                 }
 
-                emitToUser("joinLobbyResponse", u_id, {"status": 1, "type": "foundLobby", "users": getUsersFromArray(lobby.users)}, socket);
+                emitToUser("joinLobbyResponse", u_id, { "status": 1, "type": "foundLobby", "users": getUsersFromArray(lobby.users) }, socket);
 
                 return lobby;
             }
         });
     } else {
         var newLobby = createNewLobby(u_id);
-        emitToUser("joinLobbyResponse", u_id, {"status": 1, "type": "createdLobby", "users": getUsersFromArray(newLobby.users)}, socket);
+        console.log(newLobby.users)
+        var users = getUsersFromArray(newLobby.users);
+        console.log(users);
+        emitToUser("joinLobbyResponse", u_id, { "status": 1, "type": "createdLobby", "users": users }, socket);
 
     }
 }
