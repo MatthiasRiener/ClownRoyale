@@ -36,17 +36,6 @@ async function getUsersFromArray(users) {
     return await users.map((user) => getUser(user));
 }
 
-function getUsersFromArray(users) {
-    var response = [];
-    users.forEach((u) => {
-        getUser(u).then((doc) => {
-            response.push(doc);
-        });
-    });
-
-    return response;
-}
-
 
 async function getUser(u_id) {
     const doc = await UserModel.findOne({ u_id: u_id }).exec();
