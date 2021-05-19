@@ -44,7 +44,7 @@ function getUsersFromArray(users) {
 
 
 async function getUser(u_id) {
-    const doc = await Auth.findOne({ nick: 'noname' }).exec();
+    const doc = await UserModel.findOne({ u_id: u_id }).exec();
     return doc;
 }
 
