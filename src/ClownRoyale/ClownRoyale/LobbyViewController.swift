@@ -8,6 +8,7 @@ class LobbyViewController: UIViewController {
     //UITableView mit Lobbyteilnehmer
     @IBOutlet weak var lobbyTable: UITableView!
     @IBOutlet weak var readyUp: UIView!
+    var users = [String]()
     
     //Möglichkeit height neu auszurechnen, scrollen geht dann nicht mehr
     override func viewWillLayoutSubviews() {
@@ -64,13 +65,13 @@ extension LobbyViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 8
+        return SocketIOManager.sharedInstance.users.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "user", for: indexPath) as! LobbyTableViewCell
         
-        cell.username.text = "Henrike Gustavson"
+        cell.username.text = SocketIOManager.sharedInstance.users[indexPath.row]
 
         return cell
     }

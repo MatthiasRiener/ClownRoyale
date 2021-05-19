@@ -4,6 +4,8 @@ const aRepo = require('../../repository/AuthenticationRepository');
 
 const axios = require('axios');
 const qs = require('qs');
+const { getUserID } = require('../../helper/helper');
+const tokenVerifier = require('./tokenMiddleware');
 
 const baseURL = "http://localhost:8080/auth/realms/";
 const realmName = "clown";
@@ -94,7 +96,9 @@ router.post('/refreshToken', (req, res) => {
 })
 
 
-
+router.get('/getUserID', (req, res) => {
+    res.send(getUserID(req));
+});
 
 /*
 router.post('/register', (req, res) => {

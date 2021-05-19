@@ -25,6 +25,7 @@
 		A9635E8C26395F51006147A9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9635E8B26395F51006147A9 /* LoginViewController.swift */; };
 		A9635E8F26396237006147A9 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9635E8E26396237006147A9 /* RegisterViewController.swift */; };
 		A9A08B4E26305C1F001E3EA7 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A08B4D26305C1F001E3EA7 /* ShopViewController.swift */; };
+		A9A381BB2655120C002856E7 /* SocketIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A381BA2655120C002856E7 /* SocketIO.swift */; };
 		A9E813CB2630AF9800A728A5 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E813CA2630AF9800A728A5 /* ProfileView.swift */; };
 		DD74E8B2262F1823008725FB /* WatcherPerspectiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD74E8B1262F1823008725FB /* WatcherPerspectiveViewController.swift */; };
 		DD74E8B5262F21C2008725FB /* OwnPerspectiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD74E8B4262F21C2008725FB /* OwnPerspectiveViewController.swift */; };
@@ -58,6 +59,7 @@
 		A9635E8B26395F51006147A9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A9635E8E26396237006147A9 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		A9A08B4D26305C1F001E3EA7 /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
+		A9A381BA2655120C002856E7 /* SocketIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketIO.swift; sourceTree = "<group>"; };
 		A9E813CA2630AF9800A728A5 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		DD74E8B1262F1823008725FB /* WatcherPerspectiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatcherPerspectiveViewController.swift; sourceTree = "<group>"; };
 		DD74E8B4262F21C2008725FB /* OwnPerspectiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnPerspectiveViewController.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				7C57EF64261F4BED00926FC4 /* ProfileMainView.swift */,
 				DDB4D02C261F361400D496C5 /* LaunchScreen.storyboard */,
 				DDB4D02F261F361400D496C5 /* Info.plist */,
+				A9A381BA2655120C002856E7 /* SocketIO.swift */,
 			);
 			path = ClownRoyale;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				DD74E8B5262F21C2008725FB /* OwnPerspectiveViewController.swift in Sources */,
 				7C7A6DB9263ADC3F0072186B /* VideoChat.swift in Sources */,
 				7C57EF832630215D00926FC4 /* RankingViewController.swift in Sources */,
+				A9A381BB2655120C002856E7 /* SocketIO.swift in Sources */,
 				3022BBCC26309B5D001BCE43 /* CategoryTableViewCell.swift in Sources */,
 				7C7A6DBC263ADE120072186B /* SettingsTableViewController.swift in Sources */,
 				A92A8C4D263B039300756893 /* AuthenticationFlow.swift in Sources */,

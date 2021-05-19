@@ -7,5 +7,6 @@ use_frameworks!
 target 'ClownRoyale' do
   pod 'TwilioVideo', '~> 4.3'
   pod 'PromisesSwift'
+  pod 'Socket.IO-Client-Swift', '~> 15.2.0'
 end
 
