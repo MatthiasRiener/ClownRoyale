@@ -34,6 +34,7 @@ function checkIfUserExists(u_id) {
 
 async function getUsersFromArray(users) {
     return await users.map((user) => getUser(user));
+}
 
 function getUsersFromArray(users) {
     var response = [];
