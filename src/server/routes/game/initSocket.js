@@ -67,7 +67,9 @@ function joinLobby(u_id, socket) {
                 }
 
                 getUsersFromArray(lobby.users).then((users) => {
-                    emitToUser("joinLobbyResponse", u_id, { "status": 1, "type": "foundLobby", "users": users }, socket);
+                    emitToRoom("joinLobbyResponse", { "status": 1, "type": "foundLobby", "users": users }, lobby.users);
+
+                    //emitToUser("joinLobbyResponse", u_id, { "status": 1, "type": "foundLobby", "users": users }, socket);
                 })
 
 
@@ -79,7 +81,8 @@ function joinLobby(u_id, socket) {
         console.log(newLobby.users)
 
         getUsersFromArray(newLobby.users).then((users) => {
-            emitToUser("joinLobbyResponse", u_id, { "status": 1, "type": "createdLobby", "users": users }, socket);
+            emitToRoom("joinLobbyResponse", { "status": 1, "type": "createdLobby", "users": users }, newLobby.users);
+            //emitToUser("joinLobbyResponse", u_id, { "status": 1, "type": "createdLobby", "users": users }, socket);
         })
 
     }
@@ -127,6 +130,23 @@ function emitToUser(event, uid, msg, socket) {
         }
     });
 }
+
+function emitToRoom(event, msg, users) {
+    users.forEach((user) => {
+        connectedDevices.some((user_device) => {
+            if (user.uid == user_device.uid) {
+
+                Object.keys(io.sockets.sockets).forEach((socketid) => {
+                    if (socketid == user_device.sid) {
+                        io.to(socketid).emit(event, msg);
+                    }
+                });
+            }
+        });
+    });
+
+}
+
 
 
 module.exports.initializeSocket = initializeSocket;
