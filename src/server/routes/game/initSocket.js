@@ -63,6 +63,11 @@ function setUserToReady(lobbdyID, u_id) {
                     console.log("USER IS FRICKING READY XD")
                     user.ready = true;
                     console.log(lobby)
+                    getUsersFromArray(lobby.users).then((users) => {
+                        emitToRoom("joinLobbyResponse", { "status": 1, "lobbyID": lobby.id , "type": "readyPressed", "users": users }, lobby.users);
+    
+                        //emitToUser("joinLobbyResponse", u_id, { "status": 1, "type": "foundLobby", "users": users }, socket);
+                    })
                 }
             });
         }

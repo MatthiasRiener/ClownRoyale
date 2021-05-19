@@ -31,6 +31,7 @@ async function getUsersFromArray(users) {
     await asyncForEach(users, async (u) => {
         var docu = await getUser(u.u_id);
         console.log(docu);
+        docu["isReady"] = u.ready;
         response.push(docu);
     });
 
