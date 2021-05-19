@@ -116,7 +116,10 @@ function emitToUser(event, uid, msg, socket) {
         if (user.uid == uid) {
             console.log(io.sockets);
             console.log(connectedDevices);
-            socket.broadcast.to(user.sid).emit(event, msg);
+            Object.keys(io.sockets.sockets).forEach((socketid) => {
+                console.log("SENDING TO SOCKET ", socketid);
+                socket.broadcast.to(socketid).emit(event, msg);
+            });
         }
     });
 }
