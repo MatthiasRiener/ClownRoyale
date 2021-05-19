@@ -60,11 +60,12 @@ function disconnectUserFromLobby(session) {
     console.log("SHOULD HAVE CLEANED THE SHIT");
     console.log(ONGOING_LOBBIES);
 
-    ONGOING_LOBBIES.some((lobby)) {
+
+    ONGOING_LOBBIES.some((lobby) => {
         if (lobby.id == lobbyID) {
             emitToRoom("joinLobbyResponse", { "status": 1, "lobbyID": lobby.id , "type": "readyPressed", "users": users }, lobby.users);
         }
-    }
+    });
 
 
 
