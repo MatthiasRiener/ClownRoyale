@@ -106,19 +106,13 @@ function createNewLobby(creator) {
 
 
 function emitToUser(event, uid, msg, socket) {
-    console.log("EMITIING TOO USEERR");
-    console.log(event, uid, msg);
-    console.log(connectedDevices);
-
-
-
     connectedDevices.some((user) => {
         if (user.uid == uid) {
-            console.log(io.sockets);
-            console.log(connectedDevices);
+
             Object.keys(io.sockets.sockets).forEach((socketid) => {
-                console.log("SENDING TO SOCKET ", socketid);
-                io.to(socketid).emit(event, msg);
+                if (socketid == user.sid) {
+                    io.to(socketid).emit(event, msg);
+                }
             });
         }
     });
