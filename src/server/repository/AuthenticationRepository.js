@@ -22,13 +22,6 @@ function createUser(access_token) {
 }
 
 function checkIfUserExists(u_id) {
-    return UserModel.count({ u_id: u_id }, function (err, count) {
-        console.log(u_id, count);
-    });
-
-}
-
-function checkIfUserExists(u_id) {
     return UserModel.count({ u_id: u_id });
 }
 
@@ -37,10 +30,8 @@ async function getUsersFromArray(users) {
 }
 
 
-async function getUser(u_id) {
-    const doc = await UserModel.findOne({ u_id: u_id }).exec();
-    console.log(doc);
-    return doc;
+function getUser(u_id) {
+    return UserModel.findOne({ u_id: u_id }).exec();
 }
 
 module.exports.createUser = createUser;
