@@ -1,0 +1,680 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 52;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		30132E2C26553306008F1F87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30132E2B26553306008F1F87 /* AppDelegate.swift */; };
+		30132E2E26553306008F1F87 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30132E2D26553306008F1F87 /* SceneDelegate.swift */; };
+		30132E3026553306008F1F87 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30132E2F26553306008F1F87 /* ViewController.swift */; };
+		30132E3326553306008F1F87 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30132E3126553306008F1F87 /* Main.storyboard */; };
+		30132E352655330C008F1F87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30132E342655330C008F1F87 /* Assets.xcassets */; };
+		30132E382655330C008F1F87 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30132E362655330C008F1F87 /* LaunchScreen.storyboard */; };
+		30132E432655330D008F1F87 /* LaughmeterStoryboardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30132E422655330D008F1F87 /* LaughmeterStoryboardTests.swift */; };
+		30132E4E2655330D008F1F87 /* LaughmeterStoryboardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30132E4D2655330D008F1F87 /* LaughmeterStoryboardUITests.swift */; };
+		4C8FA1D1016A51FC0B74BA1C /* Pods_LaughmeterStoryboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 703F2DF90110DD75F196227A /* Pods_LaughmeterStoryboard.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		30132E3F2655330D008F1F87 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 30132E2026553305008F1F87 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 30132E2726553305008F1F87;
+			remoteInfo = LaughmeterStoryboard;
+		};
+		30132E4A2655330D008F1F87 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 30132E2026553305008F1F87 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 30132E2726553305008F1F87;
+			remoteInfo = LaughmeterStoryboard;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		30132E2826553305008F1F87 /* LaughmeterStoryboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LaughmeterStoryboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		30132E2B26553306008F1F87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		30132E2D26553306008F1F87 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		30132E2F26553306008F1F87 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		30132E3226553306008F1F87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		30132E342655330C008F1F87 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		30132E372655330C008F1F87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		30132E392655330C008F1F87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		30132E3E2655330D008F1F87 /* LaughmeterStoryboardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LaughmeterStoryboardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		30132E422655330D008F1F87 /* LaughmeterStoryboardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaughmeterStoryboardTests.swift; sourceTree = "<group>"; };
+		30132E442655330D008F1F87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		30132E492655330D008F1F87 /* LaughmeterStoryboardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LaughmeterStoryboardUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		30132E4D2655330D008F1F87 /* LaughmeterStoryboardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaughmeterStoryboardUITests.swift; sourceTree = "<group>"; };
+		30132E4F2655330D008F1F87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		703F2DF90110DD75F196227A /* Pods_LaughmeterStoryboard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LaughmeterStoryboard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		80674275C01B373F99E723FC /* Pods-LaughmeterStoryboard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LaughmeterStoryboard.release.xcconfig"; path = "Target Support Files/Pods-LaughmeterStoryboard/Pods-LaughmeterStoryboard.release.xcconfig"; sourceTree = "<group>"; };
+		D867C404D361E25BC9AE14C0 /* Pods-LaughmeterStoryboard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LaughmeterStoryboard.debug.xcconfig"; path = "Target Support Files/Pods-LaughmeterStoryboard/Pods-LaughmeterStoryboard.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		30132E2526553305008F1F87 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C8FA1D1016A51FC0B74BA1C /* Pods_LaughmeterStoryboard.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		30132E3B2655330D008F1F87 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		30132E462655330D008F1F87 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		30132E1F26553305008F1F87 = {
+			isa = PBXGroup;
+			children = (
+				30132E2A26553305008F1F87 /* LaughmeterStoryboard */,
+				30132E412655330D008F1F87 /* LaughmeterStoryboardTests */,
+				30132E4C2655330D008F1F87 /* LaughmeterStoryboardUITests */,
+				30132E2926553305008F1F87 /* Products */,
+				AB6DDC4857F41E2D15EF18AD /* Pods */,
+				AF5DC6BA0D56251C75878921 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		30132E2926553305008F1F87 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				30132E2826553305008F1F87 /* LaughmeterStoryboard.app */,
+				30132E3E2655330D008F1F87 /* LaughmeterStoryboardTests.xctest */,
+				30132E492655330D008F1F87 /* LaughmeterStoryboardUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		30132E2A26553305008F1F87 /* LaughmeterStoryboard */ = {
+			isa = PBXGroup;
+			children = (
+				30132E2B26553306008F1F87 /* AppDelegate.swift */,
+				30132E2D26553306008F1F87 /* SceneDelegate.swift */,
+				30132E2F26553306008F1F87 /* ViewController.swift */,
+				30132E3126553306008F1F87 /* Main.storyboard */,
+				30132E342655330C008F1F87 /* Assets.xcassets */,
+				30132E362655330C008F1F87 /* LaunchScreen.storyboard */,
+				30132E392655330C008F1F87 /* Info.plist */,
+			);
+			path = LaughmeterStoryboard;
+			sourceTree = "<group>";
+		};
+		30132E412655330D008F1F87 /* LaughmeterStoryboardTests */ = {
+			isa = PBXGroup;
+			children = (
+				30132E422655330D008F1F87 /* LaughmeterStoryboardTests.swift */,
+				30132E442655330D008F1F87 /* Info.plist */,
+			);
+			path = LaughmeterStoryboardTests;
+			sourceTree = "<group>";
+		};
+		30132E4C2655330D008F1F87 /* LaughmeterStoryboardUITests */ = {
+			isa = PBXGroup;
+			children = (
+				30132E4D2655330D008F1F87 /* LaughmeterStoryboardUITests.swift */,
+				30132E4F2655330D008F1F87 /* Info.plist */,
+			);
+			path = LaughmeterStoryboardUITests;
+			sourceTree = "<group>";
+		};
+		AB6DDC4857F41E2D15EF18AD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D867C404D361E25BC9AE14C0 /* Pods-LaughmeterStoryboard.debug.xcconfig */,
+				80674275C01B373F99E723FC /* Pods-LaughmeterStoryboard.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		AF5DC6BA0D56251C75878921 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				703F2DF90110DD75F196227A /* Pods_LaughmeterStoryboard.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		30132E2726553305008F1F87 /* LaughmeterStoryboard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 30132E522655330D008F1F87 /* Build configuration list for PBXNativeTarget "LaughmeterStoryboard" */;
+			buildPhases = (
+				8B5353E79F7F520149228A0F /* [CP] Check Pods Manifest.lock */,
+				30132E2426553305008F1F87 /* Sources */,
+				30132E2526553305008F1F87 /* Frameworks */,
+				30132E2626553305008F1F87 /* Resources */,
+				175A27347C4736C65420D234 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LaughmeterStoryboard;
+			packageProductDependencies = (
+			);
+			productName = LaughmeterStoryboard;
+			productReference = 30132E2826553305008F1F87 /* LaughmeterStoryboard.app */;
+			productType = "com.apple.product-type.application";
+		};
+		30132E3D2655330D008F1F87 /* LaughmeterStoryboardTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 30132E552655330D008F1F87 /* Build configuration list for PBXNativeTarget "LaughmeterStoryboardTests" */;
+			buildPhases = (
+				30132E3A2655330D008F1F87 /* Sources */,
+				30132E3B2655330D008F1F87 /* Frameworks */,
+				30132E3C2655330D008F1F87 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				30132E402655330D008F1F87 /* PBXTargetDependency */,
+			);
+			name = LaughmeterStoryboardTests;
+			productName = LaughmeterStoryboardTests;
+			productReference = 30132E3E2655330D008F1F87 /* LaughmeterStoryboardTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		30132E482655330D008F1F87 /* LaughmeterStoryboardUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 30132E582655330D008F1F87 /* Build configuration list for PBXNativeTarget "LaughmeterStoryboardUITests" */;
+			buildPhases = (
+				30132E452655330D008F1F87 /* Sources */,
+				30132E462655330D008F1F87 /* Frameworks */,
+				30132E472655330D008F1F87 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				30132E4B2655330D008F1F87 /* PBXTargetDependency */,
+			);
+			name = LaughmeterStoryboardUITests;
+			productName = LaughmeterStoryboardUITests;
+			productReference = 30132E492655330D008F1F87 /* LaughmeterStoryboardUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		30132E2026553305008F1F87 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					30132E2726553305008F1F87 = {
+						CreatedOnToolsVersion = 12.4;
+					};
+					30132E3D2655330D008F1F87 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 30132E2726553305008F1F87;
+					};
+					30132E482655330D008F1F87 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 30132E2726553305008F1F87;
+					};
+				};
+			};
+			buildConfigurationList = 30132E2326553305008F1F87 /* Build configuration list for PBXProject "LaughmeterStoryboard" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 30132E1F26553305008F1F87;
+			packageReferences = (
+				30132E61265538B6008F1F87 /* XCRemoteSwiftPackageReference "AudioKit" */,
+			);
+			productRefGroup = 30132E2926553305008F1F87 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				30132E2726553305008F1F87 /* LaughmeterStoryboard */,
+				30132E3D2655330D008F1F87 /* LaughmeterStoryboardTests */,
+				30132E482655330D008F1F87 /* LaughmeterStoryboardUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		30132E2626553305008F1F87 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30132E382655330C008F1F87 /* LaunchScreen.storyboard in Resources */,
+				30132E352655330C008F1F87 /* Assets.xcassets in Resources */,
+				30132E3326553306008F1F87 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		30132E3C2655330D008F1F87 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		30132E472655330D008F1F87 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		175A27347C4736C65420D234 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LaughmeterStoryboard/Pods-LaughmeterStoryboard-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LaughmeterStoryboard/Pods-LaughmeterStoryboard-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LaughmeterStoryboard/Pods-LaughmeterStoryboard-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8B5353E79F7F520149228A0F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LaughmeterStoryboard-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		30132E2426553305008F1F87 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30132E3026553306008F1F87 /* ViewController.swift in Sources */,
+				30132E2C26553306008F1F87 /* AppDelegate.swift in Sources */,
+				30132E2E26553306008F1F87 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		30132E3A2655330D008F1F87 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30132E432655330D008F1F87 /* LaughmeterStoryboardTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		30132E452655330D008F1F87 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30132E4E2655330D008F1F87 /* LaughmeterStoryboardUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		30132E402655330D008F1F87 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 30132E2726553305008F1F87 /* LaughmeterStoryboard */;
+			targetProxy = 30132E3F2655330D008F1F87 /* PBXContainerItemProxy */;
+		};
+		30132E4B2655330D008F1F87 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 30132E2726553305008F1F87 /* LaughmeterStoryboard */;
+			targetProxy = 30132E4A2655330D008F1F87 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		30132E3126553306008F1F87 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				30132E3226553306008F1F87 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		30132E362655330C008F1F87 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				30132E372655330C008F1F87 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		30132E502655330D008F1F87 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		30132E512655330D008F1F87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		30132E532655330D008F1F87 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D867C404D361E25BC9AE14C0 /* Pods-LaughmeterStoryboard.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = LaughmeterStoryboard/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "at.ac.htl-leonding.4bhitm.LaughmeterStoryboard";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		30132E542655330D008F1F87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 80674275C01B373F99E723FC /* Pods-LaughmeterStoryboard.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = LaughmeterStoryboard/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "at.ac.htl-leonding.4bhitm.LaughmeterStoryboard";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		30132E562655330D008F1F87 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = LaughmeterStoryboardTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "at.ac.htl-leonding.4bhitm.LaughmeterStoryboardTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LaughmeterStoryboard.app/LaughmeterStoryboard";
+			};
+			name = Debug;
+		};
+		30132E572655330D008F1F87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = LaughmeterStoryboardTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "at.ac.htl-leonding.4bhitm.LaughmeterStoryboardTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LaughmeterStoryboard.app/LaughmeterStoryboard";
+			};
+			name = Release;
+		};
+		30132E592655330D008F1F87 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = LaughmeterStoryboardUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "at.ac.htl-leonding.4bhitm.LaughmeterStoryboardUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = LaughmeterStoryboard;
+			};
+			name = Debug;
+		};
+		30132E5A2655330D008F1F87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = LaughmeterStoryboardUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "at.ac.htl-leonding.4bhitm.LaughmeterStoryboardUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = LaughmeterStoryboard;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		30132E2326553305008F1F87 /* Build configuration list for PBXProject "LaughmeterStoryboard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				30132E502655330D008F1F87 /* Debug */,
+				30132E512655330D008F1F87 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		30132E522655330D008F1F87 /* Build configuration list for PBXNativeTarget "LaughmeterStoryboard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				30132E532655330D008F1F87 /* Debug */,
+				30132E542655330D008F1F87 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		30132E552655330D008F1F87 /* Build configuration list for PBXNativeTarget "LaughmeterStoryboardTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				30132E562655330D008F1F87 /* Debug */,
+				30132E572655330D008F1F87 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		30132E582655330D008F1F87 /* Build configuration list for PBXNativeTarget "LaughmeterStoryboardUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				30132E592655330D008F1F87 /* Debug */,
+				30132E5A2655330D008F1F87 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		30132E61265538B6008F1F87 /* XCRemoteSwiftPackageReference "AudioKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AudioKit/AudioKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+	};
+	rootObject = 30132E2026553305008F1F87 /* Project object */;
+}

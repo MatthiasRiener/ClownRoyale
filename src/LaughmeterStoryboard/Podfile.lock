@@ -1,0 +1,41 @@
+PODS:
+  - AudioKit (4.11.2):
+    - AudioKit/Core (= 4.11.2)
+    - AudioKit/UI (= 4.11.2)
+  - AudioKit/Core (4.11.2)
+  - AudioKit/UI (4.11.2):
+    - AudioKit/Core
+  - PromisesObjC (2.0.0)
+  - PromisesSwift (2.0.0):
+    - PromisesObjC (= 2.0.0)
+  - Socket.IO-Client-Swift (15.2.0):
+    - Starscream (~> 3.1)
+  - Starscream (3.1.1)
+  - TwilioVideo (4.4.0)
+
+DEPENDENCIES:
+  - AudioKit (~> 4.11.1)
+  - PromisesSwift
+  - Socket.IO-Client-Swift (~> 15.2.0)
+  - TwilioVideo (~> 4.3)
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs:
+    - AudioKit
+    - PromisesObjC
+    - PromisesSwift
+    - Socket.IO-Client-Swift
+    - Starscream
+    - TwilioVideo
+
+SPEC CHECKSUMS:
+  AudioKit: 57cc61d708f085763a031e5c3f87adae21dc4b59
+  PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
+  PromisesSwift: e0b2a6433469efb0b83a2b84c62a2abab8e5e5d4
+  Socket.IO-Client-Swift: 1e3e3a1f09f3312a167f0d781eb2f383d477357c
+  Starscream: 4bb2f9942274833f7b4d296a55504dcfc7edb7b0
+  TwilioVideo: fcf10b7460e582570887d194b73e75425685d813
+
+PODFILE CHECKSUM: aa9386c1a2c14523bf2b03261e22cdae8a48d76e
+
+COCOAPODS: 1.10.1
