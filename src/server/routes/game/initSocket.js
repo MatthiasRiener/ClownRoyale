@@ -1,4 +1,4 @@
-let io, connectedDevices = [];
+let io, connectedDevices = [], socket;
 
 function initializeSocket(server) {
     console.log("iniitalizing socket...")
@@ -19,7 +19,8 @@ function initializeSocket(server) {
         if (!isConnected) {
             connectedDevices.push({sid: socket.id, uid: undefined});
         }
-    
+        
+        socket = socket;
         intializeEvents(socket);
         
     });
@@ -93,9 +94,13 @@ function createNewLobby(creator) {
 
 
 function emitToUser(event, uid, msg) {
+    console.log("EMITIING TOO USEERR");
+    console.log(event, uid, msg);
+    console.log(connectedDevices);
+
     connectedDevices.some((user) => {
         if (user.uid == uid) {
-            io.sockets.socket(user.sid).emit(event, msg);
+            socket.broadcast.to(socketid).emit(event, msg);
         }
     });
 }
