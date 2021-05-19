@@ -118,7 +118,7 @@ function emitToUser(event, uid, msg, socket) {
             console.log(connectedDevices);
             Object.keys(io.sockets.sockets).forEach((socketid) => {
                 console.log("SENDING TO SOCKET ", socketid);
-                socket.broadcast.to(socketid).emit(event, msg);
+                io.to(socketid).emit(event, msg);
             });
         }
     });
