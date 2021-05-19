@@ -26,7 +26,15 @@ function checkIfUserExists(u_id) {
 }
 
 async function getUsersFromArray(users) {
-    return await users.map((user) => getUser(user));
+     var response = [];
+
+     users.forEach((u) => {
+         getUser(u).then((res) => {
+            response.push(res);
+         });
+     });
+
+    return response;
 }
 
 
