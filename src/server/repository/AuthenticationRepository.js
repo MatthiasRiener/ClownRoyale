@@ -47,7 +47,7 @@ async function asyncForEach(array, callback) {
 
 
 function getUser(u_id) {
-    return UserModel.findOne({ u_id: u_id }).exec();
+    return UserModel.findOne({ u_id: u_id }).lean().exec();
 }
 
 module.exports.createUser = createUser;
