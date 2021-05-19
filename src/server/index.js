@@ -8,18 +8,32 @@ app.use(express.urlencoded({extended: true}))
 const port = 5000;
 
 const server = require('http').createServer(app);
-
-
-
 const io = require('socket.io')(server);
 
+const connectedDevices = [];
 
 
-io.on('connection', (socket) => {
+io.on('connection', (client) => {
     console.log("a user connected...");
+
+    var isConnected = false;
+    connectedDevices.forEach((user) => {
+        if (user.sid == client.id) {
+            isConnected = true;
+        }
+    });
+
+    if (!isConnected) {
+        connectedDevices.push({sid: client.id, uid: undefined});
+    }
+
 });
 
 
+io.on('joinLobbyRequest', (client) => {
+    console.log("Requesting to join lobby...");
+    console.log(client);
+});
 
 app.get('/', (req, res) => {
     res.send('Hallo 4CHIF!');
