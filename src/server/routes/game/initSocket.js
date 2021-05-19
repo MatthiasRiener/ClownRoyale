@@ -49,7 +49,7 @@ function intializeEvents(socket) {
     socket.on('userIsReady', (data) => {
         var u_id = data.userID;
         var roomID = data.roomID;
-        console.log("user is ready!!!!!", session, roomID);
+        console.log("user is ready!!!!!", u_id, roomID);
         setUserToReady(roomID, u_id);
         // send to user_is ready response
     });
