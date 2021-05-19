@@ -56,8 +56,8 @@ function joinLobby(u_id) {
             }
         });
     } else {
-        createNewLobby(u_id);
-        emitToUser("joinLobbyResponse", {"status": 1, "type": "createdLobby", "users": lobby.users});
+        var newLobby = createNewLobby(u_id);
+        emitToUser("joinLobbyResponse", {"status": 1, "type": "createdLobby", "users": newLobby.users});
 
     }
 }
@@ -77,13 +77,18 @@ function lobbyAvailable() {
 var uuidv4 = require('uuid').v4;
 
 function createNewLobby(creator) {
-    ONGOING_LOBBIES.push({
+    const lobby = {
         id: uuidv4(),
         status: 'WAITING',
         users: [creator],
         creator: creator,
         created: new Date().getTime()
-    });
+    };
+
+
+    ONGOING_LOBBIES.push(lobby);
+
+    return lobby;
 }
 
 
