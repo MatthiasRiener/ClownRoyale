@@ -57,7 +57,7 @@ const ONGOING_LOBBIES = [];
 getUsersFromArray = require('../../repository/AuthenticationRepository').getUsersFromArray;
 
 function joinLobby(u_id, socket) {
-    if (lobbyAvailable()) {
+    if (lobbyAvailable(u_id)) {
         ONGOING_LOBBIES.some((lobby) => {
             if (lobby.status == 'WAITING' && !lobby.users.includes(u_id)) {
                 lobby.users.push(u_id);
@@ -66,7 +66,10 @@ function joinLobby(u_id, socket) {
                     lobby.status = 'READY';
                 }
 
-                emitToUser("joinLobbyResponse", u_id, { "status": 1, "type": "foundLobby", "users": getUsersFromArray(lobby.users) }, socket);
+                getUsersFromArray(lobby.users).then((users) => {
+                    emitToUser("joinLobbyResponse", u_id, { "status": 1, "type": "foundLobby", "users": users }, socket);
+                })
+
 
                 return lobby;
             }
@@ -82,11 +85,11 @@ function joinLobby(u_id, socket) {
     }
 }
 
-function lobbyAvailable() {
+function lobbyAvailable(u_id) {
     let isAvailable = false;
 
     ONGOING_LOBBIES.forEach((lobby) => {
-        if (lobby.status == 'WAITING') {
+        if (lobby.status == 'WAITING' && !lobby.includes(u_id)) {
             isAvailable = true;
         }
     });
