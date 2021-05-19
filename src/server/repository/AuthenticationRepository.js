@@ -29,7 +29,7 @@ async function getUsersFromArray(users) {
     var response = [];
 
     await asyncForEach(users, async (u) => {
-        var docu = await getUser(u);
+        var docu = await getUser(u.u_id);
         console.log(docu);
         response.push(docu);
     });

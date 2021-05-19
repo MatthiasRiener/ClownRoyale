@@ -47,10 +47,24 @@ function intializeEvents(socket) {
 
 
     socket.on('userIsReady', (data) => {
-        var session = socket.sid;
+        var u_id = data.userID;
         var roomID = data.roomID;
         console.log("user is ready!!!!!", session, roomID);
+        setUserToReady(roomID, u_id);
         // send to user_is ready response
+    });
+}
+
+function setUserToReady(lobbdyID, u_id) {
+    ONGOING_LOBBIES.some((lobby) => {
+        if (lobby.id == lobbdyID) {
+            lobby.users.some((user) => {
+                if (user.u_id == u_id) {
+                    console.log("USER IS FRICKING READY XD")
+                    user.ready = true;
+                }
+            });
+        }
     });
 }
 
@@ -67,8 +81,8 @@ getUsersFromArray = require('../../repository/AuthenticationRepository').getUser
 function joinLobby(u_id, socket) {
     if (lobbyAvailable(u_id)) {
         ONGOING_LOBBIES.some((lobby) => {
-            if (lobby.status == 'WAITING' && !lobby.users.includes(u_id)) {
-                lobby.users.push(u_id);
+            if (lobby.status == 'WAITING') {
+                lobby.users.push({"u_id": u_id, "ready": false});
 
                 if (lobby.users.length == MAX_SIZE) {
                     lobby.status = 'READY';
@@ -100,8 +114,17 @@ function lobbyAvailable(u_id) {
     let isAvailable = false;
 
     ONGOING_LOBBIES.forEach((lobby) => {
-        if (lobby.status == 'WAITING' && !lobby.users.includes(u_id)) {
-            isAvailable = true;
+        if (lobby.status == 'WAITING') {
+            var wasInside;
+            lobby.users.forEach((user) => {
+                wasInside = false;
+                if (user.u_id == u_id) {
+                    wasInside = true;
+                }
+            });
+
+
+            isAvailable = wasInside;
         }
     });
 
@@ -114,7 +137,7 @@ function createNewLobby(creator) {
     const lobby = {
         id: uuidv4(),
         status: 'WAITING',
-        users: [creator],
+        users: [{"u_id": creator, "ready": false}],
         creator: creator,
         created: new Date().getTime()
     };
@@ -142,7 +165,7 @@ function emitToUser(event, uid, msg, socket) {
 function emitToRoom(event, msg, users) {
     users.forEach((user) => {
         connectedDevices.some((user_device) => {
-            if (user == user_device.uid) {
+            if (user.u_id == user_device.uid) {
 
                 Object.keys(io.sockets.sockets).forEach((socketid) => {
                     if (socketid == user_device.sid) {
