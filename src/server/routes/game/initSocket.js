@@ -89,7 +89,7 @@ function lobbyAvailable(u_id) {
     let isAvailable = false;
 
     ONGOING_LOBBIES.forEach((lobby) => {
-        if (lobby.status == 'WAITING' && !lobby.includes(u_id)) {
+        if (lobby.status == 'WAITING' && !lobby.users.includes(u_id)) {
             isAvailable = true;
         }
     });
