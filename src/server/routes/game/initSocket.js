@@ -134,7 +134,7 @@ function emitToUser(event, uid, msg, socket) {
 function emitToRoom(event, msg, users) {
     users.forEach((user) => {
         connectedDevices.some((user_device) => {
-            if (user.uid == user_device.uid) {
+            if (user == user_device.uid) {
 
                 Object.keys(io.sockets.sockets).forEach((socketid) => {
                     if (socketid == user_device.sid) {
