@@ -32,14 +32,8 @@ function checkIfUserExists(u_id) {
     return UserModel.count({ u_id: u_id });
 }
 
-function getUsersFromArray(users) {
-    var response = [];
-    users.forEach((u) => {
-        var doc = getUser(u);
-        response.push(doc);
-    });
-
-    return response;
+async function getUsersFromArray(users) {
+    return await users.map((user) => getUser(user));
 }
 
 
