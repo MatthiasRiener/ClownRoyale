@@ -13,27 +13,30 @@ const io = require('socket.io')(server);
 const connectedDevices = [];
 
 
-io.on('connection', (client) => {
+io.on('connection', (socket) => {
     console.log("a user connected...");
 
     var isConnected = false;
     connectedDevices.forEach((user) => {
-        if (user.sid == client.id) {
+        if (user.sid == socket.id) {
             isConnected = true;
         }
     });
 
     if (!isConnected) {
-        connectedDevices.push({sid: client.id, uid: undefined});
+        connectedDevices.push({sid: socket.id, uid: undefined});
     }
 
+
+    socket.on('joinLobbyRequest', (client) => {
+        console.log("Requesting to join lobby...");
+        console.log(client);
+    });
+
 });
 
 
-io.on('joinLobbyRequest', (client) => {
-    console.log("Requesting to join lobby...");
-    console.log(client);
-});
+
 
 app.get('/', (req, res) => {
     res.send('Hallo 4CHIF!');
