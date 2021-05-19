@@ -41,7 +41,7 @@ function intializeEvents(socket) {
 
         console.log("====")
 
-        joinLobby(u_id);
+        joinLobby(u_id, socket);
 
     });
 }
@@ -53,7 +53,7 @@ const ONGOING_LOBBIES = [];
 // LOBBY STATUS
 // WAITING => Waiting for Fillup
 // READY => Ready
-function joinLobby(u_id) {
+function joinLobby(u_id, socket) {
     if (lobbyAvailable()) {
         ONGOING_LOBBIES.some((lobby) => {
             if (lobby.status == 'WAITING') {
@@ -63,14 +63,14 @@ function joinLobby(u_id) {
                     lobby.status = 'READY';
                 }
 
-                emitToUser("joinLobbyResponse", u_id, {"status": 1, "type": "foundLobby", "users": lobby.users});
+                emitToUser("joinLobbyResponse", u_id, {"status": 1, "type": "foundLobby", "users": lobby.users}, socket);
 
                 return lobby;
             }
         });
     } else {
         var newLobby = createNewLobby(u_id);
-        emitToUser("joinLobbyResponse", u_id, {"status": 1, "type": "createdLobby", "users": newLobby.users});
+        emitToUser("joinLobbyResponse", u_id, {"status": 1, "type": "createdLobby", "users": newLobby.users}, socket);
 
     }
 }
@@ -105,7 +105,7 @@ function createNewLobby(creator) {
 }
 
 
-function emitToUser(event, uid, msg) {
+function emitToUser(event, uid, msg, socket) {
     console.log("EMITIING TOO USEERR");
     console.log(event, uid, msg);
     console.log(connectedDevices);
