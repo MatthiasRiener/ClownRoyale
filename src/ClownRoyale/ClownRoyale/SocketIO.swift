@@ -5,6 +5,7 @@ class SocketIOManager: NSObject {
     static let sharedInstance = SocketIOManager()
      var manager : SocketManager?
      var socket : SocketIOClient?
+     var users = [String]()
 
      override init() {
          super.init()
@@ -65,6 +66,9 @@ class SocketIOManager: NSObject {
                 print("RESPONSE: ")
                 print(responseData)
                 let status = responseData.value(forKey: "status") as! Int
+                //self.users.removeAll()
+                self.users = responseData.value(forKey: "users") as! Array<String>
+                print(self.users)
                 completionHandler(status)
             }
          }

@@ -35,8 +35,9 @@ function checkIfUserExists(u_id) {
 function getUsersFromArray(users) {
     var response = [];
     users.forEach((u) => {
-        var doc = getUser(u);
-        response.push(doc);
+        getUser(u).then((doc) => {
+            response.push(doc);
+        });
     });
 
     return response;
@@ -45,6 +46,7 @@ function getUsersFromArray(users) {
 
 async function getUser(u_id) {
     const doc = await UserModel.findOne({ u_id: u_id }).exec();
+    console.log(doc);
     return doc;
 }
 
