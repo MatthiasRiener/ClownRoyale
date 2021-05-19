@@ -128,26 +128,38 @@ class WatcherPerspectiveViewController: ViewController {
     }
     
     @objc func changeClown(sender : UITapGestureRecognizer){
-        /*
-        if(counter >= (videoChat?.room?.remoteParticipants.count)! - 1){
-            counter = 0
-        }else {
-            counter = counter+1
-        }
-        //videoChat?.remoteParticipant = nil
-        videoChat?.remoteParticipant? = (videoChat?.room?.remoteParticipants[counter])!
-        
-       
-        
-        videoChat?.renderRemoteParticipant(participant: (videoChat?.remoteParticipant)!)
-        */
-        
-        print(videoChat?.remoteParticipant?.identity ?? "oje")
-        print(videoChat?.room?.remoteParticipants.count ?? 0)
-        print(counter)
-        
-        
+        if(videoChat?.room?.remoteParticipants.count ?? 0 > 0){
+                    
+            let videoPublications = videoChat?.remoteParticipant?.remoteVideoTracks
+            if(videoPublications != nil){
+                for publication in videoPublications! {
+                    if let subscribedVideoTrack = publication.remoteTrack,
+                        publication.isTrackSubscribed {
+                        print("gg")
+                        subscribedVideoTrack.removeRenderer(videoChat?.remoteView! as! VideoRenderer)
+                        
+                    }
+            }
 
+            //videoChat?.remoteView?.invalidateRenderer()
+            
+            print(videoChat?.room?.remoteParticipants.count ?? 0)
+            if(counter >= (videoChat?.room?.remoteParticipants.count)! - 1){
+                counter = 0
+            }else {
+                counter = counter+1
+            }
+            //videoChat?.remoteParticipant = nil
+
+            videoChat?.remoteParticipant? = (videoChat?.room?.remoteParticipants[counter])!
+            
+            print(videoChat?.remoteParticipant?.identity ?? "oje")
+            print(videoChat?.room?.remoteParticipants.count ?? 0)
+            print(counter)
+            
+            videoChat?.renderRemoteParticipant(participant: (videoChat?.remoteParticipant)!)
+        }
+    }
     }
     
     @objc func clickAction(sender : UITapGestureRecognizer) {
