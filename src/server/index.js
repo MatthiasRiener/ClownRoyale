@@ -19,6 +19,7 @@ app.get('/', (req, res) => {
 app.use('/auth', require('./routes/authentication/auth'));
 app.use('/video', require('./routes/videochat/videochat'));
 app.use('/shop', require('./routes/shop/shop'));
+app.use('/user', require('./routes/user/user'));
 
 
 
@@ -26,3 +27,5 @@ app.listen(port, () => {
     console.log(`Das Herzstück des Projektes wurde soeben auf Port ${port} gestartet. `);
 })
 
+
+module.exports.app = app;
