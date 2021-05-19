@@ -980,8 +980,7 @@
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="PLAY"/>
                                         <connections>
-                                            <action selector="onPlay:" destination="4cc-Ba-gQD" eventType="touchUpInside" id="8Hv-Sk-bD6"/>
-                                            <segue destination="1ZQ-Sb-YtN" kind="show" id="id1-hh-BmC"/>
+                                            <action selector="onPlay:" destination="4cc-Ba-gQD" eventType="touchUpInside" id="IT2-nY-h9b"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1018,6 +1017,7 @@
                         <outlet property="menuView" destination="5HN-K0-qLe" id="w1P-ta-dqr"/>
                         <outlet property="pageView" destination="7yE-e8-IMT" id="nhK-0A-M4H"/>
                         <outlet property="playButton" destination="KB6-gZ-iOD" id="K17-DH-8bk"/>
+                        <segue destination="1ZQ-Sb-YtN" kind="show" identifier="play" id="6dG-sg-3oI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="agb-fL-VK6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

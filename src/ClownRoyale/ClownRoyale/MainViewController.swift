@@ -16,6 +16,7 @@ class MainViewController: UIViewController {
     @IBOutlet var pageView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
+
         
         //PLAY-BUTTON
         playButton.layer.shadowColor = UIColor(named: "ClownRedDunkel")?.cgColor
@@ -82,10 +83,12 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func onPlay(_ sender: Any) {
-        //seque in storyboard
+        joinLobby()
+        if false {
+            performSegue(withIdentifier: "play", sender: self)
+        }
     }
     
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let lobbyViewController = segue.destination as! LobbyViewController
         //Damit User nicht mehr zurückkommt

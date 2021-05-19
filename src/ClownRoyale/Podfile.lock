@@ -2,23 +2,31 @@ PODS:
   - PromisesObjC (1.2.12)
   - PromisesSwift (1.2.12):
     - PromisesObjC (= 1.2.12)
+  - Socket.IO-Client-Swift (15.2.0):
+    - Starscream (~> 3.1)
+  - Starscream (3.1.1)
   - TwilioVideo (4.3.0)
 
 DEPENDENCIES:
   - PromisesSwift
+  - Socket.IO-Client-Swift (~> 15.2.0)
   - TwilioVideo (~> 4.3)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs:
     - PromisesObjC
     - PromisesSwift
+    - Socket.IO-Client-Swift
+    - Starscream
     - TwilioVideo
 
 SPEC CHECKSUMS:
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   PromisesSwift: 64085cf6e5fc1b5001f90cf31e87a1f1621fefee
+  Socket.IO-Client-Swift: 1e3e3a1f09f3312a167f0d781eb2f383d477357c
+  Starscream: 4bb2f9942274833f7b4d296a55504dcfc7edb7b0
   TwilioVideo: 1ece3d954245b02244ea613408f6a4413ff54987
 
-PODFILE CHECKSUM: a487c0e0be0cd6b1fe9f3e57c78d57961475382c
+PODFILE CHECKSUM: 8fe49e91a9338fa2b3b65c3b31305d675be67832
 
 COCOAPODS: 1.10.1
