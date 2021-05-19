@@ -28,12 +28,14 @@ function checkIfUserExists(u_id) {
 async function getUsersFromArray(users) {
      var response = [];
 
-     users.forEach((u) => {
+     await users.forEach((u) => {
          getUser(u).then((res) => {
+             console.log("pushing ", res);
             response.push(res);
          });
      });
 
+     console.log("RETURINING USERS")
     return response;
 }
 
