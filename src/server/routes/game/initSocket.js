@@ -70,7 +70,9 @@ function disconnectUserFromLobby(session) {
 
     ONGOING_LOBBIES.some((lobby) => {
         if (lobby.id == lobbyID) {
-            emitToRoom("joinLobbyResponse", { "status": 1, "lobbyID": lobby.id, "type": "readyPressed", "users": users }, lobby.users);
+            getUsersFromArray(lobby.users).then((users) => {
+                emitToRoom("joinLobbyResponse", { "status": 1, "lobbyID": lobby.id, "type": "readyPressed", "users": users }, lobby.users);
+            });
         }
     });
 
