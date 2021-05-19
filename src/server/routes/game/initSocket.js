@@ -62,6 +62,7 @@ function setUserToReady(lobbdyID, u_id) {
                 if (user.u_id == u_id) {
                     console.log("USER IS FRICKING READY XD")
                     user.ready = true;
+                    console.log(lobby)
                 }
             });
         }
@@ -111,20 +112,14 @@ function joinLobby(u_id, socket) {
 }
 
 function lobbyAvailable(u_id) {
-    let isAvailable = false;
+    /*
+        muss noch überarbeitet werden, momentan okey
+    */
+   isAvailable = false;
 
-    ONGOING_LOBBIES.forEach((lobby) => {
-        if (lobby.status == 'WAITING') {
-            var wasInside;
-            lobby.users.forEach((user) => {
-                wasInside = false;
-                if (user.u_id == u_id) {
-                    wasInside = true;
-                }
-            });
-
-
-            isAvailable = wasInside;
+    ONGOING_LOBBIES.some((lobby) => {
+        if (lobby.users.length < MAX_SIZE) {
+            isAvailable = true;
         }
     });
 
