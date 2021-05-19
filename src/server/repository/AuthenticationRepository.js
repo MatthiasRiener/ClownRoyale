@@ -6,9 +6,9 @@ var getInfoFromToken = require('../helper/helper').getInfoFromToken;
 function createUser(access_token) {
     const data = getInfoFromToken(access_token);
 
-    checkIfUserExists(data.sub).then((user_count) => {
-        if (user_count > 0) {
-            UserModel.updateOne({ u_id: data.sub }, { $set: { last_login: new Date().getTime() }});
+    checkIfUserExists(data.sub).then(c => {
+        if (c > 0) {
+            UserModel.updateOne({ u_id: data.sub }, { $set: { last_login: new Date().getTime() } });
         } else {
             UserModel.create({
                 u_id: data.sub,
@@ -19,7 +19,13 @@ function createUser(access_token) {
             });
         }
     });
-  
+}
+
+function checkIfUserExists(u_id) {
+    return UserModel.count({ u_id: u_id }, function (err, count) {
+        console.log(u_id, count);
+    });
+
 }
 
 function checkIfUserExists(u_id) {
