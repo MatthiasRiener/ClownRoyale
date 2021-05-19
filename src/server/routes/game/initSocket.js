@@ -24,7 +24,7 @@ function initializeSocket(server) {
         socket.on("disconnect", (reason) => {
             // ...
             console.log("disconnect....")
-            console.log(reason);
+            console.log(socket.id);
         });
 
     });
