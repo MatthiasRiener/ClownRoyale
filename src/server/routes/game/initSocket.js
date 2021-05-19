@@ -29,6 +29,15 @@ function initializeSocket(server) {
 function intializeEvents(socket) {
     socket.on('joinLobbyRequest', (data) => {
         var u_id = data.u_id;
+
+        // update u_id in connected devices
+
+        console.log(data);
+        console.log(socket);
+
+        console.log("======")
+
+
         joinLobby(u_id);
 
     });
@@ -51,14 +60,14 @@ function joinLobby(u_id) {
                     lobby.status = 'READY';
                 }
 
-                emitToUser("joinLobbyResponse", {"status": 1, "type": "foundLobby", "users": lobby.users});
+                emitToUser("joinLobbyResponse", u_id, {"status": 1, "type": "foundLobby", "users": lobby.users});
 
                 return lobby;
             }
         });
     } else {
         var newLobby = createNewLobby(u_id);
-        emitToUser("joinLobbyResponse", {"status": 1, "type": "createdLobby", "users": newLobby.users});
+        emitToUser("joinLobbyResponse", u_id, {"status": 1, "type": "createdLobby", "users": newLobby.users});
 
     }
 }
