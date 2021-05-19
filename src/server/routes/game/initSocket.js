@@ -36,35 +36,36 @@ function disconnectUserFromLobby(session) {
     var lobbyID = "";
 
 
-    connectedDevices = connectedDevices.filter(function(el) { 
-
+    var devicesCount = 0;
+    connectedDevices.forEach((el) => {
         if (el.sid == session) {
             u_idToRemove = el.u_id;
+            connectedDevices.splice(devicesCount, 1);
         }
 
-
-        return el.sid != session; 
-    }); 
+        devicesCount++;
+    });
 
     ONGOING_LOBBIES.some((lobby) => {
-        lobby.users = lobby.users.filter(function(el) { 
+        var userIndex = 0;
+        lobby.users.forEach((el) => {
 
-            if(el.u_id == u_idToRemove) {
+            if (el.u_id == u_idToRemove) {
                 lobbyID = lobby.id;
+                lobby.users.splice(userIndex, 1);
             }
-
-            return el.u_id != u_idToRemove; 
-        }); 
+            userIndex++;
+        });
     })
 
-
+    console.log(devicesCount);
     console.log("SHOULD HAVE CLEANED THE SHIT");
     console.log(ONGOING_LOBBIES);
 
 
     ONGOING_LOBBIES.some((lobby) => {
         if (lobby.id == lobbyID) {
-            emitToRoom("joinLobbyResponse", { "status": 1, "lobbyID": lobby.id , "type": "readyPressed", "users": users }, lobby.users);
+            emitToRoom("joinLobbyResponse", { "status": 1, "lobbyID": lobby.id, "type": "readyPressed", "users": users }, lobby.users);
         }
     });
 
@@ -108,8 +109,8 @@ function setUserToReady(lobbdyID, u_id) {
                     checkIfEveroneIsReady(lobby);
 
                     getUsersFromArray(lobby.users).then((users) => {
-                        emitToRoom("joinLobbyResponse", { "status": 1, "lobbyID": lobby.id , "type": "readyPressed", "users": users }, lobby.users);
-    
+                        emitToRoom("joinLobbyResponse", { "status": 1, "lobbyID": lobby.id, "type": "readyPressed", "users": users }, lobby.users);
+
                         //emitToUser("joinLobbyResponse", u_id, { "status": 1, "type": "foundLobby", "users": users }, socket);
                     })
                 }
@@ -127,7 +128,7 @@ function checkIfEveroneIsReady(lobby) {
         console.log("checking user", user);
         if (!user.ready) {
             lobbyReady = false;
-        } 
+        }
     });
 
 
@@ -151,14 +152,14 @@ function joinLobby(u_id, socket) {
     if (lobbyAvailable(u_id)) {
         ONGOING_LOBBIES.some((lobby) => {
             if (lobby.status == 'WAITING') {
-                lobby.users.push({"u_id": u_id, "ready": false});
+                lobby.users.push({ "u_id": u_id, "ready": false });
 
                 if (lobby.users.length == MAX_SIZE) {
                     lobby.status = 'READY';
                 }
 
                 getUsersFromArray(lobby.users).then((users) => {
-                    emitToRoom("joinLobbyResponse", { "status": 1, "lobbyID": lobby.id , "type": "foundLobby", "users": users }, lobby.users);
+                    emitToRoom("joinLobbyResponse", { "status": 1, "lobbyID": lobby.id, "type": "foundLobby", "users": users }, lobby.users);
 
                     //emitToUser("joinLobbyResponse", u_id, { "status": 1, "type": "foundLobby", "users": users }, socket);
                 })
@@ -171,7 +172,7 @@ function joinLobby(u_id, socket) {
         var newLobby = createNewLobby(u_id);
 
         getUsersFromArray(newLobby.users).then((users) => {
-            emitToRoom("joinLobbyResponse", { "status": 1, "lobbyID": newLobby.id ,"type": "createdLobby", "users": users }, newLobby.users);
+            emitToRoom("joinLobbyResponse", { "status": 1, "lobbyID": newLobby.id, "type": "createdLobby", "users": users }, newLobby.users);
             //emitToUser("joinLobbyResponse", u_id, { "status": 1, "type": "createdLobby", "users": users }, socket);
         })
 
@@ -182,7 +183,7 @@ function lobbyAvailable(u_id) {
     /*
         muss noch überarbeitet werden, momentan okey
     */
-   isAvailable = false;
+    isAvailable = false;
 
     ONGOING_LOBBIES.some((lobby) => {
         if (lobby.users.length < MAX_SIZE) {
@@ -199,7 +200,7 @@ function createNewLobby(creator) {
     const lobby = {
         id: uuidv4(),
         status: 'WAITING',
-        users: [{"u_id": creator, "ready": false}],
+        users: [{ "u_id": creator, "ready": false }],
         creator: creator,
         created: new Date().getTime()
     };
