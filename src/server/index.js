@@ -8,6 +8,17 @@ app.use(express.urlencoded({extended: true}))
 
 const port = 5000;
 
+const server = require('http').createServer(app);
+
+
+const io = require('socket.io')(server);
+
+
+
+io.on('connection', (socket) => {
+    console.log("a user connected...");
+});
+
 
 
 app.get('/', (req, res) => {
@@ -23,7 +34,7 @@ app.use('/user', require('./routes/user/user'));
 
 
 
-app.listen(port, () => {
+server.listen(port, () => {
     console.log(`Das Herzstück des Projektes wurde soeben auf Port ${port} gestartet. `);
 })
 
