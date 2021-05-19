@@ -74,9 +74,8 @@ function joinLobby(u_id, socket) {
     } else {
         var newLobby = createNewLobby(u_id);
         console.log(newLobby.users)
-        
+
         getUsersFromArray(newLobby.users).then((users) => {
-            console.log(users);
             emitToUser("joinLobbyResponse", u_id, { "status": 1, "type": "createdLobby", "users": users }, socket);
         })
 
