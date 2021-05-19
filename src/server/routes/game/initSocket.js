@@ -30,6 +30,46 @@ function initializeSocket(server) {
     });
 }
 
+function disconnectUserFromLobby(session) {
+    var u_idToRemove = "";
+    var lobbyID = "";
+
+
+    connectedDevices = connectedDevices.filter(function(el) { 
+
+        if (el.sid == session) {
+            u_idToRemove = el.u_id;
+        }
+
+
+        return el.sid != session; 
+    }); 
+
+    ONGOING_LOBBIES.some((lobby) => {
+        lobby.users = lobby.users.filter(function(el) { 
+
+            if(el.u_id == u_idToRemove) {
+                lobbyID = lobby.id;
+            }
+
+            return el.u_id != u_idToRemove; 
+        }); 
+    })
+
+
+    console.log("SHOULD HAVE CLEANED THE SHIT");
+    console.log(ONGOING_LOBBIES);
+
+    ONGOING_LOBBIES.some((lobby)) {
+        if (lobby.id == lobbyID) {
+            emitToRoom("joinLobbyResponse", { "status": 1, "lobbyID": lobby.id , "type": "readyPressed", "users": users }, lobby.users);
+        }
+    }
+
+
+
+}
+
 function intializeEvents(socket) {
     socket.on('joinLobbyRequest', (data) => {
         var u_id = data.u_id;
