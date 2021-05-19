@@ -9,12 +9,9 @@ const port = 5000;
 
 const server = require('http').createServer(app);
 
-const socketConfig = {
-    pingTimeout: 60000
-};
 
 
-const io = require('socket.io')(server, socketConfig);
+const io = require('socket.io')(server);
 
 
 
