@@ -21,7 +21,8 @@
     "qs": "^6.10.1",
     "request": "^2.88.2",
     "socket.io": "^2.0.4",
-    "twilio": "^3.61.0"
+    "twilio": "^3.61.0",
+    "uuid": "^8.3.2"
   },
   "author": "Matthias Riener & Lukas Friesenecker",
   "license": "ISC"

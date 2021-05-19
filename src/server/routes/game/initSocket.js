@@ -1,10 +1,9 @@
-let io, connectedDevices;
+let io, connectedDevices = [];
 
 function initializeSocket(server) {
     console.log("iniitalizing socket...")
     io = require('socket.io')(server);
 
-    connectedDevices = [];
     
     
     io.on('connection', (socket) => {
@@ -29,13 +28,73 @@ function initializeSocket(server) {
 function intializeEvents(socket) {
     socket.on('joinLobbyRequest', (data) => {
         var u_id = data.u_id;
-        console.log("Requesting to join lobby...", u_id);
-        console.log("added you to the lobby")
+        joinLobby(u_id);
 
-        // simulating that joining was successful
-        io.emit("joinLobbyResponse", {"status": 1});
     });
 }
+
+
+const MAX_SIZE = 8;
+const ONGOING_LOBBIES = [];
+
+// LOBBY STATUS
+// WAITING => Waiting for Fillup
+// READY => Ready
+function joinLobby(u_id) {
+    if (lobbyAvailable()) {
+        ONGOING_LOBBIES.some((lobby) => {
+            if (lobby.status == 'WAITING') {
+                lobby.users.push(u_id);
+
+                if (lobby.users.length == MAX_SIZE) {
+                    lobby.status = 'READY';
+                }
+
+                emitToUser("joinLobbyResponse", {"status": 1, "type": "foundLobby", "users": lobby.users});
+
+                return lobby;
+            }
+        });
+    } else {
+        createNewLobby(u_id);
+        emitToUser("joinLobbyResponse", {"status": 1, "type": "createdLobby", "users": lobby.users});
+
+    }
+}
+
+function lobbyAvailable() {
+    let isAvailable = false;
+
+    ONGOING_LOBBIES.forEach((lobby) => {
+        if (lobby.status == 'WAITING') {
+            isAvailable = true;
+        }
+    });
+
+    return isAvailable;
+}
+
+var uuidv4 = require('uuid').v4;
+
+function createNewLobby(creator) {
+    ONGOING_LOBBIES.push({
+        id: uuidv4(),
+        status: 'WAITING',
+        users: [u_id],
+        creator: u_id,
+        created: new Date().getTime()
+    });
+}
+
+
+function emitToUser(event, uid, msg) {
+    connectedDevices.some((user) => {
+        if (user.uid == uid) {
+            io.sockets.socket(user.sid).emit(event, msg);
+        }
+    });
+}
+
 
 module.exports.initializeSocket = initializeSocket;
 
