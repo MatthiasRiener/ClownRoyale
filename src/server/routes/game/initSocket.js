@@ -31,12 +31,15 @@ function intializeEvents(socket) {
         var u_id = data.u_id;
 
         // update u_id in connected devices
+        connectedDevices.forEach((user) => {
+            if (user.sid == socket.id) {
+                user.uid = u_id;
+                console.log("UPDATED USER ENTRY");
+            }
+        });
 
-        console.log(data);
-        console.log(socket);
 
-        console.log("======")
-
+        console.log("====")
 
         joinLobby(u_id);
 
