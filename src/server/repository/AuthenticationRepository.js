@@ -35,10 +35,17 @@ function checkIfUserExists(u_id) {
 function getUsersFromArray(users) {
     var response = [];
     users.forEach((u) => {
-        response.push(UserModel.findOne({ u_id: u }).toObject());
+        var doc = getUser(u);
+        response.push(doc);
     });
 
     return response;
+}
+
+
+async function getUser(u_id) {
+    const doc = await Auth.findOne({ nick: 'noname' }).exec();
+    return doc;
 }
 
 module.exports.createUser = createUser;
