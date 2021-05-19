@@ -30,8 +30,10 @@ function intializeEvents(socket) {
     socket.on('joinLobbyRequest', (data) => {
         var u_id = data.u_id;
         console.log("Requesting to join lobby...", u_id);
-        
         console.log("added you to the lobby")
+
+        // simulating that joining was successful
+        io.emit("joinLobbyResponse", {"status": 1});
     });
 }
 
