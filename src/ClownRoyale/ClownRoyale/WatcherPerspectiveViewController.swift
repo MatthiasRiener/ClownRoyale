@@ -11,6 +11,8 @@ import TwilioVideo
 
 class WatcherPerspectiveViewController: ViewController {
     
+    static let videoSharedInstance = WatcherPerspectiveViewController()
+    
     @IBOutlet weak var categoryStack: UIStackView!
         
     @IBOutlet weak var jokeTellerView: VideoView!
@@ -41,15 +43,8 @@ class WatcherPerspectiveViewController: ViewController {
     
     override func viewDidLoad() {
         
-        
-        if(videoChat == nil){
-            videoChat = VideoChat()
-        }
         setupCurrentClown()
-        videoChat?.connect()
 
-        
-        
         print("View wurde geladen...")
         //self.jokeTellerView.image = UIImage(named: "VideoChat")
         self.jokeTellerView.layer.cornerRadius = 15
@@ -122,9 +117,17 @@ class WatcherPerspectiveViewController: ViewController {
     }
     
     func setupCurrentClown(){
-        videoChat?.remoteView = jokeTellerView
-        videoChat?.remoteView?.reloadInputViews()
-        videoChat?.remoteView?.contentMode = .scaleAspectFit;
+        if(videoChat == nil){
+            videoChat = VideoChat()
+        }
+        
+        if(videoChat?.remoteView == nil){
+            videoChat?.remoteView = jokeTellerView
+            videoChat?.remoteView?.reloadInputViews()
+            videoChat?.remoteView?.contentMode = .scaleAspectFit;
+            
+            videoChat?.connect()
+        }
     }
     
     @objc func changeClown(sender : UITapGestureRecognizer){
@@ -173,7 +176,6 @@ class WatcherPerspectiveViewController: ViewController {
         //Damit User nicht mehr zurückkommt
         categoryView.modalPresentationStyle = .fullScreen
         
-        categoryView.videoChat = videoChat
     }
     
 }

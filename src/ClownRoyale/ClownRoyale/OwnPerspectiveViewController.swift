@@ -29,9 +29,13 @@ class OwnPerspectiveViewController: ViewController {
     
     @IBOutlet weak var finishedButton: UIView!
     
-    var videoChat : VideoChat!
     
     override func viewDidLoad() {
+        
+        if(WatcherPerspectiveViewController.videoSharedInstance.videoChat == nil){
+            WatcherPerspectiveViewController.videoSharedInstance.setupCurrentClown()
+        }
+        
         print("VIREW dIeD Load")
         self.viewersTableView.dataSource = self
         self.viewersTableView.separatorStyle = .singleLine
@@ -69,9 +73,9 @@ class OwnPerspectiveViewController: ViewController {
     
     func setupLocalView(){
         
-        if((videoChat.localVideoTrack) != nil){
-            videoChat.localVideoTrack!.addRenderer(self.imgOwnView)
-            videoChat.logMessage(messageText: "Video track created")
+        if((WatcherPerspectiveViewController.videoSharedInstance.videoChat?.localVideoTrack) != nil){
+            WatcherPerspectiveViewController.videoSharedInstance.videoChat?.localVideoTrack!.addRenderer(self.imgOwnView)
+            WatcherPerspectiveViewController.videoSharedInstance.videoChat?.logMessage(messageText: "Video track created")
         }
 
     }
@@ -79,7 +83,7 @@ class OwnPerspectiveViewController: ViewController {
     @objc func clickAction(sender : UITapGestureRecognizer) {
         print("joke finished")
         performSegue(withIdentifier: "joke_finished", sender: self)
-        videoChat.disconnect()
+        WatcherPerspectiveViewController.videoSharedInstance.videoChat?.disconnect()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -16,10 +16,13 @@ class CategoryViewController: UIViewController {
     
     @IBOutlet weak var chooseCategory: UIView!
     
-    var videoChat : VideoChat!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if(WatcherPerspectiveViewController.videoSharedInstance.videoChat == nil){
+            WatcherPerspectiveViewController.videoSharedInstance.setupCurrentClown()
+        }
 
         //TableView
         CategoryTable.dataSource = self
@@ -51,8 +54,6 @@ class CategoryViewController: UIViewController {
         let ownPerpektiveView = segue.destination as! OwnPerspectiveViewController
         //Damit User nicht mehr zurückkommt
         ownPerpektiveView.modalPresentationStyle = .fullScreen
-        
-        ownPerpektiveView.videoChat = videoChat
         
     }
 
