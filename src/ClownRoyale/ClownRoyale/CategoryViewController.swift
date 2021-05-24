@@ -16,9 +16,12 @@ class CategoryViewController: UIViewController {
     
     @IBOutlet weak var chooseCategory: UIView!
     
+    var categories = [NSDictionary]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.getCategories()
         
         if(WatcherPerspectiveViewController.videoSharedInstance.videoChat == nil){
             WatcherPerspectiveViewController.videoSharedInstance.setupCurrentClown()
@@ -56,6 +59,23 @@ class CategoryViewController: UIViewController {
         ownPerpektiveView.modalPresentationStyle = .fullScreen
         
     }
+    
+    func getCategories() {
+        print("GET CATEGORIES")
+        sendRequestToServer(url: "/category/getCategories", method: "GET")?
+        .then { data in
+            if let responseData = data as? NSDictionary {
+                self.categories = responseData.value(forKey: "cat") as! Array<NSDictionary>
+            }
+            
+            self.CategoryTable.reloadData()
+            print("CATEGORIES: ")
+            print(self.categories)
+            //print("Id: \(data["u_id"]!)")
+            //self.userID = "\(data["u_id"]!)"
+            //self.socket?.emit("joinLobbyRequest", ["u_id": "\(data["u_id"]!)"]) //adduser
+        }
+    }
 
 }
 
@@ -67,13 +87,14 @@ extension CategoryViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 8
+        return self.categories.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        let cell = tableView.dequeueReusableCell(withIdentifier: "choosableCategory", for: indexPath) as! CategoryTableViewCell
         
-        cell.category.text = "Dark Humor"
+        cell.category.text = self.categories[indexPath.row].value(forKey: "name") as! String
+        cell.ppv.text = "\(self.categories[indexPath.row].value(forKey: "points") as! Int)"
 
         return cell
     }
