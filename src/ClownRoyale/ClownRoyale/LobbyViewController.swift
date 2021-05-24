@@ -47,7 +47,29 @@ class LobbyViewController: UIViewController {
         print("join game")
         
         SocketIOManager.sharedInstance.userReady()
-        
+        SocketIOManager.sharedInstance.lobbyReadyToStartResponse(completionHandler: {data in
+            print("DATA: ")
+            print(data)
+            if let tellerData = data.value(forKey: "teller") as? NSDictionary {
+                let u_id = tellerData.value(forKey: "u_id") as! String
+                print("TELLER:")
+                print(u_id)
+                if u_id == SocketIOManager.sharedInstance.userID {
+                    print("I BIMS")
+                    self.performSegue(withIdentifier: "joinTeller", sender: self)
+                } else {
+                    self.performSegue(withIdentifier: "join", sender: self)
+                    print("DU BIMS")
+                }
+                /*print("RESPONSE: ")
+                print(responseData)
+                self.roomID = responseData.value(forKey: "lobbyID") as! String
+                self.users = responseData.value(forKey: "users") as! Array<NSDictionary>
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "newDataNotif"), object: nil)
+                print(self.users)*/
+                //let status = responseData.value(forKey: "status") as! Int
+            }
+        })
         //performSegue(withIdentifier: "join", sender: self)
     }
     

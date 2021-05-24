@@ -144,8 +144,12 @@ function checkIfEveroneIsReady(lobby) {
 
         console.log("SERVER IS STARTING");
 
-        getUsersFromArray(lobby.users[0]).then((users) => {
-            emitToRoom("lobbyReadyToStartResponse", { "status": 1, "lobbyID": lobby.id, "type": "readyPressed", "teller": users }, lobby.users);
+        getUsersFromArray([lobby.users[0]]).then((users) => {
+            console.log("LOOOOGGG: ");
+            console.log(lobby.users);
+            console.log("USERS: ");
+            console.log(users);
+            emitToRoom("lobbyReadyToStartResponse", { "status": 1, "lobbyID": lobby.id, "type": "readyPressed", "teller": users[0] }, lobby.users);
         });
 
     }

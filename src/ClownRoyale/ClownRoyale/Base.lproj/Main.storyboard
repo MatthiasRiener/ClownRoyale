@@ -1130,6 +1130,7 @@
                         <outlet property="lobbyTable" destination="gPR-Kk-891" id="Rca-RX-cst"/>
                         <outlet property="readyUp" destination="G4n-Cb-7fC" id="mBo-Sn-3Xk"/>
                         <segue destination="gKT-Nx-Nhx" kind="show" identifier="join" id="cOs-mx-uFs"/>
+                        <segue destination="NUl-t9-X48" kind="show" identifier="joinTeller" id="SX3-pU-N3C"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tTV-sM-PZ8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1411,6 +1412,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="kbE-7o-6i9"/>
+        <segue reference="SX3-pU-N3C"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="cart.fill" catalog="system" width="128" height="102"/>
