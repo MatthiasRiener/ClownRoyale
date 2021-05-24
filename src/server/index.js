@@ -22,6 +22,7 @@ app.get('/', (req, res) => {
 app.use('/auth', require('./routes/authentication/auth'));
 app.use('/video', require('./routes/videochat/videochat'));
 app.use('/shop', require('./routes/shop/shop'));
+app.use('/category', require('./routes/category/category'));
 app.use('/user', require('./routes/user/user'));
 
 

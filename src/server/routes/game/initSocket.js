@@ -143,16 +143,28 @@ function checkIfEveroneIsReady(lobby) {
         lobby.status = 'READY';
 
         console.log("SERVER IS STARTING");
+        var index = getIndexOfNextPlayer(lobby.users);
 
-        getUsersFromArray([lobby.users[0]]).then((users) => {
-            console.log("LOOOOGGG: ");
-            console.log(lobby.users);
-            console.log("USERS: ");
-            console.log(users);
-            emitToRoom("lobbyReadyToStartResponse", { "status": 1, "lobbyID": lobby.id, "type": "readyPressed", "teller": users[0] }, lobby.users);
+        getUsersFromArray([lobby.users[index]]).then((users) => {
+            lobby.users[index].wasTeller = true;
+            emitToRoom("lobbyReadyToStartResponse", { "status": 1, "lobbyID": lobby.id, "type": "readyPressed", "teller": users[index] }, lobby.users);
         });
 
     }
+}
+
+function getIndexOfNextPlayer(players) {
+    var index = 0;
+    var nextIndex = undefined;
+
+    players.forEach((player) => {
+        if (!player.wasTeller && nextIndex == undefined) {
+            nextIndex = index;
+        }
+        index++;
+    });
+
+    return nextIndex;
 }
 
 const MAX_SIZE = 8;
@@ -164,11 +176,13 @@ const ONGOING_LOBBIES = [];
 
 getUsersFromArray = require('../../repository/AuthenticationRepository').getUsersFromArray;
 
+
+
 function joinLobby(u_id, socket) {
     if (lobbyAvailable(u_id)) {
         ONGOING_LOBBIES.some((lobby) => {
             if (lobby.status == 'WAITING') {
-                lobby.users.push({ "u_id": u_id, "ready": false });
+                lobby.users.push({ "u_id": u_id, "ready": false , "wasTeller": false});
 
                 if (lobby.users.length == MAX_SIZE) {
                     lobby.status = 'READY';
