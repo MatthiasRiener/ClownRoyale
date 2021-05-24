@@ -56,7 +56,7 @@ class LobbyViewController: UIViewController {
                 print(u_id)
                 if u_id == SocketIOManager.sharedInstance.userID {
                     print("I BIMS")
-                    //self.performSegue(withIdentifier: "joinTeller", sender: self)
+                    self.performSegue(withIdentifier: "joinTeller", sender: self)
                 } else {
                     self.performSegue(withIdentifier: "join", sender: self)
                     print("DU BIMS")
@@ -74,9 +74,15 @@ class LobbyViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let watcherPerspektiveView = segue.destination as! WatcherPerspectiveViewController
-        //Damit User nicht mehr zurückkommt
-        watcherPerspektiveView.modalPresentationStyle = .fullScreen
+        if segue.identifier == "join" {
+            let watcherPerspektiveView = segue.destination as! WatcherPerspectiveViewController
+            watcherPerspektiveView.modalPresentationStyle = .fullScreen
+        }
+        
+        if segue.identifier == "joinTeller" {
+            let categoryView = segue.destination as! CategoryViewController
+            categoryView.modalPresentationStyle = .fullScreen
+        }
     }
     
     @objc func refresh() {

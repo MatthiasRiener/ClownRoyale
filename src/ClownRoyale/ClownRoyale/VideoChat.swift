@@ -18,7 +18,7 @@ class VideoChat : UIViewController{
     var accessToken = "TWILIO_ACCESS_TOKEN"
   
     // Configure remote URL to fetch token from
-    var tokenUrl = "http://192.168.1.26:5000/video/accessToken"
+    var tokenUrl = "http://192.168.0.26:5000/video/accessToken"
     
     // Video SDK components
     var room: Room?
