@@ -121,11 +121,13 @@ class WatcherPerspectiveViewController: ViewController {
             videoChat = VideoChat()
         }
         
-        videoChat?.remoteView = jokeTellerView
-        videoChat?.remoteView?.reloadInputViews()
-        videoChat?.remoteView?.contentMode = .scaleAspectFit;
-        
-        videoChat?.connect()
+        if(videoChat?.remoteView == nil){
+            videoChat?.remoteView = jokeTellerView
+            videoChat?.remoteView?.reloadInputViews()
+            videoChat?.remoteView?.contentMode = .scaleAspectFit;
+            
+            videoChat?.connect()
+        }
     }
     
     @objc func changeClown(sender : UITapGestureRecognizer){
@@ -174,7 +176,6 @@ class WatcherPerspectiveViewController: ViewController {
         //Damit User nicht mehr zurückkommt
         categoryView.modalPresentationStyle = .fullScreen
         
-        categoryView.videoChat = videoChat
     }
     
 }
