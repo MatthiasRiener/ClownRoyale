@@ -141,8 +141,13 @@ function checkIfEveroneIsReady(lobby) {
 
     if (lobbyReady) {
         lobby.status = 'READY';
-        console.log("Lobby is ready to START LMAO!!!")
-        console.log(lobby);
+
+        console.log("SERVER IS STARTING");
+
+        getUsersFromArray(lobby.users[0]).then((users) => {
+            emitToRoom("lobbyReadyToStartResponse", { "status": 1, "lobbyID": lobby.id, "type": "readyPressed", "teller": users }, lobby.users);
+        });
+
     }
 }
 
@@ -207,11 +212,10 @@ function createNewLobby(creator) {
     const lobby = {
         id: uuidv4(),
         status: 'WAITING',
-        users: [{ "u_id": creator, "ready": false }],
+        users: [{ "u_id": creator, "ready": false, "wasTeller": false }],
         creator: creator,
         created: new Date().getTime()
     };
-
 
     ONGOING_LOBBIES.push(lobby);
 
