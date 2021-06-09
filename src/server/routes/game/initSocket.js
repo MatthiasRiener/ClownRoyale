@@ -383,11 +383,20 @@ function createNewLobby(creator) {
 
 
 function emitToUser(event, uid, msg, socket) {
+    console.log("EMITTING TO USERR")
+    console.log(event);
+    console.log(uid);
+
+
     connectedDevices.some((user) => {
+        console.log("DEVICE", user)
         if (user.uid == uid) {
+            console.log("SEVRUZS");
 
             Object.keys(io.sockets.sockets).forEach((socketid) => {
                 if (socketid == user.sid) {
+                    console.log("SERVUS 2");
+                    console.log(socketid)
                     io.to(socketid).emit(event, msg);
                 }
             });
