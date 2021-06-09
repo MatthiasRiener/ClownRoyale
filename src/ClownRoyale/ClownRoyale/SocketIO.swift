@@ -90,4 +90,18 @@ class SocketIOManager: NSObject {
             }
          }
      }
+    
+    func vote(points: Int) {
+        self.socket?.emit("userVoted", ["roomID": self.roomID, "userID": self.userID, "points": points]);
+     }
+    
+    func voteResponse(completionHandler: @escaping (_ status: NSDictionary) -> Void) {
+         socket?.on("userVotedResponse") { data,ack in
+            if let responseData = data[0] as? NSDictionary {
+                print("VOTE: ")
+                print(responseData)
+                completionHandler(responseData)
+            }
+         }
+     }
 }
