@@ -333,6 +333,9 @@ function joinLobby(u_id, socket) {
                 })
 
 
+                emitToUser("succesJoin", u_id, {"status": 1, "type": "successJoin", "lobbyID": lobby.id, "type": "foundLobby", "users": users, "new_user": u_id });
+
+
                 return lobby;
             }
         });
