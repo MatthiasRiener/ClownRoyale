@@ -126,7 +126,7 @@ function intializeEvents(socket) {
                     console.log("USERS", users);
 
                     var curTeller;
-                    users.forEach((user) => {
+                    lobby.users.forEach((user) => {
                         if (user.isTeller) {
                             curTeller = user;
                         }
