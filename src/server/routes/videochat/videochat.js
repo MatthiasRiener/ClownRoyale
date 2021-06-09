@@ -10,6 +10,8 @@ var API_KEY_SID = 'SK1045bfc2c9010d560f842a07c0febbc8';
 var API_KEY_SECRET = '7vShsWQlueuuhU0wzZSAcVCkOfjaQ3Gh';
 
 const { getUserID } = require('../../helper/helper');
+router.use(require('../authentication/tokenMiddleware'));
+
 
 router.get('/accessToken', (req, res) => {
     // Create an Access Token
