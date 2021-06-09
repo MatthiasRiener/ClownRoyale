@@ -20,6 +20,17 @@ class LoginController: ViewController {
         self.registerbtn.layer.borderWidth = 2
         self.registerbtn.layer.cornerRadius = 10
         self.registerbtn.layer.borderColor = UIColor.red.cgColor
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+
+       //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
+       //tap.cancelsTouchesInView = false
+
+       view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
     
     @IBAction func onLogin(_ sender: Any) {
