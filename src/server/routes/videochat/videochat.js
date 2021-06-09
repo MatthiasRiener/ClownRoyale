@@ -33,7 +33,7 @@ router.get('/accessToken', (req, res) => {
     // Serialize the token as a JWT
     var jwt = accessToken.toJwt();
 
-    res.send(jwt)
+    res.send({"tk": jwt})
 })
 
 
