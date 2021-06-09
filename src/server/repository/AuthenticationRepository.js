@@ -38,6 +38,19 @@ async function getUsersFromArray(users) {
     return response;
 }
 
+async function getVotedFromUsers(users) {
+    var response = [];
+
+    await asyncForEach(users, async (u) => {
+        var docu = await getUser(u.u_id);
+        docu["hasVoted"] = u.hasVoted;
+        response.push(docu);
+    });
+
+    console.log("RETURINING USERS")
+    return response;
+}
+
 async function asyncForEach(array, callback) {
     for (let index = 0; index < array.length; index++) {
         await callback(array[index], index, array);
@@ -51,3 +64,4 @@ function getUser(u_id) {
 
 module.exports.createUser = createUser;
 module.exports.getUsersFromArray = getUsersFromArray;
+module.exports.getVotedFromUsers = getVotedFromUsers;

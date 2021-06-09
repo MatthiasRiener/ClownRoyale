@@ -118,7 +118,7 @@ function intializeEvents(socket) {
                             if (u_2.u_id == u_id && !u_2.hasVoted) {
                                 u.points += points;
                                 u_2.hasVoted = true;
-                                getUsersFromArray(lobby.users).then((users) => {
+                                getVotedFromUsers(lobby.users).then((users) => {
                                     emitToRoom("userHasVotedEveryoneIsHappyLetsGo", { "status": 1, "voter": u_2, "type": "voted", "users": users }, lobby.users);
                                     //emitToUser("joinLobbyResponse", u_id, { "status": 1, "type": "foundLobby", "users": users }, socket);
                                 })
