@@ -19,17 +19,27 @@ class LoadingViewController: UIViewController {
         jokeView.layer.borderWidth = 10
         jokeView.layer.borderColor = UIColor(named: "ClownRedDunkel")?.cgColor
         
+        SocketIOManager.sharedInstance.chooseCategoryRespone(completionHandler: {data in
+            print("DATA 2:")
+            print(data)
+            self.performSegue(withIdentifier: "watcherPerspective", sender: self)
+        })
+        
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "watcherPerspective" {
+            let watcherPerspectiveView = segue.destination as! WatcherPerspectiveViewController
+            watcherPerspectiveView.modalPresentationStyle = .fullScreen
+        }
     }
-    */
+    
 
 }

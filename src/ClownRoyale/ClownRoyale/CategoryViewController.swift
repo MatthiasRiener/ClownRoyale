@@ -55,9 +55,14 @@ class CategoryViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let ownPerpektiveView = segue.destination as! OwnPerspectiveViewController
+        //let ownPerpektiveView = segue.destination as! OwnPerspectiveViewController
         //Damit User nicht mehr zurückkommt
-        ownPerpektiveView.modalPresentationStyle = .fullScreen
+        //ownPerpektiveView.modalPresentationStyle = .fullScreen
+        
+        if segue.identifier == "category_selected" {
+            let ownPerspectiveView = segue.destination as! OwnPerspectiveViewController
+            ownPerspectiveView.modalPresentationStyle = .fullScreen
+        }
         
     }
     
@@ -113,8 +118,10 @@ extension CategoryViewController: UITableViewDelegate {
         print("Hallo Koll!")
         print("\(self.categories[indexPath.row].value(forKey: "id")!)")
         SocketIOManager.sharedInstance.chooseCategory(cat: "\(self.categories[indexPath.row].value(forKey: "id")!)")
-        SocketIOManager.sharedInstance.chooseCategoryRespone(completionHandler: {status in
-            print(status)
+        SocketIOManager.sharedInstance.chooseCategoryRespone(completionHandler: {data in
+            print("DATA 1:")
+            print(data)
+            self.performSegue(withIdentifier: "category_selected", sender: self)
         })
         
         tableView.deselectRow(at: indexPath, animated: true)

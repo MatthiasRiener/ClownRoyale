@@ -989,6 +989,7 @@ None – It’s a hardware problem</string>
                     <navigationItem key="navigationItem" id="VPt-ih-xdI"/>
                     <connections>
                         <outlet property="jokeView" destination="p5R-b4-WPH" id="qON-tO-RDh"/>
+                        <segue destination="gKT-Nx-Nhx" kind="show" identifier="watcherPerspective" id="hvH-A5-Vyl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Htm-SJ-fw4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1530,7 +1531,8 @@ None – It’s a hardware problem</string>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="kbE-7o-6i9"/>
-        <segue reference="SX3-pU-N3C"/>
+        <segue reference="SlH-WG-9cj"/>
+        <segue reference="cOs-mx-uFs"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="ZirkusZelt" width="612" height="612"/>
