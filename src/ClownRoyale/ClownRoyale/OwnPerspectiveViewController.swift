@@ -35,7 +35,7 @@ class OwnPerspectiveViewController: ViewController {
         if(WatcherPerspectiveViewController.videoSharedInstance.videoChat == nil){
             WatcherPerspectiveViewController.videoSharedInstance.setupCurrentClown()
         }
-        
+        WatcherPerspectiveViewController.videoSharedInstance.videoChat?.toggleMic(status: "unmute")
         print("VIREW dIeD Load")
         self.viewersTableView.dataSource = self
         self.viewersTableView.separatorStyle = .singleLine

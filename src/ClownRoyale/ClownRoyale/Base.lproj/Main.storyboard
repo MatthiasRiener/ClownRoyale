@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="c4e-3t-0qJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sbo-rw-Ea6">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -629,7 +629,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="viewer" id="zlQ-Yx-8Pr" customClass="VotingTableViewCell" customModule="ClownRoyale" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="374" height="90.5"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="374" height="90.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zlQ-Yx-8Pr" id="9SS-cl-NGO">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="90.5"/>
@@ -831,7 +831,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="choosableCategory" id="kuQ-fI-DfH" customClass="CategoryTableViewCell" customModule="ClownRoyale" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="374" height="90.5"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="374" height="90.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kuQ-fI-DfH" id="G6z-5t-7Jj">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="90.5"/>
@@ -921,6 +921,77 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QOe-Qq-LbP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="657" y="737"/>
+        </scene>
+        <!--Loading View Controller-->
+        <scene sceneID="nOZ-W9-P4Z">
+            <objects>
+                <viewController id="oBV-Wq-ar8" customClass="LoadingViewController" customModule="ClownRoyale" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fHJ-iv-zQi">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zelt" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vKr-5i-7Yf">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eJT-Q5-apY">
+                                <rect key="frame" x="0.0" y="804" width="414" height="92"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOADING..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vTR-xj-fED">
+                                        <rect key="frame" x="129" y="28" width="156" height="36"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="ClownYellow"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="92" id="VuO-vW-ih0"/>
+                                    <constraint firstItem="vTR-xj-fED" firstAttribute="centerY" secondItem="eJT-Q5-apY" secondAttribute="centerY" id="aba-Id-IM9"/>
+                                    <constraint firstItem="vTR-xj-fED" firstAttribute="centerX" secondItem="eJT-Q5-apY" secondAttribute="centerX" id="gby-B9-Rdd"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p5R-b4-WPH">
+                                <rect key="frame" x="52" y="336" width="310.5" height="224"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tmg-kl-Tvx">
+                                        <rect key="frame" x="16" y="81.5" width="278.5" height="61"/>
+                                        <string key="text">How many programmers does it take to change a light bulb?
+None – It’s a hardware problem</string>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Tmg-kl-Tvx" secondAttribute="trailing" constant="16" id="RrP-IY-mTh"/>
+                                    <constraint firstItem="Tmg-kl-Tvx" firstAttribute="leading" secondItem="p5R-b4-WPH" secondAttribute="leading" constant="16" id="f37-AY-E3x"/>
+                                    <constraint firstItem="Tmg-kl-Tvx" firstAttribute="centerY" secondItem="p5R-b4-WPH" secondAttribute="centerY" id="nZz-wH-UBF"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="p5R-b4-WPH" firstAttribute="width" secondItem="fHJ-iv-zQi" secondAttribute="width" multiplier="0.75" id="8Xl-4c-f7z"/>
+                            <constraint firstAttribute="trailing" secondItem="eJT-Q5-apY" secondAttribute="trailing" id="BM8-Ir-RU8"/>
+                            <constraint firstAttribute="trailing" secondItem="vKr-5i-7Yf" secondAttribute="trailing" id="DzH-7l-mG2"/>
+                            <constraint firstItem="vKr-5i-7Yf" firstAttribute="top" secondItem="fHJ-iv-zQi" secondAttribute="top" id="TUK-uU-ZeN"/>
+                            <constraint firstItem="p5R-b4-WPH" firstAttribute="height" secondItem="fHJ-iv-zQi" secondAttribute="height" multiplier="0.25" id="dwB-Ix-vdU"/>
+                            <constraint firstItem="p5R-b4-WPH" firstAttribute="centerY" secondItem="fHJ-iv-zQi" secondAttribute="centerY" id="fxC-BL-LrU"/>
+                            <constraint firstItem="eJT-Q5-apY" firstAttribute="leading" secondItem="fHJ-iv-zQi" secondAttribute="leading" id="hr3-Wi-TYv"/>
+                            <constraint firstItem="p5R-b4-WPH" firstAttribute="centerX" secondItem="fHJ-iv-zQi" secondAttribute="centerX" id="o7R-cG-tJ6"/>
+                            <constraint firstAttribute="bottom" secondItem="eJT-Q5-apY" secondAttribute="bottom" id="yGE-f2-W9E"/>
+                            <constraint firstAttribute="bottom" secondItem="vKr-5i-7Yf" secondAttribute="bottom" id="yc4-0B-9lo"/>
+                            <constraint firstItem="vKr-5i-7Yf" firstAttribute="leading" secondItem="fHJ-iv-zQi" secondAttribute="leading" id="yhA-pa-auK"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="jokeView" destination="p5R-b4-WPH" id="qON-tO-RDh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Htm-SJ-fw4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2628.985507246377" y="176.78571428571428"/>
         </scene>
         <!--mainView-->
         <scene sceneID="C5C-6F-2IQ">
@@ -1022,7 +1093,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="agb-fL-VK6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="657" y="-626"/>
+            <point key="canvasLocation" x="657" y="-605"/>
         </scene>
         <!--Lobby View Controller-->
         <scene sceneID="NL7-Ee-J8s">
@@ -1043,7 +1114,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="user" id="bEw-MX-LwG" customClass="LobbyTableViewCell" customModule="ClownRoyale" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="374" height="90.5"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="374" height="90.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bEw-MX-LwG" id="rgH-6W-qOm">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="90.5"/>
@@ -1156,7 +1227,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="user_ranking" id="jPA-AV-Pww" customClass="RankingTableViewCell" customModule="ClownRoyale" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="374" height="90.5"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="374" height="90.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jPA-AV-Pww" id="QyA-cD-zt9">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="90.5"/>
@@ -1268,7 +1339,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yPz-cH-chf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2249" y="737"/>
+            <point key="canvasLocation" x="2247.826086956522" y="736.60714285714278"/>
         </scene>
         <!--Login Controller-->
         <scene sceneID="2W5-1O-W3G">

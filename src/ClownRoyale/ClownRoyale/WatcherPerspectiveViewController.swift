@@ -44,6 +44,7 @@ class WatcherPerspectiveViewController: ViewController {
     override func viewDidLoad() {
         
         setupCurrentClown()
+        videoChat?.toggleMic(status: "mute")
 
         print("View wurde geladen...")
         //self.jokeTellerView.image = UIImage(named: "VideoChat")
@@ -134,8 +135,10 @@ class WatcherPerspectiveViewController: ViewController {
         if(videoChat?.room?.remoteParticipants.count ?? 0 > 0){
                     
             let videoPublications = videoChat?.remoteParticipant?.remoteVideoTracks
+            
+            
             if(videoPublications != nil){
-                for publication in videoPublications! {
+            for publication in videoPublications! {
                     if let subscribedVideoTrack = publication.remoteTrack,
                         publication.isTrackSubscribed {
                         print("gg")
