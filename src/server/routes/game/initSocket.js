@@ -328,12 +328,12 @@ function joinLobby(u_id, socket) {
 
 
                     emitToRoom("newUserHasJoined", { "status": 1, "lobbyID": lobby.id, "type": "foundLobby", "users": users, "new_user": u_id }, lobby.users);
+                    emitToUser("succesJoin", u_id, {"status": 1, "type": "successJoin", "lobbyID": lobby.id, "type": "foundLobby", "users": users, "new_user": u_id });
 
                     //emitToUser("joinLobbyResponse", u_id, { "status": 1, "type": "foundLobby", "users": users }, socket);
                 })
 
 
-                emitToUser("succesJoin", u_id, {"status": 1, "type": "successJoin", "lobbyID": lobby.id, "type": "foundLobby", "users": users, "new_user": u_id });
 
 
                 return lobby;
@@ -343,7 +343,7 @@ function joinLobby(u_id, socket) {
         var newLobby = createNewLobby(u_id);
 
         getUsersFromArray(newLobby.users).then((users) => {
-            emitToRoom("joinLobbyResponse", { "status": 1, "lobbyID": newLobby.id, "type": "createdLobby", "users": users }, newLobby.users);
+            emitToUser("succesJoin", u_id, {"status": 1, "type": "successJoin", "lobbyID": lobby.id, "type": "foundLobby", "users": users, "new_user": u_id });
             //emitToUser("joinLobbyResponse", u_id, { "status": 1, "type": "createdLobby", "users": users }, socket);
         })
 
