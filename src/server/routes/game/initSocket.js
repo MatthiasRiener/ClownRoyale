@@ -343,7 +343,7 @@ function joinLobby(u_id, socket) {
         var newLobby = createNewLobby(u_id);
 
         getUsersFromArray(newLobby.users).then((users) => {
-            emitToUser("succesJoin", u_id, {"status": 1, "type": "successJoin", "lobbyID": lobby.id, "type": "foundLobby", "users": users, "new_user": u_id });
+            emitToUser("succesJoin", u_id, {"status": 1, "type": "successJoin", "lobbyID": newLobby.id, "type": "foundLobby", "users": users, "new_user": u_id });
             //emitToUser("joinLobbyResponse", u_id, { "status": 1, "type": "createdLobby", "users": users }, socket);
         })
 
