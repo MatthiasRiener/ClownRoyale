@@ -122,7 +122,17 @@ function intializeEvents(socket) {
         ONGOING_LOBBIES.some((lobby) => {
             if (lobby.id == lobbyID) {
                 getUsersFromArray(lobby.users).then((users) => {
-                    emitToRoom("userDecidedToClickOnCategoryThanksEveryone", { "status": 1, "lobbyID": lobby.id, "type": "categoryChosen", "users": users, "category": category }, lobby.users);
+
+                    var curTeller;
+                    users.forEach((user) => {
+                        if (user.isTeller) {
+                            curTeller = user;
+                        }
+                    });
+
+                    
+
+                    emitToRoom("userDecidedToClickOnCategoryThanksEveryone", { "status": 1, "lobbyID": lobby.id, "type": "categoryChosen", "users": users, "category": category, "teller": curTeller }, lobby.users);
                 });
             }
         });
@@ -173,6 +183,11 @@ function checkIfEveroneIsReady(lobby) {
 
         getUsersFromArray([lobby.users[index]]).then((users) => {
             lobby.users[index].wasTeller = true;
+            lobby.users.forEach((u) => {
+                u.isTeller = false;
+            });
+            lobby.users[index].isTeller = true;
+
             emitToRoom("lobbyReadyToStartResponse", { "status": 1, "lobbyID": lobby.id, "type": "readyPressed", "teller": users[index] }, lobby.users);
         });
 
@@ -208,7 +223,7 @@ function joinLobby(u_id, socket) {
     if (lobbyAvailable(u_id)) {
         ONGOING_LOBBIES.some((lobby) => {
             if (lobby.status == 'WAITING') {
-                lobby.users.push({ "u_id": u_id, "ready": false , "wasTeller": false});
+                lobby.users.push({ "u_id": u_id, "ready": false , "wasTeller": false, "isTeller": false});
 
                 if (lobby.users.length == MAX_SIZE) {
                     lobby.status = 'READY';
@@ -256,7 +271,7 @@ function createNewLobby(creator) {
     const lobby = {
         id: uuidv4(),
         status: 'WAITING',
-        users: [{ "u_id": creator, "ready": false, "wasTeller": false }],
+        users: [{ "u_id": creator, "ready": false, "wasTeller": false, "isTeller": false }],
         creator: creator,
         created: new Date().getTime()
     };
