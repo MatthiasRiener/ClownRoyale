@@ -225,7 +225,7 @@ function CheckFinishRoundAndStartNew(wasClicked, lobbyID) {
                 console.log("JEDER HAT GEVOTED, NEUE RUNDE LOL!")
                 var index = getIndexOfNextPlayer(lobby.users);
                 lobby.users[index].isTeller = true;
-                emitToRoom("lobbyReadyToStartResponse", { "status": 1, "lobbyID": lobby.id, "type": "readyPressed", "teller": users[index] }, lobby.users);
+                emitToRoom("lobbyReadyToStartResponse", { "status": 1, "lobbyID": lobby.id, "type": "readyPressed", "teller": lobby.users[index] }, lobby.users);
 
 
 
