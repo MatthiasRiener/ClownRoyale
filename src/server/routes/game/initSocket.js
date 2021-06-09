@@ -123,6 +123,8 @@ function intializeEvents(socket) {
             if (lobby.id == lobbyID) {
                 getUsersFromArray(lobby.users).then((users) => {
 
+                    console.log("USERS", users);
+
                     var curTeller;
                     users.forEach((user) => {
                         if (user.isTeller) {
@@ -130,7 +132,8 @@ function intializeEvents(socket) {
                         }
                     });
 
-                    
+                    console.log("CURREEELLTTELLER")
+                    console.log(curTeller)
 
                     emitToRoom("userDecidedToClickOnCategoryThanksEveryone", { "status": 1, "lobbyID": lobby.id, "type": "categoryChosen", "users": users, "category": category, "teller": curTeller }, lobby.users);
                 });
