@@ -105,6 +105,35 @@ function intializeEvents(socket) {
         // send to user_is ready response
     });
 
+    socket.on('userVoted', (data) => {
+        var u_id = data.userID;
+        var roomID = data.roomID;
+        var points = data.points;
+
+        ONGOING_LOBBIES.some((lobby) => {
+            if (lobby.id == roomID) {
+                lobby.users.forEach((u) => {
+                    if (u.isTeller) {
+                        lobby.users.forEach((u_2) => {
+                            if (u_2.u_id == u_id && !u_2.hasVoted) {
+                                u.points += points;
+                            } else {
+                                console.log("net mehrmals voten du nig");
+                            }
+                        });
+
+                    } else if (u_id == u.u_id) {
+                        u.hasVoted = true;
+                    }
+                });
+
+                console.log("POINTS WERE UPDTED LOL");
+                console.log(lobby);
+            }
+        });
+
+    });
+
     socket.on('userChoseCategory', (data) => {
         var u_id = data.userID;
         var lobbyID = data.roomID;
@@ -123,7 +152,7 @@ function intializeEvents(socket) {
             if (lobby.id == lobbyID) {
                 getUsersFromArray(lobby.users).then((users) => {
 
-                    console.log("USERS", users);
+                    console.log("USERS", lobby.users);
 
                     var curTeller;
                     lobby.users.forEach((user) => {
@@ -187,7 +216,8 @@ function checkIfEveroneIsReady(lobby) {
         getUsersFromArray([lobby.users[index]]).then((users) => {
             lobby.users[index].wasTeller = true;
             lobby.users.forEach((u) => {
-                u.isTeller = false;
+                u.isTeller = false; 
+                u.hasVoted = false;
             });
             lobby.users[index].isTeller = true;
 
@@ -226,7 +256,7 @@ function joinLobby(u_id, socket) {
     if (lobbyAvailable(u_id)) {
         ONGOING_LOBBIES.some((lobby) => {
             if (lobby.status == 'WAITING') {
-                lobby.users.push({ "u_id": u_id, "ready": false , "wasTeller": false, "isTeller": false});
+                lobby.users.push({ "u_id": u_id, "ready": false , "wasTeller": false, "isTeller": false, "points": 0});
 
                 if (lobby.users.length == MAX_SIZE) {
                     lobby.status = 'READY';
@@ -274,7 +304,7 @@ function createNewLobby(creator) {
     const lobby = {
         id: uuidv4(),
         status: 'WAITING',
-        users: [{ "u_id": creator, "ready": false, "wasTeller": false, "isTeller": false }],
+        users: [{ "u_id": creator, "ready": false, "wasTeller": false, "isTeller": false, "points": 0 }],
         creator: creator,
         created: new Date().getTime()
     };
