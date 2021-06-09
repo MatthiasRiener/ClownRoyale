@@ -117,6 +117,22 @@ class WatcherPerspectiveViewController: ViewController {
         
     }
     
+    @IBAction func tenPoints(_ sender: Any) {
+        print("+10")
+    }
+    
+    @IBAction func fivePoints(_ sender: Any) {
+        print("+5")
+    }
+    
+    @IBAction func minusFivePoints(_ sender: Any) {
+        print("-5")
+    }
+    
+    @IBAction func minusTenPoints(_ sender: Any) {
+        print("-10")
+    }
+    
     func setupCurrentClown(){
         if(videoChat == nil){
             videoChat = VideoChat()
