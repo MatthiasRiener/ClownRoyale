@@ -121,6 +121,7 @@ function intializeEvents(socket) {
                                 getVotedFromUsers(lobby.users).then((users) => {
                                     emitToRoom("userHasVotedEveryoneIsHappyLetsGo", { "status": 1, "voter": u_2, "type": "voted", "users": users }, lobby.users);
                                     //emitToUser("joinLobbyResponse", u_id, { "status": 1, "type": "foundLobby", "users": users }, socket);
+                                    CheckFinishRoundAndStartNew(false, lobby.id);
                                 })
 
                             } else {
@@ -185,7 +186,7 @@ function CheckFinishRoundAndStartNew(wasClicked, lobbyID) {
         if (lobby.id == lobbyID) {
 
             lobby.users.forEach((user) => {
-                if (!user.hasVoted) {
+                if (!user.hasVoted && !user.isTeller) {
                     everyoneVoted = false;
                 }
             });
@@ -221,7 +222,7 @@ function CheckFinishRoundAndStartNew(wasClicked, lobbyID) {
                 }
 
                 // choose next user and start new round
-
+                console.log("JEDER HAT GEVOTED, NEUE RUNDE LOL!")
                 var index = getIndexOfNextPlayer(lobby.users);
                 lobby.users[index].isTeller = true;
                 emitToRoom("lobbyReadyToStartResponse", { "status": 1, "lobbyID": lobby.id, "type": "readyPressed", "teller": users[index] }, lobby.users);
