@@ -84,6 +84,8 @@ class VideoChat : UIViewController{
             builder.roomName = "ClownLobby"
         }
         
+        
+        
         // Connect to the Room using the options we provided.
         room = TwilioVideoSDK.connect(options: connectOptions, delegate: self)
         
@@ -91,6 +93,21 @@ class VideoChat : UIViewController{
         
         //self.showRoomUI(inRoom: true)
         //self.dismissKeyboard()
+    }
+    
+    func toggleMic(status : String) {
+        if (self.localAudioTrack != nil) {
+            
+            if(status == "mute"){
+                self.localAudioTrack?.isEnabled = false
+                print("muted")
+
+            }else {
+                self.localAudioTrack?.isEnabled = true
+                print("unmuted")
+
+            }
+        }
     }
     func disconnect(){
         self.room!.disconnect()

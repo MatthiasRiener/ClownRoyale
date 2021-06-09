@@ -26,6 +26,7 @@ class CategoryViewController: UIViewController {
         if(WatcherPerspectiveViewController.videoSharedInstance.videoChat == nil){
             WatcherPerspectiveViewController.videoSharedInstance.setupCurrentClown()
         }
+        WatcherPerspectiveViewController.videoSharedInstance.videoChat?.toggleMic(status: "mute")
 
         //TableView
         CategoryTable.dataSource = self
