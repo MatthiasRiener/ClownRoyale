@@ -178,6 +178,62 @@ function intializeEvents(socket) {
     });
 }
 
+function CheckFinishRoundAndStartNew(wasClicked, lobbyID) {
+    var everyoneVoted = true;
+
+    ONGOING_LOBBIES.forEach((lobby) => {
+        if (lobby.id == lobbyID) {
+
+            lobby.users.forEach((user) => {
+                if (!user.hasVoted) {
+                    everyoneVoted = false;
+                }
+            });
+
+            if (wasClicked || everyoneVoted) {
+                // reset hasVoted of each user
+
+                lobby.users.forEach((us) => {
+
+                    if (us.isTeller) {
+                        us.wasTeller = true;
+                        us.isTeller = false;
+                    }
+
+                    us.hasVoted = false;
+                })
+
+
+                // check if game is finished
+
+                var gameFinished = true;
+
+
+                lobby.users.forEach((usr) => {
+                    if (!usr.wasTeller) {
+                        gameFinished = false;
+                    }
+                });
+
+                if (gameFinished) {
+                    console.log("JEDER WAR BEREITS DRAN!");
+                    return;
+                }
+
+                // choose next user and start new round
+
+                var index = getIndexOfNextPlayer(lobby.users);
+                lobby.users[index].isTeller = true;
+                emitToRoom("lobbyReadyToStartResponse", { "status": 1, "lobbyID": lobby.id, "type": "readyPressed", "teller": users[index] }, lobby.users);
+
+
+
+
+            }
+        }
+    });
+}
+
 function setUserToReady(lobbdyID, u_id) {
     ONGOING_LOBBIES.some((lobby) => {
         if (lobby.id == lobbdyID) {
@@ -253,6 +309,7 @@ const ONGOING_LOBBIES = [];
 // READY => Ready
 
 getUsersFromArray = require('../../repository/AuthenticationRepository').getUsersFromArray;
+getVotedFromUsers = require('../../repository/AuthenticationRepository').getVotedFromUsers;
 
 
 
