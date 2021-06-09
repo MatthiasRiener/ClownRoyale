@@ -33,6 +33,12 @@ class OwnPerspectiveViewController: ViewController {
     
     override func viewDidLoad() {
         
+        self.viewersTableView.reloadData()
+        
+        SocketIOManager.sharedInstance.voteResponse(completionHandler: {data in
+            self.viewersTableView.reloadData()
+        })
+        
         if(WatcherPerspectiveViewController.videoSharedInstance.videoChat == nil){
             WatcherPerspectiveViewController.videoSharedInstance.setupCurrentClown()
         }
@@ -86,6 +92,7 @@ class OwnPerspectiveViewController: ViewController {
     @objc func clickAction(sender : UITapGestureRecognizer) {
         print("joke finished")
         performSegue(withIdentifier: "joke_finished", sender: self)
+        SocketIOManager.sharedInstance.finishJoke()
         WatcherPerspectiveViewController.videoSharedInstance.videoChat?.disconnect()
     }
     
@@ -105,13 +112,34 @@ extension OwnPerspectiveViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 8
+        return SocketIOManager.sharedInstance.usersVoted.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "viewer", for: indexPath) as! VotingTableViewCell
         
-        cell.username.text = "funny franz"
+        //cell.username.text = "funny franz"
+        cell.username.text = SocketIOManager.sharedInstance.usersVoted[indexPath.row].value(forKey: "name") as! String
+
+        DispatchQueue.global().async { [weak self] in
+            if let data = try? Data(contentsOf: URL(string: SocketIOManager.sharedInstance.usersVoted[indexPath.row].value(forKey: "image") as! String)!) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        cell.profileImage.image = image
+                        cell.profileImage.contentMode = .scaleToFill
+                    }
+                }
+            }
+        }
+        
+        print("USERSSDADASDSD")
+        print(SocketIOManager.sharedInstance.usersVoted)
+        
+        if SocketIOManager.sharedInstance.usersVoted[indexPath.row].value(forKey: "hasVoted") as! Bool {
+            cell.status.text = "Voted"
+        } else {
+            cell.status.text = "Waiting"
+        }
 
         return cell
     }

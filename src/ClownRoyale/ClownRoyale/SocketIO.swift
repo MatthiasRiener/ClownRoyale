@@ -9,6 +9,7 @@ class SocketIOManager: NSObject {
      var roomID : String?
      var userID: String?
      var currentCat: NSDictionary = [:]
+     var usersVoted = [NSDictionary]()
 
      override init() {
          super.init()
@@ -46,7 +47,44 @@ class SocketIOManager: NSObject {
                 self.roomID = responseData.value(forKey: "lobbyID") as! String
                 self.users = responseData.value(forKey: "users") as! Array<NSDictionary>
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "newDataNotif"), object: nil)
-                completionHandler(status)
+                print("JOIN LOBBY RESPONSE")
+                print(responseData)
+                
+                //MainViewController.sharedInstance.lobbyReady(status: status)
+                /*if let topController = UIApplication.topViewController() {
+                    topController.performSegue(withIdentifier: "play", sender: topController)
+                }*/
+                //completionHandler(status)
+            }
+         }
+     }
+    
+    func successJoin(completionHandler: @escaping (_ status: Int) -> Void) {
+         socket?.on("successJoin") { data,ack in
+            if let responseData = data[0] as? NSDictionary {
+                self.roomID = responseData.value(forKey: "lobbyID") as! String
+                self.users = responseData.value(forKey: "users") as! Array<NSDictionary>
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "newDataNotif"), object: nil)
+                
+                print("SUCCESS")
+                
+                if let topController = UIApplication.topViewController() {
+                    topController.performSegue(withIdentifier: "play", sender: topController)
+                }
+                completionHandler(1)
+            }
+         }
+     }
+    
+    func newUserHasJoined(completionHandler: @escaping (_ status: Int) -> Void) {
+         socket?.on("newUserHasJoined") { data,ack in
+            if let responseData = data[0] as? NSDictionary {
+                self.users = responseData.value(forKey: "users") as! Array<NSDictionary>
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "newDataNotif"), object: nil)
+                print("JOIN LOBBY RESPONSE")
+                print(responseData)
+            
+                completionHandler(1)
             }
          }
      }
@@ -62,6 +100,7 @@ class SocketIOManager: NSObject {
      }
     
     func userReady() {
+        print("USERID")
         self.socket?.emit("userIsReady", ["roomID": self.roomID, "userID": self.userID])
     }
     
@@ -72,6 +111,19 @@ class SocketIOManager: NSObject {
                 self.users = responseData.value(forKey: "users") as! Array<NSDictionary>
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "newDataNotif"), object: nil)
                 completionHandler(status)
+            }
+         }
+     }
+    
+    func changeStatusOfPlayer(completionHandler: @escaping (_ status: Int) -> Void) {
+         socket?.on("changeStatusOfPlayer") { data,ack in
+            if let responseData = data[0] as? NSDictionary {
+                self.users = responseData.value(forKey: "users") as! Array<NSDictionary>
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "newDataNotif"), object: nil)
+                print("JOIN LOBBY RESPONSE")
+                print(responseData)
+            
+                completionHandler(1)
             }
          }
      }
@@ -87,21 +139,48 @@ class SocketIOManager: NSObject {
                 print("CURRENT CAT")
                 print(self.currentCat)
                 completionHandler(responseData)
+                self.usersVoted = responseData.value(forKey: "users") as! Array<NSDictionary>
             }
          }
      }
     
     func vote(points: Int) {
+        print("VOTED")
         self.socket?.emit("userVoted", ["roomID": self.roomID, "userID": self.userID, "points": points]);
      }
     
     func voteResponse(completionHandler: @escaping (_ status: NSDictionary) -> Void) {
-         socket?.on("userVotedResponse") { data,ack in
+         socket?.on("userHasVotedEveryoneIsHappyLetsGo") { data,ack in
             if let responseData = data[0] as? NSDictionary {
                 print("VOTE: ")
                 print(responseData)
+                self.usersVoted = responseData.value(forKey: "users") as! Array<NSDictionary>
+                print("BITTE GIB USERS BRATAN")
+                print(self.usersVoted)
                 completionHandler(responseData)
             }
          }
      }
+    
+    func finishJoke() {
+        print("JOKED")
+        self.socket?.emit("userFinished", ["roomID": self.roomID, "userID": self.userID]);
+     }
+}
+
+extension UIApplication {
+    class func topViewController(controller: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
+        if let navigationController = controller as? UINavigationController {
+            return topViewController(controller: navigationController.visibleViewController)
+        }
+        if let tabController = controller as? UITabBarController {
+            if let selected = tabController.selectedViewController {
+                return topViewController(controller: selected)
+            }
+        }
+        if let presented = controller?.presentedViewController {
+            return topViewController(controller: presented)
+        }
+        return controller
+    }
 }

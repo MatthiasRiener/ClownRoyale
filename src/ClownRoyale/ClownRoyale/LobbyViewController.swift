@@ -17,6 +17,16 @@ class LobbyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        SocketIOManager.sharedInstance.newUserHasJoined(completionHandler: {data in
+            print("NEW USER JOINED")
+            print(data)
+        })
+        
+        SocketIOManager.sharedInstance.changeStatusOfPlayer(completionHandler: {data in
+            print("CHANGED USER STATUS")
+            print(data)
+        })
+        
         NotificationCenter.default.addObserver(self, selector: #selector(self.refresh), name: NSNotification.Name(rawValue: "newDataNotif"), object: nil)
 
         //TableView

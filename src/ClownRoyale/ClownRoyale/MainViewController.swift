@@ -8,6 +8,8 @@
 import UIKit
 
 class MainViewController: UIViewController {
+    
+    static let sharedInstance = MainViewController()
 
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var createButton: UIButton!
@@ -84,17 +86,26 @@ class MainViewController: UIViewController {
     
     @IBAction func onPlay(_ sender: Any) {
         SocketIOManager.sharedInstance.createSocketConnection(completionHandler: {connected in
-            print("BLUB")
             SocketIOManager.sharedInstance.joinLobby()
-            SocketIOManager.sharedInstance.joinLobbyResponse(completionHandler: {status in
-                print("STATUS: ")
+            SocketIOManager.sharedInstance.successJoin(completionHandler: {status in
+                /*print("SCHREIB DES HI PLS ")
                 print(status)
                 if status == 1 {
                     self.performSegue(withIdentifier: "play", sender: self)
-                }
+                }*/
+                print("SUCCES IN MAIN")
+                print(status)
             })
         })
     }
+    
+    /*func lobbyReady(status: Int) {
+        print("BITTE GIB DES AUS! ")
+        print(status)
+        if status == 1 {
+            self.performSegue(withIdentifier: "play", sender: self)
+        }
+    }*/
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let lobbyViewController = segue.destination as! LobbyViewController
