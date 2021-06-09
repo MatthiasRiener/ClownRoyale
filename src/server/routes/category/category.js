@@ -59,6 +59,7 @@ const categories = [
 ];
 
 function findCategoryByIndex(index) {
+    console.log("FETCHING CCCCCCOCK: ", index)
     return categories.find((el) => el.id == index);
 }
 
