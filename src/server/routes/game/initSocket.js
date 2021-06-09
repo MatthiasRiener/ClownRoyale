@@ -117,13 +117,17 @@ function intializeEvents(socket) {
                         lobby.users.forEach((u_2) => {
                             if (u_2.u_id == u_id && !u_2.hasVoted) {
                                 u.points += points;
+                                u_2.hasVoted = true;
+                                getUsersFromArray(lobby.users).then((users) => {
+                                    emitToRoom("userHasVotedEveryoneIsHappyLetsGo", { "status": 1, "voter": u_2, "type": "voted", "users": users }, lobby.users);
+                                    //emitToUser("joinLobbyResponse", u_id, { "status": 1, "type": "foundLobby", "users": users }, socket);
+                                })
+
                             } else {
                                 console.log("net mehrmals voten du nig");
                             }
                         });
 
-                    } else if (u_id == u.u_id) {
-                        u.hasVoted = true;
                     }
                 });
 
