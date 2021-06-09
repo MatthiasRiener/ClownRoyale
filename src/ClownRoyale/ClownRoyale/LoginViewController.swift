@@ -29,7 +29,7 @@ class LoginController: ViewController {
         .then {data in
             setAToken(token: "\(data["access"]!)")
             setRToken(token: "\(data["refresh"]!)")
-            self.performSegue(withIdentifier: "LOGIN", sender: nil)
+            self.performSegue(withIdentifier: "login", sender: nil)
         }
     }
     

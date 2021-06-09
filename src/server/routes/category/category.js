@@ -7,36 +7,36 @@ router.use(require('../authentication/tokenMiddleware'));
 
 const categories = [
     {
-        name: "Racist",
-        points: 15
+        name: "Bar joke",
+        points: 40
     }, 
     {
-        name: "Birthday",
-        points: 20
+        name: "Dad joke",
+        points: 10
     },
     {
-        name: "Yo Mama",
-        points: 200
+        name: "Food joke",
+        points: 70
     },
     {
-        name: "Yo fat mama 2",
-        points: 200
+        name: "Computer joke",
+        points: 300
     },
     {
-        name: "Yo fat mama 3",
-        points: 200
+        name: "One line joke",
+        points: 30
     },
     {
-        name: "Yo fat mama 4",
-        points: 200
+        name: "Political joke",
+        points: 120
     },
     {
-        name: "Yo fat mama 5",
-        points: 200
+        name: "School joke",
+        points: 40
     },
     {
-        name: "Yo fat mama 6",
-        points: 200
+        name: "Random",
+        points: 50
     },
 ];
 
