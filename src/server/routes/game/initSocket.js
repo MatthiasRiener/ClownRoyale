@@ -111,7 +111,9 @@ function intializeEvents(socket) {
         var categoryID = data.catID;
 
         console.log("WHAT THE FUCK HEHEHEHEHEHEHEHEH (Muchael JAckson");
-        console.log(u_id, roomID, categoryID);
+        console.log(u_id, lobbyID, categoryID);
+
+        
         console.log("FETCHING CLICKED CATEGORY CXD");
         var category = require('../category/category').findCategoryByIndex(categoryID);
         console.log("RECEIVED CATEGORY");

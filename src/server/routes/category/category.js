@@ -63,5 +63,5 @@ function findCategoryByIndex(index) {
 }
 
 module.exports = router;
-module.exports = findCategoryByIndex;
+module.exports.findCategoryByIndex = findCategoryByIndex;
 
