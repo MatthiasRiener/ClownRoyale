@@ -154,7 +154,7 @@ function intializeEvents(socket) {
 
         ONGOING_LOBBIES.some((lobby) => {
             if (lobby.id == lobbyID) {
-                getUsersFromArray(lobby.users).then((users) => {
+                getVotedFromUsers(lobby.users).then((users) => {
 
                     console.log("USERS", lobby.users);
 
