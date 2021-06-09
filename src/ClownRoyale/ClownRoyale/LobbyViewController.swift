@@ -58,7 +58,7 @@ class LobbyViewController: UIViewController {
                     print("I BIMS")
                     self.performSegue(withIdentifier: "joinTeller", sender: self)
                 } else {
-                    self.performSegue(withIdentifier: "join", sender: self)
+                    self.performSegue(withIdentifier: "load", sender: self)
                     print("DU BIMS")
                 }
                 /*print("RESPONSE: ")
@@ -74,8 +74,8 @@ class LobbyViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "join" {
-            let watcherPerspektiveView = segue.destination as! WatcherPerspectiveViewController
+        if segue.identifier == "load" {
+            let watcherPerspektiveView = segue.destination as! LoadingViewController
             watcherPerspektiveView.modalPresentationStyle = .fullScreen
         }
         

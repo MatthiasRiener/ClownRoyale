@@ -927,14 +927,14 @@
             <objects>
                 <viewController id="oBV-Wq-ar8" customClass="LoadingViewController" customModule="ClownRoyale" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fHJ-iv-zQi">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zelt" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vKr-5i-7Yf">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eJT-Q5-apY">
-                                <rect key="frame" x="0.0" y="804" width="414" height="92"/>
+                                <rect key="frame" x="0.0" y="750" width="414" height="92"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOADING..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vTR-xj-fED">
                                         <rect key="frame" x="129" y="28" width="156" height="36"/>
@@ -951,10 +951,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p5R-b4-WPH">
-                                <rect key="frame" x="52" y="336" width="310.5" height="224"/>
+                                <rect key="frame" x="52" y="316" width="310.5" height="210.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tmg-kl-Tvx">
-                                        <rect key="frame" x="16" y="81.5" width="278.5" height="61"/>
+                                        <rect key="frame" x="16" y="74.5" width="278.5" height="61"/>
                                         <string key="text">How many programmers does it take to change a light bulb?
 None – It’s a hardware problem</string>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
@@ -986,13 +986,14 @@ None – It’s a hardware problem</string>
                             <constraint firstItem="vKr-5i-7Yf" firstAttribute="leading" secondItem="fHJ-iv-zQi" secondAttribute="leading" id="yhA-pa-auK"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="VPt-ih-xdI"/>
                     <connections>
                         <outlet property="jokeView" destination="p5R-b4-WPH" id="qON-tO-RDh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Htm-SJ-fw4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2628.985507246377" y="176.78571428571428"/>
+            <point key="canvasLocation" x="-1561" y="737"/>
         </scene>
         <!--mainView-->
         <scene sceneID="C5C-6F-2IQ">
@@ -1203,6 +1204,7 @@ None – It’s a hardware problem</string>
                         <outlet property="readyUp" destination="G4n-Cb-7fC" id="mBo-Sn-3Xk"/>
                         <segue destination="gKT-Nx-Nhx" kind="show" identifier="join" id="cOs-mx-uFs"/>
                         <segue destination="NUl-t9-X48" kind="show" identifier="joinTeller" id="SX3-pU-N3C"/>
+                        <segue destination="oBV-Wq-ar8" kind="show" identifier="load" id="DCS-8e-oge"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tTV-sM-PZ8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
