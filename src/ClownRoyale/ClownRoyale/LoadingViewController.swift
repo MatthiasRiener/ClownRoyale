@@ -8,6 +8,8 @@
 import UIKit
 
 class LoadingViewController: UIViewController {
+    
+    var currentTeller: NSDictionary = [:]
 
     @IBOutlet weak var jokeView: UIView!
     override func viewDidLoad() {
@@ -22,6 +24,7 @@ class LoadingViewController: UIViewController {
         SocketIOManager.sharedInstance.chooseCategoryRespone(completionHandler: {data in
             print("DATA 2:")
             print(data)
+            self.currentTeller = data
             self.performSegue(withIdentifier: "watcherPerspective", sender: self)
         })
         
@@ -38,6 +41,7 @@ class LoadingViewController: UIViewController {
         if segue.identifier == "watcherPerspective" {
             let watcherPerspectiveView = segue.destination as! WatcherPerspectiveViewController
             watcherPerspectiveView.modalPresentationStyle = .fullScreen
+            watcherPerspectiveView.currentTeller = self.currentTeller
         }
     }
     

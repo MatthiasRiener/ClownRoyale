@@ -18,7 +18,7 @@ class VideoChat : UIViewController{
     var accessToken = "TWILIO_ACCESS_TOKEN"
   
     // Configure remote URL to fetch token from
-    var tokenUrl = "http://192.168.0.26:5000/video/accessToken"
+    var tokenUrl = "http://192.168.0.26:5000"
     
     // Video SDK components
     var room: Room?
@@ -41,7 +41,9 @@ class VideoChat : UIViewController{
         // If the default wasn't changed, try fetching from server.
         if (accessToken == "TWILIO_ACCESS_TOKEN") {
             do {
-                accessToken = try TokenUtils.fetchToken(url: tokenUrl)
+                try TokenUtils.sendData(completionHandler: {data in
+                    self.accessToken = data
+                })
             } catch {
                 let message = "Failed to fetch access token"
                 logMessage(messageText: message)

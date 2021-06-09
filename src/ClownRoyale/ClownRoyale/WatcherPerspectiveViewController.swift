@@ -13,6 +13,8 @@ class WatcherPerspectiveViewController: ViewController {
     
     static let videoSharedInstance = WatcherPerspectiveViewController()
     
+    var currentTeller: NSDictionary = [:]
+    
     @IBOutlet weak var categoryStack: UIStackView!
     
     @IBOutlet weak var categoryLabel: UILabel!
@@ -51,8 +53,6 @@ class WatcherPerspectiveViewController: ViewController {
         print("View wurde geladen...")
         //self.jokeTellerView.image = UIImage(named: "VideoChat")
         self.jokeTellerView.layer.cornerRadius = 15
-        let tap = UITapGestureRecognizer(target: self, action: #selector(self.changeClown(sender:)))
-        self.jokeTellerView.addGestureRecognizer(tap)
         
         
         self.btnTimer.layer.masksToBounds = true
@@ -119,6 +119,9 @@ class WatcherPerspectiveViewController: ViewController {
         
         self.categoryLabel.text = "\(SocketIOManager.sharedInstance.currentCat.value(forKey: "name")!)"
         
+        print("CURRENT TELLER:")
+        print(self.currentTeller)
+        
     }
     
     @IBAction func tenPoints(_ sender: Any) {
@@ -153,11 +156,14 @@ class WatcherPerspectiveViewController: ViewController {
             
             videoChat?.connect()
         }
+        self.changeClown()
     }
     
-    @objc func changeClown(sender : UITapGestureRecognizer){
+    func changeClown(){
+        print("PLS GO")
+        print(videoChat?.room?.remoteParticipants)
         if(videoChat?.room?.remoteParticipants.count ?? 0 > 0){
-                    
+                    print("IFFFFFFF")
             let videoPublications = videoChat?.remoteParticipant?.remoteVideoTracks
             
             
@@ -172,6 +178,10 @@ class WatcherPerspectiveViewController: ViewController {
             }
 
             //videoChat?.remoteView?.invalidateRenderer()
+                var teller = self.currentTeller.value(forKey: "teller") as! NSDictionary
+                var userID = teller.value(forKey: "u_id") as! String
+                print("USERID")
+                print(userID)
             
             print(videoChat?.room?.remoteParticipants.count ?? 0)
             if(counter >= (videoChat?.room?.remoteParticipants.count)! - 1){
