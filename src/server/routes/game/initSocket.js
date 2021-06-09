@@ -325,7 +325,9 @@ function joinLobby(u_id, socket) {
                 }
 
                 getUsersFromArray(lobby.users).then((users) => {
-                    emitToRoom("joinLobbyResponse", { "status": 1, "lobbyID": lobby.id, "type": "foundLobby", "users": users }, lobby.users);
+
+
+                    emitToRoom("joinLobbyResponse", { "status": 1, "lobbyID": lobby.id, "type": "foundLobby", "users": users, "new_user": u_id }, lobby.users);
 
                     //emitToUser("joinLobbyResponse", u_id, { "status": 1, "type": "foundLobby", "users": users }, socket);
                 })
