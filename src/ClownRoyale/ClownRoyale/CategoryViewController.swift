@@ -93,14 +93,12 @@ extension CategoryViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        let cell = tableView.dequeueReusableCell(withIdentifier: "choosableCategory", for: indexPath) as! CategoryTableViewCell
         
+        print(self.categories)
         cell.category.text = self.categories[indexPath.row].value(forKey: "name") as! String
         cell.ppv.text = "\(self.categories[indexPath.row].value(forKey: "points") as! Int)"
 
         return cell
     }
-
-    
-
 }
 
 extension CategoryViewController: UITableViewDelegate {
@@ -111,6 +109,13 @@ extension CategoryViewController: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("Hallo Koll!")
+        print("\(self.categories[indexPath.row].value(forKey: "id")!)")
+        SocketIOManager.sharedInstance.chooseCategory(cat: "\(self.categories[indexPath.row].value(forKey: "id")!)")
+        SocketIOManager.sharedInstance.chooseCategoryRespone(completionHandler: {status in
+            print(status)
+        })
+        
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }

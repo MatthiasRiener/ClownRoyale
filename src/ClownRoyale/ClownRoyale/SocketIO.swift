@@ -74,4 +74,19 @@ class SocketIOManager: NSObject {
             }
          }
      }
+    
+    func chooseCategory(cat: String) {
+        self.socket?.emit("userChoseCategory", ["roomID": self.roomID, "userID": self.userID, "catID": cat]);
+     }
+    
+    func chooseCategoryRespone(completionHandler: @escaping (_ status: Int) -> Void) {
+         socket?.on("userDecidedToClickOnCategoryThanksEveryone") { data,ack in
+            if let responseData = data[0] as? NSDictionary {
+                print("REPONSE Thanks")
+                print(responseData)
+                let status = responseData.value(forKey: "status") as! Int
+                completionHandler(status)
+            }
+         }
+     }
 }
