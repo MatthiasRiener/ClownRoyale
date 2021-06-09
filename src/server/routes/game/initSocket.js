@@ -104,6 +104,32 @@ function intializeEvents(socket) {
         setUserToReady(roomID, u_id);
         // send to user_is ready response
     });
+
+    socket.on('userChoseCategory', (data) => {
+        var u_id = data.userID;
+        var lobbyID = data.roomID;
+        var categoryID = parseInt(data.catID);
+
+        console.log("WHAT THE FUCK HEHEHEHEHEHEHEHEH (Muchael JAckson");
+        console.log(u_id, lobbyID, categoryID);
+
+
+        console.log("FETCHING CLICKED CATEGORY CXD");
+        var category = require('../category/category').findCategoryByIndex(categoryID);
+        console.log("RECEIVED CATEGORY");
+        console.log(category);
+
+        ONGOING_LOBBIES.some((lobby) => {
+            if (lobby.id == lobbyID) {
+                getUsersFromArray(lobby.users).then((users) => {
+                    emitToRoom("userDecidedToClickOnCategoryThanksEveryone", { "status": 1, "lobbyID": lobby.id, "type": "categoryChosen", "users": users, "category": category }, lobby.users);
+                });
+            }
+        });
+    
+    
+
+    });
 }
 
 function setUserToReady(lobbdyID, u_id) {
