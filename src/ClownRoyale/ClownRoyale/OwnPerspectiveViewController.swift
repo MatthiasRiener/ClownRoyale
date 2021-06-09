@@ -16,6 +16,7 @@ class OwnPerspectiveViewController: ViewController {
     
     @IBOutlet weak var stackCategory: UIStackView!
     
+    @IBOutlet weak var categoryLabel: UILabel!
     
     @IBOutlet weak var viewersTableView: UITableView!
     
@@ -69,6 +70,8 @@ class OwnPerspectiveViewController: ViewController {
         self.finishedButton.addGestureRecognizer(gesture)
         
         setupLocalView()
+        
+        self.categoryLabel.text = "\(SocketIOManager.sharedInstance.currentCat.value(forKey: "name")!)"
     }
     
     func setupLocalView(){

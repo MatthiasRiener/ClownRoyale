@@ -564,6 +564,7 @@
                         <outlet property="btn_one_burger" destination="oRI-cs-P0b" id="ZKT-QI-8k8"/>
                         <outlet property="btn_three_burger" destination="5N3-kk-rc7" id="BIy-a9-bfm"/>
                         <outlet property="btn_two_burger" destination="ccs-tl-0lU" id="8uM-jc-9Nw"/>
+                        <outlet property="categoryLabel" destination="ftK-ZG-kpB" id="Klw-fh-mM6"/>
                         <outlet property="categoryStack" destination="gOj-VQ-vE8" id="qJn-iw-woH"/>
                         <outlet property="jokeTellerView" destination="Bso-cb-SLl" id="TYB-9x-2Fk"/>
                         <outlet property="voteButton" destination="RSL-VB-ICZ" id="2np-6G-lEJ"/>
@@ -819,6 +820,7 @@
                         <outlet property="btn_one_burger" destination="znw-0k-Z8W" id="xQT-SD-tC5"/>
                         <outlet property="btn_three_burger" destination="c30-4u-OQm" id="5ed-MD-DMW"/>
                         <outlet property="btn_two_burger" destination="080-xS-FOf" id="IUE-Ff-iU8"/>
+                        <outlet property="categoryLabel" destination="98c-gM-46h" id="F8h-vX-FDe"/>
                         <outlet property="finishedButton" destination="LjR-Wo-bbd" id="qIM-Cv-org"/>
                         <outlet property="imgOwnView" destination="3HO-rN-6Qn" id="uIG-cr-bHe"/>
                         <outlet property="stackCategory" destination="KJw-ld-a1e" id="md5-Vm-tuV"/>

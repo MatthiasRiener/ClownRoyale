@@ -8,6 +8,7 @@ class SocketIOManager: NSObject {
      var users = [NSDictionary]()
      var roomID : String?
      var userID: String?
+     var currentCat: NSDictionary = [:]
 
      override init() {
          super.init()
@@ -82,6 +83,9 @@ class SocketIOManager: NSObject {
     func chooseCategoryRespone(completionHandler: @escaping (_ status: NSDictionary) -> Void) {
          socket?.on("userDecidedToClickOnCategoryThanksEveryone") { data,ack in
             if let responseData = data[0] as? NSDictionary {
+                self.currentCat = responseData.value(forKey: "category") as! NSDictionary
+                print("CURRENT CAT")
+                print(self.currentCat)
                 completionHandler(responseData)
             }
          }

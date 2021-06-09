@@ -14,6 +14,8 @@ class WatcherPerspectiveViewController: ViewController {
     static let videoSharedInstance = WatcherPerspectiveViewController()
     
     @IBOutlet weak var categoryStack: UIStackView!
+    
+    @IBOutlet weak var categoryLabel: UILabel!
         
     @IBOutlet weak var jokeTellerView: VideoView!
     
@@ -114,6 +116,8 @@ class WatcherPerspectiveViewController: ViewController {
         let gesture = UITapGestureRecognizer(target: self, action:  #selector(self.clickAction(sender:)))
         
         self.voteButton.addGestureRecognizer(gesture)
+        
+        self.categoryLabel.text = "\(SocketIOManager.sharedInstance.currentCat.value(forKey: "name")!)"
         
     }
     
