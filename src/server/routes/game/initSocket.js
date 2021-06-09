@@ -245,6 +245,8 @@ function setUserToReady(lobbdyID, u_id) {
                     checkIfEveroneIsReady(lobby);
 
                     getUsersFromArray(lobby.users).then((users) => {
+                        console.log("CHANING STATUS OF USER");
+                        console.log(users);
                         emitToRoom("changeStatusOfPlayer", { "status": 1, "lobbyID": lobby.id, "type": "readyPressed", "users": users }, lobby.users);
 
                         //emitToUser("joinLobbyResponse", u_id, { "status": 1, "type": "foundLobby", "users": users }, socket);
