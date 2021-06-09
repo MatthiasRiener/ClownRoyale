@@ -297,6 +297,23 @@ function emitToRoom(event, msg, users) {
 }
 
 
+function getRoomOfUser(u_id) {
+    lobbyID = ""
+    hasFound = false;
+
+    ONGOING_LOBBIES.forEach((lobby) => {
+        lobby.users.forEach((user) => {
+            if (user.u_id == u_id && !hasFound) {
+                lobbyID = lobby.id;
+                hasFound = true;
+                return lobbyID;
+            }
+        });
+    });
+
+    return lobbyID;
+}
+
 
 module.exports.initializeSocket = initializeSocket;
-
+module.exports.getRoomOfUser = getRoomOfUser;

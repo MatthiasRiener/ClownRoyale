@@ -27,7 +27,7 @@ router.get('/accessToken', (req, res) => {
 
     // Grant access to Video
     var grant = new VideoGrant();
-    grant.room = 'ClownLobby';
+    grant.room = require('../game/initSocket').getRoomOfUser(getUserID(req));
     accessToken.addGrant(grant);
 
     // Serialize the token as a JWT
