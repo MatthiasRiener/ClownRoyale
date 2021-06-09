@@ -104,6 +104,20 @@ function intializeEvents(socket) {
         setUserToReady(roomID, u_id);
         // send to user_is ready response
     });
+
+    socket.on('userChoseCategory', (data) => {
+        var u_id = data.userID;
+        var roomID = data.roomID;
+        var categoryID = data.catID;
+
+        console.log("WHAT THE FUCK HEHEHEHEHEHEHEHEH (Muchael JAckson");
+        console.log(u_id, roomID, categoryID);
+        console.log("FETCHING CLICKED CATEGORY CXD");
+        var category = require('../category/category').findCategoryByIndex(categoryID);
+        console.log("RECEIVED CATEGORY");
+        console.log(category);
+
+    });
 }
 
 function setUserToReady(lobbdyID, u_id) {

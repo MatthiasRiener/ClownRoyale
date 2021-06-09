@@ -5,41 +5,6 @@ var router = require('express').Router();
 router.use(require('../authentication/tokenMiddleware'));
 
 
-const categories = [
-    {
-        name: "Bar joke",
-        points: 40
-    }, 
-    {
-        name: "Dad joke",
-        points: 10
-    },
-    {
-        name: "Food joke",
-        points: 70
-    },
-    {
-        name: "Computer joke",
-        points: 300
-    },
-    {
-        name: "One line joke",
-        points: 30
-    },
-    {
-        name: "Political joke",
-        points: 120
-    },
-    {
-        name: "School joke",
-        points: 40
-    },
-    {
-        name: "Random",
-        points: 50
-    },
-];
-
 router.get('/getCategories', (req, res) => {
     n = 10;
     var shuffled = categories.sort(function(){return .5 - Math.random()});
@@ -48,4 +13,55 @@ router.get('/getCategories', (req, res) => {
 });
 
 
+
+const categories = [
+    {
+
+        id: 1,
+        name: "Bar joke",
+        points: 40
+    }, 
+    {
+        id: 2,
+        name: "Dad joke",
+        points: 10
+    },
+    {
+        id: 3,
+        name: "Food joke",
+        points: 70
+    },
+    {
+        id: 4,
+        name: "Computer joke",
+        points: 300
+    },
+    {
+        id: 5,
+        name: "One line joke",
+        points: 30
+    },
+    {
+        id: 6,
+        name: "Political joke",
+        points: 120
+    },
+    {
+        id: 7,
+        name: "School joke",
+        points: 40
+    },
+    {
+        id: 8,
+        name: "Random",
+        points: 50
+    },
+];
+
+function findCategoryByIndex(index) {
+    return categories.find((el) => el.id == index);
+}
+
 module.exports = router;
+module.exports = findCategoryByIndex;
+
