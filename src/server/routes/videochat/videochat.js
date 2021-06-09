@@ -9,6 +9,7 @@ var ACCOUNT_SID = 'AC82a2dbe6da739d70e5df7575ac24f350';
 var API_KEY_SID = 'SK1045bfc2c9010d560f842a07c0febbc8';
 var API_KEY_SECRET = '7vShsWQlueuuhU0wzZSAcVCkOfjaQ3Gh';
 
+const { getUserID } = require('../../helper/helper');
 
 router.get('/accessToken', (req, res) => {
     // Create an Access Token
@@ -19,7 +20,8 @@ router.get('/accessToken', (req, res) => {
     );
 
     // Set the Identity of this token
-    accessToken.identity = Math.random().toString(36).substring(7).toString();
+    accessToken.identity = getUserID(req);
+
 
     // Grant access to Video
     var grant = new VideoGrant();
