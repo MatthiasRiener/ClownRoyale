@@ -181,6 +181,9 @@ function intializeEvents(socket) {
     });
 }
 
+
+getPointsFromUsers = require('../../repository/AuthenticationRepository').getPointsFromUsers;
+
 function CheckFinishRoundAndStartNew(wasClicked, lobbyID) {
     var everyoneVoted = true;
 
@@ -220,6 +223,11 @@ function CheckFinishRoundAndStartNew(wasClicked, lobbyID) {
 
                 if (gameFinished) {
                     console.log("JEDER WAR BEREITS DRAN!");
+                    getPointsFromUsers(lobby.users).then((users) => {
+
+                        emitToRoom("gameFinishedNotification", {"status": 1, "lobbyID": lobby.id, "users": users}, lobby.users)
+                        // ende muss noch ausgecoded werden
+                    });
                     return;
                 }
 
