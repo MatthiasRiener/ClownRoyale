@@ -1,4 +1,5 @@
-let io, connectedDevices = [], socket;
+let io, connectedDevices = [],
+    socket;
 
 function initializeSocket(server) {
     io = require('socket.io')(server);
@@ -15,7 +16,10 @@ function initializeSocket(server) {
         });
 
         if (!isConnected) {
-            connectedDevices.push({ sid: socket.id, uid: undefined });
+            connectedDevices.push({
+                sid: socket.id,
+                uid: undefined
+            });
         }
 
         socket = socket;
@@ -71,7 +75,12 @@ function disconnectUserFromLobby(session) {
     ONGOING_LOBBIES.some((lobby) => {
         if (lobby.id == lobbyID) {
             getUsersFromArray(lobby.users).then((users) => {
-                emitToRoom("joinLobbyResponse", { "status": 1, "lobbyID": lobby.id, "type": "readyPressed", "users": users }, lobby.users);
+                emitToRoom("joinLobbyResponse", {
+                    "status": 1,
+                    "lobbyID": lobby.id,
+                    "type": "readyPressed",
+                    "users": users
+                }, lobby.users);
             });
         }
     });
@@ -121,7 +130,12 @@ function intializeEvents(socket) {
                                 u.points += points;
                                 u_2.hasVoted = true;
                                 getVotedFromUsers(lobby.users).then((users) => {
-                                    emitToRoom("userHasVotedEveryoneIsHappyLetsGo", { "status": 1, "voter": u_2, "type": "voted", "users": users }, lobby.users);
+                                    emitToRoom("userHasVotedEveryoneIsHappyLetsGo", {
+                                        "status": 1,
+                                        "voter": u_2,
+                                        "type": "voted",
+                                        "users": users
+                                    }, lobby.users);
                                     //emitToUser("joinLobbyResponse", u_id, { "status": 1, "type": "foundLobby", "users": users }, socket);
                                     CheckFinishRoundAndStartNew(false, lobby.id);
                                 })
@@ -171,12 +185,19 @@ function intializeEvents(socket) {
                     console.log("CURREEELLTTELLER")
                     console.log(curTeller)
 
-                    emitToRoom("userDecidedToClickOnCategoryThanksEveryone", { "status": 1, "lobbyID": lobby.id, "type": "categoryChosen", "users": users, "category": category, "teller": curTeller }, lobby.users);
+                    emitToRoom("userDecidedToClickOnCategoryThanksEveryone", {
+                        "status": 1,
+                        "lobbyID": lobby.id,
+                        "type": "categoryChosen",
+                        "users": users,
+                        "category": category,
+                        "teller": curTeller
+                    }, lobby.users);
                 });
             }
         });
-    
-    
+
+
 
     });
 }
@@ -225,7 +246,23 @@ function CheckFinishRoundAndStartNew(wasClicked, lobbyID) {
                     console.log("JEDER WAR BEREITS DRAN!");
                     getPointsFromUsers(lobby.users).then((users) => {
 
-                        emitToRoom("gameFinishedNotification", {"status": 1, "lobbyID": lobby.id, "users": users}, lobby.users)
+                        emitToRoom("gameFinishedNotification", {
+                            "status": 1,
+                            "lobbyID": lobby.id,
+                            "users": users
+                        }, lobby.users)
+
+                        // lobby entfernen
+                        var lobbyIndex = 0;
+                        ONGOING_LOBBIES.some((curlob) => {
+                            if (lobby.id = curlob.id) {
+                                ONGOING_LOBBIES.splice(lobbyIndex, 1);
+                                console.log("REMOVED FINISHED LOBBY!");
+                                console.log(ONGOING_LOBBIES);
+                            }
+                            lobbyIndex++;
+                        });
+
                         // ende muss noch ausgecoded werden
                     });
                     return;
@@ -236,7 +273,12 @@ function CheckFinishRoundAndStartNew(wasClicked, lobbyID) {
                 var index = getIndexOfNextPlayer(lobby.users);
                 lobby.users[index].isTeller = true;
                 console.log(lobby.users);
-                emitToRoom("lobbyReadyToStartResponse", { "status": 1, "lobbyID": lobby.id, "type": "readyPressed", "teller": lobby.users[index] }, lobby.users);
+                emitToRoom("lobbyReadyToStartResponse", {
+                    "status": 1,
+                    "lobbyID": lobby.id,
+                    "type": "readyPressed",
+                    "teller": lobby.users[index]
+                }, lobby.users);
 
 
 
@@ -258,7 +300,12 @@ function setUserToReady(lobbdyID, u_id) {
                     getUsersFromArray(lobby.users).then((users) => {
                         console.log("CHANING STATUS OF USER");
                         console.log(users);
-                        emitToRoom("changeStatusOfPlayer", { "status": 1, "lobbyID": lobby.id, "type": "readyPressed", "users": users }, lobby.users);
+                        emitToRoom("changeStatusOfPlayer", {
+                            "status": 1,
+                            "lobbyID": lobby.id,
+                            "type": "readyPressed",
+                            "users": users
+                        }, lobby.users);
 
                         //emitToUser("joinLobbyResponse", u_id, { "status": 1, "type": "foundLobby", "users": users }, socket);
                     })
@@ -290,12 +337,17 @@ function checkIfEveroneIsReady(lobby) {
         getUsersFromArray([lobby.users[index]]).then((users) => {
             lobby.users[index].wasTeller = true;
             lobby.users.forEach((u) => {
-                u.isTeller = false; 
+                u.isTeller = false;
                 u.hasVoted = false;
             });
             lobby.users[index].isTeller = true;
 
-            emitToRoom("lobbyReadyToStartResponse", { "status": 1, "lobbyID": lobby.id, "type": "readyPressed", "teller": users[index] }, lobby.users);
+            emitToRoom("lobbyReadyToStartResponse", {
+                "status": 1,
+                "lobbyID": lobby.id,
+                "type": "readyPressed",
+                "teller": users[index]
+            }, lobby.users);
         });
 
     }
@@ -331,7 +383,13 @@ function joinLobby(u_id, socket) {
     if (lobbyAvailable(u_id)) {
         ONGOING_LOBBIES.some((lobby) => {
             if (lobby.status == 'WAITING') {
-                lobby.users.push({ "u_id": u_id, "ready": false , "wasTeller": false, "isTeller": false, "points": 0});
+                lobby.users.push({
+                    "u_id": u_id,
+                    "ready": false,
+                    "wasTeller": false,
+                    "isTeller": false,
+                    "points": 0
+                });
 
                 if (lobby.users.length == MAX_SIZE) {
                     lobby.status = 'READY';
@@ -340,8 +398,21 @@ function joinLobby(u_id, socket) {
                 getUsersFromArray(lobby.users).then((users) => {
 
 
-                    emitToRoom("newUserHasJoined", { "status": 1, "lobbyID": lobby.id, "type": "foundLobby", "users": users, "new_user": u_id }, lobby.users);
-                    emitToUser("successJoin", u_id, {"status": 1, "type": "successJoin", "lobbyID": lobby.id, "type": "foundLobby", "users": users, "new_user": u_id });
+                    emitToRoom("newUserHasJoined", {
+                        "status": 1,
+                        "lobbyID": lobby.id,
+                        "type": "foundLobby",
+                        "users": users,
+                        "new_user": u_id
+                    }, lobby.users);
+                    emitToUser("successJoin", u_id, {
+                        "status": 1,
+                        "type": "successJoin",
+                        "lobbyID": lobby.id,
+                        "type": "foundLobby",
+                        "users": users,
+                        "new_user": u_id
+                    });
 
                     //emitToUser("joinLobbyResponse", u_id, { "status": 1, "type": "foundLobby", "users": users }, socket);
                 })
@@ -356,7 +427,14 @@ function joinLobby(u_id, socket) {
         var newLobby = createNewLobby(u_id);
 
         getUsersFromArray(newLobby.users).then((users) => {
-            emitToUser("successJoin", u_id, {"status": 1, "type": "successJoin", "lobbyID": newLobby.id, "type": "foundLobby", "users": users, "new_user": u_id });
+            emitToUser("successJoin", u_id, {
+                "status": 1,
+                "type": "successJoin",
+                "lobbyID": newLobby.id,
+                "type": "foundLobby",
+                "users": users,
+                "new_user": u_id
+            });
             //emitToUser("joinLobbyResponse", u_id, { "status": 1, "type": "createdLobby", "users": users }, socket);
         })
 
@@ -384,7 +462,13 @@ function createNewLobby(creator) {
     const lobby = {
         id: uuidv4(),
         status: 'WAITING',
-        users: [{ "u_id": creator, "ready": false, "wasTeller": false, "isTeller": false, "points": 0 }],
+        users: [{
+            "u_id": creator,
+            "ready": false,
+            "wasTeller": false,
+            "isTeller": false,
+            "points": 0
+        }],
         creator: creator,
         created: new Date().getTime()
     };
