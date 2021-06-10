@@ -571,6 +571,7 @@
                         <segue destination="NUl-t9-X48" kind="show" identifier="voted" id="SlH-WG-9cj"/>
                         <segue destination="oBV-Wq-ar8" kind="show" identifier="load" id="WuJ-hJ-rNh"/>
                         <segue destination="NUl-t9-X48" kind="show" identifier="joinTeller" id="ppa-6Y-Nsn"/>
+                        <segue destination="Egr-Xv-LVw" kind="show" identifier="leaderboardWatcher" id="2E7-BZ-sHd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xyw-kz-qFz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -829,6 +830,7 @@
                         <outlet property="viewersTableView" destination="XYP-H4-MqO" id="iAl-ad-Mxk"/>
                         <segue destination="Egr-Xv-LVw" kind="show" identifier="joke_finished" id="a0e-y5-lvR"/>
                         <segue destination="oBV-Wq-ar8" kind="show" identifier="load" id="p1j-Rj-g6a"/>
+                        <segue destination="Egr-Xv-LVw" kind="show" identifier="leaderboardOwn" id="asl-7J-7zj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="evN-C0-kLF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1547,8 +1549,9 @@ None – It’s a hardware problem</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="2E7-BZ-sHd"/>
         <segue reference="kbE-7o-6i9"/>
-        <segue reference="p1j-Rj-g6a"/>
+        <segue reference="WuJ-hJ-rNh"/>
         <segue reference="ppa-6Y-Nsn"/>
         <segue reference="cOs-mx-uFs"/>
     </inferredMetricsTieBreakers>

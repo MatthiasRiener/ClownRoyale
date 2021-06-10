@@ -39,6 +39,11 @@ class OwnPerspectiveViewController: ViewController {
             self.viewersTableView.reloadData()
         })
         
+        SocketIOManager.sharedInstance.gameFinished(completionHandler: {data in
+            print("GAME FINISHED EVENT OWN")
+            self.performSegue(withIdentifier: "leaderboardOwn", sender: self)
+        })
+        
         if(WatcherPerspectiveViewController.videoSharedInstance.videoChat == nil){
             WatcherPerspectiveViewController.videoSharedInstance.setupCurrentClown()
         }
@@ -105,6 +110,11 @@ class OwnPerspectiveViewController: ViewController {
         if segue.identifier == "load" {
             let watcherPerspektiveView = segue.destination as! LoadingViewController
             watcherPerspektiveView.modalPresentationStyle = .fullScreen
+        }
+        
+        if segue.identifier == "leaderboardOwn" {
+            let rankingView = segue.destination as! RankingViewController
+            rankingView.modalPresentationStyle = .fullScreen
         }
     }
 }

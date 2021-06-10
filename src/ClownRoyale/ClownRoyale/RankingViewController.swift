@@ -13,6 +13,7 @@ class RankingViewController: UIViewController {
     @IBOutlet weak var bottomLeave: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableRanking.reloadData()
 
         tableRanking.dataSource = self
         tableRanking.delegate = self
@@ -63,16 +64,32 @@ extension RankingViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 8
+        return SocketIOManager.sharedInstance.usersLeaderboard.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "user_ranking", for: indexPath) as! RankingTableViewCell
         
-        cell.username.text = "Hans_Peter"
+        /*cell.username.text = "Hans_Peter"
         let points = 100 - (indexPath.item)*10
         cell.points.text = "\(points)"
-        cell.placement.text = "\(indexPath.item+1)."
+        cell.placement.text = "\(indexPath.item+1)."*/
+        
+        cell.username.text = "\(SocketIOManager.sharedInstance.usersLeaderboard[indexPath.row].value(forKey: "name")!)"
+        cell.points.text = "\(SocketIOManager.sharedInstance.usersLeaderboard[indexPath.row].value(forKey: "points")!)"
+        
+        DispatchQueue.global().async { [weak self] in
+            if let data = try? Data(contentsOf: URL(string: SocketIOManager.sharedInstance.usersLeaderboard[indexPath.row].value(forKey: "image") as! String)!) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        cell.profileImage.image = image
+                        cell.profileImage.contentMode = .scaleToFill
+                    }
+                }
+            }
+        }
+        
+        cell.placement.text = "\(indexPath.row+1)."
 
         return cell
     }

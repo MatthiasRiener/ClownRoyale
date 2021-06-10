@@ -10,6 +10,7 @@ class SocketIOManager: NSObject {
      var userID: String?
      var currentCat: NSDictionary = [:]
      var usersVoted = [NSDictionary]()
+     var usersLeaderboard = [NSDictionary]()
 
      override init() {
          super.init()
@@ -167,6 +168,17 @@ class SocketIOManager: NSObject {
         print("JOKED")
         self.socket?.emit("userFinished", ["roomID": self.roomID, "userID": self.userID]);
      }
+    
+    func gameFinished(completionHandler: @escaping (_ status: NSDictionary) -> Void) {
+         socket?.on("gameFinishedNotification") { data,ack in
+            if let responseData = data[0] as? NSDictionary {
+                print("GAME FINISHED")
+                print(responseData)
+                self.usersLeaderboard = responseData.value(forKey: "users") as! Array<NSDictionary>
+                completionHandler(responseData)
+            }
+         }
+    }
 }
 
 extension UIApplication {
