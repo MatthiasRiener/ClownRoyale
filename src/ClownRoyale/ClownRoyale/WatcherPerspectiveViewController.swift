@@ -183,6 +183,19 @@ class WatcherPerspectiveViewController: ViewController {
                 print("USERID")
                 print(userID)
             
+                /*
+                 var remainingParticipants = videoChat?.room?.remoteParticipants
+                 
+                 for participant in videoChat?.room?.remoteParticipants as! [RemoteParticipant] {
+                     // Find the first renderable track.
+                     print("\(participant.identity) IDENTITY")
+                     print("\(userID) IDENTITY")
+                     if participant.identity == userID {
+                         videoChat?.remoteParticipant? = participant
+                         videoChat?.renderRemoteParticipant(participant: (videoChat?.remoteParticipant)!)
+                     }
+                 }
+                 */
             print(videoChat?.room?.remoteParticipants.count ?? 0)
             if(counter >= (videoChat?.room?.remoteParticipants.count)! - 1){
                 counter = 0
