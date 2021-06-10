@@ -47,6 +47,11 @@ class WatcherPerspectiveViewController: ViewController {
     
     override func viewDidLoad() {
         
+        SocketIOManager.sharedInstance.gameFinished(completionHandler: {data in
+            print("GAME FINISHED EVENT WATCHER")
+            self.performSegue(withIdentifier: "leaderboardWatcher", sender: self)
+        })
+        
         setupCurrentClown()
         videoChat?.toggleMic(status: "mute")
 
@@ -217,6 +222,11 @@ class WatcherPerspectiveViewController: ViewController {
         if segue.identifier == "load" {
             let watcherPerspektiveView = segue.destination as! LoadingViewController
             watcherPerspektiveView.modalPresentationStyle = .fullScreen
+        }
+        
+        if segue.identifier == "leaderboardWatcher" {
+            let rankingView = segue.destination as! RankingViewController
+            rankingView.modalPresentationStyle = .fullScreen
         }
         
     }
