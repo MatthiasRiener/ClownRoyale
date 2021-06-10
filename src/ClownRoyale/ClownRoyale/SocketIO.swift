@@ -95,6 +95,7 @@ class SocketIOManager: NSObject {
             print(data)
             if let responseData = data[0] as? NSDictionary {
                 completionHandler(responseData)
+                
             }
          }
      }

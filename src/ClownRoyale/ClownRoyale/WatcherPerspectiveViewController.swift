@@ -209,9 +209,15 @@ class WatcherPerspectiveViewController: ViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let categoryView = segue.destination as! CategoryViewController
-        //Damit User nicht mehr zurückkommt
-        categoryView.modalPresentationStyle = .fullScreen
+        if segue.identifier == "joinTeller" {
+            let categoryView = segue.destination as! CategoryViewController
+            categoryView.modalPresentationStyle = .fullScreen
+        }
+        
+        if segue.identifier == "load" {
+            let watcherPerspektiveView = segue.destination as! LoadingViewController
+            watcherPerspektiveView.modalPresentationStyle = .fullScreen
+        }
         
     }
     

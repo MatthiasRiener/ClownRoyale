@@ -66,9 +66,19 @@ class LobbyViewController: UIViewController {
                 print(u_id)
                 if u_id == SocketIOManager.sharedInstance.userID {
                     print("I BIMS")
-                    self.performSegue(withIdentifier: "joinTeller", sender: self)
+                    //self.performSegue(withIdentifier: "joinTeller", sender: self)
+                    if let topController = UIApplication.topViewController() {
+                        print("TOP CONTROLLER")
+                        print(topController)
+                        topController.performSegue(withIdentifier: "joinTeller", sender: topController)
+                    }
                 } else {
-                    self.performSegue(withIdentifier: "load", sender: self)
+                    //self.performSegue(withIdentifier: "load", sender: self)
+                    if let topController = UIApplication.topViewController() {
+                        print("TOP CONTROLLER")
+                        print(topController)
+                        topController.performSegue(withIdentifier: "load", sender: topController)
+                    }
                     print("DU BIMS")
                 }
                 /*print("RESPONSE: ")

@@ -97,10 +97,15 @@ class OwnPerspectiveViewController: ViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let rankingView = segue.destination as! RankingViewController
-        //Damit User nicht mehr zurückkommt
-        rankingView.modalPresentationStyle = .fullScreen
+        if segue.identifier == "joinTeller" {
+            let categoryView = segue.destination as! CategoryViewController
+            categoryView.modalPresentationStyle = .fullScreen
+        }
         
+        if segue.identifier == "load" {
+            let watcherPerspektiveView = segue.destination as! LoadingViewController
+            watcherPerspektiveView.modalPresentationStyle = .fullScreen
+        }
     }
 }
 
