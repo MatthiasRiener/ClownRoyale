@@ -21,11 +21,11 @@ class LoginController: ViewController {
         self.registerbtn.layer.cornerRadius = 10
         self.registerbtn.layer.borderColor = UIColor.red.cgColor
         let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
-
-       //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
-       //tap.cancelsTouchesInView = false
-
-       view.addGestureRecognizer(tap)
+        
+        //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
+        //tap.cancelsTouchesInView = false
+        
+        view.addGestureRecognizer(tap)
     }
     
     @objc func dismissKeyboard() {
@@ -35,20 +35,20 @@ class LoginController: ViewController {
     
     @IBAction func onLogin(_ sender: Any) {
         defaults.removeObject(forKey: "a_token")
-
+        
         sendRequestToServer(url: "/auth/login", method: "POST", body: ["username": self.username.text!, "password": self.password.text!], login: true)?
-        .then {data in
-            setAToken(token: "\(data["access"]!)")
-            setRToken(token: "\(data["refresh"]!)")
-            self.performSegue(withIdentifier: "login", sender: nil)
-        }
+            .then {data in
+                setAToken(token: "\(data["access"]!)")
+                setRToken(token: "\(data["refresh"]!)")
+                self.performSegue(withIdentifier: "login", sender: nil)
+            }
     }
     
     @IBAction func onSendRequest(_ sender: Any) {
         sendRequestToServer(url: "/shop/todaysItem", method: "GET")?
-        .then { data in
-            print("SHOP: \(data)")
-        }
+            .then { data in
+                print("SHOP: \(data)")
+            }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

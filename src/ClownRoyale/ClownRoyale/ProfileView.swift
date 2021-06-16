@@ -2,7 +2,7 @@ import UIKit
 
 class ProfileView: ViewController {
     
-
+    
     @IBOutlet weak var profileContainer: UIView!
     @IBOutlet weak var achievments: UIView!
     @IBOutlet weak var statistic: UIView!
@@ -10,11 +10,13 @@ class ProfileView: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Berechnungs-Dummy
         var dummy = profileContainer.layer.bounds.height / 3
         
         
-        print("\(self.view.bounds.height) lol")
+        print("HEIGHT: \(self.view.bounds.height)")
         
+        //Höhe richtet sich nach Gerätehöhe
         if(self.view.bounds.height > 700){
             dummy = profileContainer.layer.bounds.height / 2
         }
@@ -24,28 +26,24 @@ class ProfileView: ViewController {
         print(profileContainer.bounds.origin.x)
         print(profileContainer.bounds.width)
         profileBackground.frame = CGRect(x: 0, y: dummy - (profileContainer.bounds.height * 0.5 / 2), width: profileContainer.bounds.width, height: profileContainer.bounds.height * 0.5)
-        
         //important!!!! subview wird automatisch an parent angepasst, wenn autolayout engine fertig ist
         profileBackground.autoresizingMask = [.flexibleWidth]
-        //profileBackground.backgroundColor = .blue
-        
         
         //ClownImage
         let profileImage = UIImage(named: "clown")
         let profileImageView = UIImageView(frame:
-                                        CGRect(
-                                            x: profileBackground.frame.width/2 - (profileBackground.frame.height*0.7)/2,
-                                            y:
-                                                dummy - (profileBackground.frame.height*0.7)/2,
-                                            width: profileBackground.frame.height * 0.7,
-                                            height: profileBackground.frame.height * 0.7
-                                        ))
+                                            CGRect(
+                                                x: profileBackground.frame.width/2 - (profileBackground.frame.height*0.7)/2,
+                                                y:
+                                                    dummy - (profileBackground.frame.height*0.7)/2,
+                                                width: profileBackground.frame.height * 0.7,
+                                                height: profileBackground.frame.height * 0.7
+                                            ))
         profileImageView.image = profileImage
         profileImageView.layer.masksToBounds = false
         profileImageView.layer.cornerRadius = profileImageView.frame.height/2
         profileImageView.clipsToBounds = true
         profileImageView.autoresizingMask = [.flexibleLeftMargin, .flexibleRightMargin]
-        //profileImageView.backgroundColor = .red
         
         //Profilename
         let profileNameButton = UIButton(frame: CGRect(x: (profileContainer.bounds.width)/2 - (profileContainer.bounds.width / 3) / 2, y: dummy + profileBackground.bounds.height / 2 - 25, width: profileContainer.bounds.width / 3, height: 50))
@@ -66,14 +64,13 @@ class ProfileView: ViewController {
         profilePoints.clipsToBounds = true
         profilePoints.layer.borderWidth = 5
         profilePoints.layer.borderColor = UIColor.white.cgColor
-
+        
         
         //In View einfügen
         profileContainer.addSubview(profileBackground)
         profileContainer.addSubview(profileImageView)
         profileContainer.addSubview(profileNameButton)
         profileContainer.addSubview(profilePoints)
-        
         
         achievments.layer.cornerRadius = 15.0
         achievments.layer.shadowOpacity = 0.5

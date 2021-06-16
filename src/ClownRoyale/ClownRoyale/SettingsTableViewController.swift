@@ -1,6 +1,7 @@
 import UIKit
 import TwilioVideo
 
+//von TwilioVideo-tutorial
 class SettingsTableViewController: UITableViewController {
     
     static let signalingRegionLabel = "Region"
@@ -19,7 +20,7 @@ class SettingsTableViewController: UITableViewController {
     var labels: [[String]] = [[signalingRegionLabel],
                               [SettingsTableViewController.audioCodecLabel, SettingsTableViewController.videoCodecLabel],
                               [SettingsTableViewController.maxAudioBitrateLabel, SettingsTableViewController.maxVideoBitrateLabel]]
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Settings"
@@ -34,13 +35,13 @@ class SettingsTableViewController: UITableViewController {
                                              attributes: [ NSAttributedString.Key.font: disclaimerFont ],
                                              context: nil).size
     }
-
+    
     @objc func deselectSelectedRow() {
         if let selectedRow = self.tableView.indexPathForSelectedRow {
             self.tableView.deselectRow(at: selectedRow, animated: true)
         }
     }
-
+    
     @objc func reloadSelectedRowOrTableView() {
         if let selectedRow = self.tableView.indexPathForSelectedRow {
             self.tableView.reloadRows(at: [selectedRow], with: UITableView.RowAnimation.none)
@@ -54,11 +55,11 @@ class SettingsTableViewController: UITableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         return (labels.count)
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return (labels[section].count)
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SETTINGS-REUSE-IDENTIFIER", for: indexPath)
         
@@ -68,45 +69,45 @@ class SettingsTableViewController: UITableViewController {
         var detailText = SettingsTableViewController.defaultStr
         
         switch (label) {
-            case SettingsTableViewController.signalingRegionLabel:
-                if let signalingRegion = settings.signalingRegion {
-                    detailText = settings.supportedSignalingRegionDisplayString[signalingRegion]!
-                }
-            case SettingsTableViewController.audioCodecLabel:
-                if let codec = settings.audioCodec {
-                    detailText = codec.name
-                }
-            case SettingsTableViewController.videoCodecLabel:
-                if let codec = settings.videoCodec {
-                    detailText = self.getDisplayStrForVideoCodec(codec: codec)
-                }
-            case SettingsTableViewController.maxAudioBitrateLabel:
-                detailText = String(settings.maxAudioBitrate)
-            case SettingsTableViewController.maxVideoBitrateLabel:
-                detailText = String(settings.maxVideoBitrate)
-            default:
-                break;
+        case SettingsTableViewController.signalingRegionLabel:
+            if let signalingRegion = settings.signalingRegion {
+                detailText = settings.supportedSignalingRegionDisplayString[signalingRegion]!
+            }
+        case SettingsTableViewController.audioCodecLabel:
+            if let codec = settings.audioCodec {
+                detailText = codec.name
+            }
+        case SettingsTableViewController.videoCodecLabel:
+            if let codec = settings.videoCodec {
+                detailText = self.getDisplayStrForVideoCodec(codec: codec)
+            }
+        case SettingsTableViewController.maxAudioBitrateLabel:
+            detailText = String(settings.maxAudioBitrate)
+        case SettingsTableViewController.maxVideoBitrateLabel:
+            detailText = String(settings.maxVideoBitrate)
+        default:
+            break;
         }
         cell.detailTextLabel?.text = detailText
         return cell
     }
-
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let tappedLabel = self.labels[indexPath.section][indexPath.row]
         
         switch (tappedLabel) {
-            case SettingsTableViewController.signalingRegionLabel:
-                didSelectSignalingRegionRow(indexPath: indexPath)
-            case SettingsTableViewController.audioCodecLabel:
-                didSelectAudioCodecRow(indexPath: indexPath)
-            case SettingsTableViewController.videoCodecLabel:
-                didSelectVideoCodecRow(indexPath: indexPath)
-            case SettingsTableViewController.maxAudioBitrateLabel:
-                didSelectMaxAudioBitRateRow(indexPath: indexPath)
-            case SettingsTableViewController.maxVideoBitrateLabel:
-                didSelectMaxVideoBitRateRow(indexPath: indexPath)
-            default:
-                break;
+        case SettingsTableViewController.signalingRegionLabel:
+            didSelectSignalingRegionRow(indexPath: indexPath)
+        case SettingsTableViewController.audioCodecLabel:
+            didSelectAudioCodecRow(indexPath: indexPath)
+        case SettingsTableViewController.videoCodecLabel:
+            didSelectVideoCodecRow(indexPath: indexPath)
+        case SettingsTableViewController.maxAudioBitrateLabel:
+            didSelectMaxAudioBitRateRow(indexPath: indexPath)
+        case SettingsTableViewController.maxVideoBitrateLabel:
+            didSelectMaxVideoBitRateRow(indexPath: indexPath)
+        default:
+            break;
         }
     }
     
@@ -129,45 +130,45 @@ class SettingsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return getDisclaimerSizeForString(string: disclaimers[section]).height + 10
     }
-
+    
     func didSelectSignalingRegionRow(indexPath: IndexPath) {
         var selectedButton : UIAlertAction!
         var defaultButton: UIAlertAction!
-
+        
         let alertController = UIAlertController(title: self.labels[indexPath.section][indexPath.row], message: nil, preferredStyle: .actionSheet)
         let selectionArray = settings.supportedSignalingRegions
-
+        
         for signalingRegion in selectionArray {
             let selectionButton = UIAlertAction(title: settings.supportedSignalingRegionDisplayString[signalingRegion], style: .default, handler: { (action) -> Void in
                 self.settings.signalingRegion = signalingRegion
                 self.reloadSelectedRowOrTableView()
             })
-
+            
             if (settings.signalingRegion == signalingRegion) {
                 selectedButton = selectionButton;
             }
-
+            
             alertController.addAction(selectionButton)
         }
-
+        
         // The default action
         defaultButton = UIAlertAction(title: "Default", style: .default, handler: { (action) -> Void in
             self.settings.signalingRegion = nil
             self.reloadSelectedRowOrTableView()
         })
-
+        
         if selectedButton == nil {
             selectedButton = defaultButton;
         }
-
+        
         alertController.addAction(defaultButton!)
-
+        
         if UIDevice.current.userInterfaceIdiom == .pad {
             alertController.popoverPresentationController?.sourceView = tableView.cellForRow(at: indexPath)
             alertController.popoverPresentationController?.sourceRect = (tableView.cellForRow(at: indexPath)?.bounds)!
         } else {
             selectedButton?.setValue("true", forKey: "checked")
-
+            
             // Adding the cancel action
             let cancelButton = UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) -> Void in
                 self.deselectSelectedRow()
@@ -176,7 +177,7 @@ class SettingsTableViewController: UITableViewController {
         }
         self.navigationController!.present(alertController, animated: true, completion: nil)
     }
-
+    
     func didSelectAudioCodecRow(indexPath: IndexPath) {
         var selectedButton : UIAlertAction!
         var defaultButton: UIAlertAction!
@@ -239,9 +240,9 @@ class SettingsTableViewController: UITableViewController {
             let selectionButton = UIAlertAction(title: self.getDisplayStrForVideoCodec(codec: codec),
                                                 style: .default,
                                                 handler: { (action) -> Void in
-                self.settings.videoCodec = codec
-                self.reloadSelectedRowOrTableView()
-            })
+                                                    self.settings.videoCodec = codec
+                                                    self.reloadSelectedRowOrTableView()
+                                                })
             
             if (settings.videoCodec == codec) {
                 selectedButton = selectionButton;
@@ -330,10 +331,10 @@ class SettingsTableViewController: UITableViewController {
         }
         self.navigationController!.present(alertController, animated: true, completion: nil)
     }
-
+    
     func getDisplayStrForVideoCodec(codec: VideoCodec) -> String {
         var str = codec.name
-
+        
         if let vp8Codec = codec as? Vp8Codec {
             str += vp8Codec.isSimulcast ? " Simulcast" : ""
         }

@@ -1,10 +1,9 @@
-
 import UIKit
 
 //Custom UserTableViewCell
 class LobbyTableViewCell: UITableViewCell {
     
-
+    
     @IBOutlet weak var username: UILabel!
     @IBOutlet weak var status: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
@@ -21,11 +20,11 @@ class LobbyTableViewCell: UITableViewCell {
         profileImage.clipsToBounds = true
         profileImage.autoresizingMask = [.flexibleLeftMargin, .flexibleRightMargin]
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
-
+    
 }

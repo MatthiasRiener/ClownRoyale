@@ -1,25 +1,15 @@
-//
-//  ViewController.swift
-//  VideoQuickStart
-//
-//  Copyright © 2016-2019 Twilio, Inc. All rights reserved.
-//
-
 import UIKit
 
 import TwilioVideo
 
 class VideoChat : UIViewController{
     
+    //Shared-Instance
     static let videoSharedInstance = VideoChat()
-    var counter = 0
-    // MARK:- View Controller Members
     
-    // Configure access token manually for testing, if desired! Create one manually in the console
-    // at https://www.twilio.com/console/video/runtime/testing-tools
     var accessToken = "TWILIO_ACCESS_TOKEN"
     
-    // Configure remote URL to fetch token from
+    // URL für Token
     var tokenUrl = "http://192.168.1.26:5000"
     
     // Video SDK components
@@ -40,7 +30,7 @@ class VideoChat : UIViewController{
     
     func connect(){
         // Configure access token either from server or manually.
-        // If the default wasn't changed, try fetching from server.
+        // If the default wasn't changed, try fetching from server. (Sicherheit)
         print("CONNECT")
         if (accessToken == "TWILIO_ACCESS_TOKEN") {
             do {
@@ -84,33 +74,31 @@ class VideoChat : UIViewController{
                 builder.region = signalingRegion
             }
             
-            // The name of the Room where the Client will attempt to connect to. Please note that if you pass an empty
-            // Room `name`, the Client will create one for you. You can get the name or sid from any connected Room.
-//             help
+            // The name of the Room where the Client will attempt to connect to
             builder.roomName = SocketIOManager.sharedInstance.roomID!
         }
-        
-        
         
         // Connect to the Room using the options we provided.
         room = TwilioVideoSDK.connect(options: connectOptions, delegate: self)
         
         logMessage(messageText: "Attempting to connect to room \(String(describing: "\(SocketIOManager.sharedInstance.roomID)"))")
         
+        //Clown, der zurzeit den Witz erzählt, rendern
         self.changeClown()
-        
-        //self.showRoomUI(inRoom: true)
-        //self.dismissKeyboard()
     }
     
+    /*
+     Clown, der zurzeit den Witz erzählt, wird gerendert
+     */
     func changeClown(){
-        print("PLS GO")
+        print("CLOWN RENDER")
         print(self.room?.remoteParticipants)
+        
         if(self.room?.remoteParticipants.count ?? 0 > 0){
-            print("IFFFFFFF")
+            print("CLOWN FOUND")
             let videoPublications = self.remoteParticipant?.remoteVideoTracks
             
-            
+            //Zuvor gerenderter Clown muss entfernt werden (Twilio Eigenheit. Warum? ka)
             if(videoPublications != nil){
                 for publication in videoPublications! {
                     if let subscribedVideoTrack = publication.remoteTrack,
@@ -119,87 +107,79 @@ class VideoChat : UIViewController{
                         if(self.remoteView != nil) {
                             subscribedVideoTrack.removeRenderer(self.remoteView as! VideoRenderer)
                         }
-                        //self.remoteView = nil
-                        //remoteView = WatcherPerspectiveViewController.watcherSharedInstance.jokeTellerView
                     }
                 }
             }
+            
+            //User ID des aktuell erzählenden Clowns
+            let teller = SocketIOManager.sharedInstance.currentTeller.value(forKey: "teller") as! NSDictionary
+            let userID = teller.value(forKey: "u_id") as! String
+            print("USERID: \(userID)")
+            
+            //Teilnehmer in Videochat (exklusive mir selbst)
+            let remainingParticipants = self.room?.remoteParticipants
+            print("PAR: \(String(describing: remainingParticipants))")
+            
+            //Teilnehmer werden durchgegangen --> Suche nach aktuellem Erzähler
+            for participant in self.room?.remoteParticipants as! [RemoteParticipant] {
                 
-                //videoChat?.remoteView?.invalidateRenderer()
+                print("\(participant.identity) IDENTITY")
+                print("\(userID) IDENTITY")
                 
-                var teller = SocketIOManager.sharedInstance.currentTeller.value(forKey: "teller") as! NSDictionary
-                var userID = teller.value(forKey: "u_id") as! String
-                print("USERID")
-                print(userID)
-                
-                
-                 var remainingParticipants = self.room?.remoteParticipants
-                print("PAR: \(remainingParticipants)")
-                 
-                 for participant in self.room?.remoteParticipants as! [RemoteParticipant] {
-                 // Find the first renderable track.
-                 print("\(participant.identity) IDENTITY")
-                 print("\(userID) IDENTITY")
-                 if participant.identity == userID {
-                    print("\(participant) LOL")
-                    print("RREMOTE: \(self.remoteView)")
-                    let test = self.renderRemoteParticipant(participant: (participant))
-                    print("TEST: \(test)")
-                 }
-                 }
-                /*
-                print(self.room?.remoteParticipants.count ?? 0)
-                if(counter >= (self.room?.remoteParticipants.count)! - 1){
-                    counter = 0
-                 }else {
-                    counter = counter+1
+                //Erzähler gefunden
+                if participant.identity == userID {
+                    print("ERZÄHLER: \(participant)")
+                    print("ERZÄHLER REMOTE VIEW: \(String(describing: self.remoteView))")
+                    let dummy = self.renderRemoteParticipant(participant: (participant))
+                    print("SUCCESS: \(dummy)")
                 }
-                //videoChat?.remoteParticipant = nil
-                
-                self.remoteParticipant? = (self.room?.remoteParticipants[counter])!
-                */
-                print(self.remoteParticipant?.identity ?? "oje")
-                print(self.room?.remoteParticipants.count ?? 0)
-                print(counter)
-                self.remoteView?.reloadInputViews()
-                //let test = self.renderRemoteParticipant(participant: (VideoChat.videoSharedInstance.remoteParticipant)!)
             }
+            self.remoteView?.reloadInputViews()
+        }
         
     }
     
+    /*
+     Mikrofon ein- oder ausschalten
+     */
     func toggleMic(status : String) {
         if (self.localAudioTrack != nil) {
-            
             if(status == "mute"){
                 self.localAudioTrack?.isEnabled = false
                 print("muted")
-                
             }else {
                 self.localAudioTrack?.isEnabled = true
                 print("unmuted")
-                
             }
         }
     }
+    
+    /*
+     Disconnect von Videochat
+     */
     func disconnect(){
         self.room!.disconnect()
-        //maybe
+        
+        //Aufräumen
         cleanupRemoteParticipant()
         logMessage(messageText: "Attempting to disconnect from room \(room!.name)")
     }
     
     
     func setupRemoteVideoView(){
-        print("RESET")
-        print(self.remoteView)
+        print("RESET: \(String(describing: self.remoteView))")
     }
     
-    // MARK:- Private
+    /*
+     eigenen Videostream vorbereiten
+     */
     func startPreview() {
+        //Simulator hat keine Kamera --> weg damit
         if PlatformUtils.isSimulator {
             return
         }
         
+        //Kameras
         let frontCamera = CameraSource.captureDevice(position: .front)
         let backCamera = CameraSource.captureDevice(position: .back)
         
@@ -212,21 +192,11 @@ class VideoChat : UIViewController{
                     //builder.orientationTracker = UserInterfaceTracker(scene: UIApplication.shared.keyWindow!.windowScene!)
                 }
             }
+            
             // Preview our local camera track in the local video preview view.
             camera = CameraSource(options: options, delegate: self)
             localVideoTrack = LocalVideoTrack(source: camera!, enabled: true, name: "Camera")
             
-            // Add renderer to video track for local preview
-            //localVideoTrack!.addRenderer(self.previewView)
-            //logMessage(messageText: "Video track created")
-            
-            /*
-             if (frontCamera != nil && backCamera != nil) {
-             // We will flip camera on tap.
-             let tap = UITapGestureRecognizer(target: self, action: #selector(ViewController.flipCamera))
-             self.previewView.addGestureRecognizer(tap)
-             }
-             */
             
             camera!.startCapture(device: frontCamera != nil ? frontCamera! : backCamera!) { (captureDevice, videoFormat, error) in
                 if let error = error {
@@ -243,6 +213,10 @@ class VideoChat : UIViewController{
         }
     }
     
+    /*
+     Kamera flippen
+     zurzeit nicht in Verwendung!!!!
+     */
     @objc func flipCamera() {
         var newDevice: AVCaptureDevice?
         
@@ -267,10 +241,10 @@ class VideoChat : UIViewController{
         }
     }
     
+    /*
+     Lokale Medien (Audio + Video) vorbereiten
+     */
     func prepareLocalMedia() {
-        
-        // We will share local audio and video when we connect to the Room.
-        
         // Create an audio track.
         if (localAudioTrack == nil) {
             localAudioTrack = LocalAudioTrack(options: nil, enabled: true, name: "Microphone")
@@ -286,22 +260,34 @@ class VideoChat : UIViewController{
         }
     }
     
+    /*
+     Logger
+     */
     func logMessage(messageText: String) {
         NSLog(messageText)
         print(messageText)
     }
     
+    /*
+     rendert einen Videochatteilnehmer
+     */
     func renderRemoteParticipant(participant : RemoteParticipant) -> Bool {
-        // This example renders the first subscribed RemoteVideoTrack from the RemoteParticipant.
+        
+        // This example renders the first subscribed RemoteVideoTrack from the RemoteParticipant (einfacher)
+        // Teilnehmer kann mehrere Videostreams haben
         let videoPublications = participant.remoteVideoTracks
         print("TRACKS: \(participant.remoteVideoTracks)")
+        
         for publication in videoPublications {
             if let subscribedVideoTrack = publication.remoteTrack,
-                publication.isTrackSubscribed {
+               publication.isTrackSubscribed {
                 setupRemoteVideoView()
+                
+                //Renderer hinzufügen
                 if(self.remoteView != nil){
                     subscribedVideoTrack.addRenderer(self.remoteView!)
                 }
+                //Aktuell gerenderter User ändern
                 self.remoteParticipant = participant
                 return true
             }
@@ -309,6 +295,9 @@ class VideoChat : UIViewController{
         return false
     }
     
+    /*
+     nicht in Verwendung
+     */
     func renderRemoteParticipants(participants : Array<RemoteParticipant>) {
         for participant in participants {
             // Find the first renderable track.
@@ -320,6 +309,9 @@ class VideoChat : UIViewController{
         }
     }
     
+    /*
+     nach Runde aufräumen
+     */
     func cleanupRemoteParticipant() {
         if self.remoteParticipant != nil {
             self.remoteView?.removeFromSuperview()
@@ -349,7 +341,7 @@ extension VideoChat : RoomDelegate {
         for remoteParticipant in room.remoteParticipants {
             remoteParticipant.delegate = self
         }
- 
+        
     }
     
     func roomDidDisconnect(room: Room, error: Error?) {

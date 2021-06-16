@@ -1,10 +1,3 @@
-//
-//  OwnPerspectiveViewController.swift
-//  ClownRoyale
-//
-//  Created by Matthias Riener on 20.04.21.
-//
-
 import UIKit
 
 import TwilioVideo
@@ -19,8 +12,6 @@ class OwnPerspectiveViewController: ViewController {
     @IBOutlet weak var categoryLabel: UILabel!
     
     @IBOutlet weak var viewersTableView: UITableView!
-    
-    
     
     @IBOutlet weak var btn_one_burger: UIButton!
     @IBOutlet weak var btn_two_burger: UIButton!
@@ -44,10 +35,14 @@ class OwnPerspectiveViewController: ViewController {
             self.performSegue(withIdentifier: "leaderboardOwn", sender: self)
         })
         
+        //Falls noch nicht bereits in einem Raum --> connect
         if(VideoChat.videoSharedInstance.room == nil){
             VideoChat.videoSharedInstance.connect()
         }
+        //User unmuted
         VideoChat.videoSharedInstance.toggleMic(status: "unmute")
+        
+        
         print("VIREW dIeD Load")
         self.viewersTableView.dataSource = self
         self.viewersTableView.separatorStyle = .singleLine
@@ -85,13 +80,14 @@ class OwnPerspectiveViewController: ViewController {
         self.categoryLabel.text = "\(SocketIOManager.sharedInstance.currentCat.value(forKey: "name")!)"
     }
     
+    /*
+     Erstellt Ansicht für lokalen Videostream (unten rechts in der View)
+     */
     func setupLocalView(){
-        
         if((VideoChat.videoSharedInstance.localVideoTrack) != nil){
             VideoChat.videoSharedInstance.localVideoTrack!.addRenderer(self.imgOwnView)
             VideoChat.videoSharedInstance.logMessage(messageText: "Video track created")
         }
-
     }
     
     @objc func clickAction(sender : UITapGestureRecognizer) {

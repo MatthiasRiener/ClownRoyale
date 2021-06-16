@@ -1,13 +1,8 @@
-//
-//  Settings.swift
-//  VideoQuickStart
-//
-//  Copyright © 2017-2019 Twilio, Inc. All rights reserved.
-//
 import TwilioVideo
 
+//von Twilio-Video-tutorial
 class Settings: NSObject {
-
+    
     // ISDK-2644: Resolving a conflict with AudioToolbox in iOS 13
     let supportedAudioCodecs: [TwilioVideo.AudioCodec] = [IsacCodec(),
                                                           OpusCodec(),
@@ -19,7 +14,7 @@ class Settings: NSObject {
                                               Vp8Codec(simulcast: true),
                                               H264Codec(),
                                               Vp9Codec()]
-
+    
     // Valid signaling Regions are listed here:
     // https://www.twilio.com/docs/video/ip-address-whitelisting#signaling-communication
     let supportedSignalingRegions: [String] = ["gll",
@@ -32,8 +27,8 @@ class Settings: NSObject {
                                                "sg1",
                                                "us1",
                                                "us2"]
-
-
+    
+    
     let supportedSignalingRegionDisplayString: [String : String] = ["gll": "Global Low Latency",
                                                                     "au1": "Australia",
                                                                     "br1": "Brazil",
@@ -47,12 +42,12 @@ class Settings: NSObject {
     
     var audioCodec: TwilioVideo.AudioCodec?
     var videoCodec: VideoCodec?
-
+    
     var maxAudioBitrate = UInt()
     var maxVideoBitrate = UInt()
-
+    
     var signalingRegion: String?
-
+    
     func getEncodingParameters() -> EncodingParameters?  {
         if maxAudioBitrate == 0 && maxVideoBitrate == 0 {
             return nil;

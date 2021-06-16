@@ -1,4 +1,3 @@
-
 import UIKit
 
 import TwilioVideo
@@ -28,7 +27,7 @@ class LobbyViewController: UIViewController {
         })
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.refresh), name: NSNotification.Name(rawValue: "newDataNotif"), object: nil)
-
+        
         //TableView
         lobbyTable.dataSource = self
         lobbyTable.delegate = self
@@ -37,20 +36,15 @@ class LobbyViewController: UIViewController {
         lobbyTable.separatorInset = .zero
         
         let gradient = CAGradientLayer()
-
         gradient.frame = readyUp.bounds
         gradient.colors = [UIColor(named: "ClownYellowHell")?.cgColor as Any, UIColor(named: "ClownYellow")?.cgColor as Any]
         gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
         gradient.endPoint = CGPoint(x: 1.0, y: 0.5)
-        
         readyUp.layer.insertSublayer(gradient, at: 0)
         
         
         let gesture = UITapGestureRecognizer(target: self, action:  #selector(self.clickAction(sender:)))
-        
         self.readyUp.addGestureRecognizer(gesture)
-        
-        
     }
     
     @objc func clickAction(sender : UITapGestureRecognizer) {
@@ -82,11 +76,11 @@ class LobbyViewController: UIViewController {
                     print("DU BIMS")
                 }
                 /*print("RESPONSE: ")
-                print(responseData)
-                self.roomID = responseData.value(forKey: "lobbyID") as! String
-                self.users = responseData.value(forKey: "users") as! Array<NSDictionary>
-                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "newDataNotif"), object: nil)
-                print(self.users)*/
+                 print(responseData)
+                 self.roomID = responseData.value(forKey: "lobbyID") as! String
+                 self.users = responseData.value(forKey: "users") as! Array<NSDictionary>
+                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "newDataNotif"), object: nil)
+                 print(self.users)*/
                 //let status = responseData.value(forKey: "status") as! Int
             }
         })
@@ -113,15 +107,15 @@ class LobbyViewController: UIViewController {
 
 extension LobbyViewController: UITableViewDataSource {
     
-
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return SocketIOManager.sharedInstance.users.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "user", for: indexPath) as! LobbyTableViewCell
         
@@ -146,9 +140,6 @@ extension LobbyViewController: UITableViewDataSource {
         
         return cell
     }
-
-    
-
 }
 
 extension LobbyViewController: UITableViewDelegate {
@@ -157,7 +148,7 @@ extension LobbyViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         //self.viewWillLayoutSubviews()
     }
-
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }

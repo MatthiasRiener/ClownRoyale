@@ -1,10 +1,3 @@
-//
-//  TabBarViewController.swift
-//  ClownRoyale
-//
-//  Created by Jan Donnerbauer on 21.04.21.
-//
-
 import UIKit
 
 class TabBarViewController: UITabBarController {
@@ -16,7 +9,6 @@ class TabBarViewController: UITabBarController {
         self.selectedIndex = 1
     }
     
-
     /*
     // MARK: - Navigation
 

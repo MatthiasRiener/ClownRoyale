@@ -1,24 +1,19 @@
-//
-//  LoadingViewController.swift
-//  ClownRoyale
-//
-//  Created by Jan Donnerbauer on 09.06.21.
-//
-
 import UIKit
 
 class LoadingViewController: UIViewController {
     
-
     @IBOutlet weak var jokeView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Mikrofon muten
         VideoChat.videoSharedInstance.toggleMic(status: "mute")
-
+        
+        
+        //View Einstellungen
         jokeView.layer.masksToBounds = true
         jokeView.layer.cornerRadius = 15
-        
         jokeView.layer.borderWidth = 10
         jokeView.layer.borderColor = UIColor(named: "ClownRedDunkel")?.cgColor
         
@@ -28,13 +23,10 @@ class LoadingViewController: UIViewController {
             SocketIOManager.sharedInstance.currentTeller = data
             self.performSegue(withIdentifier: "watcherPerspective", sender: self)
         })
-        
     }
     
-
-    
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
@@ -45,5 +37,4 @@ class LoadingViewController: UIViewController {
         }
     }
     
-
 }

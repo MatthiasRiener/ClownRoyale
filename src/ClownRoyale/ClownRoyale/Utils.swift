@@ -12,24 +12,11 @@ struct PlatformUtils {
 }
 
 struct TokenUtils {
-    /*static func fetchToken(url : String) throws -> String {
-        /*var token: String = "TWILIO_ACCESS_TOKEN"
-        let requestURL: URL = URL(string: url)!*/
-        do {
-            /*let data = try Data(contentsOf: requestURL)
-            if let tokenReponse = String(data: data, encoding: String.Encoding.utf8) {
-                token = tokenReponse
-            }
-            sendData()
-            
-        } catch let error as NSError {
-            print ("Invalid token url, error = \(error)")
-            throw error
-        }
-        print("token: \(token)")
-        return token*/
-    }*/
     
+    /*
+     Funktion holt Access Token für Videochat
+     Token enthält berechtigten User + spezifischer Raum (User darf nur diesem einem Raum beitreten)
+     */
     static func sendData(completionHandler: @escaping (_ token: String) -> Void) {
         var videoToken: String = ""
         

@@ -13,9 +13,11 @@ class ShopViewController: ViewController {
     
     @IBOutlet weak var secondShopItem: UIView!
     @IBOutlet weak var firstShopItem: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //View Einstellungen
         shopCoins.backgroundColor = UIColor(named: "ClownYellow")
         shopCoins.layer.cornerRadius = shopCoins.layer.bounds.height / 2
         shopCoins.clipsToBounds = true
@@ -26,7 +28,7 @@ class ShopViewController: ViewController {
         topView.layer.shadowOffset = CGSize(width: 0, height: 7)
         topView.layer.shadowRadius = 5.0
         topView.layer.shadowColor = UIColor.darkGray.cgColor
-
+        
         imageView.layer.cornerRadius = imageView.layer.bounds.height / 2
         imageView.layer.zPosition = 1.0
         imageView.layer.shadowOpacity = 0.5
@@ -41,8 +43,7 @@ class ShopViewController: ViewController {
         imageViewBackground.layer.shadowColor = UIColor.darkGray.cgColor
         
         iconButton.layer.cornerRadius = 5.0
-        //iconButton.setBackgroundImage(UIImage(named: "Smiley"), for: .normal)
-
+        
         moneyButton.layer.cornerRadius = 5.0
         
         firstShopItem.layer.cornerRadius = 10.0

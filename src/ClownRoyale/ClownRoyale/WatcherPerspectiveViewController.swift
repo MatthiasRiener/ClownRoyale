@@ -1,10 +1,3 @@
-//
-//  WatcherPerspectiveViewController.swift
-//  ClownRoyale
-//
-//  Created by Matthias Riener on 20.04.21.
-//
-
 import UIKit
 
 import TwilioVideo
@@ -12,60 +5,50 @@ import TwilioVideo
 class WatcherPerspectiveViewController: ViewController {
     
     @IBOutlet weak var categoryStack: UIStackView!
-    
-    @IBOutlet weak var jokeTellerView: UIView!
     @IBOutlet weak var categoryLabel: UILabel!
     
+    @IBOutlet weak var jokeTellerView: UIView!
     
     @IBOutlet weak var btnTimer: UILabel!
     
-    
     @IBOutlet weak var btn_one_burger: UIButton!
-    
     @IBOutlet weak var btn_two_burger: UIButton!
-    
     @IBOutlet weak var btn_three_burger: UIButton!
     
     
-    
     @IBOutlet weak var btn_liked: UIButton!
-    
     @IBOutlet weak var btn_neutral: UIButton!
-    
     @IBOutlet weak var btn_disliked: UIButton!
-    
     @IBOutlet weak var btn_hated: UIButton!
     
     @IBOutlet weak var voteButton: UIView!
     
-    var counter = 0
     
     override func viewDidLoad() {
+        print("View wurde geladen...")
         
         SocketIOManager.sharedInstance.gameFinished(completionHandler: {data in
             print("GAME FINISHED EVENT WATCHER")
             self.performSegue(withIdentifier: "leaderboardWatcher", sender: self)
         })
         
+        //Aktuellen Clown Rendern
         setupCurrentClown()
+        //Mikrofon muten
         VideoChat.videoSharedInstance.toggleMic(status: "mute")
         
-        print("View wurde geladen...")
-        //self.jokeTellerView.image = UIImage(named: "VideoChat")
-        self.jokeTellerView.layer.cornerRadius = 15
         
+        //View Einstellungen
+        self.jokeTellerView.layer.cornerRadius = 15
         
         self.btnTimer.layer.masksToBounds = true
         self.btnTimer.layer.cornerRadius = 15
         
-        
         self.btn_one_burger.layer.cornerRadius = 5
-        
         self.btn_two_burger.layer.cornerRadius = 5
         self.btn_three_burger.layer.cornerRadius = 5
         
         self.categoryStack.layer.zPosition = 3
-        
         self.categoryStack.layer.cornerRadius = 15
         
         categoryStack.layer.shadowColor = UIColor(named: "DarkClownOrange")?.cgColor
@@ -74,11 +57,8 @@ class WatcherPerspectiveViewController: ViewController {
         categoryStack.layer.shadowRadius = 0.0
         
         self.btn_liked.layer.cornerRadius = 15
-        
         self.btn_neutral.layer.cornerRadius = 15
-        
         self.btn_disliked.layer.cornerRadius = 15
-        
         self.btn_hated.layer.cornerRadius = 15
         
         
@@ -105,16 +85,13 @@ class WatcherPerspectiveViewController: ViewController {
         btn_hated.layer.shadowRadius = 0.0
         
         let gradient = CAGradientLayer()
-        
         gradient.frame = voteButton.bounds
         gradient.colors = [UIColor(named: "ClownYellowHell")?.cgColor as Any, UIColor(named: "ClownYellow")?.cgColor as Any]
         gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
         gradient.endPoint = CGPoint(x: 1.0, y: 0.5)
-        
         voteButton.layer.insertSublayer(gradient, at: 0)
         
         let gesture = UITapGestureRecognizer(target: self, action:  #selector(self.clickAction(sender:)))
-        
         self.voteButton.addGestureRecognizer(gesture)
         
         self.categoryLabel.text = "\(SocketIOManager.sharedInstance.currentCat.value(forKey: "name")!)"
@@ -144,25 +121,30 @@ class WatcherPerspectiveViewController: ViewController {
         SocketIOManager.sharedInstance.vote(points: -10)
     }
     
+    /*
+     Funktion erstellt View für aktuellen Witzerzähler
+     */
     func setupCurrentClown(){
         
+        //Falls bereits ein Clown gerendert wurde, muss die View entfernt werden
+        //Ansonsten, kann es zu "leeren" bzw. "weißen" Frames kommen
         if(VideoChat.videoSharedInstance.remoteView != nil){
-            print("REMOTE: \(VideoChat.videoSharedInstance.remoteView)")
+            print("REMOTE: \(String(describing: VideoChat.videoSharedInstance.remoteView))")
             VideoChat.videoSharedInstance.remoteView?.removeFromSuperview()
             VideoChat.videoSharedInstance.remoteView = nil
         }
-
+        
+        //View programmatisch erstellen
         if(VideoChat.videoSharedInstance.remoteView == nil){
-            print("REMOTE VIEW")
+            print("REMOTE VIEW ERSTELLEN")
             
             VideoChat.videoSharedInstance.remoteView = VideoView(frame: CGRect.zero, delegate: self)
-
-            self.jokeTellerView.insertSubview(VideoChat.videoSharedInstance.remoteView!, at: 0)
             
-            // `VideoView` supports scaleToFill, scaleAspectFill and scaleAspectFit
-            // scaleAspectFit is the default mode when you create `VideoView` programmatically.
+            //in View einfügen
+            self.jokeTellerView.insertSubview(VideoChat.videoSharedInstance.remoteView!, at: 0)
             VideoChat.videoSharedInstance.remoteView!.contentMode = .scaleAspectFit;
-
+            
+            //Constraints
             let centerX = NSLayoutConstraint(item: VideoChat.videoSharedInstance.remoteView!,
                                              attribute: NSLayoutConstraint.Attribute.centerX,
                                              relatedBy: NSLayoutConstraint.Relation.equal,
@@ -197,24 +179,28 @@ class WatcherPerspectiveViewController: ViewController {
             self.jokeTellerView.addConstraint(height)
             
             /*
-            VideoChat.videoSharedInstance.remoteView = jokeTellerView
-            VideoChat.videoSharedInstance.remoteView?.reloadInputViews()
-            VideoChat.videoSharedInstance.remoteView?.contentMode = .scaleAspectFit;
- */
-            print(VideoChat.videoSharedInstance.remoteView)
+             old
+             VideoChat.videoSharedInstance.remoteView = jokeTellerView
+             VideoChat.videoSharedInstance.remoteView?.reloadInputViews()
+             VideoChat.videoSharedInstance.remoteView?.contentMode = .scaleAspectFit;
+             */
+            
+            print(VideoChat.videoSharedInstance.remoteView!)
+            //Falls noch nicht connected --> connect mit Videochat
             if(VideoChat.videoSharedInstance.room?.sid == nil){
                 VideoChat.videoSharedInstance.connect()
             }
             
         }
+        
+        //Aktuellen Clown auswählen
         VideoChat.videoSharedInstance.changeClown()
     }
-
+    
     
     @objc func clickAction(sender : UITapGestureRecognizer) {
         print("voted")
         performSegue(withIdentifier: "voted", sender: self)
-        //videoChat.disconnect()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
