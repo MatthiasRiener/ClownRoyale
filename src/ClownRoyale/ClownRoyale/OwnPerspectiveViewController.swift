@@ -44,10 +44,10 @@ class OwnPerspectiveViewController: ViewController {
             self.performSegue(withIdentifier: "leaderboardOwn", sender: self)
         })
         
-        if(WatcherPerspectiveViewController.videoSharedInstance.videoChat == nil){
-            WatcherPerspectiveViewController.videoSharedInstance.setupCurrentClown()
+        if(VideoChat.videoSharedInstance.room == nil){
+            VideoChat.videoSharedInstance.connect()
         }
-        WatcherPerspectiveViewController.videoSharedInstance.videoChat?.toggleMic(status: "unmute")
+        VideoChat.videoSharedInstance.toggleMic(status: "unmute")
         print("VIREW dIeD Load")
         self.viewersTableView.dataSource = self
         self.viewersTableView.separatorStyle = .singleLine
@@ -87,9 +87,9 @@ class OwnPerspectiveViewController: ViewController {
     
     func setupLocalView(){
         
-        if((WatcherPerspectiveViewController.videoSharedInstance.videoChat?.localVideoTrack) != nil){
-            WatcherPerspectiveViewController.videoSharedInstance.videoChat?.localVideoTrack!.addRenderer(self.imgOwnView)
-            WatcherPerspectiveViewController.videoSharedInstance.videoChat?.logMessage(messageText: "Video track created")
+        if((VideoChat.videoSharedInstance.localVideoTrack) != nil){
+            VideoChat.videoSharedInstance.localVideoTrack!.addRenderer(self.imgOwnView)
+            VideoChat.videoSharedInstance.logMessage(messageText: "Video track created")
         }
 
     }
@@ -98,7 +98,7 @@ class OwnPerspectiveViewController: ViewController {
         print("joke finished")
         performSegue(withIdentifier: "joke_finished", sender: self)
         SocketIOManager.sharedInstance.finishJoke()
-        WatcherPerspectiveViewController.videoSharedInstance.videoChat?.disconnect()
+        VideoChat.videoSharedInstance.disconnect()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

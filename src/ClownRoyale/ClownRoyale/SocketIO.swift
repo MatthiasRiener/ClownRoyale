@@ -11,13 +11,14 @@ class SocketIOManager: NSObject {
      var currentCat: NSDictionary = [:]
      var usersVoted = [NSDictionary]()
      var usersLeaderboard = [NSDictionary]()
+    var currentTeller: NSDictionary = [:]
 
      override init() {
          super.init()
      }
 
      func createSocketConnection (completionHandler: @escaping (_ connected: Bool) -> Void) {
-         manager = SocketManager(socketURL: URL(string: "ws://localhost:5000")!
+         manager = SocketManager(socketURL: URL(string: "ws://192.168.1.26:5000")!
             ,config: [.log(false)])
 
          socket = manager?.defaultSocket
@@ -174,6 +175,8 @@ class SocketIOManager: NSObject {
             if let responseData = data[0] as? NSDictionary {
                 print("GAME FINISHED")
                 print(responseData)
+                VideoChat.videoSharedInstance.disconnect()
+                print("DISCONNECT")
                 self.usersLeaderboard = responseData.value(forKey: "users") as! Array<NSDictionary>
                 completionHandler(responseData)
             }

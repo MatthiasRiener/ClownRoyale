@@ -11,15 +11,11 @@ import TwilioVideo
 
 class WatcherPerspectiveViewController: ViewController {
     
-    static let videoSharedInstance = WatcherPerspectiveViewController()
-    
-    var currentTeller: NSDictionary = [:]
-    
     @IBOutlet weak var categoryStack: UIStackView!
     
+    @IBOutlet weak var jokeTellerView: UIView!
     @IBOutlet weak var categoryLabel: UILabel!
-        
-    @IBOutlet weak var jokeTellerView: VideoView!
+    
     
     @IBOutlet weak var btnTimer: UILabel!
     
@@ -42,7 +38,6 @@ class WatcherPerspectiveViewController: ViewController {
     
     @IBOutlet weak var voteButton: UIView!
     
-    var videoChat : VideoChat?
     var counter = 0
     
     override func viewDidLoad() {
@@ -53,8 +48,8 @@ class WatcherPerspectiveViewController: ViewController {
         })
         
         setupCurrentClown()
-        videoChat?.toggleMic(status: "mute")
-
+        VideoChat.videoSharedInstance.toggleMic(status: "mute")
+        
         print("View wurde geladen...")
         //self.jokeTellerView.image = UIImage(named: "VideoChat")
         self.jokeTellerView.layer.cornerRadius = 15
@@ -110,7 +105,7 @@ class WatcherPerspectiveViewController: ViewController {
         btn_hated.layer.shadowRadius = 0.0
         
         let gradient = CAGradientLayer()
-
+        
         gradient.frame = voteButton.bounds
         gradient.colors = [UIColor(named: "ClownYellowHell")?.cgColor as Any, UIColor(named: "ClownYellow")?.cgColor as Any]
         gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
@@ -125,7 +120,7 @@ class WatcherPerspectiveViewController: ViewController {
         self.categoryLabel.text = "\(SocketIOManager.sharedInstance.currentCat.value(forKey: "name")!)"
         
         print("CURRENT TELLER:")
-        print(self.currentTeller)
+        print(SocketIOManager.sharedInstance.currentTeller)
         
     }
     
@@ -150,75 +145,71 @@ class WatcherPerspectiveViewController: ViewController {
     }
     
     func setupCurrentClown(){
-        if(videoChat == nil){
-            videoChat = VideoChat()
-        }
         
-        if(videoChat?.remoteView == nil){
-            videoChat?.remoteView = jokeTellerView
-            videoChat?.remoteView?.reloadInputViews()
-            videoChat?.remoteView?.contentMode = .scaleAspectFit;
-            
-            videoChat?.connect()
+        if(VideoChat.videoSharedInstance.remoteView != nil){
+            print("REMOTE: \(VideoChat.videoSharedInstance.remoteView)")
+            VideoChat.videoSharedInstance.remoteView?.removeFromSuperview()
+            VideoChat.videoSharedInstance.remoteView = nil
         }
-        self.changeClown()
-    }
-    
-    func changeClown(){
-        print("PLS GO")
-        print(videoChat?.room?.remoteParticipants)
-        if(videoChat?.room?.remoteParticipants.count ?? 0 > 0){
-                    print("IFFFFFFF")
-            let videoPublications = videoChat?.remoteParticipant?.remoteVideoTracks
-            
-            
-            if(videoPublications != nil){
-            for publication in videoPublications! {
-                    if let subscribedVideoTrack = publication.remoteTrack,
-                        publication.isTrackSubscribed {
-                        print("gg")
-                        subscribedVideoTrack.removeRenderer(videoChat?.remoteView! as! VideoRenderer)
-                        
-                    }
-            }
 
-            //videoChat?.remoteView?.invalidateRenderer()
-                var teller = self.currentTeller.value(forKey: "teller") as! NSDictionary
-                var userID = teller.value(forKey: "u_id") as! String
-                print("USERID")
-                print(userID)
+        if(VideoChat.videoSharedInstance.remoteView == nil){
+            print("REMOTE VIEW")
             
-                /*
-                 var remainingParticipants = videoChat?.room?.remoteParticipants
-                 
-                 for participant in videoChat?.room?.remoteParticipants as! [RemoteParticipant] {
-                     // Find the first renderable track.
-                     print("\(participant.identity) IDENTITY")
-                     print("\(userID) IDENTITY")
-                     if participant.identity == userID {
-                         videoChat?.remoteParticipant? = participant
-                         videoChat?.renderRemoteParticipant(participant: (videoChat?.remoteParticipant)!)
-                     }
-                 }
-                 */
-            print(videoChat?.room?.remoteParticipants.count ?? 0)
-            if(counter >= (videoChat?.room?.remoteParticipants.count)! - 1){
-                counter = 0
-            }else {
-                counter = counter+1
-            }
-            //videoChat?.remoteParticipant = nil
+            VideoChat.videoSharedInstance.remoteView = VideoView(frame: CGRect.zero, delegate: self)
 
-            videoChat?.remoteParticipant? = (videoChat?.room?.remoteParticipants[counter])!
+            self.jokeTellerView.insertSubview(VideoChat.videoSharedInstance.remoteView!, at: 0)
             
-            print(videoChat?.remoteParticipant?.identity ?? "oje")
-            print(videoChat?.room?.remoteParticipants.count ?? 0)
-            print(counter)
+            // `VideoView` supports scaleToFill, scaleAspectFill and scaleAspectFit
+            // scaleAspectFit is the default mode when you create `VideoView` programmatically.
+            VideoChat.videoSharedInstance.remoteView!.contentMode = .scaleAspectFit;
+
+            let centerX = NSLayoutConstraint(item: VideoChat.videoSharedInstance.remoteView!,
+                                             attribute: NSLayoutConstraint.Attribute.centerX,
+                                             relatedBy: NSLayoutConstraint.Relation.equal,
+                                             toItem: self.jokeTellerView,
+                                             attribute: NSLayoutConstraint.Attribute.centerX,
+                                             multiplier: 1,
+                                             constant: 0);
+            self.jokeTellerView.addConstraint(centerX)
+            let centerY = NSLayoutConstraint(item: VideoChat.videoSharedInstance.remoteView!,
+                                             attribute: NSLayoutConstraint.Attribute.centerY,
+                                             relatedBy: NSLayoutConstraint.Relation.equal,
+                                             toItem: self.jokeTellerView,
+                                             attribute: NSLayoutConstraint.Attribute.centerY,
+                                             multiplier: 1,
+                                             constant: 0);
+            self.jokeTellerView.addConstraint(centerY)
+            let width = NSLayoutConstraint(item: VideoChat.videoSharedInstance.remoteView!,
+                                           attribute: NSLayoutConstraint.Attribute.width,
+                                           relatedBy: NSLayoutConstraint.Relation.equal,
+                                           toItem: self.jokeTellerView,
+                                           attribute: NSLayoutConstraint.Attribute.width,
+                                           multiplier: 1,
+                                           constant: 0);
+            self.jokeTellerView.addConstraint(width)
+            let height = NSLayoutConstraint(item: VideoChat.videoSharedInstance.remoteView!,
+                                            attribute: NSLayoutConstraint.Attribute.height,
+                                            relatedBy: NSLayoutConstraint.Relation.equal,
+                                            toItem: self.jokeTellerView,
+                                            attribute: NSLayoutConstraint.Attribute.height,
+                                            multiplier: 1,
+                                            constant: 0);
+            self.jokeTellerView.addConstraint(height)
             
-            videoChat?.renderRemoteParticipant(participant: (videoChat?.remoteParticipant)!)
+            /*
+            VideoChat.videoSharedInstance.remoteView = jokeTellerView
+            VideoChat.videoSharedInstance.remoteView?.reloadInputViews()
+            VideoChat.videoSharedInstance.remoteView?.contentMode = .scaleAspectFit;
+ */
+            print(VideoChat.videoSharedInstance.remoteView)
+            if(VideoChat.videoSharedInstance.room?.sid == nil){
+                VideoChat.videoSharedInstance.connect()
+            }
+            
         }
+        VideoChat.videoSharedInstance.changeClown()
     }
-    }
+
     
     @objc func clickAction(sender : UITapGestureRecognizer) {
         print("voted")

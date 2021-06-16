@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="c4e-3t-0qJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="c4e-3t-0qJ">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -517,7 +517,7 @@
                                     <action selector="minusTenPoints:" destination="gKT-Nx-Nhx" eventType="touchUpInside" id="ePN-Pl-2l2"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bso-cb-SLl" customClass="TVIVideoView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bso-cb-SLl">
                                 <rect key="frame" x="30" y="211" width="354" height="294.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -566,7 +566,7 @@
                         <outlet property="btn_two_burger" destination="ccs-tl-0lU" id="8uM-jc-9Nw"/>
                         <outlet property="categoryLabel" destination="ftK-ZG-kpB" id="Klw-fh-mM6"/>
                         <outlet property="categoryStack" destination="gOj-VQ-vE8" id="qJn-iw-woH"/>
-                        <outlet property="jokeTellerView" destination="Bso-cb-SLl" id="TYB-9x-2Fk"/>
+                        <outlet property="jokeTellerView" destination="Bso-cb-SLl" id="pqu-5V-CQO"/>
                         <outlet property="voteButton" destination="RSL-VB-ICZ" id="2np-6G-lEJ"/>
                         <segue destination="NUl-t9-X48" kind="show" identifier="voted" id="SlH-WG-9cj"/>
                         <segue destination="oBV-Wq-ar8" kind="show" identifier="load" id="WuJ-hJ-rNh"/>
@@ -645,7 +645,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="viewer" id="zlQ-Yx-8Pr" customClass="VotingTableViewCell" customModule="ClownRoyale" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="374" height="90.5"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="374" height="90.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zlQ-Yx-8Pr" id="9SS-cl-NGO">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="90.5"/>
@@ -850,7 +850,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="choosableCategory" id="kuQ-fI-DfH" customClass="CategoryTableViewCell" customModule="ClownRoyale" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="374" height="90.5"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="374" height="90.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kuQ-fI-DfH" id="G6z-5t-7Jj">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="90.5"/>
@@ -1048,7 +1048,7 @@ None – It’s a hardware problem</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zelt" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XQs-YN-reA">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="759"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5HN-K0-qLe">
                                 <rect key="frame" x="31" y="168.5" width="352" height="505"/>
@@ -1136,7 +1136,7 @@ None – It’s a hardware problem</string>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="user" id="bEw-MX-LwG" customClass="LobbyTableViewCell" customModule="ClownRoyale" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="374" height="90.5"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="374" height="90.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bEw-MX-LwG" id="rgH-6W-qOm">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="90.5"/>
@@ -1250,7 +1250,7 @@ None – It’s a hardware problem</string>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="user_ranking" id="jPA-AV-Pww" customClass="RankingTableViewCell" customModule="ClownRoyale" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="374" height="90.5"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="374" height="90.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jPA-AV-Pww" id="QyA-cD-zt9">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="90.5"/>
@@ -1550,10 +1550,10 @@ None – It’s a hardware problem</string>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="2E7-BZ-sHd"/>
-        <segue reference="kbE-7o-6i9"/>
+        <segue reference="E8e-iq-VJm"/>
         <segue reference="WuJ-hJ-rNh"/>
         <segue reference="ppa-6Y-Nsn"/>
-        <segue reference="cOs-mx-uFs"/>
+        <segue reference="hvH-A5-Vyl"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="ZirkusZelt" width="612" height="612"/>

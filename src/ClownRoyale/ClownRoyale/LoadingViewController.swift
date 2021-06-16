@@ -9,11 +9,12 @@ import UIKit
 
 class LoadingViewController: UIViewController {
     
-    var currentTeller: NSDictionary = [:]
 
     @IBOutlet weak var jokeView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        VideoChat.videoSharedInstance.toggleMic(status: "mute")
 
         jokeView.layer.masksToBounds = true
         jokeView.layer.cornerRadius = 15
@@ -24,7 +25,7 @@ class LoadingViewController: UIViewController {
         SocketIOManager.sharedInstance.chooseCategoryRespone(completionHandler: {data in
             print("DATA 2:")
             print(data)
-            self.currentTeller = data
+            SocketIOManager.sharedInstance.currentTeller = data
             self.performSegue(withIdentifier: "watcherPerspective", sender: self)
         })
         
@@ -41,7 +42,6 @@ class LoadingViewController: UIViewController {
         if segue.identifier == "watcherPerspective" {
             let watcherPerspectiveView = segue.destination as! WatcherPerspectiveViewController
             watcherPerspectiveView.modalPresentationStyle = .fullScreen
-            watcherPerspectiveView.currentTeller = self.currentTeller
         }
     }
     

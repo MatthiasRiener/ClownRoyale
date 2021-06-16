@@ -23,10 +23,10 @@ class CategoryViewController: UIViewController {
         super.viewDidLoad()
         self.getCategories()
         
-        if(WatcherPerspectiveViewController.videoSharedInstance.videoChat == nil){
-            WatcherPerspectiveViewController.videoSharedInstance.setupCurrentClown()
+        if(VideoChat.videoSharedInstance.room == nil){
+            VideoChat.videoSharedInstance.connect()
         }
-        WatcherPerspectiveViewController.videoSharedInstance.videoChat?.toggleMic(status: "mute")
+        VideoChat.videoSharedInstance.toggleMic(status: "mute")
 
         //TableView
         CategoryTable.dataSource = self
@@ -121,6 +121,7 @@ extension CategoryViewController: UITableViewDelegate {
         SocketIOManager.sharedInstance.chooseCategoryRespone(completionHandler: {data in
             print("DATA 1:")
             print(data)
+            SocketIOManager.sharedInstance.currentTeller = data
             self.performSegue(withIdentifier: "category_selected", sender: self)
         })
         
