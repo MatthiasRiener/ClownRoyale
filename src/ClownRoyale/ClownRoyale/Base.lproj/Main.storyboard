@@ -1019,6 +1019,7 @@ None – It’s a hardware problem</string>
         <scene sceneID="C5C-6F-2IQ">
             <objects>
                 <tabBarController storyboardIdentifier="MainView" title="mainView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fFZ-Ob-W0y" customClass="TabBarViewController" customModule="ClownRoyale" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="qVQ-s9-Sw6"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="YwM-BI-zz8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1452,7 +1453,7 @@ None – It’s a hardware problem</string>
                         <outlet property="password" destination="V1V-eF-9V1" id="wFw-pL-McK"/>
                         <outlet property="registerbtn" destination="2qx-Q1-SdN" id="GS1-8u-76l"/>
                         <outlet property="username" destination="G1v-AT-SLD" id="SeM-eu-WZk"/>
-                        <segue destination="4cc-Ba-gQD" kind="show" identifier="login" id="kbE-7o-6i9"/>
+                        <segue destination="fFZ-Ob-W0y" kind="show" identifier="login" id="aLM-4M-e3S"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K7W-0E-bP0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1550,7 +1551,7 @@ None – It’s a hardware problem</string>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="2E7-BZ-sHd"/>
-        <segue reference="E8e-iq-VJm"/>
+        <segue reference="aLM-4M-e3S"/>
         <segue reference="WuJ-hJ-rNh"/>
         <segue reference="ppa-6Y-Nsn"/>
         <segue reference="hvH-A5-Vyl"/>

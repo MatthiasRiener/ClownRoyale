@@ -52,7 +52,7 @@ class LoginController: ViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let mainViewController = segue.destination as! MainViewController
-        mainViewController.modalPresentationStyle = .fullScreen
+        let tabBarViewController = segue.destination as! TabBarViewController
+        tabBarViewController.modalPresentationStyle = .fullScreen
     }
 }
