@@ -18,7 +18,7 @@ class SocketIOManager: NSObject {
      }
 
      func createSocketConnection (completionHandler: @escaping (_ connected: Bool) -> Void) {
-         manager = SocketManager(socketURL: URL(string: "ws://192.168.1.26:5000")!
+         manager = SocketManager(socketURL: URL(string: "ws://localhost:5000")!
             ,config: [.log(false)])
 
          socket = manager?.defaultSocket

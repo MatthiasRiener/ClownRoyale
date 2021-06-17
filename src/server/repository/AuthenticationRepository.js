@@ -79,3 +79,4 @@ module.exports.createUser = createUser;
 module.exports.getUsersFromArray = getUsersFromArray;
 module.exports.getVotedFromUsers = getVotedFromUsers;
 module.exports.getPointsFromUsers = getPointsFromUsers;
+module.exports.getUser = getUser;

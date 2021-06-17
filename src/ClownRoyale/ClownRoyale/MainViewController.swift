@@ -10,8 +10,13 @@ class MainViewController: UIViewController {
     @IBOutlet weak var menuView: UIView!
     @IBOutlet var pageView: UIView!
     
+    var profileImageView: UIImageView!;
+    var profileNameButton: UIButton!;
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.loadUserInformation()
         
         //PLAY-BUTTON
         playButton.layer.shadowColor = UIColor(named: "ClownRedDunkel")?.cgColor
@@ -40,7 +45,7 @@ class MainViewController: UIViewController {
         
         //ClownImage
         let profileImage = UIImage(named: "clown")
-        let profileImageView = UIImageView(frame:
+        profileImageView = UIImageView(frame:
                                             CGRect(
                                                 x: profileBackground.frame.width/2 - (profileBackground.frame.height*0.8)/2,
                                                 y: profileBackground.frame.height/2 - (profileBackground.frame.height*0.8)/2,
@@ -54,7 +59,7 @@ class MainViewController: UIViewController {
         profileImageView.autoresizingMask = [.flexibleLeftMargin, .flexibleRightMargin]
         
         //Profilename
-        let profileNameButton = UIButton(frame: CGRect(x: (menuView.bounds.width)/2 - (menuView.bounds.width / 4), y: profileBackground.bounds.height - 25, width: menuView.bounds.width / 2, height: 50))
+        profileNameButton = UIButton(frame: CGRect(x: (menuView.bounds.width)/2 - (menuView.bounds.width / 4), y: profileBackground.bounds.height - 25, width: menuView.bounds.width / 2, height: 50))
         profileNameButton.backgroundColor = UIColor(named: "ClownLightBlue")
         profileNameButton.autoresizingMask = [.flexibleLeftMargin, .flexibleRightMargin]
         profileNameButton.setTitle("Gregory", for: .normal)
@@ -89,6 +94,34 @@ class MainViewController: UIViewController {
         let lobbyViewController = segue.destination as! LobbyViewController
         //Damit User nicht mehr zurückkommt
         lobbyViewController.modalPresentationStyle = .fullScreen
+    }
+    
+    func loadUserInformation() {
+        print("Hallo. Ich beantrage die User Informationen.")
+        
+        sendRequestToServer(url: "/user/getProfileInformation", method: "GET")?
+            .then {data in
+                if let responseData = data["user"] as? NSDictionary {
+                    print(responseData)
+                    var image = responseData.value(forKey: "image") as! String
+                    var username = responseData.value(forKey: "name") as! String
+                    print(image)
+                    self.profileNameButton.setTitle(username, for: .normal)
+                    
+                    DispatchQueue.global().async { [weak self] in
+                        if let data = try? Data(contentsOf: URL(string: image)!) {
+                            if let image = UIImage(data: data) {
+                                DispatchQueue.main.async {
+                                    self?.profileImageView.image = image
+                                    self?.profileImageView.contentMode = .scaleToFill
+                                }
+                            }
+                        }
+                    }
+
+
+                }
+            }
     }
     
 }

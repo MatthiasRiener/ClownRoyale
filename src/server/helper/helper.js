@@ -13,7 +13,12 @@ function getInfoFromToken(token) {
     return decoded.payload;
 }
 
+async function getUserInfo(req) {
+    return await require('../repository/AuthenticationRepository').getUser(getUserID(req));
+}
 
 module.exports.getJWTTOken = getJWTTOken;
 module.exports.getUserID = getUserID;
 module.exports.getInfoFromToken = getInfoFromToken;
+
+module.exports.getUserInformation = getUserInfo;
