@@ -7,8 +7,14 @@ class ProfileView: ViewController {
     @IBOutlet weak var achievments: UIView!
     @IBOutlet weak var statistic: UIView!
     
+    var profileImageView: UIImageView!;
+    var profileNameButton: UIButton!;
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.loadUserInformation()
+
         
         //Berechnungs-Dummy
         var dummy = profileContainer.layer.bounds.height / 3
@@ -31,7 +37,7 @@ class ProfileView: ViewController {
         
         //ClownImage
         let profileImage = UIImage(named: "clown")
-        let profileImageView = UIImageView(frame:
+        profileImageView = UIImageView(frame:
                                             CGRect(
                                                 x: profileBackground.frame.width/2 - (profileBackground.frame.height*0.7)/2,
                                                 y:
@@ -46,7 +52,7 @@ class ProfileView: ViewController {
         profileImageView.autoresizingMask = [.flexibleLeftMargin, .flexibleRightMargin]
         
         //Profilename
-        let profileNameButton = UIButton(frame: CGRect(x: (profileContainer.bounds.width)/2 - (profileContainer.bounds.width / 3) / 2, y: dummy + profileBackground.bounds.height / 2 - 25, width: profileContainer.bounds.width / 3, height: 50))
+        profileNameButton = UIButton(frame: CGRect(x: (profileContainer.bounds.width)/2 - (profileContainer.bounds.width / 3) / 2, y: dummy + profileBackground.bounds.height / 2 - 25, width: profileContainer.bounds.width / 3, height: 50))
         profileNameButton.backgroundColor = UIColor(named: "ClownLightBlue")
         profileNameButton.autoresizingMask = [.flexibleLeftMargin, .flexibleRightMargin]
         profileNameButton.setTitle("Gregory", for: .normal)
@@ -84,5 +90,34 @@ class ProfileView: ViewController {
         statistic.layer.shadowRadius = 5.0
         statistic.layer.shadowColor = UIColor.darkGray.cgColor
         
+    }
+    
+    
+    func loadUserInformation() {
+        print("Hallo. Ich beantrage die User Informationen.")
+        
+        sendRequestToServer(url: "/user/getProfileInformation", method: "GET")?
+            .then {data in
+                if let responseData = data["user"] as? NSDictionary {
+                    print(responseData)
+                    var image = responseData.value(forKey: "image") as! String
+                    var username = responseData.value(forKey: "name") as! String
+                    print(image)
+                    self.profileNameButton.setTitle(username, for: .normal)
+                    
+                    DispatchQueue.global().async { [weak self] in
+                        if let data = try? Data(contentsOf: URL(string: image)!) {
+                            if let image = UIImage(data: data) {
+                                DispatchQueue.main.async {
+                                    self?.profileImageView.image = image
+                                    self?.profileImageView.contentMode = .scaleToFill
+                                }
+                            }
+                        }
+                    }
+
+
+                }
+            }
     }
 }
