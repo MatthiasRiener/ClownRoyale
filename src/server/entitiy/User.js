@@ -8,5 +8,6 @@ module.exports.userShema = new Schema({
     name: String,
     mail: String,
     image: String,
-    last_login: Number
+    last_login: Number,
+    points: Number
 });

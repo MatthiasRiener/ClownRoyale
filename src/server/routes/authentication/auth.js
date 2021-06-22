@@ -10,6 +10,7 @@ const tokenVerifier = require('./tokenMiddleware');
 const baseURL = "http://localhost:8080/auth/realms/";
 const realmName = "clown";
 const subURL = "/protocol/openid-connect/token";
+const client_secret = "7a832f96-1492-4a4d-991f-b6db263c81b1";
 
 router.post('/login', (req, res) => {
 
@@ -38,7 +39,7 @@ router.post('/login', (req, res) => {
     const data = {
         "client_id": "node-client",
         "scope": "openid",
-        "client_secret": "6a29eee4-de06-4492-84b7-3618a57111e8",
+        "client_secret": client_secret,
         "username": req.body.username,
         "password": req.body.password,
         "grant_type": "password"
@@ -68,7 +69,7 @@ router.post('/refreshToken', (req, res) => {
     const data = {
         "client_id": "node-client",
         "scope": "openid",
-        "client_secret": "6a29eee4-de06-4492-84b7-3618a57111e8",
+        "client_secret": client_secret,
         "refresh_token": refresh,
         "grant_type": "refresh_token"
     }

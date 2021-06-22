@@ -264,6 +264,11 @@ function CheckFinishRoundAndStartNew(wasClicked, lobbyID) {
                         });
 
                         // ende muss noch ausgecoded werden
+
+                        console.log("Guten Tag. Ich bin das ausgecodete Ende.");
+                        updatePointsToAllTimeUsers(users);
+
+
                     });
                     return;
                 }
@@ -535,6 +540,18 @@ function getRoomOfUser(u_id) {
     return lobbyID;
 }
 
+var updateUserPoints = require('../../repository/AuthenticationRepository').updateUserPoints;
+
+async function updatePointsToAllTimeUsers(users) {
+    console.log("GAME FINISHED");
+    console.log(users);
+
+    users.forEach((u) => {
+        var updatedUser = updateUserPoints(u);
+        console.log("User was updated!")
+        console.log(updatedUser);
+    })
+}
 
 module.exports.initializeSocket = initializeSocket;
 module.exports.getRoomOfUser = getRoomOfUser;

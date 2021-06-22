@@ -15,7 +15,8 @@ function createUser(access_token) {
                 name: data.preferred_username,
                 mail: data.email,
                 image: "https://www.einfachbacken.de/sites/einfachbacken.de/files/styles/full_width_tablet_4_3/public/2021-04/bananenbrot.jpg?h=7d326bee&itok=xchvD_0f",
-                last_login: new Date().getTime()
+                last_login: new Date().getTime(),
+                points: 0,
             });
         }
     });
@@ -75,8 +76,14 @@ function getUser(u_id) {
     return UserModel.findOne({ u_id: u_id }).lean().exec();
 }
 
+function updateUserPoints(user) {
+    return UserModel.updateOne({u_id : user.id}, {$inc : {'points' : user.points}}).exec();
+
+}
+
 module.exports.createUser = createUser;
 module.exports.getUsersFromArray = getUsersFromArray;
 module.exports.getVotedFromUsers = getVotedFromUsers;
 module.exports.getPointsFromUsers = getPointsFromUsers;
 module.exports.getUser = getUser;
+module.exports.updateUserPoints = updateUserPoints;
