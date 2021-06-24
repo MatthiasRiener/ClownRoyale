@@ -3,6 +3,8 @@ import UIKit
 class PodiumViewController: UIViewController {
 
     @IBOutlet weak var podiumTable: UITableView!
+    var users = [NSDictionary]()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,9 +18,27 @@ class PodiumViewController: UIViewController {
         podiumTable.separatorColor = .lightGray
         podiumTable.separatorInset = .zero
 
+        
+        print("Loading alltime podium...")
+        
+        self.fetchUserRanking()
         // Do any additional setup after loading the view.
     }
     
+    
+    func fetchUserRanking() {
+        sendRequestToServer(url: "/user/rankedUsers", method: "GET")?
+            .then {data in
+                print("SOOOSSSSSOOSOSOSOSOSOS")
+                print(data)
+                
+                if let responseData = data as? NSDictionary {
+                    self.users = responseData.value(forKey: "res") as! Array<NSDictionary>
+                    self.podiumTable.reloadData()
+                }
+                
+            }
+    }
 
     /*
     // MARK: - Navigation
@@ -41,23 +61,21 @@ extension PodiumViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //return SocketIOManager.sharedInstance.usersLeaderboard.count
-        return 10
+        return self.users.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "user_podium", for: indexPath) as! PodiumTableViewCell
         
-        cell.username.text = "Hans_Peter"
-        let points = 100 - (indexPath.item)*10
-        cell.points.text = "\(points)"
-        cell.placement.text = "\(indexPath.item+1)."
-        /*
-        cell.username.text = "\(SocketIOManager.sharedInstance.usersLeaderboard[indexPath.row].value(forKey: "name")!)"
-        cell.points.text = "\(SocketIOManager.sharedInstance.usersLeaderboard[indexPath.row].value(forKey: "points")!)"
+        cell.username.text = self.users[indexPath.row].value(forKey: "name") as! String
+        cell.points.text = "\(self.users[indexPath.row].value(forKey: "points") as! Int)"
         
+        cell.placement.text = "\(indexPath.item+1)."
+        
+
         
         DispatchQueue.global().async { [weak self] in
-            if let data = try? Data(contentsOf: URL(string: SocketIOManager.sharedInstance.usersLeaderboard[indexPath.row].value(forKey: "image") as! String)!) {
+            if let data = try? Data(contentsOf: URL(string: self!.users[indexPath.row].value(forKey: "image") as! String)!) {
                 if let image = UIImage(data: data) {
                     DispatchQueue.main.async {
                         cell.profileImage.image = image
@@ -66,8 +84,7 @@ extension PodiumViewController: UITableViewDataSource {
                 }
             }
         }
-        */
-        cell.placement.text = "\(indexPath.row+1)."
+        
         
         return cell
     }

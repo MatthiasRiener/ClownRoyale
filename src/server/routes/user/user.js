@@ -14,7 +14,10 @@ router.get('/getUID', (req, res) => {
 });
 
 router.get('/rankedUsers', (req, res) => {
-    res.send({"res": getUsersByRanking()})
+     getUserByRanking().then(data => {
+        console.log("results from ranked users:", data);
+        res.send({"res": data})
+     });
 })
 
 router.get('/getProfileInformation', (req, res) => {

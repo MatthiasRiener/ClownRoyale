@@ -1480,6 +1480,7 @@ None – It’s a hardware problem</string>
                                 </connections>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="CYC-V8-RAT"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="H6C-zR-HUu" secondAttribute="trailing" constant="26" id="0Wa-rS-SyN"/>
                             <constraint firstItem="H6C-zR-HUu" firstAttribute="top" secondItem="wBH-Pa-QAc" secondAttribute="bottom" constant="60" id="2uS-6g-7dA"/>
@@ -1689,6 +1690,7 @@ None – It’s a hardware problem</string>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="bSM-7j-jnE"/>
                         <color key="backgroundColor" name="ClownYellowBackground"/>
                         <constraints>
                             <constraint firstItem="XwU-nf-xId" firstAttribute="leading" secondItem="WHy-Uz-z2X" secondAttribute="leading" constant="20" id="1lL-lk-ryS"/>

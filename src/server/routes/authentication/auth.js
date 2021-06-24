@@ -10,7 +10,7 @@ const tokenVerifier = require('./tokenMiddleware');
 const baseURL = "http://localhost:8080/auth/realms/";
 const realmName = "clown";
 const subURL = "/protocol/openid-connect/token";
-const client_secret = "7a832f96-1492-4a4d-991f-b6db263c81b1";
+const client_secret = "7bc640a3-7d16-459c-a362-dc80352a5c27";
 
 router.post('/login', (req, res) => {
 

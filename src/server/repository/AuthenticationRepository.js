@@ -97,8 +97,11 @@ function updateUserPoints(user) {
     //UserModel.updateOne({ u_id: user["u_id"] }, { $set: { points: user["points"] } });
 }
 
-function getUsersByRanking() {
-    return UserModel.find().sort({points: -1}).limit(20).lean().exec();
+async function getUsersByRanking() {
+    console.log("Trying to fetch users...");
+    var res = await UserModel.find().sort({points: -1}).lean().exec();
+    console.log("Res: ", res);
+    return res;
 }
 
 module.exports.createUser = createUser;

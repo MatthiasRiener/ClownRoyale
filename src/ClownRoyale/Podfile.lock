@@ -13,7 +13,7 @@ DEPENDENCIES:
   - TwilioVideo (~> 4.3)
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs:
+  https://github.com/CocoaPods/Specs.git:
     - PromisesObjC
     - PromisesSwift
     - Socket.IO-Client-Swift
@@ -29,4 +29,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 8fe49e91a9338fa2b3b65c3b31305d675be67832
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.9.3

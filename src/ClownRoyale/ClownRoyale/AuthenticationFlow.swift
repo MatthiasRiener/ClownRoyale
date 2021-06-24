@@ -2,7 +2,7 @@ import Foundation
 import Promises
 
 let defaults = UserDefaults.standard
-let baseURL = "http://192.168.1.26:5000"
+let baseURL = "http://localhost:5000"
 
 func sendRequestToServer(url: String, method: String, body: [String: Any]? = nil, login: Bool? = nil, isCallBack: [String: Any]? = nil) -> Promise<[String: Any]>? {
     
