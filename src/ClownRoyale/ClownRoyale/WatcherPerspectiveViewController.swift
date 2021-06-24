@@ -22,10 +22,14 @@ class WatcherPerspectiveViewController: ViewController {
     @IBOutlet weak var btn_hated: UIButton!
     
     @IBOutlet weak var voteButton: UIView!
-    
+    var multiplicator: Double = 1.0;
     
     override func viewDidLoad() {
         print("View wurde geladen...")
+        
+        multiplicator = SocketIOManager.sharedInstance.currentCat.value(forKey: "points") as! Double
+        
+        self.enableAllButtons()
         
         SocketIOManager.sharedInstance.gameFinished(completionHandler: {data in
             print("GAME FINISHED EVENT WATCHER")
@@ -84,6 +88,12 @@ class WatcherPerspectiveViewController: ViewController {
         btn_hated.layer.shadowOpacity = 1.0
         btn_hated.layer.shadowRadius = 0.0
         
+        btn_hated.setTitle("\((multiplicator * -0.5))", for: .normal)
+        btn_liked.setTitle("\((multiplicator * 1))", for: .normal)
+        btn_neutral.setTitle("\((multiplicator * 0.5))", for: .normal)
+        btn_disliked.setTitle("\((multiplicator * 0))", for: .normal)
+        
+        
         let gradient = CAGradientLayer()
         gradient.frame = voteButton.bounds
         gradient.colors = [UIColor(named: "ClownYellowHell")?.cgColor as Any, UIColor(named: "ClownYellow")?.cgColor as Any]
@@ -103,24 +113,44 @@ class WatcherPerspectiveViewController: ViewController {
     
     @IBAction func tenPoints(_ sender: Any) {
         print("+10")
-        SocketIOManager.sharedInstance.vote(points: 10)
+        self.disableAllButtons()
+
+        SocketIOManager.sharedInstance.vote(points: 1 * multiplicator)
     }
     
     @IBAction func fivePoints(_ sender: Any) {
         print("+5")
-        SocketIOManager.sharedInstance.vote(points: 5)
+        self.disableAllButtons()
+
+        SocketIOManager.sharedInstance.vote(points: 0.5 * multiplicator)
     }
     
     @IBAction func minusFivePoints(_ sender: Any) {
         print("-5")
-        SocketIOManager.sharedInstance.vote(points: -5)
+        self.disableAllButtons()
+
+        SocketIOManager.sharedInstance.vote(points: 0 * multiplicator)
     }
     
     @IBAction func minusTenPoints(_ sender: Any) {
         print("-10")
-        SocketIOManager.sharedInstance.vote(points: -10)
+        self.disableAllButtons()
+        SocketIOManager.sharedInstance.vote(points: -0.5 * multiplicator)
     }
     
+    func enableAllButtons () {
+        btn_liked.isEnabled = true
+        btn_hated.isEnabled = true
+        btn_neutral.isEnabled = true
+        btn_disliked.isEnabled = true
+    }
+    
+    func disableAllButtons() {
+        btn_liked.isEnabled = false
+        btn_hated.isEnabled = false
+        btn_neutral.isEnabled = false
+        btn_disliked.isEnabled = false
+    }
     /*
      Funktion erstellt View für aktuellen Witzerzähler
      */

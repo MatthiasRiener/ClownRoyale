@@ -147,7 +147,7 @@ class SocketIOManager: NSObject {
          }
      }
     
-    func vote(points: Int) {
+    func vote(points: Double) {
         print("VOTED")
         self.socket?.emit("userVoted", ["roomID": self.roomID, "userID": self.userID, "points": points]);
      }

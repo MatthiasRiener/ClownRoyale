@@ -10,6 +10,7 @@ class ProfileView: ViewController {
     
     var profileImageView: UIImageView!;
     var profileNameButton: UIButton!;
+    var profilePoints: UIButton!;
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,7 +64,7 @@ class ProfileView: ViewController {
         profileNameButton.layer.borderColor = UIColor.white.cgColor
         
         //Profilename
-        let profilePoints = UIButton(frame: CGRect(x: (profileContainer.bounds.width)/2 - (profileContainer.bounds.width / 4) / 2, y: dummy + 50 + profileBackground.bounds.height / 2 - 20, width: profileContainer.bounds.width / 4, height: 40))
+        profilePoints = UIButton(frame: CGRect(x: (profileContainer.bounds.width)/2 - (profileContainer.bounds.width / 4) / 2, y: dummy + 50 + profileBackground.bounds.height / 2 - 20, width: profileContainer.bounds.width / 4, height: 40))
         profilePoints.backgroundColor = UIColor(named: "ClownYellow")
         profilePoints.autoresizingMask = [.flexibleLeftMargin, .flexibleRightMargin]
         profilePoints.setTitle("18420", for: .normal)
@@ -122,6 +123,9 @@ class ProfileView: ViewController {
                     var image = responseData.value(forKey: "image") as! String
                     var username = responseData.value(forKey: "name") as! String
                     print(image)
+                    
+                    self.profilePoints!.setTitle("\(responseData.value(forKey: "points")!)", for: .normal)
+
                     self.profileNameButton.setTitle(username, for: .normal)
                     
                     DispatchQueue.global().async { [weak self] in
