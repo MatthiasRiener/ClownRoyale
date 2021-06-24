@@ -17,7 +17,9 @@ app.get('/', (req, res) => {
     res.send('Hallo 4CHIF!');
 });
 
-
+app.get('/test', (req, res) => {
+    console.log()
+})
 
 app.use('/auth', require('./routes/authentication/auth'));
 app.use('/video', require('./routes/videochat/videochat'));

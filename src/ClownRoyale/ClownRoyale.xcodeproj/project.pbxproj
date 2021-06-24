@@ -10,6 +10,8 @@
 		1635AE32CC8A2C7DFEA729FD /* Pods_ClownRoyale.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E55207A748A28C36ACEA554 /* Pods_ClownRoyale.framework */; };
 		3022BBC926309B4A001BCE43 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3022BBC826309B4A001BCE43 /* CategoryViewController.swift */; };
 		3022BBCC26309B5D001BCE43 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3022BBCB26309B5D001BCE43 /* CategoryTableViewCell.swift */; };
+		7C3139D726838CA200239E5C /* PodiumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3139D626838CA200239E5C /* PodiumViewController.swift */; };
+		7C3139D926838CF200239E5C /* PodiumTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3139D826838CF200239E5C /* PodiumTableViewCell.swift */; };
 		7C57EF62261F3C4B00926FC4 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C57EF61261F3C4B00926FC4 /* MainViewController.swift */; };
 		7C57EF65261F4BED00926FC4 /* ProfileMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C57EF64261F4BED00926FC4 /* ProfileMainView.swift */; };
 		7C57EF6F262B131000926FC4 /* LobbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C57EF6E262B131000926FC4 /* LobbyViewController.swift */; };
@@ -45,6 +47,8 @@
 		3022BBCB26309B5D001BCE43 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		5E55207A748A28C36ACEA554 /* Pods_ClownRoyale.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClownRoyale.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BB3D14585B6068C0A1DB1B8 /* Pods-ClownRoyale.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClownRoyale.release.xcconfig"; path = "Target Support Files/Pods-ClownRoyale/Pods-ClownRoyale.release.xcconfig"; sourceTree = "<group>"; };
+		7C3139D626838CA200239E5C /* PodiumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodiumViewController.swift; sourceTree = "<group>"; };
+		7C3139D826838CF200239E5C /* PodiumTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodiumTableViewCell.swift; sourceTree = "<group>"; };
 		7C57EF61261F3C4B00926FC4 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		7C57EF64261F4BED00926FC4 /* ProfileMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMainView.swift; sourceTree = "<group>"; };
 		7C57EF6E262B131000926FC4 /* LobbyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LobbyViewController.swift; sourceTree = "<group>"; };
@@ -129,6 +133,8 @@
 				3022BBC826309B4A001BCE43 /* CategoryViewController.swift */,
 				3022BBCB26309B5D001BCE43 /* CategoryTableViewCell.swift */,
 				A9E813CA2630AF9800A728A5 /* ProfileView.swift */,
+				7C3139D826838CF200239E5C /* PodiumTableViewCell.swift */,
+				7C3139D626838CA200239E5C /* PodiumViewController.swift */,
 				A9A08B4D26305C1F001E3EA7 /* ShopViewController.swift */,
 				7C57EF8C263030D700926FC4 /* TabBarViewController.swift */,
 				7C57EF822630215D00926FC4 /* RankingViewController.swift */,
@@ -283,6 +289,7 @@
 				3022BBC926309B4A001BCE43 /* CategoryViewController.swift in Sources */,
 				7C7A6DBD263ADE120072186B /* Utils.swift in Sources */,
 				7C7A6DBF263ADE650072186B /* Settings.swift in Sources */,
+				7C3139D726838CA200239E5C /* PodiumViewController.swift in Sources */,
 				DD74E8B8262F2C8D008725FB /* VotingTableViewCell.swift in Sources */,
 				DDB4D022261F361300D496C5 /* AppDelegate.swift in Sources */,
 				7CF3AE9D2670F4D700B6B833 /* LoadingViewController.swift in Sources */,
@@ -290,6 +297,7 @@
 				A9E813CB2630AF9800A728A5 /* ProfileView.swift in Sources */,
 				7C57EF6F262B131000926FC4 /* LobbyViewController.swift in Sources */,
 				7C57EF62261F3C4B00926FC4 /* MainViewController.swift in Sources */,
+				7C3139D926838CF200239E5C /* PodiumTableViewCell.swift in Sources */,
 				7C57EF75262B1C4B00926FC4 /* LobbyTableViewCell.swift in Sources */,
 				7C57EF65261F4BED00926FC4 /* ProfileMainView.swift in Sources */,
 				7C57EF8D263030D700926FC4 /* TabBarViewController.swift in Sources */,

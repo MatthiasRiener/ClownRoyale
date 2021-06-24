@@ -5,21 +5,42 @@ class LoginController: ViewController {
     
     @IBOutlet weak var loginbtn: UIButton!
     
+    @IBOutlet weak var container: UIView!
     
+    @IBOutlet weak var titel: UILabel!
     @IBOutlet weak var registerbtn: UIButton!
-    @IBAction func username(_ sender: Any) {
-    }
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.loginbtn.layer.borderWidth = 2
-        self.loginbtn.layer.cornerRadius = 10
-        self.loginbtn.layer.borderColor = UIColor.red.cgColor
-        self.registerbtn.layer.borderWidth = 2
-        self.registerbtn.layer.cornerRadius = 10
-        self.registerbtn.layer.borderColor = UIColor.red.cgColor
+        
+        //LOGIN-BUTTON
+        loginbtn.layer.cornerRadius = 10
+        loginbtn.layer.shadowColor = UIColor(named: "ClownRedDunkel")?.cgColor
+        loginbtn.layer.shadowOffset = CGSize(width: 0.0, height: 7.0)
+        loginbtn.layer.shadowOpacity = 1.0
+        loginbtn.layer.shadowRadius = 0.0
+        loginbtn.layer.masksToBounds = false
+        loginbtn.layer.cornerRadius = 10
+        
+        //REGISTEr-BUTTON
+        registerbtn.layer.cornerRadius = 10
+        registerbtn.layer.shadowColor = UIColor(named: "ClownRedDunkel")?.cgColor
+        registerbtn.layer.shadowOffset = CGSize(width: 0.0, height: 7.0)
+        registerbtn.layer.shadowOpacity = 1.0
+        registerbtn.layer.shadowRadius = 0.0
+        registerbtn.layer.masksToBounds = false
+        registerbtn.layer.cornerRadius = 10
+        registerbtn.titleLabel?.textAlignment = NSTextAlignment.center
+        
+        container.layer.cornerRadius = 10
+        container.layer.borderWidth = 5
+        container.layer.borderColor = UIColor(named: "ClownRedHell")?.cgColor
+        
+        titel.layer.cornerRadius = titel.layer.bounds.height / 2
+        titel.clipsToBounds = true
+        
         let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         
         //Uncomment the line below if you want the tap not not interfere and cancel other interactions.

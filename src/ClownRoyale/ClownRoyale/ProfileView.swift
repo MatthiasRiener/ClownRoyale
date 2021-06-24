@@ -3,6 +3,7 @@ import UIKit
 class ProfileView: ViewController {
     
     
+    @IBOutlet weak var podium: UIImageView!
     @IBOutlet weak var profileContainer: UIView!
     @IBOutlet weak var achievments: UIView!
     @IBOutlet weak var statistic: UIView!
@@ -90,6 +91,24 @@ class ProfileView: ViewController {
         statistic.layer.shadowRadius = 5.0
         statistic.layer.shadowColor = UIColor.darkGray.cgColor
         
+        let gesture = UITapGestureRecognizer(target: self, action:  #selector(self.clickAction(sender:)))
+        podium.isUserInteractionEnabled = true
+        podium.addGestureRecognizer(gesture)
+        
+    }
+    
+    @objc func clickAction(sender : UITapGestureRecognizer) {
+        print("CLICKED")
+        performSegue(withIdentifier: "podium", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "podium" {
+            /*
+            let podiumViewController = segue.destination as! PodiumViewController
+            podiumViewController.modalPresentationStyle = .fullScreen
+ */
+        }
     }
     
     

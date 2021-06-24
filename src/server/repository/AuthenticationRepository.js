@@ -77,8 +77,28 @@ function getUser(u_id) {
 }
 
 function updateUserPoints(user) {
-    return UserModel.updateOne({u_id : user.id}, {$inc : {'points' : user.points}}).exec();
+    console.log("Lieber Server. Bitte update mir: ", user)
+    console.log("U_id: ", user.u_id, user["u_id"]);
+    console.log("Points: ", user.points, user["points"]);
 
+    UserModel
+    .update({
+        u_id: user.u_id
+    }, {
+        $inc: {
+            points: user.points
+        }
+    }, {
+        upsert: true
+    }, function(err, data) {
+        if(err) return console.log(err);
+        console.log("Pipi Man!")
+    });
+    //UserModel.updateOne({ u_id: user["u_id"] }, { $set: { points: user["points"] } });
+}
+
+function getUsersByRanking() {
+    return UserModel.find().sort({points: -1}).limit(20).lean().exec();
 }
 
 module.exports.createUser = createUser;
@@ -87,3 +107,4 @@ module.exports.getVotedFromUsers = getVotedFromUsers;
 module.exports.getPointsFromUsers = getPointsFromUsers;
 module.exports.getUser = getUser;
 module.exports.updateUserPoints = updateUserPoints;
+module.exports.getUsersByRanking = getUsersByRanking;

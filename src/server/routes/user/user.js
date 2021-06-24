@@ -3,7 +3,7 @@ var router = require('express').Router();
 
 var getUserID = require('../../helper/helper').getUserID;
 var getUserInfo = require('../../helper/helper').getUserInformation;
-
+var getUserByRanking = require('../../repository/AuthenticationRepository').getUsersByRanking;
 
 router.use(require('../authentication/tokenMiddleware'));
 
@@ -12,6 +12,10 @@ router.get('/getUID', (req, res) => {
     var u_id = getUserID(req);
     res.send({"u_id": u_id})
 });
+
+router.get('/rankedUsers', (req, res) => {
+    res.send({"res": getUsersByRanking()})
+})
 
 router.get('/getProfileInformation', (req, res) => {
     console.log("Guten Tag. Sie beantragen die Informationen.")
